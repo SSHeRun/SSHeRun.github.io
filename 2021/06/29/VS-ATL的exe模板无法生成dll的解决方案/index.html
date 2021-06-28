@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        SSHeRun&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">SSHeRun&#39;s Blog</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Home
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a target="_blank" rel="noopener" href="https://github.com/loveminimal" class="menu-item-link">
+                        Github
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            VS ATL的exe模板无法生成dll的解决方案
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2021/06/29 Tue 00:02&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2021/06/29 Tue 00:03
+        </div>
+    </div>
+    <div class="article-content">
+        <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>报错信息：</p>
+<pre><code>EXEC : error : MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
+</code></pre>
+<p>提示信息：</p>
+<pre><code>if exist dlldata.c goto :END
+echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
+Exit 1
+:END
+</code></pre>
+<h2 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h2><pre><code class="mermaid">graph TB
+打开VS--&gt;新建ATL项目
+新建ATL项目--&gt;选择生成.exe项目
+选择生成.exe项目--&gt;产生ATLProject1和ATLProject1PS两个工程
+产生ATLProject1和ATLProject1PS两个工程--&gt;运行ATLProject1PS工程
+运行ATLProject1PS工程--&gt;提示报错
+</code></pre>
+<h2 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h2><p>看似是说没有留接口，但是反过来仔细一想，VS 自带的模板应该不会这么麻烦，应该会自动生成才对，因此错误并不可能是接口问题。</p>
+<p>再注意提示信息<code>if exist </code>，这很明显就是一个生成前事件，因此如果修改<code>dlldata.c</code>文件位置就应该能解决问题。</p>
+<p>代理/存根（PS）项目有一个预构建事件，用于检查<code>dlldata.c</code>的存在。但是，由于此文件与代理/存根项目<code>.vcxproj</code>不在同一文件夹中，因此找不到该文件。更改所有配置/平台的 Pre-Build 事件，以便它在父文件夹中查找<code>dlldata.c</code></p>
+<p>其次在链接代理/存根项目时，由于相同的原因，链接器将找不到<code>ATLProject1ps.def</code>,因为它位于<code>ATLProject1</code>文件夹中。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="setp-one"><a href="#setp-one" class="headerlink" title="setp one"></a>setp one</h3><p>修改预构建事件</p>
+<pre><code>if exist ../ATLProject1/dlldata.c goto :END
+echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
+Exit 1
+:END
+</code></pre>
+<h3 id="setp-two"><a href="#setp-two" class="headerlink" title="setp two"></a>setp two</h3><p>修改模块定义文件的位置</p>
+<pre><code class="mermaid">graph TB
+项目属性--&gt;链接器
+链接器--&gt;输入
+输入--&gt;模块定义文件
+模块定义文件--&gt;输入../ATLProject1/ATLProject1PS.def
+</code></pre>
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> 何润 <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+
+<script src="/js/totop.js"></script>
+
+
+<script src="/js/search.js"></script>
+
+    </div>
+</body>
+
+</html>
