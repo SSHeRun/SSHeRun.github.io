@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>VS ATL的exe模板无法生成dll的解决方案</title>
+    <url>/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>报错信息：</p>
+<pre><code>EXEC : error : MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
+</code></pre>
+<p>提示信息：</p>
+<pre><code>if exist dlldata.c goto :END
+echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
+Exit 1
+:END
+</code></pre>
+<h2 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h2><pre class="mermaid">graph TB
+打开VS-->新建ATL项目
+新建ATL项目-->选择生成.exe项目
+选择生成.exe项目-->产生ATLProject1和ATLProject1PS两个工程
+产生ATLProject1和ATLProject1PS两个工程-->运行ATLProject1PS工程
+运行ATLProject1PS工程-->提示报错</pre>
+
+<h2 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h2><p>看似是说没有留接口，但是反过来仔细一想，VS 自带的模板应该不会这么麻烦，应该会自动生成才对，因此错误并不可能是接口问题。</p>
+<p>再注意提示信息<code>if exist </code>，这很明显就是一个生成前事件，因此如果修改<code>dlldata.c</code>文件位置就应该能解决问题。</p>
+<p>代理/存根（PS）项目有一个预构建事件，用于检查<code>dlldata.c</code>的存在。但是，由于此文件与代理/存根项目<code>.vcxproj</code>不在同一文件夹中，因此找不到该文件。更改所有配置/平台的 Pre-Build 事件，以便它在父文件夹中查找<code>dlldata.c</code></p>
+<p>其次在链接代理/存根项目时，由于相同的原因，链接器将找不到<code>ATLProject1ps.def</code>,因为它位于<code>ATLProject1</code>文件夹中。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="setp-one"><a href="#setp-one" class="headerlink" title="setp one"></a>setp one</h3><p>修改预构建事件</p>
+<pre><code>if exist ../ATLProject1/dlldata.c goto :END
+echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
+Exit 1
+:END
+</code></pre>
+<h3 id="setp-two"><a href="#setp-two" class="headerlink" title="setp two"></a>setp two</h3><p>修改模块定义文件的位置</p>
+<pre class="mermaid">graph TB
+项目属性-->链接器
+链接器-->输入
+输入-->模块定义文件
+模块定义文件-->输入../ATLProject1/ATLProject1PS.def</pre>
+
+]]></content>
+      <tags>
+        <tag>ATL</tag>
+        <tag>解决方案</tag>
+      </tags>
+  </entry>
+</search>
