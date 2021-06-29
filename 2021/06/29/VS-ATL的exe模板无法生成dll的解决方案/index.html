@@ -23,7 +23,7 @@
   <meta name="description" content="问题报错信息： EXEC : error : MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.  提示信息： if exist dlldata.c goto :END echo Error: MIDL will not generate DLLDATA.C unles">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VS ATL的exe模板无法生成dll的解决方案">
-<meta property="og:url" content="https://ssherun.github.io/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">
+<meta property="og:url" content="https://ssherun.github.io/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="SSHeRun&#39;s Blog">
 <meta property="og:description" content="问题报错信息： EXEC : error : MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.  提示信息： if exist dlldata.c goto :END echo Error: MIDL will not generate DLLDATA.C unles">
 <meta property="og:locale" content="zh_CN">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="SSHeRun">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://ssherun.github.io/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">
+<link rel="canonical" href="https://ssherun.github.io/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 
 
 <script id="page-configurations">
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ssherun.github.io/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">
+    <link itemprop="mainEntityOfPage" href="https://ssherun.github.io/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -197,13 +197,13 @@ echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interfac
 Exit 1
 :END
 </code></pre>
-<h2 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h2><pre><code class="mermaid">graph TB
-打开VS--&gt;新建ATL项目
-新建ATL项目--&gt;选择生成.exe项目
-选择生成.exe项目--&gt;产生ATLProject1和ATLProject1PS两个工程
-产生ATLProject1和ATLProject1PS两个工程--&gt;运行ATLProject1PS工程
-运行ATLProject1PS工程--&gt;提示报错
-</code></pre>
+<h2 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h2><pre class="mermaid">graph TB
+打开VS-->新建ATL项目
+新建ATL项目-->选择生成.exe项目
+选择生成.exe项目-->产生ATLProject1和ATLProject1PS两个工程
+产生ATLProject1和ATLProject1PS两个工程-->运行ATLProject1PS工程
+运行ATLProject1PS工程-->提示报错</pre>
+
 <h2 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h2><p>看似是说没有留接口，但是反过来仔细一想，VS 自带的模板应该不会这么麻烦，应该会自动生成才对，因此错误并不可能是接口问题。</p>
 <p>再注意提示信息<code>if exist </code>，这很明显就是一个生成前事件，因此如果修改<code>dlldata.c</code>文件位置就应该能解决问题。</p>
 <p>代理/存根（PS）项目有一个预构建事件，用于检查<code>dlldata.c</code>的存在。但是，由于此文件与代理/存根项目<code>.vcxproj</code>不在同一文件夹中，因此找不到该文件。更改所有配置/平台的 Pre-Build 事件，以便它在父文件夹中查找<code>dlldata.c</code></p>
@@ -215,17 +215,26 @@ Exit 1
 :END
 </code></pre>
 <h3 id="setp-two"><a href="#setp-two" class="headerlink" title="setp two"></a>setp two</h3><p>修改模块定义文件的位置</p>
-<pre><code class="mermaid">graph TB
-项目属性--&gt;链接器
-链接器--&gt;输入
-输入--&gt;模块定义文件
-模块定义文件--&gt;输入../ATLProject1/ATLProject1PS.def
-</code></pre>
+<pre class="mermaid">graph TB
+项目属性-->链接器
+链接器-->输入
+输入-->模块定义文件
+模块定义文件-->输入../ATLProject1/ATLProject1PS.def</pre>
+
 
     </div>
 
     
     
+    
+
+    
+      <div>
+         
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        ------ 本文结束<i class="fa fa-paw"></i>感谢您的阅读 ------</div>
+    
+      </div>
     
 
       <footer class="post-footer">
@@ -234,13 +243,6 @@ Exit 1
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/06/28/hello-world" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
-    </a></div>
-      <div class="post-nav-item"></div>
-    </div>
       </footer>
     
   </article>
@@ -312,12 +314,20 @@ Exit 1
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SSHeRun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SSHeRun" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ThrinityRun@gmail.com" title="E-Mail → mailto:ThrinityRun@gmail.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
@@ -349,6 +359,14 @@ Exit 1
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
+<% if (theme.mermaid.enable) { %>
+  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'dark'});
+    }
+  </script>
+<% } %>
         
 
 
@@ -394,6 +412,19 @@ Exit 1
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   

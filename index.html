@@ -147,7 +147,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ssherun.github.io/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">
+    <link itemprop="mainEntityOfPage" href="https://ssherun.github.io/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,7 +161,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" class="post-title-link" itemprop="url">VS ATL的exe模板无法生成dll的解决方案</a>
+            <a href="/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">VS ATL的exe模板无法生成dll的解决方案</a>
         </h2>
 
         <div class="post-meta">
@@ -195,13 +195,13 @@ echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interfac
 Exit 1
 :END
 </code></pre>
-<h2 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h2><pre><code class="mermaid">graph TB
-打开VS--&gt;新建ATL项目
-新建ATL项目--&gt;选择生成.exe项目
-选择生成.exe项目--&gt;产生ATLProject1和ATLProject1PS两个工程
-产生ATLProject1和ATLProject1PS两个工程--&gt;运行ATLProject1PS工程
-运行ATLProject1PS工程--&gt;提示报错
-</code></pre>
+<h2 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h2><pre class="mermaid">graph TB
+打开VS-->新建ATL项目
+新建ATL项目-->选择生成.exe项目
+选择生成.exe项目-->产生ATLProject1和ATLProject1PS两个工程
+产生ATLProject1和ATLProject1PS两个工程-->运行ATLProject1PS工程
+运行ATLProject1PS工程-->提示报错</pre>
+
 <h2 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h2><p>看似是说没有留接口，但是反过来仔细一想，VS 自带的模板应该不会这么麻烦，应该会自动生成才对，因此错误并不可能是接口问题。</p>
 <p>再注意提示信息<code>if exist </code>，这很明显就是一个生成前事件，因此如果修改<code>dlldata.c</code>文件位置就应该能解决问题。</p>
 <p>代理/存根（PS）项目有一个预构建事件，用于检查<code>dlldata.c</code>的存在。但是，由于此文件与代理/存根项目<code>.vcxproj</code>不在同一文件夹中，因此找不到该文件。更改所有配置/平台的 Pre-Build 事件，以便它在父文件夹中查找<code>dlldata.c</code></p>
@@ -213,12 +213,12 @@ Exit 1
 :END
 </code></pre>
 <h3 id="setp-two"><a href="#setp-two" class="headerlink" title="setp two"></a>setp two</h3><p>修改模块定义文件的位置</p>
-<pre><code class="mermaid">graph TB
-项目属性--&gt;链接器
-链接器--&gt;输入
-输入--&gt;模块定义文件
-模块定义文件--&gt;输入../ATLProject1/ATLProject1PS.def
-</code></pre>
+<pre class="mermaid">graph TB
+项目属性-->链接器
+链接器-->输入
+输入-->模块定义文件
+模块定义文件-->输入../ATLProject1/ATLProject1PS.def</pre>
+
 
       
     </div>
@@ -226,76 +226,7 @@ Exit 1
     
     
     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ssherun.github.io/2021/06/28/hello-world">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="SSHeRun">
-      <meta itemprop="description" content="忽如一夜春风来，千树万树梨花开。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SSHeRun's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/28/hello-world" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-06-28 23:58:50" itemprop="dateCreated datePublished" datetime="2021-06-28T23:58:50+08:00">2021-06-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p>This is a test!</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
     
       <footer class="post-footer">
         <div class="post-eof"></div>
@@ -371,12 +302,20 @@ Exit 1
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SSHeRun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SSHeRun" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ThrinityRun@gmail.com" title="E-Mail → mailto:ThrinityRun@gmail.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
@@ -408,6 +347,14 @@ Exit 1
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
+<% if (theme.mermaid.enable) { %>
+  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'dark'});
+    }
+  </script>
+<% } %>
         
 
 
@@ -453,6 +400,19 @@ Exit 1
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   

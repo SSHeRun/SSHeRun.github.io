@@ -150,7 +150,7 @@
   <div class="post-block">
     <div class="posts-collapse">
       <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 2 篇日志。 继续努力。</span>
+        <span class="collection-header">嗯..! 目前共计 1 篇日志。 继续努力。</span>
       </div>
 
       
@@ -170,28 +170,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" itemprop="url">
+          <a class="post-title-link" href="/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url">
             <span itemprop="name">VS ATL的exe模板无法生成dll的解决方案</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-28T23:58:50+08:00"
-              content="2021-06-28">
-          06-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/28/hello-world" itemprop="url">
-            <span itemprop="name">Hello World</span>
           </a>
       </div>
 
@@ -270,12 +250,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SSHeRun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SSHeRun" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ThrinityRun@gmail.com" title="E-Mail → mailto:ThrinityRun@gmail.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
@@ -307,6 +295,14 @@
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
+<% if (theme.mermaid.enable) { %>
+  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'dark'});
+    }
+  </script>
+<% } %>
         
 
 
@@ -352,6 +348,19 @@
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   
