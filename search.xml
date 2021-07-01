@@ -4,35 +4,37 @@
     <title>VS ATL的exe模板无法生成dll的解决方案</title>
     <url>/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>报错信息：</p>
-<pre><code>EXEC : error : MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
-</code></pre><p>提示信息：</p>
-<pre><code>if exist dlldata.c goto :END
-echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
-Exit 1
-:END
-</code></pre><h2 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h2><pre class="mermaid">graph TD
+<figure class="highlight verilog"><table><tr><td class="code"><pre><code class="hljs verilog">EXEC : error : MIDL will <span class="hljs-keyword">not</span> <span class="hljs-keyword">generate</span> DLLDATA<span class="hljs-variable">.C</span> unless you have at least <span class="hljs-number">1</span> <span class="hljs-keyword">interface</span> in the main project.<br></code></pre></td></tr></table></figure>
+<p>提示信息：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><code class="hljs ada"><span class="hljs-keyword">if</span> exist dlldata.c <span class="hljs-keyword">goto</span> :<span class="hljs-keyword">END</span><br>echo Error: MIDL will <span class="hljs-keyword">not</span> generate DLLDATA.C unless you have <span class="hljs-keyword">at</span> least <span class="hljs-number">1</span> <span class="hljs-keyword">interface</span> <span class="hljs-keyword">in</span> the main project.<br><span class="hljs-keyword">Exit</span> <span class="hljs-number">1</span><br>:<span class="hljs-keyword">END</span><br></code></pre></td></tr></table></figure>
+<h2 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h2>
+<pre>
+<code class="mermaid" >
+graph TD
 打开VS-->新建ATL项目
 新建ATL项目-->选择生成.exe项目
 选择生成.exe项目-->产生ATLProject1和ATLProject1PS两个工程
 产生ATLProject1和ATLProject1PS两个工程-->运行ATLProject1PS工程
-运行ATLProject1PS工程-->提示报错</pre>
-
+运行ATLProject1PS工程-->提示报错
+</code>
+</pre>
 <h2 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h2><p>看似是说没有留接口，但是反过来仔细一想，VS 自带的模板应该不会这么麻烦，应该会自动生成才对，因此错误并不可能是接口问题。</p>
 <p>再注意提示信息<code>if exist</code>，这很明显就是一个生成前事件，因此如果修改<code>dlldata.c</code>文件位置就应该能解决问题。</p>
 <p>代理/存根（PS）项目有一个预构建事件，用于检查<code>dlldata.c</code>的存在。但是，由于此文件与代理/存根项目<code>.vcxproj</code>不在同一文件夹中，因此找不到该文件。更改所有配置/平台的 Pre-Build 事件，以便它在父文件夹中查找<code>dlldata.c</code></p>
 <p>其次在链接代理/存根项目时，由于相同的原因，链接器将找不到<code>ATLProject1ps.def</code>,因为它位于<code>ATLProject1</code>文件夹中。</p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="setp-one"><a href="#setp-one" class="headerlink" title="setp one"></a>setp one</h3><p>修改预构建事件</p>
-<pre><code>if exist ../ATLProject1/dlldata.c goto :END
-echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
-Exit 1
-:END
-</code></pre><h3 id="setp-two"><a href="#setp-two" class="headerlink" title="setp two"></a>setp two</h3><p>修改模块定义文件的位置</p>
-<pre class="mermaid">flowchart TB
+<figure class="highlight ada"><table><tr><td class="code"><pre><code class="hljs ada"><span class="hljs-keyword">if</span> exist ../ATLProject1/dlldata.c <span class="hljs-keyword">goto</span> :<span class="hljs-keyword">END</span><br>echo Error: MIDL will <span class="hljs-keyword">not</span> generate DLLDATA.C unless you have <span class="hljs-keyword">at</span> least <span class="hljs-number">1</span> <span class="hljs-keyword">interface</span> <span class="hljs-keyword">in</span> the main project.<br><span class="hljs-keyword">Exit</span> <span class="hljs-number">1</span><br>:<span class="hljs-keyword">END</span><br></code></pre></td></tr></table></figure>
+<h3 id="setp-two"><a href="#setp-two" class="headerlink" title="setp two"></a>setp two</h3><p>修改模块定义文件的位置</p>
+
+<pre>
+<code class="mermaid" >
+graph TB
 A(项目属性)-->B(链接器)
 B-->C(输入)
 C-->D(模块定义文件)
-D-->E(输入../ATLProject1/ATLProject1PS.def)</pre>
-
+D-->E(输入../ATLProject1/ATLProject1PS.def)
+</code>
+</pre>
 ]]></content>
       <tags>
         <tag>ATL</tag>
@@ -112,915 +114,80 @@ D-->E(输入../ATLProject1/ATLProject1PS.def)</pre>
 <li><p>常用命令：<br>BROW　CALC　CALL　DATE　DEVI　DISP　EJEC　ENVI　EXEC　EXIT　FBWF　FDIR　FDRV<br>FEXT　FILE　FIND　FONT　FORX　HELP　HKEY　HOTK  IFEX INIT KILL LINK LIST LOAD LOGO<br>LOGS MAIN MD5C MENU MESS MOUN NAME NUMK PAGE PATH RAMD REGI RUNS SEND SERV SHEL<br>SHOW SHUT SITE SUBJ TEAM TEMP TEXT TIPS UPNP</p>
 </li>
 </ol>
-<h3 id="SUB"><a href="#SUB" class="headerlink" title="[_SUB]"></a>[_SUB]</h3><pre><code>格式：_SUB &lt;子过程名&gt;或_SUB &lt;窗口名称&gt;,&lt;窗口形状&gt;,[窗口标题],[窗口事件],[窗口图标],[窗口类型]
-功能：定义子过程或定义一个窗口。
-参数：
-　子过程名:字符串。
-　窗口名称:字符串，窗口名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　窗口标题:文字。
-　窗口形状:窗口位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值，省略&quot;左上&quot;时窗口居中。
-　窗口事件:关闭窗口时执行的命令，必须是PECMD.EXE支持的命令。
-　窗口图标:窗口标题栏和任务栏的图标，格式为&lt;图标文件名#ID&gt;
-　窗口类型: [-][#][数值]，&quot;-&quot;为无标题栏，&quot;#&quot;为无边框窗口，数值为透明度，数值超99为隐藏窗口。
-示例：
-　1. _SUB DoLoop
-　2. _SUB Windows1,W360H440,PECMD功能演示,EXEC $使用说明.TXT,%IconFile%#19,20
-备注：
-　1. 子过程名或窗口名的第1个字符不能是&quot;$&quot;，命令关键词_SUB与子过程名或窗口名之间必须是1个空格。
-　2. 若有多个_SUB命令，这些命令定义的名称不能重复，不能近似，也不能用这些名称设置成环境变量。
-　3. 本命令与_END命令必须成对出现，均不能在命令行中使用，其它参照_END命令、CALL命令的说明。
-　4. 要设置窗口的标题，可以使用&quot;ENVI @窗口名称=窗口标题&quot;来设置，参照ENVI命令的说明。
-</code></pre><h3 id="END"><a href="#END" class="headerlink" title="[_END]"></a>[_END]</h3><pre><code>格式：_END
-功能：结束子过程或结束窗口定义。
-参数：
-　无
-示例：
-　_END
-备注：
-　定义子过程的_SUB命令和_END命令必须单独一行。即：FIND、IFEX、TEAM命令内不能定义子过程。大白菜官网
-　1. _SUB与_END之间的命令(即子过程)只被对应的CALL命令执行，主流程会跳过这些命令。
-　2. _END命令必须与_SUB命令一一匹配，且子过程内不能再定义子过程。
-　3. 子过程放在配置文件的任意位置都可以被同一配置文件中的CALL命令调用，建议放在文件开始处。
-　4. 该命令及_SUB命令只能在配置文件中使用，不能在命令行下使用。
-</code></pre><h3 id="BROW"><a href="#BROW" class="headerlink" title="[BROW]"></a>[BROW]</h3><pre><code>格式：BROW &lt;变量名&gt;,[[*|&amp;]初始路径],[提示文字],[扩展名]
-功能：浏览磁盘文件和目录。
-参数：
-　变量名:用于保存浏览结果的变量名。
-　初始路径:为浏览窗口默认选中的文件或目录，省略该参数时定位到系统默认的路径；前导符&quot;*&quot;为浏览目录对话框，前导符&quot;&amp;&quot;为保存文件对话框，省略前导符为打开文件对话框。
-　提示文字:可以省略，省略时默认的文字为系统默认的文字提示。
-　扩展名:浏览指定扩展名的文件，省略表示所有文件。
-示例：
-　1. BROW Boot_Ini,C:\Windiws\BOOT.INI,请选择一个文件,INI
-　2. BROW Tag,*C:\Windiws,请选择一个目录
-备注：
-　1. 本命令会打开一个文件目录浏览对话窗，让用户浏览磁盘文件目录，用户可选择某个文件或目录。
-　2. 选择结果将保存在指定的进程环境变量中。示例2可通过环境变量%Tag%来引用。
-　3. BROW命令必须在INIT命令之后或在桌面执行。
-</code></pre><h3 id="CALC"><a href="#CALC" class="headerlink" title="[CALC]"></a>[CALC]</h3><pre><code>格式：CALC [#]&lt;变量0&gt;&lt;=&gt;&lt;变量1&gt;&lt;运算符&gt;&lt;变量2&gt;
-功能：将&quot;变量1&quot;和&quot;变量2&quot;按&quot;运算符&quot;来运算，把运算结果保存在&quot;变量0&quot;中。
-参数：
-　前导&quot;#&quot;表示所有变量按int型数据来处理，省略该前导表示所有变量按double型数据来处理；
-　&quot;变量1&quot;和&quot;变量2&quot;可以是具体数值，也可以是已存在的变量；
-　&quot;运算符&quot;目前只支持&quot;+&quot;、&quot;-&quot;、&quot;*&quot;、&quot;/&quot;四种运算。
-示例：
-　加法运算:CALC #Sum = 128 + 32或CALC Sum = %Datum1% + %Datum2%
-　乘法运算: CALC #Result = 128 * 64或CALC Result = %Datum1% * %Datum2%
-备注：
-　1. &quot;变量1&quot;或&quot;变量2&quot;可以用ENVI命令来直接设置(赋值)，也可以是CALC命令运算赋值的结果；
-　2. &quot;变量1&quot;或&quot;变量2&quot;没有赋值时，当数值&quot;0&quot;处理；要完成复杂的四则运算可用一系列CACL命令完成；
-　3. CACL命令按double型变量来处理数据时，最多保留4位小数，要比较数值大小可用IFEX命令来判断。
-</code></pre><h3 id="CALL"><a href="#CALL" class="headerlink" title="[CALL]"></a>[CALL]</h3><pre><code>格式：CALL &lt;$DLL名&gt;,[函数],[[#]参数1],[[#]参数2],[[#]参数3],[[#]参数4]或CALL &lt;过程&gt;或CALL &lt;@窗口&gt;
-功能：调用DLL函数或调用子过程。
-参数：
-　前导&quot;$&quot;表示调用DLL函数，指定DLL路径、函数名和参数。省略函数名，将调用&quot;DllRegisterServer&quot;，参数默认为UNICODE字符串，如果以&quot;#&quot;前导则表示整数；最多支持四个函数参数。
-　前导&quot;@&quot;表示调用由_SUB命令定义的窗口，不要在_SUB命令定义的窗口内执行CALL @调用另一个窗口。
-　省略前导&quot;$&quot;表示调用子过程，参数为子过程名称。
-示例：
-　调用DLL函数: CALL $SHELL32.DLL,DllInstall,#1,U
-　调用窗口过程: CALL @Window1
-　调用子过程: FIND MEM&gt;127,CALL EXPLORER_SHELL!CALL CMD_SHELL
-备注：
-　1. 调用DLL函数: DLL中的函数必须以STDCALL方式导出(不明白什么意思的话，就当没任何问题)。
-　2. 调用窗口过程:用CALL的前导&quot;@&quot;调用窗口时，该CALL命令后的命令将暂停执行，直至窗口关闭。
-　3. 调用子过程: CALL命令只能调用同一配置文件内的子过程，CALL命令调用子过程的功能不能在命令行中使用，其它参照_SUB和_END命令的说明。
-</code></pre><h3 id="CHEK"><a href="#CHEK" class="headerlink" title="[CHEK]"></a>[CHEK]</h3><pre><code>格式：CHEK &lt;复选框名称&gt;,&lt;复选框形状&gt;,[复选框标题],[复选框事件],[复选框状态]功能：在_SUB定义的窗口内建立一个复选框控件。
-参数：
-　复选框名称:字符串，复选框的名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　复选框形状:复选框位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。
-　复选框标题:复选框上的文字，用于描述复选框的功能或说明。
-　复选框事件:点击该复选框时执行的命令，必须是PECMD支持的有效命令。
-　复选框状态:数字，1或-1为钩选状态，0，2或-2为没有钩选，小于0为灰色不可用状态。
-示例：
-　CHEK Check1,L180T336W100H20,可写挂载,,1
-备注：
-　1. CHEK命令必须位于_SUB命令和_END命令之间，其它位置的CHEK命令无效，参照_SUB、CALL命令说明。
-　2. 环境变量: %复选框名称%为复选框标题，设置标题，可用&quot;ENVI @复选框名称=复选框标题&quot;来设置。
-　3. 可用&quot;ENVI @复选框名称.Check=数值&quot;来设置复选框钩选状态，数值0为未钩选状态；非0为钩选状态。
-　4. 可用&quot;ENVI @复选框名称.Enable=数值&quot;来设置复选框可用状态，数值0为禁用状态；非0为可用状态。
-</code></pre><h3 id="DATE"><a href="#DATE" class="headerlink" title="[DATE]"></a>[DATE]</h3><pre><code>格式：DATE [变量名]功能：返回系统当前日期和时间
-参数：
-　变量名用于保存系统当前日期和时间的变量名称
-示例：
-　DATE SysDate
-备注：
-　1. 返回结果以&quot;年-月-日|星期|时:分:秒&quot;的形式保存在指定的变量中，要取出其中的&quot;日期&quot;或&quot;时间&quot;，请用PECMD的字符串处理命令(LPOS、RPOS、LSTR、MSTR、RSTR)来处理；
-　2. 若省略&quot;变量名&quot;时，结果保存在环境变量%CurDate%中，示例的结果可能是&quot;2008-8-8|5|20:8:8&quot;。
-</code></pre><h3 id="DEVI"><a href="#DEVI" class="headerlink" title="[DEVI]"></a>[DEVI]</h3><pre><code>格式：DEVI [$]&lt;CAB路径&gt;
-功能：从CAB文件或指定的文件夹中查找(并安装)驱动程序。
-参数：
-　指定CAB文件路径。前导&quot;$&quot;表示解压缩驱动文件后安装驱动，否则不安装驱动。
-示例：
-　DEVI %SystemRoot%\DRV.CAB
-备注：
-　1. 此命令使用自定的(而非系统的)驱动搜索算法，可快速解压缩可能用到的驱动程序，因此，一个设备可能搜索到多个驱动程序。
-　2. 在CAB中，把每个驱动单独放在一个目录中，并保证CAB中INF文件总是在当前目录的最前面，且CAB中的INF文件必须经过处理。建议使用配套程序XCAB来制作。
-　3. INF文件解压缩到&quot;%SystemRoot%\INF&quot;目录，SYS文件解压缩到%SystemRoot%\SYSTEM32\DRIVERS目录，其它文件解压缩到%SystemRoot%\SYSTEM32目录。
-　4. 如果其它文件需要解压缩到特定目录中，可以在文件名中使用&quot;#&quot;代替目录分隔符，如文件&quot;SYSTEM32#WBEM#MOF#XXX.MOF&quot;将会被解压缩到&quot;%SystemRoot%\ SYSTEM32\WBEM\MOF\XXX.MOF&quot;。
-　5. 此命令还有一个功能：从本地磁盘中搜索驱动，如&quot;DEVI \Windows,Display&quot;。但此命令未完善，会提示驱动文件对话窗。因此，本功能暂不提供技术支持。
-</code></pre><h3 id="DISP"><a href="#DISP" class="headerlink" title="[DISP]"></a>[DISP]</h3><pre><code>格式：DISP [W水平分辨率H垂直分辨率] [B颜色深度] [F刷新率] [T等待(毫秒)]
-功能：设置显示参数。
-参数：
-　分别指定屏幕参数，如果省略则使用原来的设置。
-示例：
-　DISP W1024 H768 B32 F70 T5000
-备注：
-　前三组参数可单独使用，如要设置刷新率为75，使用DISP F75即可。
-</code></pre><p>[EDIT]</p>
-<pre><code>格式：EDIT &lt;编辑框名称&gt;,&lt;编辑框形状&gt;,[编辑框内容],[编辑框事件],[编辑框类型]
-功能：在_SUB定义的窗口内建立一个单行文本编辑框。
-参数：
-　编辑框名称:字串，编辑框名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　编辑框形状:编辑框位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。
-　编辑框内容:字串，初始化编辑框时填入的文字内容。
-　编辑框事件:在编辑框内按下回车键时执行的命令，必须是PECMD支持的有效命令。
-　编辑框类型:数字，默认为0，表示正常编辑框，大于0表示密码输入框，小于0为灰色禁用编辑框。
-示例：
-　EDIT Edit1,L32T244W240H24,C:\Windows,ENVI @Label1=%Edit1%
-备注：
-　1. EDIT命令必须位于_SUB命令和_END命令之间，其它位置的EDIT命令无效，参照_SUB、CALL命令说明。
-　2. 要设置编辑框的文字内容，可使用&quot;ENVI @编辑框名称=文本内容&quot;来设置，参照ENVI命令的说明。
-　3. 可用&quot;ENVI @编辑框名称.Enable=数值&quot;来设置编辑框的可用状态；0为不可用状态，非0为可用状态。
-　4. 可用&quot;ENVI @编辑框名称.ReadOnly=数值&quot;来设置编辑框的只读状态；0为非只读状态，非0为只读状态。
-</code></pre><h3 id="EJEC"><a href="#EJEC" class="headerlink" title="[EJEC]"></a>[EJEC]</h3><pre><code>格式：EJEC [C-|U-|R:]
-功能：移除或弹出指定的USB或CDROM驱动器；本命令的功能未完善。大白菜官网
-参数：
-　参数&quot;C-&quot;将弹出所有可能的光驱的光盘；参数&quot;U-&quot;将移除所有可能的USB磁盘。
-　参数&quot;R:&quot;将弹出或移除指定盘符的光驱或USB磁盘；省略参数会弹出或移除所有可能的光驱或USB磁盘。
-示例：
-　EJEC
-　EJEC C-
-　EJEC U-
-　EJEC H:
-备注：
-　本命令为系统托盘没有U盘管理图标的精简PE使用；对于有U盘管理图标的PE，建议使用系统托盘图标。
-　本命令不要在配置文件中使用；INIT命令带&quot;I&quot;参数会将本命令的功能安装到托盘图标的菜单中。
-</code></pre><h3 id="ENVI"><a href="#ENVI" class="headerlink" title="[ENVI]"></a>[ENVI]</h3><pre><code>格式：ENVI [$|@|*][名称][[=]值]
-功能：设置或清除环境变量。
-参数：
-　指定环境变量名称和值。如果省略前导符且不指定值，则为删除指定名称的环境变量。
-　前导&quot;$&quot;表示设置系统级环境变量，否则仅设置本程序内部使用的(进程级)环境变量。
-　前导&quot;@&quot;表示设置窗口控件的名称或窗口控件的文本标题。
-　前导&quot;*&quot;(省略名称和值)表示将光驱的盘符以CDROM0、CDROM、CDROM1、CDROM2等写入系统环境变量。
-示例：
-　ENVI TEMP=%SystemDrive%\TEMP
-备注：
-　如果使用&quot;EXEC&quot;执行的程序，会自动继承本程序的环境变量，换句话说，如果在配置文件中设置带&quot;$&quot;的环境变量，对后面的&quot;EXEC&quot;程序中也会有效。
-　在命令提示符下,可以通过没有参数的ENVI命令刷新环境变量。
-　当仅有参数&quot;$&quot;时，则初始化用户文件夹，命令提示符下也可刷新环境变量。
-</code></pre><h3 id="EXEC"><a href="#EXEC" class="headerlink" title="[EXEC]"></a>[EXEC]</h3><pre><code>格式：EXEC [=][!][@][$][&amp;]&lt;EXE路径&gt;[参数]
-功能：执行EXE 、BAT、CMD程序。
-参数：
-　指定程序路径和参数。前导参数如下(可同时使用，不分先后顺序):
-　前导&quot;=&quot;表示等待执行完成，前导&quot;!&quot;表示以隐藏方式执行。
-　前导&quot;@&quot;表示在后台桌面(WinLogon)执行，彻底隐藏，无法与用户交互，可用于注册，如:&quot;EXEC @PECMD.EXE CALL $SHELL32.DLL,DllInstall,#1,U&quot;。
-　前导&quot;&amp;&quot;表示修改进程中的关机代码(挂接&quot;ExitWindowsEx&quot;函数)。建议执行&quot;EXEC &amp;EXPLORER.EXE&quot;修改SHELL的关机函数，这样执行&quot;开始-&gt;关闭系统&quot;的时候就会运行&quot;PECMD.EXE SHUT&quot;命令来关机。
-　前导&quot;$&quot;表示以ShellExecute函数执行，用于打开非可执行文件(如.TXT、.BMP等)。
-示例：
-　EXEC =!CMD.EXE /C &quot;DEL /Q /F %TEMP%&quot;
-备注：
-　SHELL也是通过此命令来载入的。
-</code></pre><h3 id="EXIT"><a href="#EXIT" class="headerlink" title="[EXIT]"></a>[EXIT]</h3><pre><code>格式：EXIT
-功能：退出当前的CALL命调用的子过程，或退出LOAD命令调用的配置文件过程。
-参数：
-　无
-示例：
-　IFEX $%Val%=10,EXIT!ENVI Val=
-　FIND $%CancelIt%=YES,EXIT!ENVI CancelIt=
-备注：
-　示例1表示数值变量Val的值为10时退出当前过程
-　示例2表示环境变量CancelIt为YES时退出当前过程。
-</code></pre><h3 id="FBWF"><a href="#FBWF" class="headerlink" title="[FBWF]"></a>[FBWF]</h3><pre><code>格式：FBWF [P可用内存百分数] [L最小值] [H最大值]
-功能：设置FBWF缓存
-参数：
-　最大值、最小值均为MB。
-示例：
-　FBWF P20 L32 H64
-备注：
-　三个参数都可单独使用，如FBWF L64表示强制设置64M的FBWF；FBWF命令必须在MOUN命令之后。
-</code></pre><h3 id="FDIR"><a href="#FDIR" class="headerlink" title="[FDIR]"></a>[FDIR]</h3><pre><code>格式：FDIR &lt;变量名&gt;&lt;=&gt;&lt;文件名&gt;
-功能：返回指定&quot;文件名&quot;所在的目录名(最后无&quot;\&quot;)
-参数：
-　变量名用于保存目录名的变量名称；
-　文件名合法的文件名称。
-示例：
-　FDIR fPath=C:\Windows\System32\calc.exe
-　FDIR aPath=%CurDir%\Path1\Path2\FileName
-备注：
-　当文件名是相对路径时，返值结果是PECMD.EXE的工作目录或配置文件的工作目录；
-　示例1结果是&quot;C:\Windows\System32&quot;
-　示例2结果是&quot;%CurDir%\Path1\Path2&quot;。
-</code></pre><h3 id="FDRV"><a href="#FDRV" class="headerlink" title="[FDRV]"></a>[FDRV]</h3><pre><code>格式：FDRV &lt;变量名&gt;&lt;=&gt;[文件目录名]
-功能：返回指定&quot;文件目录名&quot;所在的分区盘符(以&quot;:&quot;结束，最后无&quot;\&quot;)或系统所有盘符。
-参数：
-　变量名:用于保存分区盘符的变量名称；
-　文件名:合法的文件目录名称(也可省略，省略时另有意义，见《备注》的解释。
-示例：
-　FDRV fDrive=C: \Windows\System32\calc.exe
-　FDRV AllDrive=
-备注：
-　当文件名是相对路径时，返值结果是PECMD.EXE的工作目录或配置文件的工作目录所在的分区盘符；
-　当省略&quot;文件目录名&quot;时返回系统所有盘符，返回值是C:|D:|E:|F:|....的形式。
-　示例1结果是&quot;C:&quot;，示例2结果是系统所有盘符的列表(注意这个列表不是固定的，会随时发生变化)。
-</code></pre><h3 id="FEXT"><a href="#FEXT" class="headerlink" title="[FEXT]"></a>[FEXT]</h3><pre><code>格式：FEXT &lt;变量名&gt;&lt;=&gt;&lt;文件名&gt;
-功能：返回指定&quot;文件名&quot;的扩展名(不带&quot;.&quot; )
-参数：
-　变量名:用于保存扩展名的变量名称；
-　文件名:合法的文件名称。
-示例：
-　FEXT fExt=C:\Windows\System32\calc.exe
-　FEXT aExt=X:\Path1\Path2\FileName
-备注：
-　示例1结果是&quot;exe&quot;，示例2返回结果是空值；
-　FDIR、FDRV、FEXT的返回值都可以用FIND命令检测或比较。
-</code></pre><h3 id="FILE"><a href="#FILE" class="headerlink" title="[FILE]"></a>[FILE]</h3><pre><code>格式：FILE &lt;文件路径&gt;[操作符][目标路径]
-功能：操作文件或目录。
-参数：
-　指定源文件路径和目标路径，支持通配符，可以用分号同时操作多个文件。操作符&quot;-&gt;&quot;、&quot;=&gt;&quot;分别对应移动、复制，没有操作符则表示删除操作。
-示例：
-　FILE %SystemRoot%\INF\*.INF=&gt;%TEMP%
-备注：
-　如果以RAMDISK启动系统，可删除启动后无用的文件(如2M的NTOSKRNL.EXE)来增加RAMDISK的可写空间。
-</code></pre><h3 id="FIND"><a href="#FIND" class="headerlink" title="[FIND]"></a>[FIND]</h3><pre><code>格式：FIND &lt;条件&gt;,[命令1][!命令2]
-功能：依据条件表达式是否成立，成立则执行命令1，不成立则执行命令2。
-参数：
-　条件对[内存总数]或[磁盘总空间]或[按键]或[环境变量]或[内存进程]的判断。
-　内存总数MEM&lt;比较符&gt;数值。
-　磁盘总空间R:\&lt;比较符&gt;数值，R:表示盘符。
-　按键KEY&lt;比较符&gt;数值。
-　内存进程内存进程名。
-　环境变量$%环境变量名%&lt;比较符&gt;环境变量值，环境变量的比较是不区分大小写的。
-　比较符比较操作符为&quot;&lt;&quot;、&quot;&gt;&quot;、&quot;=&quot;，分别表示&quot;小于&quot;、&quot;大于&quot;、&quot;等于&quot;。
-　数值比较的数值，磁盘和内存单位是MB，按键数值是按键代码。
-示例：
-　FIND MEM&lt;128,SHEL %SystemRoot%\SYSTEM32\XPLORER2.EXE!SHELL %SystemRoot%\EXPLORER.EXE
-　FIND $%OUTSIDE%=,ENVI $OUTSIDE=%CurDrv%\外置程序
-备注：
-　本命令功能强大，比较复杂，且可以嵌套(FIND或IFEX)使用，判断多个条件。 IFEX命令功能与其相似。
-　&lt;条件表达式&gt;后的&quot;,&quot;号也可用&quot;*&quot;代替。
-　本命令嵌套FIND或IFEX命令时，被嵌套的命令中不能使用&quot;!&quot;分隔符。
-　当FIND命令用于检测按键时，若用户按了&#39;A&#39;～&#39;Z&#39;或&#39;0&#39;～&#39;9&#39;这些键，按键结果将保存在环境变量%PressKey%中。
-
-### [FONT]
-格式：FONT &lt;字体路径&gt;,[起始分区]
-功能：注册字体或外挂字体
-参数：
-　字体文件路径和起始分区。
-示例：
-　FONT %CurDrv%\外置程序\FONT
-　FONT \WINDOWS
-　FONT \WINDOWS,C:
-备注：
-　命令第1个字符是&quot;\&quot;时，将从指定的起始分区开始搜索机子所有分区Windows\Fonts目录下的字体，并安装注册,定义起始分区可避免搜索机子中存在的软驱，省略起始分区将搜索机子所有分区(含软驱)。
-</code></pre><h3 id="FORX"><a href="#FORX" class="headerlink" title="[FORX]"></a>[FORX]</h3><pre><code>格式：FORX [@][[!]\]&lt;文件&gt;,&lt;变量&gt;,[数值],&lt;命令&gt; [参数,参数...]&lt;%变量%&gt;[,参数,参数.. .][,...]
-功能：对匹配的文件目录进行对应的命令操作，本命令的功能类似CMD.EXE的for命令。
-参数：
-　文件:指定文件目录名，可带有通配符。
-　变量:指定变量名，该变量不能是已存在的环境变量或已存在的窗口控件名。
-　数值:对匹配的文件目录执行相应次数的命令操作，0或&lt;0表示对所有存在的文件执行命令操作。
-　命令: PECMD.EXE合法有效的命令，命令后的参数格式和个数由该命令而定。
-示例：
-　FORX %CurDir%\Path1\*.DLL,AnyDLL,0,CALL %AnyDLL%
-　FORX \auto*.INF,AutoRunVirus,0,FILE %AutoRunVirus%
-　FORX !\WinPE\WinPE.INI,MyIni, 1,LOAD %MyIni%
-备注：
-　该命令可以搜索到带有属性的文件目录，如隐藏属性的文件目录。
-　前导&quot;\&quot;表示搜索所有分区，&quot;!&quot;表示对所有分区进行逆序搜索，两前导&quot;[!]\&quot;符中&quot;!&quot;不能单独存在。
-　前导&quot;@&quot;表示仅搜索目录并进行相应操作，省略该前导表示仅搜索文件并进行相应操作。
-　示例1，表示注册%CurDir%\Path1\目录中的所有DLL。
-　示例2，表示删除所有分区根目录的auto*.INF文件。
-　示例3，表示逆序搜索所有分区WinPE目录下的WinPE.INI，把搜索的第1个WinPE.INI用LOAD命令加载。
-</code></pre><h3 id="GROU"><a href="#GROU" class="headerlink" title="[GROU]"></a>[GROU]</h3><pre><code>格式：GROU &lt;组合面板名称&gt;,&lt;组合面板形状&gt;,[组合面板标题]
-功能：在_SUB定义的窗口内建立组合面板，用于说明组合面板内控件的功能和作用。
-参数：
-　组合面板名称:字串，组合面板名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　组合面板形状:组合面板的位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。
-　组合面板标题:字串，用以描述组合面板的作用或功能。
-示例：
-　GROU Group1,L8T4W336H400,注册WimShExt.DLL
-备注：
-　GROU命令必须位于_SUB命令和_END命令之间，其它位置的GROU命令无效，参照_SUB、CALL命令说明。
-　要设置组合面板标题，可以使用&quot;ENVI @组合面板名称=组合面板标题&quot;来设置，参照ENVI命令的说明。大白菜官网
-</code></pre><h3 id="HELP"><a href="#HELP" class="headerlink" title="[HELP]"></a>[HELP]</h3><pre><code>格式：HELP [文字前景颜色][#文字背景颜色]
-功能：显示帮助信息。
-参数：
-　数值(支持16进制)。
-示例：
-　HELP 0x00EEFF#0xFF0000
-备注：
-　不用命令行参数，直接执行本程序，也会显示帮助信息。
-</code></pre><h3 id="HKEY"><a href="#HKEY" class="headerlink" title="[HKEY]"></a>[HKEY]</h3><pre><code>格式：HKEY [辅助按键+ ]&lt;#虚拟按键代码&gt;&lt;,热键命令&gt;
-功能：设置系统热键，并指定该热键执行的命令。
-参数：
-　辅助按键: 4个辅助按键(Alt、Ctrl、Shift和Win)可用字符串表示，辅助按键间用&quot;+&quot;连接。
-　按键代码:按键用虚拟按键代码表示，支持16进制数值。
-　热键命令:必须是PECMD支持的有效命令。
-示例：
-　HKEY #255,SHUT R
-　HKEY Ctrl+Alt+#0x41,DISP W800H600B16F75
-备注：
-　HKEY命令必须位于_SUB命令和_END命令之间，其它位置的HKEY命令无效，参照_SUB、CALL命令说明。
-　第1个示例是按下电源键调用SHUT命令重启。
-　注意设置的热键不能与其它程序的热键冲突。
-</code></pre><h3 id="HOTK"><a href="#HOTK" class="headerlink" title="[HOTK]"></a>[HOTK]</h3><pre><code>格式：HOTK [辅助按键+ ]&lt;#虚拟按键代码&gt;,&lt;命令&gt;
-功能：设置系统热键，并指定该热键执行的命令(.EXE或.CMD或.BAT)。
-参数：
-　4个辅助按键可用字符串表示，其它按键用虚拟按键代码，支持16进制数值。
-示例：
-　HOTK #255,PECMD.EXE SHUT E
-　HOTK Ctrl + Alt + #36,PECMD.EXE
-备注：
-　第1个示例是按下电源键调用PECMD的SHUT功能关机。
-　本命令不能在命令行中使用，只能在配置文件中使用；PECMD最多能设置8组热键。
-　热键的注册结果写在注册表&quot;HKEY_LOCAL_MACHINE\SOFTWARE\PELOGON&quot;项下。
-　SHEL命令必须在HOTK命令之后。
-　只有通过SHEL命令加载SHELL时，才能通过HOTK命令注册热键。
-</code></pre><h3 id="IFEX"><a href="#IFEX" class="headerlink" title="[IFEX]"></a>[IFEX]</h3><pre><code>格式：IFEX &lt;条件&gt;,[命令1][!命令2]
-功能：依据条件表达式是否成立，成立则执行命令1，不成立则执行命令2。
-参数：
-　条件对[可用内存]或[磁盘可用空间]或[按键]或[数值变量]或[文件目录]的判断。
-　可用内存MEM&lt;比较符&gt;数值。
-　磁盘可用空间R:\&lt;比较符&gt;数值，R:表示盘符。
-　按键KEY&lt;比较符&gt;数值。
-　文件目录文件目录名，可以使用通配符。
-　数值变量$%数值变量名%&lt;比较符&gt;数值或数值变量名，数值变量是CALC或ENVI赋值设置的变量。
-　比较符比较操作符为&quot;&lt;&quot;、&quot;&gt;&quot;、&quot;=&quot;，分别表示&quot;小于&quot;、&quot;大于&quot;、&quot;等于&quot;。
-　数值比较的数值，磁盘和内存单位是MB，按键数值是按键代码。
-示例：
-　IFEX KEY=17,TEAM TEXT搜索字体|FONT \WINDOWS!TEAM TEXT安装字体|FONT %CurDrv%\外置程序\FONT
-　IFEX C:\Windows,!MESS目录C:\Windows不存在，\ n请点[确定]。 @目录检查#OK
-备注：
-　本命令功能强大，比较复杂，且可以嵌套(IFEX或FIND)使用，判断多个条件。 FIND命令功能与其相似。
-　&lt;条件表达式&gt;后的&quot;,&quot;号也可用&quot;*&quot;代替。
-　本命令嵌套IFEX或FIND命令时，被嵌套的命令中不能使用&quot;!&quot;分隔符。
-　当IFEX命令用于检测按键时，若用户按了&#39;A&#39;～&#39;Z&#39;或&#39;0&#39;～&#39;9&#39;这些键，按键结果保存在%PressKey%中。
-　本命令用于变量判断时，所有变量均按double型来处理(最多保留4位小数)。
-</code></pre><h3 id="IMAG"><a href="#IMAG" class="headerlink" title="[IMAG]"></a>[IMAG]</h3><pre><code>格式：IMAG &lt;图片框名称&gt;,[图片框形状],[图像文件名]
-功能：在_SUB定义的窗口内建立一个图片框。
-参数：
-　图片框名称:字串，标签名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　图片框形状:图片框形状的位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。
-　图像文件名:图像文件(支持所有Windows支持的图像文件)将被显示在指定的图片框上。
-示例：
-　IMAG Image1,L8T380W140H70,%CurDir%\logo.gif
-备注：
-　IMAG命令必须位于_SUB命令和_END命令之间，其它位置的IMAG命令无效，参照_SUB、CALL命令说明。
-　因PECMD.EXE是脚本解释程序，不建议加载大尺寸的图像文件，否则显示会慢。
-</code></pre><h3 id="INIT"><a href="#INIT" class="headerlink" title="[INIT]"></a>[INIT]</h3><pre><code>格式：INIT [C][I][K][U]
-功能：执行最基本初始化，注册Window外壳，初始化用户文件夹和环境变量，安装键盘钩子，并建立以下目录:
-Favorites收藏夹目录Programs程序菜单目录
-Desktop桌面目录SendTo发送到目录
-StartMenu开始菜单目录Personal我的文档目录
-Startup启动菜单目录QuickLaunch快速启动目录
-参数：
-　参数&quot;C&quot;表示将光驱的盘符写入环境变量；参数&quot;I&quot;表示将PECMD的部分功能安装到托盘图标的菜单中；
-　参数&quot;K&quot;表示执行INIT命令立即安装低级键盘钩子，否则加载SHELL后才安装低级键盘钩子；
-　参数&quot;U&quot;将USB的盘符写入环境变量(功能未完善)。
-示例：
-　INIT
-　INIT C
-　INIT CH
-　INIT CIK
-　INIT CIKU
-备注：
-　执行INIT命令后，再执行SHEL命令加载指定的SHELL即可启动一个最小化的WinPE。
-　执行INIT命令前确保%USERPROFILE%所在分区有一定的可写空间，否则INIT命令无法完成工作。
-　带参数&quot;C&quot;时，光驱盘符保存在以CDROM开头的环境变量中(这些环境变量必须在启动后刷新才生效)。
-　参数&quot;K&quot;表示即刻安装键盘钩子，接管Ctrl+Alt+Del，呼出任务管理器。
-　带参数&quot;U&quot;时，USB的盘符保存在以USB开头的环境变量中(这些环境变量必须在启动后刷新才生效)。
-　公开发行WinPE的INIT命令不建议带&quot;K&quot;参数，本命令不能在命令行中使用，只能在配置文件中使用。
-</code></pre><h3 id="ITEM"><a href="#ITEM" class="headerlink" title="[ITEM]"></a>[ITEM]</h3><pre><code>格式：ITEM &lt;按钮名称&gt;,&lt;按钮形状&gt;,[按钮标题],[按钮事件],[按钮图标],[按钮状态]
-功能：在_SUB定义的窗口内建立一个按钮。
-参数：
-　按钮名称:字符串，按钮的名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　按钮形状:按钮位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。
-　按钮标题:位于按钮上的文字，用于描述按钮的功能或执行的命令。
-　按钮事件:点击该按钮时执行的命令，必须是PECMD支持的有效命令。
-　按钮图标:在按钮上显示的图标，格式为&lt;图标文件名#ID&gt;，图标大小=按钮高度- 6。
-　按钮状态:数字，默认为0表示可用状态按钮，非0为灰色不可用状态按钮。
-示例：
-　ITEM Button3,L32T108W300H54,资源管理器,EXEC explorer.exe,%SystemRoot%\explorer.exe
-备注：
-　ITEM命令必须位于_SUB命令和_END命令之间，其它位置的ITEM命令无效，参照_ SUB、CALL命令说明。大白菜官网
-　要设置按钮上的文本，可使用&quot;ENVI @按钮名称=按钮文本&quot;来设置，参照ENVI命令的说明。
-　可用&quot;ENVI @按钮名称.Enable=数值&quot;来设置编辑框的可用状态；0为不可用状态，非0为可用状态。
-</code></pre><h3 id="KILL"><a href="#KILL" class="headerlink" title="[KILL]"></a>[KILL]</h3><pre><code>格式：KILL [[&lt;\&gt;窗口标题]|[进程名称]]
-功能：关闭指定标题的窗口或强制终止指定的进程。
-参数：
-　前导&quot;\&quot;表示关闭指定标题的窗口，如果省略窗口标题则为关闭_SUB定义的窗口。
-　省略前导&quot;\&quot;表示结束指定名称(EXE文件名，无路径)进程，如果省略进程名称则终止PECMD的父进程。
-示例：
-　KILL WinLogon.EXE
-　KILL \计算器
-备注：
-　无窗口标题的进程请用进程名来结束。
-　终止进程时将终止与&quot;进程名称&quot;匹配的所有进程。
-</code></pre><h3 id="LABE"><a href="#LABE" class="headerlink" title="[LABE]"></a>[LABE]</h3><pre><code>格式：LABE &lt;文本标签名称&gt;,&lt;文本标签形状&gt;,[文本标签内容]
-功能：在_SUB定义的窗口内建立一条静态文字标签。
-参数：
-　标签名称:字串，标签名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　标签形状:标签的位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。
-　标签内容:字串，要标签显示的文字，支持多行显示，文字行间用&quot;\n&quot;表示断行。
-示例：
-　LABE Label1,L32T280W128H48,请点击&quot;打开&quot;按钮以浏览文件。
-备注：
-　LABE命令必须位于_SUB命令和_END命令之间，其它位置的LABE命令无效，参照_SUB、CALL命令说明。
-　要设置标签上文字内容，可以使用&quot;ENVI @标签名称=标签文字&quot;来设置，参照ENVI命令的说明。
-</code></pre><h3 id="LINK"><a href="#LINK" class="headerlink" title="[LINK]"></a>[LINK]</h3><pre><code>格式：LINK [!]&lt;快捷方式路径&gt;,&lt;目标路径&gt;,[运行参数],[图标路径[#图标索引]],[目标备注],[起始位置]
-功能：创建快捷方式。
-参数：
-　快捷方式:指定要生成的快捷方式的路径，不需要&quot;.LNK&quot;扩展名。
-　目标路径:指定快捷方式的目标文件目录(可用相对路径)。若目标不存在，将不会创建快捷方式。
-　运行参数：目标程序运行参数。
-　图标路径:快捷方式图标的路径。
-　图标索引:快捷方式图标在文件资源中序号，0为第1个图标，不填则默认。
-　图标备注：字符串，对目标程序或目录的说明。
-　起始位置:目标程序命令的工作目录。
-示例：
-　LINK !%Desktop%\宽带连接,RASPPPOE.CMD,,RASDIAL.DLL#19
-备注：
-　前导&quot;!&quot;表示以最小化方式启动程序，可用于执行批处理文件时最小化命令窗口。
-</code></pre><h3 id="LIST"><a href="#LIST" class="headerlink" title="[LIST]"></a>[LIST]</h3><pre><code>格式：LIST &lt;下拉列表框名称&gt;,&lt;下拉列表框形状&gt;,&lt;下拉列表框内容&gt;,[下拉列表框事件],[默认选中的条目]
-功能：在_SUB定义的窗口内建立一个下拉列表框。
-参数：
-　下拉列表框名称:字符串，下拉列表框名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　下拉列表框形状:下拉列表框形状位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。
-　下拉列表框内容:下拉列表框内可供选择的条目，条目与条目之间用字符&quot;|&quot;隔开。
-　下拉列表框事件:下拉列表框内被选择条目发生变化时执行的命令，必须是PECMD支持的有效命令。
-　默认选中的条目:初始化下拉列表框设置被选中的条目。
-示例：
-　LIST List1,L200T360W128H32,EXPLORER|XPLORER2|CMD,ENVI @Label1=%List1%,EXPLORER
-备注：
-　LIST命令必须位于_SUB命令和_END命令之间，其它位置的LIST命令无效，参照_SUB 、CALL命令说明。
-　环境变量%下拉列表框名称%为下拉列表框被选中的条目(字符串)。
-　可用&quot;ENVI @下拉列表框名称.Enable=数值&quot;来设置编辑框的可用状态；0为不可用状态非0为可用状态。
-</code></pre><h3 id="LOAD"><a href="#LOAD" class="headerlink" title="[LOAD]"></a>[LOAD]</h3><pre><code>格式：LOAD &lt;文件路径&gt;
-功能：按顺序逐条运行配置文件中的命令。
-参数：
-　指定文件名(含路径，支持环境变量)。
-示例：
-　LOAD \外置程序\PECMD.INI
-备注：
-　每条命令单独一行，主流程的命令是完全按顺序执行的。不正确的命令或空行将忽略不计。
-　支持ANSI和UNICODE格式文本文件，推荐使用UNICODE格式文本文件。
-　配置文件支持整行注释和行后注释，推荐使用&quot;`&quot;(键盘左上角Esc键下面的字符)作为注释起始。
-　在配置文件中可以使用环境变量&quot;%CurDrv%&quot;表示当前盘符。
-　如果文件路径第1个字符是&quot;\&quot;，则搜索所有磁盘指定目录中的文件，如&quot;LOAD \MyWinPE\PECMD.INI&quot;。
-　配置文件所在目录被设置为当前目录，这样创建快捷方式时，快捷方式目标路径可以使用相对路径。
-　其它的参照MAIN命令的说明。
-</code></pre><h3 id="LOGO"><a href="#LOGO" class="headerlink" title="[LOGO]"></a>[LOGO]</h3><pre><code>格式：LOGO [[#背景颜色]|[图片文件]],[位置大小]
-功能：设置或关闭登录画面。
-参数：
-　背景颜色:数值，设置背景颜色时必须要有前导符&quot;#&quot;，设置的颜色无效时将使用注册表内定的颜色。
-　图片文件:支持BMP/JPG/PNG/GIF等格式，需要GDI+支持。背景颜色和图片文件两者只取其一。
-　位置大小: LOGO窗口的位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。
-　若无参数：则关闭启动画面(渐隐淡出)。
-示例：
-　LOGO %SystemRoot%\LOGON.JPG
-　LOGO #0xFF0000,L100T100W300H200
-备注：
-　此命令为非阻塞模式执行。执行本命令后，将立即执行下一条命令。
-　该命令只能在配置文件中使作，如果在命令行中使用，程序马上退出，将不能看到效果。
-　省略&quot;左上&quot;时窗口居中，省略&quot;宽高&quot;时为全屏大小，同时省略&quot;左上宽高&quot;时为全屏窗口。
-　配置文件结束之前，必须调用一次不带参数的&quot;LOGO&quot;命令，以关闭启动画面。
-　WinPE启动时建议使用全屏窗口(位置大小)，使用LOGO图要求的LOGO内存会大些。
-</code></pre><h3 id="LOGS"><a href="#LOGS" class="headerlink" title="[LOGS]"></a>[LOGS]</h3><pre><code>格式：LOGS [文件路径],[数值]
-功能：启用日志以便记录每条命令的执行结果，帮助用户验证配置文件的正确性。
-参数：
-　文件路径:指日志文件名，含路径。
-　数值:为日志文件申请的内存空间(单位为KB)，日志记录多，所需空间也大，省略即采用默认值16K。
-示例：
-　LOGS %SystemRoot%\PECMD.LOG
-备注：
-　配置文件结束之前，必须调用一次不带参数的&quot;LOGS&quot;命令，以关闭日志文件(确保日志写入文件)。
-　此命令不能在命令行中使用(必须在配置文件中使用)。
-　公开发布的WinPE中建议不要启用日志文件。
-</code></pre><h3 id="LPOS"><a href="#LPOS" class="headerlink" title="[LPOS]"></a>[LPOS]</h3><pre><code>格式：LPOS &lt;变量名&gt;&lt;=&gt;&lt;字符串&gt;&lt;,字符&gt;&lt;,数值&gt;
-功能：返回指定&quot;字符&quot;在&quot;字符串&quot;左边起出现的位置。
-参数：
-　变量名:用于保存命令结果的变量名；
-　字符串:被检测的字符串，长度不能超2K；
-　字符:被检测的字符，不区分大小写；
-　数值:指定被检测的字符出现的次数。
-示例：
-　LPOS iPos=123A56|1234A6|abcdef,a,2
-　LPOS iPos=123A56|1234A6|abcdef,a,3
-备注：
-　当&quot;数值&quot;小于1时返回最右边被检测字符的位置，如上例的结果是15；返回结果为0时表示没有找到。
-　该命令按Unicode字符串处理，示例1的返回值为12，示例2的返回值为15(与数值为0的结果相同)。
-</code></pre><h3 id="LSTR"><a href="#LSTR" class="headerlink" title="[LSTR]"></a>[LSTR]</h3><pre><code>格式：LSTR &lt;变量名&gt;&lt;=&gt;&lt;字符串&gt;&lt;,数目&gt;
-功能：从指定&quot;字符串&quot;的左边截取指定数目的字符，并将结果返回给指定名称的变量。
-参数：
-　变量名:用于保存命令结果的变量名；
-　字符串:源字符串，长度不能超2K；
-　数目:指定截取字符的数目。
-示例：
-　LSTR aStr=1234567890,2
-　LSTR aStr=1234567890,5
-备注：
-　当&quot;数值&quot;小于1时或超出源字符串的长度时，返回结果为整个源字符串(相当于字符串复制)；
-　该命令按Unicode字符串处理，示例1的返回值为&quot;12&quot;，示例2的返回值为&quot;12345&quot;。
-</code></pre><h3 id="MAIN"><a href="#MAIN" class="headerlink" title="[MAIN]"></a>[MAIN]</h3><pre><code>格式：MAIN [文件路径]
-功能：初始化桌面，接管Ctrl+Alt+Del，并创建新进程执行LOAD功能。
-参数：
-　指定初始化的配置文件路径。
-示例：
-　MAIN %SystemRoot%\PECMD\PECMD.INI
-备注：
-　MAIN命令创建LOAD进程，执行完LOAD功能后会驻留内存，安装盘键钩子，挂接&quot;ExitWindowsEx&quot;函数。
-　PECMD驻留后占内存较大，你可以使用PECMD的LAOD功能，而MAIN功能则由PELOGON.EXE代替。
-　LAOD命令完成LOAD文件的功能后会自行退出内存，其它的参照LOAD命令的说明。
-</code></pre><h3 id="MD5C"><a href="#MD5C" class="headerlink" title="[MD5C]"></a>[MD5C]</h3><pre><code>格式：MD5C [文件名|$字符串],[变量名]
-功能：计算文件或字符串MD5校验码，用于设置或验证WinPE登录密码的MD5校验。
-参数：
-　文件名:要计算MD5校验码的文件全名；字符串:要计算MD5校验码的字符串。
-　前导&quot;$&quot;:表示要计算的是字符串的MD5，如果字符串的第1个字符是&quot;$&quot;，请在前面再添加一个&quot;$&quot;。
-　变量名:用于保存计算结果的变量名。
-示例：
-　MD5C %SystemRoot%\System32\UserInit.EXE,UserInitMD5
-　MD5C $Lxl1638,PassWordMD5
-备注：
-　用MD5C命令计算字符串MD5校验码时，字符串的字符数限定在256以内(不能含&quot;, &quot;字符)。
-　文件名不要含&quot;,&quot;字符，系统独占文件的MD5校验码是&quot;d41d8cd98f00b204e9800998ecf8427e&quot;或全&quot;0&quot;。
-　被校验的字符串可以含有中文，英文字母区分大小写。
-　给出变量名，MD5C命令计算结果保存到指定的变量中，示例2可通过环境变量%PassWordMD5%来引用。
-　省略变量名，MD5C命令的计算结果以消息窗口的形式显示，同时也将结果保存到粘帖板中。
-</code></pre><h3 id="MEMO"><a href="#MEMO" class="headerlink" title="[MEMO]"></a>[MEMO]</h3><pre><code>格式：MEMO &lt;编辑框名称&gt;,&lt;编辑框形状&gt;,[编辑框内容],[目标文件名],[编辑框类型]
-功能：在_SUB定义的窗口内建立一个多行文本编辑框。
-参数：
-　编辑框名称:字串，编辑框名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　编辑框形状:编辑框位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。
-　编辑框内容:初始化编辑框时填入的内容，支持多行文字，文字行间用&quot;\n&quot;表示断行，总长1K以内。
-　目标文件名:指定文本文件名，多行文本编辑框的内容由该文件载入。
-　编辑框类型:数字，默认省略或为0，表示可编辑的多行文本编辑框，非0表示只读的多行文本编辑框。
-示例：
-　MEMO Memo1,L304T268W280H88,,%CurDir%\Readme.TXT,0
-备注：
-　MEMO命令必须位于_SUB命令和_END命令之间，其它位置的MEMO命令无效，参照_SUB、CALL命令说明。
-　&quot;编辑框内容&quot;不为空时将忽略&quot;目标文件名&quot;，当&quot;编辑框内容&quot;为空时将加载&quot;目标文件名&quot;指定的内容，超长的&quot;编辑框内容&quot;可以通过环境变量赋值来连接成一个新的字符串变量，方便在记事本中阅读。
-　可用&quot;ENVI @编辑框名称.Enable=数值&quot;来设置编辑框的可用状态；0为不可用状态，非0为可用状态。
-　可用&quot;ENVI @编辑框名称.ReadOnly=数值&quot;来设置编辑框的只读状态；0为非只读状态，非0为只读状态。
-</code></pre><h3 id="MENU"><a href="#MENU" class="headerlink" title="[MENU]"></a>[MENU]</h3><pre><code>格式：MENU &lt;菜单项名称&gt;,[菜单项标题],[菜单项事件],[菜单项状态]
-功能：向自定义的托盘图标菜单添加一项菜单。
-参数：
-　菜单项名称:字符串，除分隔线外，菜单项名称应是唯一的，不能与其它控件或环境变量的名称同名，当菜单项名称或菜单项名称的第一个字符为&quot;- &quot;时表示分隔线，否则表示正常菜单。
-　菜单项标题:菜单项上的文字，用于描述菜单项的功能或说明。
-　菜单项事件:点击该菜单项时执行的命令，必须是PECMD支持的有效命令。
-　菜单项状态:默认为0，表示正常可用菜单，非0为灰色禁用菜单。
-示例：
-　MENU Menu2,分辨率1024X768颜色32位刷新率85,DISP W1024H768B32F85
-　MENU -
-备注：
-　MENU命令必须位于_SUB命令和_END命令之间，其它位置的MENU命令无效，参照_SUB、CALL命令说明。
-　运行期间暂时不提供修改菜单项标题的支持，即不能通过环境变量%菜单项名称%来引用菜单项标题，也不支持用&quot;ENVI @菜单项名称&quot;来设置修改菜单项标题。
-　托盘图标菜单的图标由_SUB命令定义的窗口图标来决定，省略时采用PECMD的主图标。
-　可用&quot;ENVI @菜单项名称名称.Enable=数值&quot;来设置编辑框的可用状态；0为不可用状态非0为可用状态。
-</code></pre><h3 id="MESS"><a href="#MESS" class="headerlink" title="[MESS]"></a>[MESS]</h3><pre><code>格式：MESS &lt;消息窗文字内容&gt;&lt;@消息窗文字标题&gt;&lt;#消息窗类型&gt;[*自动关闭的时间(毫秒)][$默认的选择]
-功能：显示一个[是/否]选择消息窗或显示一个带[确定]按钮的消息窗口。
-参数：
-　&quot;消息窗文字内容&quot;支持多行文字，文字行间用&quot;\n&quot;断开；&quot;消息窗类型&quot;目前支持&quot;YN&quot;和&quot;OK&quot;两种类型。
-　自动关闭的时间设置为0或不设置时，消息窗口不会自动关闭。默认的选择用Y或N表示，如$Y或$N。
-示例：
-　MESS发现物理内存不足，\n是否设置虚拟内存？ @设置虚拟内存#YN *10000 $N
-备注：
-　用户对&quot;YN&quot;类型消息窗的选择结果保存在环境变量%YESNO%中，当选择[是]时，环境变量%YESNO%的值为YES，当窗口超时关闭或选择[否]时这一变量值为NO，可用IFEX或FIND命令判断这一环境变量的值。
-　&quot;YN&quot;类型消息窗省略默认的选择参数时自动关闭的返回值为NO。
-　&quot;OK&quot;类型消息窗没有返回值，仅向用户显示提示消息。
-</code></pre><h3 id="MOUN"><a href="#MOUN" class="headerlink" title="[MOUN]"></a>[MOUN]</h3><pre><code>格式：MOUN [!][Wim文件名],&lt;Mount目标目录&gt;,[映像ID],[WimFltr临时工作目录]
-功能：将WIM文件中的某个映像挂载到指定的目录中或卸下已经挂载上的映像文件。
-参数：
-　Wim文件名: Microsoft Windows Imaging Format (WIM)映像格式的文件。
-　Mount目标目录:将WIM映像挂载到的目录。
-　Wim文件的映像ID : WIM文件中的映像ID，用数值表示。只读挂载映像时，映像ID为1时可省略。
-　WimFltr临时目录:当设置WimFltr临时工作目录时表示RW方式挂载，这个目录建议设置到硬盘。
-示例：
-　MOUN %CurDrv%\外置程序\PROGRAMS.WIM,%ProgramFiles%,1
-备注：
-　文件目录名支持环境变量解释；使用FBWF命令时，FBWF命令须在MOUN命令后。
-　文件名以&quot;\&quot;开始时，则搜索所有分区(含隐藏分区)指定目录的文件，如: MOUN \MyPE\OP.WIM,%PF%,1
-　前导&quot;!&quot;表示成功挂载隐藏分区中的WIM后，给隐藏分区分配盘符，如: MOUN !\MyPE\OP.WIM,%PF%,1
-　省略Wim文件名为卸下映像，映像ID为非0表示卸载映像时保存修改内容，为0表示不保存修改内容。
-</code></pre><h3 id="MSTR"><a href="#MSTR" class="headerlink" title="[MSTR]"></a>[MSTR]</h3><pre><code>格式：MSTR &lt;变量名&gt;&lt;=&gt;&lt;字符串&gt;&lt;,位置&gt;&lt;,长度&gt;
-功能：从指定&quot;字符串&quot;的起始位置截取指定长度的字符，并将结果返回给指定名称的变量。
-参数：
-　变量名:用于保存命令结果的变量名；
-　字符串:源字符串，长度不能超2K；
-　位置:数值，指定源字符串的起始位置；
-　长度:数值，指定截取的长度。
-示例：
-　MSTR aStr=1234567890,2,4
-　MSTR aStr=1234567890,5,7
-备注：
-　当&quot;位置&quot;小于1时作1处理，当&quot;长度&quot;小于1或超出源字符串长度时，返回起始位置后的所有字符；
-　该命令按Unicode字符串处理，示例1的返回值为&quot;2345&quot;，示例2的返回值为&quot;567890&quot;。
-</code></pre><h3 id="NAME"><a href="#NAME" class="headerlink" title="[NAME]"></a>[NAME]</h3><pre><code>格式：NAME &lt;变量名&gt;&lt;=&gt;&lt;文件名&gt;
-功能：返回指定文件名的基本名(无目录、无扩展名)
-参数：
-　变量名:用于保存命令返回值的变量名
-　文件名:被检测的合法的文件名称
-示例：
-　NAME aFileName=C:\WINDOWS\NOTEPAD.EXE
-　NAME aName=%CurDir%\Path1\Path2\FileName
-备注：
-　指定的文件名为分区的根目录时，该命令的返回结果为空值；
-　示例1的返回结果为&quot;NOTEPAD&quot;，示例2的返回结果为&quot;FileName&quot;。
-</code></pre><h3 id="NUMK"><a href="#NUMK" class="headerlink" title="[NUMK]"></a>[NUMK]</h3><pre><code>格式：NUMK &lt;数值&gt;
-功能：控制小数字键盘的开关状态
-参数：
-　数值0时为关，非0为开
-示例：
-　NUMK 1
-备注：
-　原有SEND命令可实现相同功能，但不十分准确，当NUMK为开时，再发送一次按键反而会关掉。
-</code></pre><h3 id="PAGE"><a href="#PAGE" class="headerlink" title="[PAGE]"></a>[PAGE]</h3><pre><code>格式：PAGE &lt;页面文件路径&gt; &lt;初始大小&gt; [最大值]
-功能：设置页面文件(虚拟内存)。
-参数：
-　指定页面文件的路径，只能用DOS 8.3格式的路径，如&quot;C:\PageFile.sys&quot;。
-　初始大小和最大值的单位是MB；当省略最大值时，自动设置最大值=初始大小。
-示例：
-　PAGE C:\PAGEFILE.SYS 128 256
-备注：
-　如果设置了页面文件，则该分区将无法执行格式化等操作。
-　当可用内存&gt;初始大小时，本命令将不设置页文件，即可以定义初始大小来作为设置页文件的条件。
-　该命令有智能化功能，即从你定义的页面文件名(含盘符)所在的分区起开始搜索符合条件(硬盘和容量)分区来设置页文件，避开速度慢的U盘和移动硬盘。以U盘或移动硬盘启动时，可能配置文件定义的页文件就在U盘或移动硬盘。经一轮搜索若没有找到符合条件的硬盘分区设置页文件才利用U盘或移动硬盘来设置页文件。
-</code></pre><h3 id="PATH"><a href="#PATH" class="headerlink" title="[PATH]"></a>[PATH]</h3><pre><code>格式：PATH [@][#][目录名]
-功能：操作目录，用于设置PECMD.EXE的当前工作目录或建立目录或删除目录。
-参数：
-　目录名称(支持带环境变量)。
-示例：
-　PATH @%CurDrv%\外置程序或PATH %TEMP%
-备注：
-　前导&quot;@&quot;表示设置PECMD.EXE的当前目录，方便EXEC、DEVI等命令采用相对路径，以缩短命令行长度。
-　前导&quot;#&quot;表示删除目录，注意该操作也可能删除同名的文件。
-　省略前导符&quot;@&quot;和&quot;#&quot;时，PATH用于建立目录(能建立多级目录)。
-　在配置文件内使用带前导&quot;@&quot;的PATH命令必须谨慎，以防引起错乱。
-　当参数为空时将恢复PECMD.EXE默认的当前目录(%SystemRoot%\SYSTEM32)。
-</code></pre><h3 id="PBAR"><a href="#PBAR" class="headerlink" title="[PBAR]"></a>[PBAR]</h3><pre><code>格式：PBAR &lt;进度条名称&gt;,&lt;进度条形状&gt;,[进度条进度]
-功能：在_SUB定义的窗口内建立一条进度条。
-参数：
-　进度条名称:字串，进度条名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　进度条形状:进度条的位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。
-　进度条进度:数值(1～100)，初始化进度条的进度百分数，默认为0。
-示例：
-　PBAR Pbar1,L360T11W428H16,0
-备注：
-　PBAR命令必须位于_SUB命令和_END命令之间，其它位置的PBAR命令无效，参照_SUB、CALL命令说明。
-　要设置进度条的进度，可以使用&quot;ENVI @进度条名称=数值&quot;来设置，参照ENVI命令的说明；当设置的数值小于0时将会使进度条隐藏，大于100的数值将被忽略。
-</code></pre><h3 id="RADI"><a href="#RADI" class="headerlink" title="[RADI]"></a>[RADI]</h3><pre><code>格式：RADI &lt;单选框名称&gt;,&lt;单选框形状&gt;,[单选框标题],[单选框事件],[单选框状态],[单选框组ID]
-功能：在_SUB定义的窗口内建立一个单选框控件。
-参数：
-　单选框名称:字符串，单选框的名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　单选框形状:单选框位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。
-　单选框标题:单选框上的文字，用于描述单选框的功能或说明。
-　单选框事件:点击该复选框时执行的命令，必须是PECMD支持的有效命令。
-　单选框状态:数字，1或-1为钩选状态，0，2或-2为没有钩选，小于0为灰色不可用状态。
-　单选框组ID:数字，默认为0，可以将多个单选框分组，组内的单选框可以多选一，组间互不影响。
-示例：
-　RADI RadioButton1,L32T314W100H20,卸载WimShExt.DLL,ENVI @Group1=%RadioButton1%,1,1
-备注：
-　RADI命令必须位于_SUB命令和_END命令之间，其它位置的RADI命令无效，参照_ SUB、CALL命令说明。
-　要设置单选框标题，可使用&quot;ENVI @单选框名称=单选框标题&quot;来设置，参照ENVI命令的说明。
-　可用&quot;ENVI @单选框名称.Check=数值&quot;来设置单选框钩选状态，数值0为未钩选状态；非0为钩选状态。
-　可用&quot;ENVI @单选框名称.Enable=数值&quot;来设置单选框可用状态，数值0为禁用状态；非0为可用状态。
-</code></pre><h3 id="RAMD"><a href="#RAMD" class="headerlink" title="[RAMD]"></a>[RAMD]</h3><pre><code>格式：RAMD [P可用内存百分数] [L最小值] [H最大值]
-功能：设置RamDisk大小
-参数：
-　最大值、最小值均为MB。
-示例：
-　RAMD P20 L32 H64
-备注：
-　三个参数都可单独使用，如使用RAMD P10时，将可用内存的10%设置为RamDisk。
-</code></pre><h3 id="REGI"><a href="#REGI" class="headerlink" title="[REGI]"></a>[REGI]</h3><pre><code>格式：REGI [前导]&lt;HKLM|HKCU|HKCR|HKU|HKCC&gt;&lt;\子项\&gt;&#123;&lt;键名,变量名&gt;|[[键名][操作符][[类型符]数据值]]&#125;
-功能：读取或设置、删除注册表数据。
-参数：
-　前导符&quot;$&quot;、&quot;#&quot;、&quot;@&quot;分别表示读取注册表中的REG_SZ、REG_DWORD、REG_BINARY类型数据，省略表示设置、删除注册表数据。变量名(默认为RegDat)用于保存返回值。
-　子项名所选ROOTKEY下注册表项的完整名。
-　键值名要操作的键值名。省略则操作默认键值；如果操作符为&quot;!&quot;且没有&quot;=&quot;，则用于删除整个子项。
-　操作符操作符&quot;!&quot;为删除整个子项；操作符&quot;=&quot;且没有数据为删除；操作符&quot;=&quot;且有数据为设置数据。
-　类型符数据类型。省略为字符串；&quot;#&quot;为REG_DWORD类型数据，如&quot;#0x20&quot;；&quot;@&quot;为REG_BINARY类数据，如&quot;@23 34 90 255&quot;
-　数据值字符串空值用&quot;&quot;表示、REG_DWORD类型数据、REG_BINARY类型数据支持16进制数值。
-示例：
-　REGI HKCU\SOFTWARE\WinCMD\Version=#1200
-　REGI HKCR\lnkfile\IsShortcut=&quot;&quot;
-　REGI $HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache,IECache
-备注：
-　此命令比较复杂，请仔细看说明，示例3为读取IE缓存的位置。
-</code></pre><h3 id="RPOS"><a href="#RPOS" class="headerlink" title="[RPOS]"></a>[RPOS]</h3><pre><code>格式：RPOS &lt;变量名&gt;&lt;=&gt;&lt;字符串&gt;&lt;,字符&gt;&lt;,数值&gt;
-功能：返回指定&quot;字符&quot;在&quot;字符串&quot;右边起出现的位置。
-参数：
-　变量名:用于保存命令结果的变量名；
-　字符串:被检测的字符串，长度不能超2K；
-　字符:被检测的字符，不区分大小写；
-　数值:指定被检测的字符出现的次数。
-示例：
-　RPOS iPos=123A56|1234A6|abcdef,a,2
-　RPOS iPos=123A56|1234A6|abcdef,a,3
-备注：
-　当&quot;数值&quot;小于1时返回最左边被检测字符的位置，如上例的结果是4；返回结果为0时表示没有找到。
-　该命令按Unicode字符串处理，示例1的返回值为12，示例2的返回值为4。
-</code></pre><h3 id="RSTR"><a href="#RSTR" class="headerlink" title="[RSTR]"></a>[RSTR]</h3><pre><code>格式：RSTR &lt;变量名&gt;&lt;=&gt;&lt;字符串&gt;&lt;,数目&gt;
-功能：从指定&quot;字符串&quot;的右边截取指定数目的字符，并将结果返回给指定名称的变量。
-参数：
-　变量名:用于保存命令结果的变量名；
-　字符串:源字符串，长度不能超2K；
-　数目:指定截取字符的数目。
-示例：
-　RSTR aStr=1234567890,2
-　RSTR aStr=1234567890,5
-备注：
-　当&quot;数值&quot;小于1时或超出源字符串的长度时，返回结果为整个源字符串(相当于字符串复制)；
-　该命令按Unicode字符串处理，示例1的返回值为&quot;90&quot;，示例2的返回值为&quot;67890&quot;。
-</code></pre><h3 id="RUNS"><a href="#RUNS" class="headerlink" title="[RUNS]"></a>[RUNS]</h3><pre><code>格式：RUNS &lt;程序命令&gt;&lt;*|,&gt;&lt;启动项名称&gt;
-功能：设置Windows的启动项
-参数：
-　程序命令为EXE、CMD、BAT各种可执行的命令，可带参数；启动项名称为文字。
-示例：
-　RUNS PECMD.EXE EXEC !%CurDrv%\外置程序\DRIVER\STARTDRIVER.CMD,安装驱动。
-备注：
-　原REGI命令可实现相同的功能，只是用REGI命令表示需要文字太长，才将这一功能单独做成一条命令。
-　程序命令和启动项名称之间的分隔符为右起的&quot;*&quot;或左起的&quot;。大白菜官网
-　本命令不能在命令行中使用，只能在配置文件中使用。
-</code></pre><h3 id="SEND"><a href="#SEND" class="headerlink" title="[SEND]"></a>[SEND]</h3><pre><code>格式：SEND &lt;按键代码1[_|^]&gt;,[按键代码2],[按键代码3]...
-功能：模拟按键。
-参数：
-　虚拟按键代码，如VK_NUMLOCK，请参相关考编程文档。如果按键代码以&quot;_&quot;结束，则仅模拟按键按下；&quot;^&quot;则仅模拟按键弹起；否则模拟按下并弹起。
-示例：
-　SEND 0x12_,0x09_,0x09^,0x12^
-备注：
-　上面的示例模拟Alt+Tab。按键代码支持16进制和十进制。
-</code></pre><h3 id="SERV"><a href="#SERV" class="headerlink" title="[SERV]"></a>[SERV]</h3><pre><code>格式：SERV [!]&lt;服务名称&gt;
-功能：启动或停止服务或驱动程序。
-参数：
-　指定服务名称。前导&quot;!&quot;表示停止服务，否则启动服务。
-示例：
-　SERV FBWF
-备注：
-　此命令来启动FBWF服务(如果安装了的话)，以增加系统盘的可写空间，这样PE就能在光盘上运行了。
-</code></pre><h3 id="SHEL"><a href="#SHEL" class="headerlink" title="[SHEL]"></a>[SHEL]</h3><pre><code>格式：SHEL &lt;文件名(含路径)&gt;,[密码MD5字符串],[重试次数]
-功能：加载指定的SHELL，并将SHELL锁定。
-参数：
-　文件名为SHELL文件名(含路径，可使用环境变量)。
-　密码是英文字母和数字，区分大小写，密码的最大长度是12个字符。
-　省略密码MD5字符串时会自动登录，默认的重试机会为3次。
-示例：
-　SHEL %SystemRoot%\EXPLORER.EXE,e10adc3949ba59abbe56e057f20f883e,5
-备注：
-　本命令功能与EXEC $相似，修改进程中关机代码(挂接&quot;ExitWindowsEx&quot;函数)。
-　本命令同时具有锁定SHELL的功能，当SHELL被杀时能自动加载SHELL。
-　带登录密码的SHELL命令，建议在它之前开启LOGO命令。
-　SHEL命令之后的TEXT命令的各参数可能要重新设置。
-　SHEL命令必须在HOTK命令之后，本命令不能在命令行中使用，只能在配置文件中使用。
-</code></pre><h3 id="SHOW"><a href="#SHOW" class="headerlink" title="[SHOW]"></a>[SHOW]</h3><pre><code>格式：SHOW [硬盤號|標識符][:分區號],[盤符]
-功能：顯示系統存在的移動硬盤或固定硬盤的隱藏分區，並給這些分區分配盤符。
-參數：
-　硬盤號: 本機中存在的硬盤，&quot;0&quot;表示&quot;hd0&quot;，&quot;1&quot;表示&quot;hd1&quot;，&quot;2&quot;表示&quot;hd2&quot;，依次類推；
-　標識符: 表示硬盤類型的標識，固定硬盤用&quot;F&quot;表示，移動硬盤用&quot;R&quot;表示，標識符與硬盤號只取其一；
-　分區號: &quot;0&quot;表示所有還沒指派盤符的分區，&quot;1&quot;表示第1分區，&quot;2&quot;表示第2分區，依次類推；
-　盤符: 用字母&quot;C～Z&quot;表示(不帶&quot;:&quot;)，省略&quot;盤符&quot;或設置盤符不合理時由 PECMD.EXE 自動分配盤符。
-示例：
-　SHOW 0:1,H
-　SHOW R:1,U
-　SHOW F:0
-　SHOW
-備註：
-　某些機型在WinPE啓動後已經可以識別移動硬盤，但沒有爲移動硬盤指派盤符，可以通過 SHOW 命令的&quot;R&quot;標識符爲移動硬盤分配盤符，示例2表示給&quot;移動硬盤的第1分區&quot;指派爲盤符&quot;U:&quot;；
-　示例1表示&quot;硬盤0隱藏分區1&quot;指派爲盤符&quot;H:&quot;，示例3表示自動爲&quot;固定硬盤的所有隱藏分區&quot;指派盤符；
-　刪除盤符可用SUBJ命令，該命令與SUBJ命令配合，可載入隱藏分區的外置程序並保持原分區隱藏屬性。
-</code></pre><h3 id="SHUT"><a href="#SHUT" class="headerlink" title="[SHUT]"></a>[SHUT]</h3><pre><code>格式：SHUT [H|E|R|S]
-功能：关闭或重启计算机等操作。
-参数：
-　无参数:默认为关闭系统；
-　参数&quot;H&quot;:执行休眠操作，只能在正常系统中使用，系统必须支持休眠(可在控制面板中启用休眠)；
-　参数&quot;E&quot;:关闭系统前先弹出光驱，10秒后再关闭系统；
-　参数&quot;R&quot;:执行重启系统操作；
-　参数&quot;S&quot;:执行挂起系统操作，只能在正常系统中使用。
-示例：
-　SHUT E
-　SHUT R
-　SHUT H
-　SHUT S
-备注：
-　该命令可在命令行中使用，此功能是快速关机，可能不会保存所有数据。
-</code></pre><h3 id="SITE"><a href="#SITE" class="headerlink" title="[SITE]"></a>[SITE]</h3><pre><code>格式：SITE &lt;文件目录路径&gt;,&lt;文件目录属性&gt;
-功能：设置或清除文件目录的属性,SITE命令支持A、H、R、S四种属性。
-参数：
-　设置属性用&quot;+&quot;，清除属性用&quot;-&quot;，(A=ARCHIVE; H=HIDDEN; R=READONLY; S=SYSTEM)
-示例：
-　SITE %SystemRoot%\System32\PELOGON.EXE,+H +R
-备注：
-　SITE命令既可设置文件属性，也可设置目录属性。
-</code></pre><h3 id="STRL"><a href="#STRL" class="headerlink" title="[STRL]"></a>[STRL]</h3><pre><code>格式：STRL &lt;变量名&gt;&lt;=&gt;&lt;字符串&gt;
-功能：返回指定&quot;字符串&quot;的长度。
-参数：
-　变量名:用于保存命令结果的变量名；
-　字符串:被检测的字符串，长度不能超2K；
-示例：
-　STRL iLen=1234567890
-　STRL dLen=一二三四五
-备注：
-　该命令的返回结果是Unicode字符串的长度，示例1的返回值为10，示例2的返回值为5
-</code></pre><h3 id="SUBJ"><a href="#SUBJ" class="headerlink" title="[SUBJ]"></a>[SUBJ]</h3><pre><code>格式：SUBJ &lt;虚拟驱动器&gt;,[指派给虚拟驱动器的路径]
-功能：将路径与驱动器号关联，相当于CMD的SUBST命令。
-参数：
-　如果省略&quot;指派给虚拟驱动器的路径&quot;，则删除指定的虚拟驱动器。
-示例：
-　SUBJ B:,X:\PE_Tools
-备注：
-　虚拟时，虚拟驱动器须是不存在的；删除虚拟驱动器时，盘符必须准确，否则可能会删除物理驱动器。
-</code></pre><h3 id="TEAM"><a href="#TEAM" class="headerlink" title="[TEAM]"></a>[TEAM]</h3><pre><code>格式：TEAM [命令1][|命令2][|命令3]...[|命令n]
-功能：按顺预执行指定命令群组中的各条命令。
-参数：
-　一条或多条命令，多条命令之间用&quot;|&quot;分开。
-示例：
-　TEAM TEXT载入桌面|LOGO|SHEL %SystemRoot%\EXPLORER.EXE|WAIT 3000
-备注：
-　本命令后面的命令中不能嵌入IFEX或FIND命令。
-</code></pre><h3 id="TEMP"><a href="#TEMP" class="headerlink" title="[TEMP]"></a>[TEMP]</h3><pre><code>格式：TEMP &lt;[@]Delete|Setting&gt;
-功能：清理用户临时文件夹或重新设用户置临时文件夹的位置。
-参数：
-　Delete表示清理临时目录，前导@表示不经用户确认直接清理；Setting表示重新设置临时目录的位置。
-示例：
-　TEMP Delete
-备注：
-　不要在配置文件使用本命令，必须启动到桌面使用；本命令是从注册表读取临时目录位置。
-</code></pre><h3 id="TEXT"><a href="#TEXT" class="headerlink" title="[TEXT]"></a>[TEXT]</h3><pre><code>格式：TEXT [文字行1][\n]文字行2[\n]文字行3...][#颜色][L左][T上][R右][B下][ $字体大小]
-功能：在登录画面中或桌面窗口显示文字。
-参数：
-　文字为空则清除最近定义的矩形区内的文字；默认颜色为白色，默认座标大致在左上角；结尾&quot;*&quot;表示显示新文字前不清除原来已显示的文字。
-示例：
-　TEXT正在注册组件#0xFFDDDD L4 T720 R300 B768 $20
-备注：
-　本命令支持多行显示文字，文字行间用&quot;\n&quot;表示断行。
-　字体大小默认为14(相当宋体小5号)。
-　指定的位置[左,上,右,下]与文字的长度和字体的大小有关。
-　本命令在登录期间(配置文件)中使用时将在登录画面显示文字，在Windows中(登录后)使用将在桌面窗口显示文字；当文字为空时则清除最近定义的矩形区内的文字。
-</code></pre><h3 id="TIME"><a href="#TIME" class="headerlink" title="[TIME]"></a>[TIME]</h3><pre><code>格式：TIME &lt;定时器名称&gt;,&lt;定时器周期&gt;,[定时器事件]
-功能：在_SUB定义的窗口内建立一个定时器控件。
-参数：
-　定时器名称:字符串，定时器的名称应是唯一的，不能与其它控件名称或环境变量名称同名。
-　定时器周期:数字，单位为毫秒，数值大于0表示定时器即刻工作，数值为0时表示定时器暂停工作。
-　定时器事件:触发定时器时执行的命令，必须是PECMD支持的有效命令。
-示例：
-　TIME Timer1,10000,FILE %TEMP%\*.*
-备注：
-　TIME命令必须位于_SUB命令和_END命令之间，其它位置的TIME命令无效，参照_SUB、CALL命令说明。
-　环境变量%定时器名称%为定时器的工作状态，0为暂停，非0为已启动。
-　暂停定时器可用&quot;ENVI @定时器名=0&quot;，再启动定时器可用&quot;ENVI @定时器名=定时器周期(数值)&quot; 。
-</code></pre><h3 id="TIPS"><a href="#TIPS" class="headerlink" title="[TIPS]"></a>[TIPS]</h3><pre><code>格式：TIPS [提示框标题],&lt;提示框内容&gt;,[提示框寿命],[图标样式ID],[&lt;@[A]提示框位置&gt;|[托盘栏图标]]
-功能：在屏幕指定位置或托盘处显示一个气泡提示框，省略所有参数时表示清除托盘栏无效图标。
-参数：
-　提示框标题:字符串，提示框标题处显示的文字，长度不能超过64个字符，超出部分无效。
-　提示框内容:字符串，提示框显示的正文内容，长度不能超过256个字符，可以用&quot;\n&quot;表示分行。
-　提示框寿命:数字，表示提示框持续显示的时间(毫秒)，省略为默认10秒，最长显示时间由系统决定。
-　图标样式ID:数字，默认0(无图标)，1(信息图标)，2(警告图标)，3(错误图标)，4或以上(托盘图标)
-　提示框位置:必须带前导&quot;@&quot; ，表示在屏幕指定位置显示提示框，前导&quot;A&quot;表示箭型提示框，省略&quot;A&quot;时表示方型提示框，位置用LxxTyy表示(xx、yy代表数字)，该参数与&quot;托盘栏图标&quot;不能同用
-　托盘栏图标:格式为&quot;文件名#数字&quot;，省略&quot;文件名&quot;时使用PECMD.EXE程序资源中指定的图标。
-示例：
-　TIPS标题,内容\n可分行\n第3行,5000,1,#1
-　TIPS标题,内容\n可分行\n第3行,5000,2,@aL600T400
-备注：
-　托盘栏气泡提示框可以在PECMD.EXE结束后继续显示，PECMD.EXE 生命比提示框寿命长时PECMD.EXE会在指定时间后结束提示框；PECMD.EXE 生命期结束后仍然存在的提示框由系统或用户处理。
-　屏幕提示框在PECMD 结束后也结束，所以要保证PECMD 生命期比提示框寿命稍长( WAIT 命令延时)。
-</code></pre><h3 id="UPNP"><a href="#UPNP" class="headerlink" title="[UPNP]"></a>[UPNP]</h3><pre><code>格式：UPNP [$]&lt;参数&gt;
-功能：执行BartPE.EXE的功能。
-参数：
-　前导&quot;$&quot;表示显示BartPE.EXE的执行界面；
-　参数为BartPE.EXE的命令行参数。
-示例：
-　UPNP -pnp
-　UPNP $-pnp
-备注：
-　本命令内钳新版BartPE.EXE执行代码，WinPE无需BartPE.EXE文件也可完成BartPE.EXE的功能；
-　本命令为阻塞模式执行，命令完成后才执行下一条命令；注意BartPE.EXE参数及其大小写。
-</code></pre><h3 id="USER"><a href="#USER" class="headerlink" title="[USER]"></a>[USER]</h3><pre><code>格式：USER &lt;用户名&gt;&lt;*|,&gt;&lt;公司名&gt;
-功能：设置&quot;我的电脑&quot;右键菜单属性中的用户名和公司名。
-参数：
-　参数为文字。
-示例：
-　USER老九*无忧启动论坛
-　USER老九,无忧启动论坛
-备注：
-　用户名和公司名之间的分隔符为右起的&quot;*&quot;或左起的&quot;,&quot;。本命令仅能在配置文件中使用。
-</code></pre><h3 id="WAIT"><a href="#WAIT" class="headerlink" title="[WAIT]"></a>[WAIT]</h3><pre><code>格式：WAIT [-][等待时间],[量变名称]
-功能：暂停或等待指定时间后再继续执行命令。
-参数：
-　前导&quot;-&quot; :在指定的等待时间内遇到任何按键即中止等待，否则直至等待时间结束；
-　等待时间:数值(单位毫秒)，数值为0时遇到按键即中止，若无按键会无限等待(相当于任意键继续)；
-　量变名称:用于保存等待期间按键的变量，用户的按键结果将保存在指定的变量中。
-示例：
-　WAIT 2000
-　WAIT 0,PKey
-备注：
-　参数为0则暂停，任意键继续，不要在短时间间隔内连续使用暂停功能，也建议暂停功能只使用一次；WAIT 0可检测用户的按键&#39; A&#39;～&#39;Z&#39;或&#39;0&#39;～&#39;9&#39;，省略变量名时按键结果保存在环境变量%PressKey%中。
-</code></pre><h3 id="WALL"><a href="#WALL" class="headerlink" title="[WALL]"></a>[WALL]</h3><pre><code>格式：WALL &lt;壁纸文件名&gt;
-功能：设置壁纸
-参数：
-　参数为壁纸文件名。
-示例：
-　WALL %CurDrv%\外置程序\WallPage.JPG
-备注：
-　支持环境变量、支持各种格式的图形文件。设置壁纸的WALL必须在加载桌面SHEL命令之前。
-　本命令不能在命令行中使用，只能在配置文件中使用。
-</code></pre>]]></content>
+<h3 id="SUB"><a href="#SUB" class="headerlink" title="[_SUB]"></a>[_SUB]</h3><figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">格式：_<span class="hljs-keyword">SUB</span> &lt;子过程名&gt;或_<span class="hljs-keyword">SUB</span> &lt;窗口名称&gt;,&lt;窗口形状&gt;,[窗口标题],[窗口事件],[窗口图标],[窗口类型]<br>功能：定义子过程或定义一个窗口。<br>参数：<br>　子过程名:字符串。<br>　窗口名称:字符串，窗口名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　窗口标题:文字。<br>　窗口形状:窗口位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值，省略<span class="hljs-string">&quot;左上&quot;</span>时窗口居中。<br>　窗口事件:关闭窗口时执行的命令，必须是PECMD.EXE支持的命令。<br>　窗口图标:窗口标题栏和任务栏的图标，格式为&lt;图标文件名<span class="hljs-meta">#ID&gt;</span><br>　窗口类型: [-][<span class="hljs-meta">#][数值]，&quot;-&quot;为无标题栏，&quot;#&quot;为无边框窗口，数值为透明度，数值超99为隐藏窗口。</span><br>示例：<br>　<span class="hljs-number">1.</span> _<span class="hljs-keyword">SUB</span> DoLoop<br>　<span class="hljs-number">2.</span> _<span class="hljs-keyword">SUB</span> Windows1,W360H440,PECMD功能演示,EXEC $使用说明.TXT,%IconFile%<span class="hljs-meta">#19,20</span><br>备注：<br>　<span class="hljs-number">1.</span> 子过程名或窗口名的第<span class="hljs-number">1</span>个字符不能是<span class="hljs-string">&quot;$&quot;</span>，命令关键词_<span class="hljs-keyword">SUB</span>与子过程名或窗口名之间必须是<span class="hljs-number">1</span>个空格。<br>　<span class="hljs-number">2.</span> 若有多个_<span class="hljs-keyword">SUB</span>命令，这些命令定义的名称不能重复，不能近似，也不能用这些名称设置成环境变量。<br>　<span class="hljs-number">3.</span> 本命令与_END命令必须成对出现，均不能在命令行中使用，其它参照_END命令、<span class="hljs-keyword">CALL</span>命令的说明。<br>　<span class="hljs-number">4.</span> 要设置窗口的标题，可以使用<span class="hljs-string">&quot;ENVI @窗口名称=窗口标题&quot;</span>来设置，参照ENVI命令的说明。<br></code></pre></td></tr></table></figure>
+<h3 id="END"><a href="#END" class="headerlink" title="[_END]"></a>[_END]</h3><figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">格式：<span class="hljs-variable">_END</span><br>功能：结束子过程或结束窗口定义。<br>参数：<br>　无<br>示例：<br>　<span class="hljs-variable">_END</span><br>备注：<br>　定义子过程的<span class="hljs-variable">_SUB</span>命令和<span class="hljs-variable">_END</span>命令必须单独一行。即：<span class="hljs-built_in">FIND</span>、IFEX、TEAM命令内不能定义子过程。大白菜官网<br>　<span class="hljs-number">1</span>. <span class="hljs-variable">_SUB</span>与<span class="hljs-variable">_END</span>之间的命令(即子过程)只被对应的<span class="hljs-built_in">CALL</span>命令执行，主流程会跳过这些命令。<br>　<span class="hljs-number">2</span>. <span class="hljs-variable">_END</span>命令必须与<span class="hljs-variable">_SUB</span>命令一一匹配，且子过程内不能再定义子过程。<br>　<span class="hljs-number">3</span>. 子过程放在配置文件的任意位置都可以被同一配置文件中的<span class="hljs-built_in">CALL</span>命令调用，建议放在文件开始处。<br>　<span class="hljs-number">4</span>. 该命令及<span class="hljs-variable">_SUB</span>命令只能在配置文件中使用，不能在命令行下使用。<br></code></pre></td></tr></table></figure>
+<h3 id="BROW"><a href="#BROW" class="headerlink" title="[BROW]"></a>[BROW]</h3><figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog">格式：<span class="hljs-symbol">BROW</span> &lt;变量名&gt;,[[*|&amp;]初始路径],[提示文字],[扩展名]<br>功能：浏览磁盘文件和目录。<br>参数：<br>　变量名:用于保存浏览结果的变量名。<br>　初始路径:为浏览窗口默认选中的文件或目录，省略该参数时定位到系统默认的路径；前导符<span class="hljs-string">&quot;*&quot;</span>为浏览目录对话框，前导符<span class="hljs-string">&quot;&amp;&quot;</span>为保存文件对话框，省略前导符为打开文件对话框。<br>　提示文字:可以省略，省略时默认的文字为系统默认的文字提示。<br>　扩展名:浏览指定扩展名的文件，省略表示所有文件。<br>示例：<br>　<span class="hljs-number">1.</span> <span class="hljs-symbol">BROW</span> <span class="hljs-symbol">Boot_Ini</span>,<span class="hljs-symbol">C</span>:\<span class="hljs-symbol">Windiws</span>\<span class="hljs-symbol">BOOT</span>.<span class="hljs-symbol">INI</span>,请选择一个文件,<span class="hljs-symbol">INI</span><br>　<span class="hljs-number">2.</span> <span class="hljs-symbol">BROW</span> <span class="hljs-symbol">Tag</span>,*<span class="hljs-symbol">C</span>:\<span class="hljs-symbol">Windiws</span>,请选择一个目录<br>备注：<br>　<span class="hljs-number">1.</span> 本命令会打开一个文件目录浏览对话窗，让用户浏览磁盘文件目录，用户可选择某个文件或目录。<br>　<span class="hljs-number">2.</span> 选择结果将保存在指定的进程环境变量中。示例<span class="hljs-number">2</span>可通过环境变量<span class="hljs-comment">%Tag%来引用。</span><br>　<span class="hljs-number">3.</span> <span class="hljs-symbol">BROW</span>命令必须在<span class="hljs-symbol">INIT</span>命令之后或在桌面执行。<br></code></pre></td></tr></table></figure>
+<h3 id="CALC"><a href="#CALC" class="headerlink" title="[CALC]"></a>[CALC]</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><code class="hljs objectivec">格式：<span class="hljs-built_in">CALC</span> [#]&lt;变量<span class="hljs-number">0</span>&gt;&lt;=&gt;&lt;变量<span class="hljs-number">1</span>&gt;&lt;运算符&gt;&lt;变量<span class="hljs-number">2</span>&gt;<br>功能：将<span class="hljs-string">&quot;变量1&quot;</span>和<span class="hljs-string">&quot;变量2&quot;</span>按<span class="hljs-string">&quot;运算符&quot;</span>来运算，把运算结果保存在<span class="hljs-string">&quot;变量0&quot;</span>中。<br>参数：<br>　前导<span class="hljs-string">&quot;#&quot;</span>表示所有变量按<span class="hljs-keyword">int</span>型数据来处理，省略该前导表示所有变量按<span class="hljs-keyword">double</span>型数据来处理；<br>　<span class="hljs-string">&quot;变量1&quot;</span>和<span class="hljs-string">&quot;变量2&quot;</span>可以是具体数值，也可以是已存在的变量；<br>　<span class="hljs-string">&quot;运算符&quot;</span>目前只支持<span class="hljs-string">&quot;+&quot;</span>、<span class="hljs-string">&quot;-&quot;</span>、<span class="hljs-string">&quot;*&quot;</span>、<span class="hljs-string">&quot;/&quot;</span>四种运算。<br>示例：<br>　加法运算:<span class="hljs-built_in">CALC</span> #Sum = <span class="hljs-number">128</span> + <span class="hljs-number">32</span>或<span class="hljs-built_in">CALC</span> Sum = %Datum1% + %Datum2%<br>　乘法运算: <span class="hljs-built_in">CALC</span> #Result = <span class="hljs-number">128</span> * <span class="hljs-number">64</span>或<span class="hljs-built_in">CALC</span> Result = %Datum1% * %Datum2%<br>备注：<br>　<span class="hljs-number">1.</span> <span class="hljs-string">&quot;变量1&quot;</span>或<span class="hljs-string">&quot;变量2&quot;</span>可以用ENVI命令来直接设置(赋值)，也可以是<span class="hljs-built_in">CALC</span>命令运算赋值的结果；<br>　<span class="hljs-number">2.</span> <span class="hljs-string">&quot;变量1&quot;</span>或<span class="hljs-string">&quot;变量2&quot;</span>没有赋值时，当数值<span class="hljs-string">&quot;0&quot;</span>处理；要完成复杂的四则运算可用一系列<span class="hljs-built_in">CACL</span>命令完成；<br>　<span class="hljs-number">3.</span> <span class="hljs-built_in">CACL</span>命令按<span class="hljs-keyword">double</span>型变量来处理数据时，最多保留<span class="hljs-number">4</span>位小数，要比较数值大小可用IFEX命令来判断。<br></code></pre></td></tr></table></figure>
+<h3 id="CALL"><a href="#CALL" class="headerlink" title="[CALL]"></a>[CALL]</h3><figure class="highlight swift"><table><tr><td class="code"><pre><code class="hljs swift">格式：<span class="hljs-type">CALL</span> <span class="hljs-operator">&lt;</span><span class="hljs-variable">$DLL名</span><span class="hljs-operator">&gt;</span>,[函数],[[#]参数<span class="hljs-number">1</span>],[[#]参数<span class="hljs-number">2</span>],[[#]参数<span class="hljs-number">3</span>],[[#]参数<span class="hljs-number">4</span>]或<span class="hljs-type">CALL</span> <span class="hljs-operator">&lt;</span>过程<span class="hljs-operator">&gt;</span>或<span class="hljs-type">CALL</span> <span class="hljs-operator">&lt;</span><span class="hljs-meta">@窗口</span><span class="hljs-operator">&gt;</span><br>功能：调用<span class="hljs-type">DLL函数或调用子过程</span><span class="hljs-operator">。</span><br>参数：<br>　前导<span class="hljs-string">&quot;$&quot;</span>表示调用<span class="hljs-type">DLL函数，指定DLL路径</span><span class="hljs-operator">、</span>函数名和参数<span class="hljs-operator">。</span>省略函数名，将调用<span class="hljs-string">&quot;DllRegisterServer&quot;</span>，参数默认为<span class="hljs-type">UNICODE字符串，如果以</span><span class="hljs-string">&quot;#&quot;</span>前导则表示整数；最多支持四个函数参数<span class="hljs-operator">。</span><br>　前导<span class="hljs-string">&quot;@&quot;</span>表示调用由_SUB命令定义的窗口，不要在_SUB命令定义的窗口内执行<span class="hljs-type">CALL</span> <span class="hljs-meta">@调用另一个窗口</span><span class="hljs-operator">。</span><br>　省略前导<span class="hljs-string">&quot;$&quot;</span>表示调用子过程，参数为子过程名称<span class="hljs-operator">。</span><br>示例：<br>　调用<span class="hljs-type">DLL函数</span>: <span class="hljs-type">CALL</span> <span class="hljs-variable">$SHELL32</span>.<span class="hljs-type">DLL</span>,<span class="hljs-type">DllInstall</span>,#<span class="hljs-number">1</span>,<span class="hljs-type">U</span><br>　调用窗口过程: <span class="hljs-type">CALL</span> <span class="hljs-meta">@Window1</span><br>　调用子过程: <span class="hljs-type">FIND</span> <span class="hljs-type">MEM</span><span class="hljs-operator">&gt;</span><span class="hljs-number">127</span>,<span class="hljs-type">CALL</span> <span class="hljs-type">EXPLORER_SHELL</span>!<span class="hljs-type">CALL</span> <span class="hljs-type">CMD_SHELL</span><br>备注：<br>　<span class="hljs-number">1</span>. 调用<span class="hljs-type">DLL函数</span>: <span class="hljs-type">DLL中的函数必须以STDCALL方式导出</span>(不明白什么意思的话，就当没任何问题)<span class="hljs-operator">。</span><br>　<span class="hljs-number">2</span>. 调用窗口过程:用<span class="hljs-type">CALL的前导</span><span class="hljs-string">&quot;@&quot;</span>调用窗口时，该<span class="hljs-type">CALL命令后的命令将暂停执行，直至窗口关闭</span><span class="hljs-operator">。</span><br>　<span class="hljs-number">3</span>. 调用子过程: <span class="hljs-type">CALL命令只能调用同一配置文件内的子过程，CALL命令调用子过程的功能不能在命令行中使用，其它参照_SUB和_END命令的说明</span><span class="hljs-operator">。</span><br></code></pre></td></tr></table></figure>
+<h3 id="CHEK"><a href="#CHEK" class="headerlink" title="[CHEK]"></a>[CHEK]</h3><figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">格式：CHEK &lt;复选框名称&gt;,&lt;复选框形状&gt;,[复选框标题],[复选框事件],[复选框状态]功能：在<span class="hljs-variable">_SUB</span>定义的窗口内建立一个复选框控件。<br>参数：<br>　复选框名称:字符串，复选框的名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　复选框形状:复选框位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。<br>　复选框标题:复选框上的文字，用于描述复选框的功能或说明。<br>　复选框事件:点击该复选框时执行的命令，必须是PECMD支持的有效命令。<br>　复选框状态:数字，<span class="hljs-number">1</span>或-<span class="hljs-number">1</span>为钩选状态，<span class="hljs-number">0</span>，<span class="hljs-number">2</span>或-<span class="hljs-number">2</span>为没有钩选，小于<span class="hljs-number">0</span>为灰色不可用状态。<br>示例：<br>　CHEK Check1,L180T336W100H20,可写挂载,,<span class="hljs-number">1</span><br>备注：<br>　<span class="hljs-number">1</span>. CHEK命令必须位于<span class="hljs-variable">_SUB</span>命令和<span class="hljs-variable">_END</span>命令之间，其它位置的CHEK命令无效，参照<span class="hljs-variable">_SUB</span>、<span class="hljs-built_in">CALL</span>命令说明。<br>　<span class="hljs-number">2</span>. 环境变量: %复选框名称%为复选框标题，设置标题，可用<span class="hljs-string">&quot;ENVI @复选框名称=复选框标题&quot;</span>来设置。<br>　<span class="hljs-number">3</span>. 可用<span class="hljs-string">&quot;ENVI @复选框名称.Check=数值&quot;</span>来设置复选框钩选状态，数值<span class="hljs-number">0</span>为未钩选状态；非<span class="hljs-number">0</span>为钩选状态。<br>　<span class="hljs-number">4</span>. 可用<span class="hljs-string">&quot;ENVI @复选框名称.Enable=数值&quot;</span>来设置复选框可用状态，数值<span class="hljs-number">0</span>为禁用状态；非<span class="hljs-number">0</span>为可用状态。<br></code></pre></td></tr></table></figure>
+<h3 id="DATE"><a href="#DATE" class="headerlink" title="[DATE]"></a>[DATE]</h3><figure class="highlight gcode"><table><tr><td class="code"><pre><code class="hljs gcode">格式：DATE [变量名]功能：返回系统当前日期和时间<br>参数：<br>　变量名用于保存系统当前日期和时间的变量名称<br>示例：<br>　DATE SysDate<br>备注：<br>　<span class="hljs-number">1.</span> 返回结果以<span class="hljs-string">&quot;年-月-日|星期|时:分:秒&quot;</span>的形式保存在指定的变量中，要取出其中的<span class="hljs-string">&quot;日期&quot;</span>或<span class="hljs-string">&quot;时间&quot;</span>，请用PECMD的字符串处理命令<span class="hljs-comment">(LPOS、RPOS、LSTR、MSTR、RSTR)</span>来处理；<br>　<span class="hljs-number">2.</span> 若省略<span class="hljs-string">&quot;变量名&quot;</span>时，结果保存在环境变量<span class="hljs-meta">%</span>CurDate<span class="hljs-meta">%</span>中，示例的结果可能是<span class="hljs-string">&quot;2008-8-8|5|20:8:8&quot;</span>。<br></code></pre></td></tr></table></figure>
+<h3 id="DEVI"><a href="#DEVI" class="headerlink" title="[DEVI]"></a>[DEVI]</h3><figure class="highlight taggerscript"><table><tr><td class="code"><pre><code class="hljs taggerscript">格式：DEVI [$]&lt;CAB路径&gt;<br>功能：从CAB文件或指定的文件夹中查找(并安装)驱动程序。<br>参数：<br>　指定CAB文件路径。前导&quot;$&quot;表示解压缩驱动文件后安装驱动，否则不安装驱动。<br>示例：<br>　DEVI <span class="hljs-variable">%SystemRoot%</span><span class="hljs-symbol">\D</span>RV.CAB<br>备注：<br>　1. 此命令使用自定的(而非系统的)驱动搜索算法，可快速解压缩可能用到的驱动程序，因此，一个设备可能搜索到多个驱动程序。<br>　2. 在CAB中，把每个驱动单独放在一个目录中，并保证CAB中INF文件总是在当前目录的最前面，且CAB中的INF文件必须经过处理。建议使用配套程序XCAB来制作。<br>　3. INF文件解压缩到&quot;<span class="hljs-variable">%SystemRoot%</span><span class="hljs-symbol">\I</span>NF&quot;目录，SYS文件解压缩到<span class="hljs-variable">%SystemRoot%</span><span class="hljs-symbol">\S</span>YSTEM32<span class="hljs-symbol">\D</span>RIVERS目录，其它文件解压缩到<span class="hljs-variable">%SystemRoot%</span><span class="hljs-symbol">\S</span>YSTEM32目录。<br>　4. 如果其它文件需要解压缩到特定目录中，可以在文件名中使用&quot;#&quot;代替目录分隔符，如文件&quot;SYSTEM32#WBEM#MOF#XXX.MOF&quot;将会被解压缩到&quot;<span class="hljs-variable">%SystemRoot%</span><span class="hljs-symbol">\ </span>SYSTEM32<span class="hljs-symbol">\W</span>BEM<span class="hljs-symbol">\M</span>OF<span class="hljs-symbol">\X</span>XX.MOF&quot;。<br>　5. 此命令还有一个功能：从本地磁盘中搜索驱动，如&quot;DEVI <span class="hljs-symbol">\W</span>indows,Display&quot;。但此命令未完善，会提示驱动文件对话窗。因此，本功能暂不提供技术支持。<br></code></pre></td></tr></table></figure>
+<h3 id="DISP"><a href="#DISP" class="headerlink" title="[DISP]"></a>[DISP]</h3><figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">格式：<span class="hljs-keyword">DISP </span>[W水平分辨率H垂直分辨率] [<span class="hljs-keyword">B颜色深度] </span>[F刷新率] [T等待(毫秒)]<br>功能：设置显示参数。<br>参数：<br>　分别指定屏幕参数，如果省略则使用原来的设置。<br>示例：<br>　<span class="hljs-keyword">DISP </span>W1024 H768 <span class="hljs-keyword">B32 </span>F70 T5000<br>备注：<br>　前三组参数可单独使用，如要设置刷新率为<span class="hljs-number">75</span>，使用<span class="hljs-keyword">DISP </span>F75即可。<br></code></pre></td></tr></table></figure>
+<p>[EDIT]<br><figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros">格式：<span class="hljs-builtin-name">EDIT</span> &lt;编辑框名称&gt;,&lt;编辑框形状&gt;,[编辑框内容],[编辑框事件],[编辑框类型]<br>功能：在_SUB定义的窗口内建立一个单行文本编辑框。<br>参数：<br>　编辑框名称:字串，编辑框名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　编辑框形状:编辑框位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。<br>　编辑框内容:字串，初始化编辑框时填入的文字内容。<br>　编辑框事件:在编辑框内按下回车键时执行的命令，必须是PECMD支持的有效命令。<br>　编辑框类型:数字，默认为0，表示正常编辑框，大于0表示密码输入框，小于0为灰色禁用编辑框。<br>示例：<br>　<span class="hljs-builtin-name">EDIT</span> Edit1,L32T244W240H24,C:\Windows,ENVI @<span class="hljs-attribute">Label1</span>=%Edit1%<br>备注：<br>　1. EDIT命令必须位于_SUB命令和_END命令之间，其它位置的EDIT命令无效，参照_SUB、CALL命令说明。<br>　2. 要设置编辑框的文字内容，可使用<span class="hljs-string">&quot;ENVI @编辑框名称=文本内容&quot;</span>来设置，参照ENVI命令的说明。<br>　3. 可用<span class="hljs-string">&quot;ENVI @编辑框名称.Enable=数值&quot;</span>来设置编辑框的可用状态；0为不可用状态，非0为可用状态。<br>　4. 可用<span class="hljs-string">&quot;ENVI @编辑框名称.ReadOnly=数值&quot;</span>来设置编辑框的只读状态；0为非只读状态，非0为只读状态。<br></code></pre></td></tr></table></figure></p>
+<h3 id="EJEC"><a href="#EJEC" class="headerlink" title="[EJEC]"></a>[EJEC]</h3><figure class="highlight coq"><table><tr><td class="code"><pre><code class="hljs coq">格式：EJEC [C-|<span class="hljs-type">U</span>-|<span class="hljs-type">R</span>:]<br>功能：移除或弹出指定的USB或CDROM驱动器；本命令的功能未完善。大白菜官网<br>参数：<br>　参数<span class="hljs-string">&quot;C-&quot;</span>将弹出所有可能的光驱的光盘；参数<span class="hljs-string">&quot;U-&quot;</span>将移除所有可能的USB磁盘。<br>　参数<span class="hljs-string">&quot;R:&quot;</span>将弹出或移除指定盘符的光驱或USB磁盘；省略参数会弹出或移除所有可能的光驱或USB磁盘。<br>示例：<br>　EJEC<br>　EJEC C-<br>　EJEC U-<br>　EJEC H:<br>备注：<br>　本命令为系统托盘没有U盘管理图标的精简PE使用；对于有U盘管理图标的PE，建议使用系统托盘图标。<br>　本命令不要在配置文件中使用；INIT命令带<span class="hljs-string">&quot;I&quot;</span>参数会将本命令的功能安装到托盘图标的菜单中。<br></code></pre></td></tr></table></figure>
+<h3 id="ENVI"><a href="#ENVI" class="headerlink" title="[ENVI]"></a>[ENVI]</h3><figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog">格式：<span class="hljs-symbol">ENVI</span> [$|@|*][名称][[=]值]<br>功能：设置或清除环境变量。<br>参数：<br>　指定环境变量名称和值。如果省略前导符且不指定值，则为删除指定名称的环境变量。<br>　前导<span class="hljs-string">&quot;$&quot;</span>表示设置系统级环境变量，否则仅设置本程序内部使用的(进程级)环境变量。<br>　前导<span class="hljs-string">&quot;@&quot;</span>表示设置窗口控件的名称或窗口控件的文本标题。<br>　前导<span class="hljs-string">&quot;*&quot;</span>(省略名称和值)表示将光驱的盘符以<span class="hljs-symbol">CDROM0</span>、<span class="hljs-symbol">CDROM</span>、<span class="hljs-symbol">CDROM1</span>、<span class="hljs-symbol">CDROM2</span>等写入系统环境变量。<br>示例：<br>　<span class="hljs-symbol">ENVI</span> <span class="hljs-symbol">TEMP</span>=<span class="hljs-comment">%SystemDrive%\TEMP</span><br>备注：<br>　如果使用<span class="hljs-string">&quot;EXEC&quot;</span>执行的程序，会自动继承本程序的环境变量，换句话说，如果在配置文件中设置带<span class="hljs-string">&quot;$&quot;</span>的环境变量，对后面的<span class="hljs-string">&quot;EXEC&quot;</span>程序中也会有效。<br>　在命令提示符下,可以通过没有参数的<span class="hljs-symbol">ENVI</span>命令刷新环境变量。<br>　当仅有参数<span class="hljs-string">&quot;$&quot;</span>时，则初始化用户文件夹，命令提示符下也可刷新环境变量。<br></code></pre></td></tr></table></figure>
+<h3 id="EXEC"><a href="#EXEC" class="headerlink" title="[EXEC]"></a>[EXEC]</h3><figure class="highlight scss"><table><tr><td class="code"><pre><code class="hljs scss">格式：EXEC <span class="hljs-selector-attr">[=]</span><span class="hljs-selector-attr">[!]</span><span class="hljs-selector-attr">[@]</span><span class="hljs-selector-attr">[$]</span><span class="hljs-selector-attr">[&amp;]</span>&lt;EXE路径&gt;<span class="hljs-selector-attr">[参数]</span><br>功能：执行EXE 、BAT、CMD程序。<br>参数：<br>　指定程序路径和参数。前导参数如下(可同时使用，不分先后顺序):<br>　前导<span class="hljs-string">&quot;=&quot;</span>表示等待执行完成，前导<span class="hljs-string">&quot;!&quot;</span>表示以隐藏方式执行。<br>　前导<span class="hljs-string">&quot;@&quot;</span>表示在后台桌面(WinLogon)执行，彻底隐藏，无法与用户交互，可用于注册，如:<span class="hljs-string">&quot;EXEC @PECMD.EXE CALL $SHELL32.DLL,DllInstall,#1,U&quot;</span>。<br>　前导<span class="hljs-string">&quot;&amp;&quot;</span>表示修改进程中的关机代码(挂接<span class="hljs-string">&quot;ExitWindowsEx&quot;</span>函数)。建议执行<span class="hljs-string">&quot;EXEC &amp;EXPLORER.EXE&quot;</span>修改SHELL的关机函数，这样执行<span class="hljs-string">&quot;开始-&gt;关闭系统&quot;</span>的时候就会运行<span class="hljs-string">&quot;PECMD.EXE SHUT&quot;</span>命令来关机。<br>　前导<span class="hljs-string">&quot;$&quot;</span>表示以ShellExecute函数执行，用于打开非可执行文件(如.TXT、.BMP等)。<br>示例：<br>　EXEC =!CMD.EXE /C <span class="hljs-string">&quot;DEL /Q /F %TEMP%&quot;</span><br>备注：<br>　SHELL也是通过此命令来载入的。<br></code></pre></td></tr></table></figure>
+<h3 id="EXIT"><a href="#EXIT" class="headerlink" title="[EXIT]"></a>[EXIT]</h3><figure class="highlight dos"><table><tr><td class="code"><pre><code class="hljs dos">格式：<span class="hljs-keyword">EXIT</span><br>功能：退出当前的<span class="hljs-keyword">CALL</span>命调用的子过程，或退出LOAD命令调用的配置文件过程。<br>参数：<br>　无<br>示例：<br>　IFEX $<span class="hljs-variable">%Val%</span>=<span class="hljs-number">10</span>,<span class="hljs-keyword">EXIT</span>!ENVI Val=<br>　<span class="hljs-built_in">FIND</span> $<span class="hljs-variable">%CancelIt%</span>=YES,<span class="hljs-keyword">EXIT</span>!ENVI CancelIt=<br>备注：<br>　示例<span class="hljs-number">1</span>表示数值变量Val的值为<span class="hljs-number">10</span>时退出当前过程<br>　示例<span class="hljs-number">2</span>表示环境变量CancelIt为YES时退出当前过程。<br></code></pre></td></tr></table></figure>
+<h3 id="FBWF"><a href="#FBWF" class="headerlink" title="[FBWF]"></a>[FBWF]</h3><figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">格式：FBWF <span class="hljs-selector-attr">[P可用内存百分数]</span> <span class="hljs-selector-attr">[L最小值]</span> <span class="hljs-selector-attr">[H最大值]</span><br>功能：设置FBWF缓存<br>参数：<br>　最大值、最小值均为MB。<br>示例：<br>　FBWF P20 L32 H64<br>备注：<br>　三个参数都可单独使用，如FBWF L64表示强制设置<span class="hljs-number">64</span>M的FBWF；FBWF命令必须在MOUN命令之后。<br></code></pre></td></tr></table></figure>
+<h3 id="FDIR"><a href="#FDIR" class="headerlink" title="[FDIR]"></a>[FDIR]</h3><figure class="highlight taggerscript"><table><tr><td class="code"><pre><code class="hljs taggerscript">格式：FDIR &lt;变量名&gt;&lt;=&gt;&lt;文件名&gt;<br>功能：返回指定&quot;文件名&quot;所在的目录名(最后无&quot;<span class="hljs-symbol">\&quot;</span>)<br>参数：<br>　变量名用于保存目录名的变量名称；<br>　文件名合法的文件名称。<br>示例：<br>　FDIR fPath=C:<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\S</span>ystem32<span class="hljs-symbol">\c</span>alc.exe<br>　FDIR aPath=<span class="hljs-variable">%CurDir%</span><span class="hljs-symbol">\P</span>ath1<span class="hljs-symbol">\P</span>ath2<span class="hljs-symbol">\F</span>ileName<br>备注：<br>　当文件名是相对路径时，返值结果是PECMD.EXE的工作目录或配置文件的工作目录；<br>　示例1结果是&quot;C:<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\S</span>ystem32&quot;<br>　示例2结果是&quot;<span class="hljs-variable">%CurDir%</span><span class="hljs-symbol">\P</span>ath1<span class="hljs-symbol">\P</span>ath2&quot;。<br></code></pre></td></tr></table></figure>
+<h3 id="FDRV"><a href="#FDRV" class="headerlink" title="[FDRV]"></a>[FDRV]</h3><figure class="highlight nix"><table><tr><td class="code"><pre><code class="hljs nix">格式：FDRV &lt;变量名&gt;&lt;=&gt;[文件目录名]<br>功能：返回指定<span class="hljs-string">&quot;文件目录名&quot;</span>所在的分区盘符(以<span class="hljs-string">&quot;:&quot;</span>结束，最后无<span class="hljs-string">&quot;\&quot;</span>)或系统所有盘符。<br>参数：<br>　变量名:用于保存分区盘符的变量名称；<br>　文件名:合法的文件目录名称(也可省略，省略时另有意义，见《备注》的解释。<br>示例：<br>　FDRV <span class="hljs-attr">fDrive=C:</span> \Windows\System32\calc.exe<br>　FDRV <span class="hljs-attr">AllDrive=</span><br>备注：<br>　当文件名是相对路径时，返值结果是PECMD.EXE的工作目录或配置文件的工作目录所在的分区盘符；<br>　当省略<span class="hljs-string">&quot;文件目录名&quot;</span>时返回系统所有盘符，返回值是C:|D:|E:|F:|....的形式。<br>　示例<span class="hljs-number">1</span>结果是<span class="hljs-string">&quot;C:&quot;</span>，示例<span class="hljs-number">2</span>结果是系统所有盘符的列表(注意这个列表不是固定的，会随时发生变化)。<br></code></pre></td></tr></table></figure>
+<h3 id="FEXT"><a href="#FEXT" class="headerlink" title="[FEXT]"></a>[FEXT]</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros">格式：FEXT &lt;变量名&gt;&lt;=&gt;&lt;文件名&gt;<br>功能：返回指定<span class="hljs-string">&quot;文件名&quot;</span>的扩展名(不带<span class="hljs-string">&quot;.&quot;</span> )<br>参数：<br>　变量名:用于保存扩展名的变量名称；<br>　文件名:合法的文件名称。<br>示例：<br>　FEXT <span class="hljs-attribute">fExt</span>=C:\Windows\System32\calc.exe<br>　FEXT <span class="hljs-attribute">aExt</span>=X:\Path1\Path2\FileName<br>备注：<br>　示例1结果是<span class="hljs-string">&quot;exe&quot;</span>，示例2返回结果是空值；<br>　FDIR、FDRV、FEXT的返回值都可以用FIND命令检测或比较。<br></code></pre></td></tr></table></figure>
+<h3 id="FILE"><a href="#FILE" class="headerlink" title="[FILE]"></a>[FILE]</h3><figure class="highlight gams"><table><tr><td class="code"><pre><code class="hljs gams">格式：<span class="hljs-keyword">FILE</span> &lt;文件路径&gt;[操作符][目标路径]<br>功能：操作文件或目录。<br>参数：<br>　指定源文件路径和目标路径，支持通配符，可以用分号同时操作多个文件。操作符<span class="hljs-string">&quot;-&gt;&quot;</span>、<span class="hljs-string">&quot;=&gt;&quot;</span>分别对应移动、复制，没有操作符则表示删除操作。<br>示例：<br>　<span class="hljs-keyword">FILE</span> %SystemRoot%\<span class="hljs-literal">INF</span>\*.<span class="hljs-literal">INF</span>=&gt;%TEMP%<br>备注：<br>　如果以RAMDISK启动系统，可删除启动后无用的文件(如<span class="hljs-number">2</span>M的NTOSKRNL.EXE)来增加RAMDISK的可写空间。<br></code></pre></td></tr></table></figure>
+<h3 id="FIND"><a href="#FIND" class="headerlink" title="[FIND]"></a>[FIND]</h3><figure class="highlight mel"><table><tr><td class="code"><pre><code class="hljs mel">格式：FIND &lt;条件&gt;,[命令<span class="hljs-number">1</span>][!命令<span class="hljs-number">2</span>]<br>功能：依据条件表达式是否成立，成立则执行命令<span class="hljs-number">1</span>，不成立则执行命令<span class="hljs-number">2</span>。<br>参数：<br>　条件对[内存总数]或[磁盘总空间]或[按键]或[环境变量]或[内存进程]的判断。<br>　内存总数MEM&lt;比较符&gt;数值。<br>　磁盘总空间R:\&lt;比较符&gt;数值，R:表示盘符。<br>　按键KEY&lt;比较符&gt;数值。<br>　内存进程内存进程名。<br>　环境变量$%环境变量名%&lt;比较符&gt;环境变量值，环境变量的比较是不区分大小写的。<br>　比较符比较操作符为<span class="hljs-string">&quot;&lt;&quot;</span>、<span class="hljs-string">&quot;&gt;&quot;</span>、<span class="hljs-string">&quot;=&quot;</span>，分别表示<span class="hljs-string">&quot;小于&quot;</span>、<span class="hljs-string">&quot;大于&quot;</span>、<span class="hljs-string">&quot;等于&quot;</span>。<br>　数值比较的数值，磁盘和内存单位是MB，按键数值是按键代码。<br>示例：<br>　FIND MEM&lt;<span class="hljs-number">128</span>,SHEL %SystemRoot%\SYSTEM32\XPLORER2.EXE!SHELL %SystemRoot%\EXPLORER.EXE<br>　FIND $%OUTSIDE%=,ENVI $OUTSIDE=%CurDrv%\外置程序<br>备注：<br>　本命令功能强大，比较复杂，且可以嵌套(FIND或IFEX)使用，判断多个条件。 IFEX命令功能与其相似。<br>　&lt;条件表达式&gt;后的<span class="hljs-string">&quot;,&quot;</span>号也可用<span class="hljs-string">&quot;*&quot;</span>代替。<br>　本命令嵌套FIND或IFEX命令时，被嵌套的命令中不能使用<span class="hljs-string">&quot;!&quot;</span>分隔符。<br>　当FIND命令用于检测按键时，若用户按了<span class="hljs-string">&#x27;A&#x27;</span>～<span class="hljs-string">&#x27;Z&#x27;</span>或<span class="hljs-string">&#x27;0&#x27;</span>～<span class="hljs-string">&#x27;9&#x27;</span>这些键，按键结果将保存在环境变量%PressKey%中。<br><br>### [FONT]<br>格式：FONT &lt;字体路径&gt;,[起始分区]<br>功能：注册字体或外挂字体<br>参数：<br>　字体文件路径和起始分区。<br>示例：<br>　FONT %CurDrv%\外置程序\FONT<br>　FONT \WINDOWS<br>　FONT \WINDOWS,C:<br>备注：<br>　命令第<span class="hljs-number">1</span>个字符是<span class="hljs-string">&quot;\&quot;时，将从指定的起始分区开始搜索机子所有分区Windows\Fonts目录下的字体，并安装注册,定义起始分区可避免搜索机子中存在的软驱，省略起始分区将搜索机子所有分区(含软驱)。</span><br></code></pre></td></tr></table></figure>
+<h3 id="FORX"><a href="#FORX" class="headerlink" title="[FORX]"></a>[FORX]</h3><figure class="highlight taggerscript"><table><tr><td class="code"><pre><code class="hljs taggerscript">格式：FORX [@][[!]<span class="hljs-symbol">\]</span>&lt;文件&gt;,&lt;变量&gt;,[数值],&lt;命令&gt; [参数,参数...]&lt;<span class="hljs-variable">%变量%</span>&gt;[,参数,参数.. .][,...]<br>功能：对匹配的文件目录进行对应的命令操作，本命令的功能类似CMD.EXE的for命令。<br>参数：<br>　文件:指定文件目录名，可带有通配符。<br>　变量:指定变量名，该变量不能是已存在的环境变量或已存在的窗口控件名。<br>　数值:对匹配的文件目录执行相应次数的命令操作，0或&lt;0表示对所有存在的文件执行命令操作。<br>　命令: PECMD.EXE合法有效的命令，命令后的参数格式和个数由该命令而定。<br>示例：<br>　FORX <span class="hljs-variable">%CurDir%</span><span class="hljs-symbol">\P</span>ath1<span class="hljs-symbol">\*</span>.DLL,AnyDLL,0,CALL <span class="hljs-variable">%AnyDLL%</span><br>　FORX <span class="hljs-symbol">\a</span>uto*.INF,AutoRunVirus,0,FILE <span class="hljs-variable">%AutoRunVirus%</span><br>　FORX !<span class="hljs-symbol">\W</span>inPE<span class="hljs-symbol">\W</span>inPE.INI,MyIni, 1,LOAD <span class="hljs-variable">%MyIni%</span><br>备注：<br>　该命令可以搜索到带有属性的文件目录，如隐藏属性的文件目录。<br>　前导&quot;<span class="hljs-symbol">\&quot;</span>表示搜索所有分区，&quot;!&quot;表示对所有分区进行逆序搜索，两前导&quot;[!]<span class="hljs-symbol">\&quot;</span>符中&quot;!&quot;不能单独存在。<br>　前导&quot;@&quot;表示仅搜索目录并进行相应操作，省略该前导表示仅搜索文件并进行相应操作。<br>　示例1，表示注册<span class="hljs-variable">%CurDir%</span><span class="hljs-symbol">\P</span>ath1<span class="hljs-symbol">\目</span>录中的所有DLL。<br>　示例2，表示删除所有分区根目录的auto*.INF文件。<br>　示例3，表示逆序搜索所有分区WinPE目录下的WinPE.INI，把搜索的第1个WinPE.INI用LOAD命令加载。<br></code></pre></td></tr></table></figure>
+<h3 id="GROU"><a href="#GROU" class="headerlink" title="[GROU]"></a>[GROU]</h3><figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">格式：GROU &lt;组合面板名称&gt;,&lt;组合面板形状&gt;,[组合面板标题]<br>功能：在<span class="hljs-variable">_SUB</span>定义的窗口内建立组合面板，用于说明组合面板内控件的功能和作用。<br>参数：<br>　组合面板名称:字串，组合面板名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　组合面板形状:组合面板的位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。<br>　组合面板标题:字串，用以描述组合面板的作用或功能。<br>示例：<br>　GROU Group1,L8T4W336H400,注册WimShExt.DLL<br>备注：<br>　GROU命令必须位于<span class="hljs-variable">_SUB</span>命令和<span class="hljs-variable">_END</span>命令之间，其它位置的GROU命令无效，参照<span class="hljs-variable">_SUB</span>、<span class="hljs-built_in">CALL</span>命令说明。<br>　要设置组合面板标题，可以使用<span class="hljs-string">&quot;ENVI @组合面板名称=组合面板标题&quot;</span>来设置，参照ENVI命令的说明。大白菜官网<br></code></pre></td></tr></table></figure>
+<h3 id="HELP"><a href="#HELP" class="headerlink" title="[HELP]"></a>[HELP]</h3><figure class="highlight scss"><table><tr><td class="code"><pre><code class="hljs scss">格式：HELP <span class="hljs-selector-attr">[文字前景颜色]</span><span class="hljs-selector-attr">[#文字背景颜色]</span><br>功能：显示帮助信息。<br>参数：<br>　数值(支持<span class="hljs-number">16</span>进制)。<br>示例：<br>　HELP 0x00EEFF<span class="hljs-selector-id">#0xFF0000</span><br>备注：<br>　不用命令行参数，直接执行本程序，也会显示帮助信息。<br></code></pre></td></tr></table></figure>
+<h3 id="HKEY"><a href="#HKEY" class="headerlink" title="[HKEY]"></a>[HKEY]</h3><figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">格式：HKEY [辅助按键+ ]&lt;<span class="hljs-meta">#虚拟按键代码&gt;&lt;,热键命令&gt;</span><br>功能：设置系统热键，并指定该热键执行的命令。<br>参数：<br>　辅助按键: <span class="hljs-number">4</span>个辅助按键(Alt、Ctrl、Shift和Win)可用字符串表示，辅助按键间用<span class="hljs-string">&quot;+&quot;</span>连接。<br>　按键代码:按键用虚拟按键代码表示，支持<span class="hljs-number">16</span>进制数值。<br>　热键命令:必须是PECMD支持的有效命令。<br>示例：<br>　HKEY <span class="hljs-meta">#255,SHUT R</span><br>　HKEY Ctrl+Alt+<span class="hljs-meta">#0x41,DISP W800H600B16F75</span><br>备注：<br>　HKEY命令必须位于_<span class="hljs-keyword">SUB</span>命令和_END命令之间，其它位置的HKEY命令无效，参照_<span class="hljs-keyword">SUB</span>、<span class="hljs-keyword">CALL</span>命令说明。<br>　第<span class="hljs-number">1</span>个示例是按下电源键调用SHUT命令重启。<br>　注意设置的热键不能与其它程序的热键冲突。<br></code></pre></td></tr></table></figure>
+<h3 id="HOTK"><a href="#HOTK" class="headerlink" title="[HOTK]"></a>[HOTK]</h3><figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">格式：HOTK [辅助按键+ ]&lt;<span class="hljs-comment">#虚拟按键代码&gt;,&lt;命令&gt;</span><br>功能：设置系统热键，并指定该热键执行的命令(.EXE或.CMD或.<span class="hljs-keyword">BAT)。</span><br><span class="hljs-keyword"></span>参数：<br>　<span class="hljs-number">4</span>个辅助按键可用字符串表示，其它按键用虚拟按键代码，支持<span class="hljs-number">16</span>进制数值。<br>示例：<br>　HOTK <span class="hljs-comment">#255,PECMD.EXE SHUT E</span><br>　HOTK Ctrl + Alt + <span class="hljs-comment">#36,PECMD.EXE</span><br>备注：<br>　第<span class="hljs-number">1</span>个示例是按下电源键调用PECMD的<span class="hljs-keyword">SHUT功能关机。</span><br><span class="hljs-keyword"></span>　本命令不能在命令行中使用，只能在配置文件中使用；PECMD最多能设置<span class="hljs-number">8</span>组热键。<br>　热键的注册结果写在注册表<span class="hljs-string">&quot;HKEY_LOCAL_MACHINE\SOFTWARE\PELOGON&quot;</span>项下。<br>　<span class="hljs-keyword">SHEL命令必须在HOTK命令之后。</span><br><span class="hljs-keyword"></span>　只有通过<span class="hljs-keyword">SHEL命令加载SHELL时，才能通过HOTK命令注册热键。</span><br></code></pre></td></tr></table></figure>
+<h3 id="IFEX"><a href="#IFEX" class="headerlink" title="[IFEX]"></a>[IFEX]</h3><figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog">格式：<span class="hljs-symbol">IFEX</span> &lt;条件&gt;,[命令<span class="hljs-number">1</span>][!命令<span class="hljs-number">2</span>]<br>功能：依据条件表达式是否成立，成立则执行命令<span class="hljs-number">1</span>，不成立则执行命令<span class="hljs-number">2</span>。<br>参数：<br>　条件对[可用内存]或[磁盘可用空间]或[按键]或[数值变量]或[文件目录]的判断。<br>　可用内存<span class="hljs-symbol">MEM</span>&lt;比较符&gt;数值。<br>　磁盘可用空间<span class="hljs-symbol">R</span>:\&lt;比较符&gt;数值，<span class="hljs-symbol">R</span>:表示盘符。<br>　按键<span class="hljs-symbol">KEY</span>&lt;比较符&gt;数值。<br>　文件目录文件目录名，可以使用通配符。<br>　数值变量$<span class="hljs-comment">%数值变量名%&lt;比较符&gt;数值或数值变量名，数值变量是CALC或ENVI赋值设置的变量。</span><br>　比较符比较操作符为<span class="hljs-string">&quot;&lt;&quot;</span>、<span class="hljs-string">&quot;&gt;&quot;</span>、<span class="hljs-string">&quot;=&quot;</span>，分别表示<span class="hljs-string">&quot;小于&quot;</span>、<span class="hljs-string">&quot;大于&quot;</span>、<span class="hljs-string">&quot;等于&quot;</span>。<br>　数值比较的数值，磁盘和内存单位是<span class="hljs-symbol">MB</span>，按键数值是按键代码。<br>示例：<br>　<span class="hljs-symbol">IFEX</span> <span class="hljs-symbol">KEY</span>=<span class="hljs-number">17</span>,<span class="hljs-symbol">TEAM</span> <span class="hljs-symbol">TEXT</span>搜索字体|<span class="hljs-symbol">FONT</span> \<span class="hljs-symbol">WINDOWS</span>!<span class="hljs-symbol">TEAM</span> <span class="hljs-symbol">TEXT</span>安装字体|<span class="hljs-symbol">FONT</span> <span class="hljs-comment">%CurDrv%\外置程序\FONT</span><br>　<span class="hljs-symbol">IFEX</span> <span class="hljs-symbol">C</span>:\<span class="hljs-symbol">Windows</span>,!<span class="hljs-symbol">MESS</span>目录<span class="hljs-symbol">C</span>:\<span class="hljs-symbol">Windows</span>不存在，\ n请点[确定]。 @目录检查#<span class="hljs-symbol">OK</span><br>备注：<br>　本命令功能强大，比较复杂，且可以嵌套(<span class="hljs-symbol">IFEX</span>或<span class="hljs-symbol">FIND</span>)使用，判断多个条件。 <span class="hljs-symbol">FIND</span>命令功能与其相似。<br>　&lt;条件表达式&gt;后的<span class="hljs-string">&quot;,&quot;</span>号也可用<span class="hljs-string">&quot;*&quot;</span>代替。<br>　本命令嵌套<span class="hljs-symbol">IFEX</span>或<span class="hljs-symbol">FIND</span>命令时，被嵌套的命令中不能使用<span class="hljs-string">&quot;!&quot;</span>分隔符。<br>　当<span class="hljs-symbol">IFEX</span>命令用于检测按键时，若用户按了<span class="hljs-string">&#x27;A&#x27;</span>～<span class="hljs-string">&#x27;Z&#x27;</span>或<span class="hljs-string">&#x27;0&#x27;</span>～<span class="hljs-string">&#x27;9&#x27;</span>这些键，按键结果保存在<span class="hljs-comment">%PressKey%中。</span><br>　本命令用于变量判断时，所有变量均按double型来处理(最多保留<span class="hljs-number">4</span>位小数)。<br></code></pre></td></tr></table></figure>
+<h3 id="IMAG"><a href="#IMAG" class="headerlink" title="[IMAG]"></a>[IMAG]</h3><figure class="highlight gauss"><table><tr><td class="code"><pre><code class="hljs gauss">格式：<span class="hljs-built_in">IMAG</span> &lt;图片框名称&gt;,[图片框形状],[图像文件名]<br>功能：在_SUB定义的窗口内建立一个图片框。<br>参数：<br>　图片框名称:字串，标签名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　图片框形状:图片框形状的位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。<br>　图像文件名:图像文件(支持所有Windows支持的图像文件)将被显示在指定的图片框上。<br>示例：<br>　<span class="hljs-built_in">IMAG</span> Image1,L8T380W140H70,%CurDir%\logo.gif<br>备注：<br>　<span class="hljs-built_in">IMAG</span>命令必须位于_SUB命令和_END命令之间，其它位置的<span class="hljs-built_in">IMAG</span>命令无效，参照_SUB、<span class="hljs-keyword">CALL</span>命令说明。<br>　因PECMD.EXE是脚本解释程序，不建议加载大尺寸的图像文件，否则显示会慢。<br></code></pre></td></tr></table></figure>
+<h3 id="INIT"><a href="#INIT" class="headerlink" title="[INIT]"></a>[INIT]</h3><figure class="highlight mathematica"><table><tr><td class="code"><pre><code class="hljs mathematica">格式：<span class="hljs-variable">INIT</span> <span class="hljs-punctuation">[</span><span class="hljs-built_in">C</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">[</span><span class="hljs-built_in">I</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">[</span><span class="hljs-built_in">K</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">[</span><span class="hljs-variable">U</span><span class="hljs-punctuation">]</span><br>功能：执行最基本初始化，注册<span class="hljs-variable">Window</span>外壳，初始化用户文件夹和环境变量，安装键盘钩子，并建立以下目录<span class="hljs-operator">:</span><br><span class="hljs-variable">Favorites</span>收藏夹目录<span class="hljs-variable">Programs</span>程序菜单目录<br><span class="hljs-variable">Desktop</span>桌面目录<span class="hljs-variable">SendTo</span>发送到目录<br><span class="hljs-variable">StartMenu</span>开始菜单目录<span class="hljs-variable">Personal</span>我的文档目录<br><span class="hljs-variable">Startup</span>启动菜单目录<span class="hljs-variable">QuickLaunch</span>快速启动目录<br>参数：<br>　参数<span class="hljs-string">&quot;C&quot;</span>表示将光驱的盘符写入环境变量；参数<span class="hljs-string">&quot;I&quot;</span>表示将<span class="hljs-variable">PECMD</span>的部分功能安装到托盘图标的菜单中；<br>　参数<span class="hljs-string">&quot;K&quot;</span>表示执行<span class="hljs-variable">INIT</span>命令立即安装低级键盘钩子，否则加载<span class="hljs-variable">SHELL</span>后才安装低级键盘钩子；<br>　参数<span class="hljs-string">&quot;U&quot;</span>将<span class="hljs-variable">USB</span>的盘符写入环境变量<span class="hljs-punctuation">(</span>功能未完善<span class="hljs-punctuation">)</span>。<br>示例：<br>　<span class="hljs-variable">INIT</span><br>　<span class="hljs-variable">INIT</span> <span class="hljs-built_in">C</span><br>　<span class="hljs-variable">INIT</span> <span class="hljs-variable">CH</span><br>　<span class="hljs-variable">INIT</span> <span class="hljs-variable">CIK</span><br>　<span class="hljs-variable">INIT</span> <span class="hljs-variable">CIKU</span><br>备注：<br>　执行<span class="hljs-variable">INIT</span>命令后，再执行<span class="hljs-variable">SHEL</span>命令加载指定的<span class="hljs-variable">SHELL</span>即可启动一个最小化的<span class="hljs-variable">WinPE</span>。<br>　执行<span class="hljs-variable">INIT</span>命令前确保<span class="hljs-operator">%</span><span class="hljs-variable">USERPROFILE</span><span class="hljs-operator">%</span>所在分区有一定的可写空间，否则<span class="hljs-variable">INIT</span>命令无法完成工作。<br>　带参数<span class="hljs-string">&quot;C&quot;</span>时，光驱盘符保存在以<span class="hljs-variable">CDROM</span>开头的环境变量中<span class="hljs-punctuation">(</span>这些环境变量必须在启动后刷新才生效<span class="hljs-punctuation">)</span>。<br>　参数<span class="hljs-string">&quot;K&quot;</span>表示即刻安装键盘钩子，接管<span class="hljs-variable">Ctrl</span><span class="hljs-operator">+</span><span class="hljs-variable">Alt</span><span class="hljs-operator">+</span><span class="hljs-built_in">Del</span>，呼出任务管理器。<br>　带参数<span class="hljs-string">&quot;U&quot;</span>时，<span class="hljs-variable">USB</span>的盘符保存在以<span class="hljs-variable">USB</span>开头的环境变量中<span class="hljs-punctuation">(</span>这些环境变量必须在启动后刷新才生效<span class="hljs-punctuation">)</span>。<br>　公开发行<span class="hljs-variable">WinPE</span>的<span class="hljs-variable">INIT</span>命令不建议带<span class="hljs-string">&quot;K&quot;</span>参数，本命令不能在命令行中使用，只能在配置文件中使用。<br></code></pre></td></tr></table></figure>
+<h3 id="ITEM"><a href="#ITEM" class="headerlink" title="[ITEM]"></a>[ITEM]</h3><figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">格式：ITEM &lt;按钮名称&gt;,&lt;按钮形状&gt;,[按钮标题],[按钮事件],[按钮图标],[按钮状态]<br>功能：在<span class="hljs-variable">_SUB</span>定义的窗口内建立一个按钮。<br>参数：<br>　按钮名称:字符串，按钮的名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　按钮形状:按钮位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。<br>　按钮标题:位于按钮上的文字，用于描述按钮的功能或执行的命令。<br>　按钮事件:点击该按钮时执行的命令，必须是PECMD支持的有效命令。<br>　按钮图标:在按钮上显示的图标，格式为&lt;图标文件名<span class="hljs-meta">#ID&gt;，图标大小=按钮高度- 6。</span><br>　按钮状态:数字，默认为<span class="hljs-number">0</span>表示可用状态按钮，非<span class="hljs-number">0</span>为灰色不可用状态按钮。<br>示例：<br>　ITEM Button3,L32T108W300H54,资源管理器,<span class="hljs-built_in">EXEC</span> explorer.exe,%SystemRoot%\explorer.exe<br>备注：<br>　ITEM命令必须位于<span class="hljs-variable">_SUB</span>命令和<span class="hljs-variable">_END</span>命令之间，其它位置的ITEM命令无效，参照_ SUB、<span class="hljs-built_in">CALL</span>命令说明。大白菜官网<br>　要设置按钮上的文本，可使用<span class="hljs-string">&quot;ENVI @按钮名称=按钮文本&quot;</span>来设置，参照ENVI命令的说明。<br>　可用<span class="hljs-string">&quot;ENVI @按钮名称.Enable=数值&quot;</span>来设置编辑框的可用状态；<span class="hljs-number">0</span>为不可用状态，非<span class="hljs-number">0</span>为可用状态。<br></code></pre></td></tr></table></figure>
+<h3 id="KILL"><a href="#KILL" class="headerlink" title="[KILL]"></a>[KILL]</h3><figure class="highlight cos"><table><tr><td class="code"><pre><code class="hljs cos">格式：<span class="hljs-keyword">KILL</span> [[&lt;\&gt;窗口标题]|[进程名称]]<br>功能：关闭指定标题的窗口或强制终止指定的进程。<br>参数：<br>　前导<span class="hljs-string">&quot;\&quot;</span>表示关闭指定标题的窗口，如果省略窗口标题则为关闭_SUB定义的窗口。<br>　省略前导<span class="hljs-string">&quot;\&quot;</span>表示结束指定名称(EXE文件名，无路径)进程，如果省略进程名称则终止PECMD的父进程。<br>示例：<br>　<span class="hljs-keyword">KILL</span> WinLogon.EXE<br>　<span class="hljs-keyword">KILL</span> \计算器<br>备注：<br>　无窗口标题的进程请用进程名来结束。<br>　终止进程时将终止与<span class="hljs-string">&quot;进程名称&quot;</span>匹配的所有进程。<br></code></pre></td></tr></table></figure>
+<h3 id="LABE"><a href="#LABE" class="headerlink" title="[LABE]"></a>[LABE]</h3><figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">格式：LABE &lt;文本标签名称&gt;,&lt;文本标签形状&gt;,[文本标签内容]<br>功能：在<span class="hljs-variable">_SUB</span>定义的窗口内建立一条静态文字标签。<br>参数：<br>　标签名称:字串，标签名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　标签形状:标签的位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。<br>　标签内容:字串，要标签显示的文字，支持多行显示，文字行间用<span class="hljs-string">&quot;\n&quot;</span>表示断行。<br>示例：<br>　LABE Label1,L32T280W128H48,请点击<span class="hljs-string">&quot;打开&quot;</span>按钮以浏览文件。<br>备注：<br>　LABE命令必须位于<span class="hljs-variable">_SUB</span>命令和<span class="hljs-variable">_END</span>命令之间，其它位置的LABE命令无效，参照<span class="hljs-variable">_SUB</span>、<span class="hljs-built_in">CALL</span>命令说明。<br>　要设置标签上文字内容，可以使用<span class="hljs-string">&quot;ENVI @标签名称=标签文字&quot;</span>来设置，参照ENVI命令的说明。<br></code></pre></td></tr></table></figure>
+<h3 id="LINK"><a href="#LINK" class="headerlink" title="[LINK]"></a>[LINK]</h3><figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog">格式：<span class="hljs-symbol">LINK</span> [!]&lt;快捷方式路径&gt;,&lt;目标路径&gt;,[运行参数],[图标路径[#图标索引]],[目标备注],[起始位置]<br>功能：创建快捷方式。<br>参数：<br>　快捷方式:指定要生成的快捷方式的路径，不需要<span class="hljs-string">&quot;.LNK&quot;</span>扩展名。<br>　目标路径:指定快捷方式的目标文件目录(可用相对路径)。若目标不存在，将不会创建快捷方式。<br>　运行参数：目标程序运行参数。<br>　图标路径:快捷方式图标的路径。<br>　图标索引:快捷方式图标在文件资源中序号，<span class="hljs-number">0</span>为第<span class="hljs-number">1</span>个图标，不填则默认。<br>　图标备注：字符串，对目标程序或目录的说明。<br>　起始位置:目标程序命令的工作目录。<br>示例：<br>　<span class="hljs-symbol">LINK</span> !<span class="hljs-comment">%Desktop%\宽带连接,RASPPPOE.CMD,,RASDIAL.DLL#19</span><br>备注：<br>　前导<span class="hljs-string">&quot;!&quot;</span>表示以最小化方式启动程序，可用于执行批处理文件时最小化命令窗口。<br></code></pre></td></tr></table></figure>
+<h3 id="LIST"><a href="#LIST" class="headerlink" title="[LIST]"></a>[LIST]</h3><figure class="highlight gherkin"><table><tr><td class="code"><pre><code class="hljs gherkin">格式：LIST <span class="hljs-variable">&lt;下拉列表框名称&gt;</span>,<span class="hljs-variable">&lt;下拉列表框形状&gt;</span>,<span class="hljs-variable">&lt;下拉列表框内容&gt;</span>,[下拉列表框事件],[默认选中的条目]<br>功能：在_SUB定义的窗口内建立一个下拉列表框。<br>参数：<br>　下拉列表框名称:字符串，下拉列表框名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　下拉列表框形状:下拉列表框形状位置和大小，格式为<span class="hljs-variable">&lt;L左T上W宽H高&gt;</span>，左上宽高均为数值。<br>　下拉列表框内容:下拉列表框内可供选择的条目，条目与条目之间用字符<span class="hljs-string">&quot;|&quot;</span>隔开。<br>　下拉列表框事件:下拉列表框内被选择条目发生变化时执行的命令，必须是PECMD支持的有效命令。<br>　默认选中的条目:初始化下拉列表框设置被选中的条目。<br>示例：<br>　LIST List1,L200T360W128H32,EXPLORER|<span class="hljs-string">XPLORER2</span>|<span class="hljs-string">CMD,ENVI @Label1=%List1%,EXPLORER</span><br><span class="hljs-string">备注：</span><br><span class="hljs-string">　LIST命令必须位于_SUB命令和_END命令之间，其它位置的LIST命令无效，参照_SUB 、CALL命令说明。</span><br><span class="hljs-string">　环境变量%下拉列表框名称%为下拉列表框被选中的条目(字符串)。</span><br><span class="hljs-string">　可用&quot;ENVI @下拉列表框名称.Enable=数值&quot;来设置编辑框的可用状态；0为不可用状态非0为可用状态。</span><br></code></pre></td></tr></table></figure>
+<h3 id="LOAD"><a href="#LOAD" class="headerlink" title="[LOAD]"></a>[LOAD]</h3><figure class="highlight vbnet"><table><tr><td class="code"><pre><code class="hljs vbnet">格式：LOAD &lt;文件路径&gt;<br>功能：按顺序逐条运行配置文件中的命令。<br>参数：<br>　指定文件名(含路径，支持环境变量)。<br>示例：<br>　LOAD \外置程序\PECMD.INI<br>备注：<br>　每条命令单独一行，主流程的命令是完全按顺序执行的。不正确的命令或空行将忽略不计。<br>　支持<span class="hljs-keyword">ANSI</span>和<span class="hljs-keyword">UNICODE</span>格式文本文件，推荐使用<span class="hljs-keyword">UNICODE</span>格式文本文件。<br>　配置文件支持整行注释和行后注释，推荐使用<span class="hljs-string">&quot;`&quot;</span>(键盘左上角Esc键下面的字符)作为注释起始。<br>　在配置文件中可以使用环境变量<span class="hljs-string">&quot;%CurDrv%&quot;</span>表示当前盘符。<br>　如果文件路径第<span class="hljs-number">1</span>个字符是<span class="hljs-string">&quot;\&quot;</span>，则搜索所有磁盘指定目录中的文件，如<span class="hljs-string">&quot;LOAD \MyWinPE\PECMD.INI&quot;</span>。<br>　配置文件所在目录被设置为当前目录，这样创建快捷方式时，快捷方式目标路径可以使用相对路径。<br>　其它的参照MAIN命令的说明。<br></code></pre></td></tr></table></figure>
+<h3 id="LOGO"><a href="#LOGO" class="headerlink" title="[LOGO]"></a>[LOGO]</h3><figure class="highlight lua"><table><tr><td class="code"><pre><code class="hljs lua">格式：LOGO <span class="hljs-string">[[#背景颜色]|[图片文件]]</span>,[位置大小]<br>功能：设置或关闭登录画面。<br>参数：<br>　背景颜色:数值，设置背景颜色时必须要有前导符<span class="hljs-string">&quot;#&quot;</span>，设置的颜色无效时将使用注册表内定的颜色。<br>　图片文件:支持BMP/JPG/PNG/GIF等格式，需要GDI+支持。背景颜色和图片文件两者只取其一。<br>　位置大小: LOGO窗口的位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。<br>　若无参数：则关闭启动画面(渐隐淡出)。<br>示例：<br>　LOGO %SystemRoot%\LOGON.JPG<br>　LOGO #<span class="hljs-number">0xFF0000</span>,L100T100W300H200<br>备注：<br>　此命令为非阻塞模式执行。执行本命令后，将立即执行下一条命令。<br>　该命令只能在配置文件中使作，如果在命令行中使用，程序马上退出，将不能看到效果。<br>　省略<span class="hljs-string">&quot;左上&quot;</span>时窗口居中，省略<span class="hljs-string">&quot;宽高&quot;</span>时为全屏大小，同时省略<span class="hljs-string">&quot;左上宽高&quot;</span>时为全屏窗口。<br>　配置文件结束之前，必须调用一次不带参数的<span class="hljs-string">&quot;LOGO&quot;</span>命令，以关闭启动画面。<br>　WinPE启动时建议使用全屏窗口(位置大小)，使用LOGO图要求的LOGO内存会大些。<br></code></pre></td></tr></table></figure>
+<h3 id="LOGS"><a href="#LOGS" class="headerlink" title="[LOGS]"></a>[LOGS]</h3><figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog">格式：<span class="hljs-symbol">LOGS</span> [文件路径],[数值]<br>功能：启用日志以便记录每条命令的执行结果，帮助用户验证配置文件的正确性。<br>参数：<br>　文件路径:指日志文件名，含路径。<br>　数值:为日志文件申请的内存空间(单位为<span class="hljs-symbol">KB</span>)，日志记录多，所需空间也大，省略即采用默认值<span class="hljs-number">16</span><span class="hljs-symbol">K</span>。<br>示例：<br>　<span class="hljs-symbol">LOGS</span> <span class="hljs-comment">%SystemRoot%\PECMD.LOG</span><br>备注：<br>　配置文件结束之前，必须调用一次不带参数的<span class="hljs-string">&quot;LOGS&quot;</span>命令，以关闭日志文件(确保日志写入文件)。<br>　此命令不能在命令行中使用(必须在配置文件中使用)。<br>　公开发布的<span class="hljs-symbol">WinPE</span>中建议不要启用日志文件。<br></code></pre></td></tr></table></figure>
+<h3 id="LPOS"><a href="#LPOS" class="headerlink" title="[LPOS]"></a>[LPOS]</h3><figure class="highlight gherkin"><table><tr><td class="code"><pre><code class="hljs gherkin">格式：LPOS <span class="hljs-variable">&lt;变量名&gt;</span><span class="hljs-variable">&lt;=&gt;</span><span class="hljs-variable">&lt;字符串&gt;</span><span class="hljs-variable">&lt;,字符&gt;</span><span class="hljs-variable">&lt;,数值&gt;</span><br>功能：返回指定<span class="hljs-string">&quot;字符&quot;</span>在<span class="hljs-string">&quot;字符串&quot;</span>左边起出现的位置。<br>参数：<br>　变量名:用于保存命令结果的变量名；<br>　字符串:被检测的字符串，长度不能超2K；<br>　字符:被检测的字符，不区分大小写；<br>　数值:指定被检测的字符出现的次数。<br>示例：<br>　LPOS iPos=123A56|<span class="hljs-string">1234A6</span>|<span class="hljs-string">abcdef,a,2</span><br><span class="hljs-string">　LPOS iPos=123A56</span>|<span class="hljs-string">1234A6</span>|<span class="hljs-string">abcdef,a,3</span><br><span class="hljs-string">备注：</span><br><span class="hljs-string">　当&quot;数值&quot;小于1时返回最右边被检测字符的位置，如上例的结果是15；返回结果为0时表示没有找到。</span><br><span class="hljs-string">　该命令按Unicode字符串处理，示例1的返回值为12，示例2的返回值为15(与数值为0的结果相同)。</span><br></code></pre></td></tr></table></figure>
+<h3 id="LSTR"><a href="#LSTR" class="headerlink" title="[LSTR]"></a>[LSTR]</h3><figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts">格式：LSTR <span class="hljs-params">&lt;变量名&gt;</span><span class="hljs-params">&lt;=&gt;</span><span class="hljs-params">&lt;字符串&gt;</span><span class="hljs-params">&lt;,数目&gt;</span><br>功能：从指定<span class="hljs-string">&quot;字符串&quot;</span>的左边截取指定数目的字符，并将结果返回给指定名称的变量。<br>参数：<br>　变量名:用于保存命令结果的变量名；<br>　字符串:源字符串，长度不能超<span class="hljs-number">2</span>K；<br>　数目:指定截取字符的数目。<br>示例：<br>　LSTR aStr=<span class="hljs-number">1234567890</span>,<span class="hljs-number">2</span><br>　LSTR aStr=<span class="hljs-number">1234567890</span>,<span class="hljs-number">5</span><br>备注：<br>　当<span class="hljs-string">&quot;数值&quot;</span>小于<span class="hljs-number">1</span>时或超出源字符串的长度时，返回结果为整个源字符串(相当于字符串复制)；<br>　该命令按Unicode字符串处理，示例<span class="hljs-number">1</span>的返回值为<span class="hljs-string">&quot;12&quot;</span>，示例<span class="hljs-number">2</span>的返回值为<span class="hljs-string">&quot;12345&quot;</span>。<br></code></pre></td></tr></table></figure>
+<h3 id="MAIN"><a href="#MAIN" class="headerlink" title="[MAIN]"></a>[MAIN]</h3><figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">格式：<span class="hljs-selector-tag">MAIN</span> <span class="hljs-selector-attr">[文件路径]</span><br>功能：初始化桌面，接管Ctrl+Alt+<span class="hljs-selector-tag">Del</span>，并创建新进程执行LOAD功能。<br>参数：<br>　指定初始化的配置文件路径。<br>示例：<br>　<span class="hljs-selector-tag">MAIN</span> %SystemRoot%\PECMD\PECMD<span class="hljs-selector-class">.INI</span><br>备注：<br>　<span class="hljs-selector-tag">MAIN</span>命令创建LOAD进程，执行完LOAD功能后会驻留内存，安装盘键钩子，挂接&quot;ExitWindowsEx&quot;函数。<br>　PECMD驻留后占内存较大，你可以使用PECMD的LAOD功能，而<span class="hljs-selector-tag">MAIN</span>功能则由PELOGON<span class="hljs-selector-class">.EXE</span>代替。<br>　LAOD命令完成LOAD文件的功能后会自行退出内存，其它的参照LOAD命令的说明。<br></code></pre></td></tr></table></figure>
+<h3 id="MD5C"><a href="#MD5C" class="headerlink" title="[MD5C]"></a>[MD5C]</h3><figure class="highlight mel"><table><tr><td class="code"><pre><code class="hljs mel">格式：MD5C [文件名|$字符串],[变量名]<br>功能：计算文件或字符串MD5校验码，用于设置或验证WinPE登录密码的MD5校验。<br>参数：<br>　文件名:要计算MD5校验码的文件全名；字符串:要计算MD5校验码的字符串。<br>　前导<span class="hljs-string">&quot;$&quot;</span>:表示要计算的是字符串的MD5，如果字符串的第<span class="hljs-number">1</span>个字符是<span class="hljs-string">&quot;$&quot;</span>，请在前面再添加一个<span class="hljs-string">&quot;$&quot;</span>。<br>　变量名:用于保存计算结果的变量名。<br>示例：<br>　MD5C %SystemRoot%\System32\UserInit.EXE,UserInitMD5<br>　MD5C $Lxl1638,PassWordMD5<br>备注：<br>　用MD5C命令计算字符串MD5校验码时，字符串的字符数限定在<span class="hljs-number">256</span>以内(不能含<span class="hljs-string">&quot;, &quot;</span>字符)。<br>　文件名不要含<span class="hljs-string">&quot;,&quot;</span>字符，系统独占文件的MD5校验码是<span class="hljs-string">&quot;d41d8cd98f00b204e9800998ecf8427e&quot;</span>或全<span class="hljs-string">&quot;0&quot;</span>。<br>　被校验的字符串可以含有中文，英文字母区分大小写。<br>　给出变量名，MD5C命令计算结果保存到指定的变量中，示例<span class="hljs-number">2</span>可通过环境变量%PassWordMD5%来引用。<br>　省略变量名，MD5C命令的计算结果以消息窗口的形式显示，同时也将结果保存到粘帖板中。<br></code></pre></td></tr></table></figure>
+<h3 id="MEMO"><a href="#MEMO" class="headerlink" title="[MEMO]"></a>[MEMO]</h3><figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">格式：MEMO &lt;编辑框名称&gt;,&lt;编辑框形状&gt;,[编辑框内容],[目标文件名],[编辑框类型]<br>功能：在<span class="hljs-variable">_SUB</span>定义的窗口内建立一个多行文本编辑框。<br>参数：<br>　编辑框名称:字串，编辑框名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　编辑框形状:编辑框位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。<br>　编辑框内容:初始化编辑框时填入的内容，支持多行文字，文字行间用<span class="hljs-string">&quot;\n&quot;</span>表示断行，总长<span class="hljs-number">1</span>K以内。<br>　目标文件名:指定文本文件名，多行文本编辑框的内容由该文件载入。<br>　编辑框类型:数字，默认省略或为<span class="hljs-number">0</span>，表示可编辑的多行文本编辑框，非<span class="hljs-number">0</span>表示只读的多行文本编辑框。<br>示例：<br>　MEMO Memo1,L304T268W280H88,,%CurDir%\Readme.TXT,<span class="hljs-number">0</span><br>备注：<br>　MEMO命令必须位于<span class="hljs-variable">_SUB</span>命令和<span class="hljs-variable">_END</span>命令之间，其它位置的MEMO命令无效，参照<span class="hljs-variable">_SUB</span>、<span class="hljs-built_in">CALL</span>命令说明。<br>　<span class="hljs-string">&quot;编辑框内容&quot;</span>不为空时将忽略<span class="hljs-string">&quot;目标文件名&quot;</span>，当<span class="hljs-string">&quot;编辑框内容&quot;</span>为空时将加载<span class="hljs-string">&quot;目标文件名&quot;</span>指定的内容，超长的<span class="hljs-string">&quot;编辑框内容&quot;</span>可以通过环境变量赋值来连接成一个新的字符串变量，方便在记事本中阅读。<br>　可用<span class="hljs-string">&quot;ENVI @编辑框名称.Enable=数值&quot;</span>来设置编辑框的可用状态；<span class="hljs-number">0</span>为不可用状态，非<span class="hljs-number">0</span>为可用状态。<br>　可用<span class="hljs-string">&quot;ENVI @编辑框名称.ReadOnly=数值&quot;</span>来设置编辑框的只读状态；<span class="hljs-number">0</span>为非只读状态，非<span class="hljs-number">0</span>为只读状态。<br></code></pre></td></tr></table></figure>
+<h3 id="MENU"><a href="#MENU" class="headerlink" title="[MENU]"></a>[MENU]</h3><figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">格式：MENU &lt;菜单项名称&gt;,[菜单项标题],[菜单项事件],[菜单项状态]<br>功能：向自定义的托盘图标菜单添加一项菜单。<br>参数：<br>　菜单项名称:字符串，除分隔线外，菜单项名称应是唯一的，不能与其它控件或环境变量的名称同名，当菜单项名称或菜单项名称的第一个字符为<span class="hljs-string">&quot;- &quot;</span>时表示分隔线，否则表示正常菜单。<br>　菜单项标题:菜单项上的文字，用于描述菜单项的功能或说明。<br>　菜单项事件:点击该菜单项时执行的命令，必须是PECMD支持的有效命令。<br>　菜单项状态:默认为<span class="hljs-number">0</span>，表示正常可用菜单，非<span class="hljs-number">0</span>为灰色禁用菜单。<br>示例：<br>　MENU Menu2,分辨率<span class="hljs-number">1024</span>X768颜色<span class="hljs-number">32</span>位刷新率<span class="hljs-number">85</span>,DISP W1024H768B32F85<br>　MENU -<br>备注：<br>　MENU命令必须位于<span class="hljs-variable">_SUB</span>命令和<span class="hljs-variable">_END</span>命令之间，其它位置的MENU命令无效，参照<span class="hljs-variable">_SUB</span>、<span class="hljs-built_in">CALL</span>命令说明。<br>　运行期间暂时不提供修改菜单项标题的支持，即不能通过环境变量%菜单项名称%来引用菜单项标题，也不支持用<span class="hljs-string">&quot;ENVI @菜单项名称&quot;</span>来设置修改菜单项标题。<br>　托盘图标菜单的图标由<span class="hljs-variable">_SUB</span>命令定义的窗口图标来决定，省略时采用PECMD的主图标。<br>　可用<span class="hljs-string">&quot;ENVI @菜单项名称名称.Enable=数值&quot;</span>来设置编辑框的可用状态；<span class="hljs-number">0</span>为不可用状态非<span class="hljs-number">0</span>为可用状态。<br></code></pre></td></tr></table></figure>
+<h3 id="MESS"><a href="#MESS" class="headerlink" title="[MESS]"></a>[MESS]</h3><figure class="highlight mel"><table><tr><td class="code"><pre><code class="hljs mel">格式：MESS &lt;消息窗文字内容&gt;&lt;@消息窗文字标题&gt;&lt;#消息窗类型&gt;[*自动关闭的时间(毫秒)][$默认的选择]<br>功能：显示一个[是/否]选择消息窗或显示一个带[确定]按钮的消息窗口。<br>参数：<br>　<span class="hljs-string">&quot;消息窗文字内容&quot;</span>支持多行文字，文字行间用<span class="hljs-string">&quot;\n&quot;</span>断开；<span class="hljs-string">&quot;消息窗类型&quot;</span>目前支持<span class="hljs-string">&quot;YN&quot;</span>和<span class="hljs-string">&quot;OK&quot;</span>两种类型。<br>　自动关闭的时间设置为<span class="hljs-number">0</span>或不设置时，消息窗口不会自动关闭。默认的选择用Y或N表示，如$Y或$N。<br>示例：<br>　MESS发现物理内存不足，\n是否设置虚拟内存？ @设置虚拟内存#YN *<span class="hljs-number">10000</span> $N<br>备注：<br>　用户对<span class="hljs-string">&quot;YN&quot;</span>类型消息窗的选择结果保存在环境变量%YESNO%中，当选择[是]时，环境变量%YESNO%的值为YES，当窗口超时关闭或选择[否]时这一变量值为NO，可用IFEX或FIND命令判断这一环境变量的值。<br>　<span class="hljs-string">&quot;YN&quot;</span>类型消息窗省略默认的选择参数时自动关闭的返回值为NO。<br>　<span class="hljs-string">&quot;OK&quot;</span>类型消息窗没有返回值，仅向用户显示提示消息。<br></code></pre></td></tr></table></figure>
+<h3 id="MOUN"><a href="#MOUN" class="headerlink" title="[MOUN]"></a>[MOUN]</h3><figure class="highlight taggerscript"><table><tr><td class="code"><pre><code class="hljs taggerscript">格式：MOUN [!][Wim文件名],&lt;Mount目标目录&gt;,[映像ID],[WimFltr临时工作目录]<br>功能：将WIM文件中的某个映像挂载到指定的目录中或卸下已经挂载上的映像文件。<br>参数：<br>　Wim文件名: Microsoft Windows Imaging Format (WIM)映像格式的文件。<br>　Mount目标目录:将WIM映像挂载到的目录。<br>　Wim文件的映像ID : WIM文件中的映像ID，用数值表示。只读挂载映像时，映像ID为1时可省略。<br>　WimFltr临时目录:当设置WimFltr临时工作目录时表示RW方式挂载，这个目录建议设置到硬盘。<br>示例：<br>　MOUN <span class="hljs-variable">%CurDrv%</span><span class="hljs-symbol">\外</span>置程序<span class="hljs-symbol">\P</span>ROGRAMS.WIM,<span class="hljs-variable">%ProgramFiles%</span>,1<br>备注：<br>　文件目录名支持环境变量解释；使用FBWF命令时，FBWF命令须在MOUN命令后。<br>　文件名以&quot;<span class="hljs-symbol">\&quot;</span>开始时，则搜索所有分区(含隐藏分区)指定目录的文件，如: MOUN <span class="hljs-symbol">\M</span>yPE<span class="hljs-symbol">\O</span>P.WIM,<span class="hljs-variable">%PF%</span>,1<br>　前导&quot;!&quot;表示成功挂载隐藏分区中的WIM后，给隐藏分区分配盘符，如: MOUN !<span class="hljs-symbol">\M</span>yPE<span class="hljs-symbol">\O</span>P.WIM,<span class="hljs-variable">%PF%</span>,1<br>　省略Wim文件名为卸下映像，映像ID为非0表示卸载映像时保存修改内容，为0表示不保存修改内容。<br></code></pre></td></tr></table></figure>
+<h3 id="MSTR"><a href="#MSTR" class="headerlink" title="[MSTR]"></a>[MSTR]</h3><figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts">格式：MSTR <span class="hljs-params">&lt;变量名&gt;</span><span class="hljs-params">&lt;=&gt;</span><span class="hljs-params">&lt;字符串&gt;</span><span class="hljs-params">&lt;,位置&gt;</span><span class="hljs-params">&lt;,长度&gt;</span><br>功能：从指定<span class="hljs-string">&quot;字符串&quot;</span>的起始位置截取指定长度的字符，并将结果返回给指定名称的变量。<br>参数：<br>　变量名:用于保存命令结果的变量名；<br>　字符串:源字符串，长度不能超<span class="hljs-number">2</span>K；<br>　位置:数值，指定源字符串的起始位置；<br>　长度:数值，指定截取的长度。<br>示例：<br>　MSTR aStr=<span class="hljs-number">1234567890</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span><br>　MSTR aStr=<span class="hljs-number">1234567890</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span><br>备注：<br>　当<span class="hljs-string">&quot;位置&quot;</span>小于<span class="hljs-number">1</span>时作<span class="hljs-number">1</span>处理，当<span class="hljs-string">&quot;长度&quot;</span>小于<span class="hljs-number">1</span>或超出源字符串长度时，返回起始位置后的所有字符；<br>　该命令按Unicode字符串处理，示例<span class="hljs-number">1</span>的返回值为<span class="hljs-string">&quot;2345&quot;</span>，示例<span class="hljs-number">2</span>的返回值为<span class="hljs-string">&quot;567890&quot;</span>。<br></code></pre></td></tr></table></figure>
+<h3 id="NAME"><a href="#NAME" class="headerlink" title="[NAME]"></a>[NAME]</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros">格式：NAME &lt;变量名&gt;&lt;=&gt;&lt;文件名&gt;<br>功能：返回指定文件名的基本名(无目录、无扩展名)<br>参数：<br>　变量名:用于保存命令返回值的变量名<br>　文件名:被检测的合法的文件名称<br>示例：<br>　NAME <span class="hljs-attribute">aFileName</span>=C:\WINDOWS\NOTEPAD.EXE<br>　NAME <span class="hljs-attribute">aName</span>=%CurDir%\Path1\Path2\FileName<br>备注：<br>　指定的文件名为分区的根目录时，该命令的返回结果为空值；<br>　示例1的返回结果为<span class="hljs-string">&quot;NOTEPAD&quot;</span>，示例2的返回结果为<span class="hljs-string">&quot;FileName&quot;</span>。<br></code></pre></td></tr></table></figure>
+<h3 id="NUMK"><a href="#NUMK" class="headerlink" title="[NUMK]"></a>[NUMK]</h3><figure class="highlight autoit"><table><tr><td class="code"><pre><code class="hljs autoit">格式：NUMK &lt;数值&gt;<br>功能：控制小数字键盘的开关状态<br>参数：<br>　数值<span class="hljs-number">0</span>时为关，非<span class="hljs-number">0</span>为开<br>示例：<br>　NUMK <span class="hljs-number">1</span><br>备注：<br>　原有<span class="hljs-built_in">SEND</span>命令可实现相同功能，但不十分准确，当NUMK为开时，再发送一次按键反而会关掉。<br></code></pre></td></tr></table></figure>
+<h3 id="PAGE"><a href="#PAGE" class="headerlink" title="[PAGE]"></a>[PAGE]</h3><figure class="highlight gcode"><table><tr><td class="code"><pre><code class="hljs gcode">格式：PAGE &lt;页面文件路径&gt; &lt;初始大小&gt; [最大值]<br>功能：设置页面文件<span class="hljs-comment">(虚拟内存)</span>。<br>参数：<br>　指定页面文件的路径，只能用DOS <span class="hljs-number">8.3</span>格式的路径，如<span class="hljs-string">&quot;C:\PageFile.sys&quot;</span>。<br>　初始大小和最大值的单位是MB；当省略最大值时，自动设置最大值=初始大小。<br>示例：<br>　PAGE C:\PAGEFILE.SYS <span class="hljs-number">128</span> <span class="hljs-number">256</span><br>备注：<br>　如果设置了页面文件，则该分区将无法执行格式化等操作。<br>　当可用内存&gt;初始大小时，本命令将不设置页文件，即可以定义初始大小来作为设置页文件的条件。<br>　该命令有智能化功能，即从你定义的页面文件名<span class="hljs-comment">(含盘符)</span>所在的分区起开始搜索符合条件<span class="hljs-comment">(硬盘和容量)</span>分区来设置页文件，避开速度慢的U盘和移动硬盘。以U盘或移动硬盘启动时，可能配置文件定义的页文件就在U盘或移动硬盘。经一轮搜索若没有找到符合条件的硬盘分区设置页文件才利用U盘或移动硬盘来设置页文件。<br></code></pre></td></tr></table></figure>
+<h3 id="PATH"><a href="#PATH" class="headerlink" title="[PATH]"></a>[PATH]</h3><figure class="highlight mel"><table><tr><td class="code"><pre><code class="hljs mel">格式：PATH [@][#][目录名]<br>功能：操作目录，用于设置PECMD.EXE的当前工作目录或建立目录或删除目录。<br>参数：<br>　目录名称(支持带环境变量)。<br>示例：<br>　PATH @%CurDrv%\外置程序或PATH %TEMP%<br>备注：<br>　前导<span class="hljs-string">&quot;@&quot;</span>表示设置PECMD.EXE的当前目录，方便EXEC、DEVI等命令采用相对路径，以缩短命令行长度。<br>　前导<span class="hljs-string">&quot;#&quot;</span>表示删除目录，注意该操作也可能删除同名的文件。<br>　省略前导符<span class="hljs-string">&quot;@&quot;</span>和<span class="hljs-string">&quot;#&quot;</span>时，PATH用于建立目录(能建立多级目录)。<br>　在配置文件内使用带前导<span class="hljs-string">&quot;@&quot;</span>的PATH命令必须谨慎，以防引起错乱。<br>　当参数为空时将恢复PECMD.EXE默认的当前目录(%SystemRoot%\SYSTEM32)。<br></code></pre></td></tr></table></figure>
+<h3 id="PBAR"><a href="#PBAR" class="headerlink" title="[PBAR]"></a>[PBAR]</h3><figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">格式：PBAR &lt;进度条名称&gt;,&lt;进度条形状&gt;,[进度条进度]<br>功能：在<span class="hljs-variable">_SUB</span>定义的窗口内建立一条进度条。<br>参数：<br>　进度条名称:字串，进度条名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　进度条形状:进度条的位置和大小，格式为&lt;L左T上W宽H高&gt;，左上宽高均为数值。<br>　进度条进度:数值(<span class="hljs-number">1</span>～<span class="hljs-number">100</span>)，初始化进度条的进度百分数，默认为<span class="hljs-number">0</span>。<br>示例：<br>　PBAR Pbar1,L360T11W428H16,<span class="hljs-number">0</span><br>备注：<br>　PBAR命令必须位于<span class="hljs-variable">_SUB</span>命令和<span class="hljs-variable">_END</span>命令之间，其它位置的PBAR命令无效，参照<span class="hljs-variable">_SUB</span>、<span class="hljs-built_in">CALL</span>命令说明。<br>　要设置进度条的进度，可以使用<span class="hljs-string">&quot;ENVI @进度条名称=数值&quot;</span>来设置，参照ENVI命令的说明；当设置的数值小于<span class="hljs-number">0</span>时将会使进度条隐藏，大于<span class="hljs-number">100</span>的数值将被忽略。<br></code></pre></td></tr></table></figure>
+<h3 id="RADI"><a href="#RADI" class="headerlink" title="[RADI]"></a>[RADI]</h3><figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog">格式：<span class="hljs-symbol">RADI</span> &lt;单选框名称&gt;,&lt;单选框形状&gt;,[单选框标题],[单选框事件],[单选框状态],[单选框组<span class="hljs-symbol">ID</span>]<br>功能：在<span class="hljs-symbol">_SUB</span>定义的窗口内建立一个单选框控件。<br>参数：<br>　单选框名称:字符串，单选框的名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　单选框形状:单选框位置和大小，格式为&lt;<span class="hljs-symbol">L</span>左<span class="hljs-symbol">T</span>上<span class="hljs-symbol">W</span>宽<span class="hljs-symbol">H</span>高&gt;，左上宽高均为数值。<br>　单选框标题:单选框上的文字，用于描述单选框的功能或说明。<br>　单选框事件:点击该复选框时执行的命令，必须是<span class="hljs-symbol">PECMD</span>支持的有效命令。<br>　单选框状态:数字，<span class="hljs-number">1</span>或<span class="hljs-number">-1</span>为钩选状态，<span class="hljs-number">0</span>，<span class="hljs-number">2</span>或<span class="hljs-number">-2</span>为没有钩选，小于<span class="hljs-number">0</span>为灰色不可用状态。<br>　单选框组<span class="hljs-symbol">ID</span>:数字，默认为<span class="hljs-number">0</span>，可以将多个单选框分组，组内的单选框可以多选一，组间互不影响。<br>示例：<br>　<span class="hljs-symbol">RADI</span> <span class="hljs-symbol">RadioButton1</span>,<span class="hljs-symbol">L32T314W100H20</span>,卸载<span class="hljs-symbol">WimShExt</span>.<span class="hljs-symbol">DLL</span>,<span class="hljs-symbol">ENVI</span> @<span class="hljs-symbol">Group1</span>=<span class="hljs-comment">%RadioButton1%,1,1</span><br>备注：<br>　<span class="hljs-symbol">RADI</span>命令必须位于<span class="hljs-symbol">_SUB</span>命令和<span class="hljs-symbol">_END</span>命令之间，其它位置的<span class="hljs-symbol">RADI</span>命令无效，参照<span class="hljs-symbol">_</span> <span class="hljs-symbol">SUB</span>、<span class="hljs-symbol">CALL</span>命令说明。<br>　要设置单选框标题，可使用<span class="hljs-string">&quot;ENVI @单选框名称=单选框标题&quot;</span>来设置，参照<span class="hljs-symbol">ENVI</span>命令的说明。<br>　可用<span class="hljs-string">&quot;ENVI @单选框名称.Check=数值&quot;</span>来设置单选框钩选状态，数值<span class="hljs-number">0</span>为未钩选状态；非<span class="hljs-number">0</span>为钩选状态。<br>　可用<span class="hljs-string">&quot;ENVI @单选框名称.Enable=数值&quot;</span>来设置单选框可用状态，数值<span class="hljs-number">0</span>为禁用状态；非<span class="hljs-number">0</span>为可用状态。<br></code></pre></td></tr></table></figure>
+<h3 id="RAMD"><a href="#RAMD" class="headerlink" title="[RAMD]"></a>[RAMD]</h3><figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog">格式：<span class="hljs-symbol">RAMD</span> [<span class="hljs-symbol">P</span>可用内存百分数] [<span class="hljs-symbol">L</span>最小值] [<span class="hljs-symbol">H</span>最大值]<br>功能：设置<span class="hljs-symbol">RamDisk</span>大小<br>参数：<br>　最大值、最小值均为<span class="hljs-symbol">MB</span>。<br>示例：<br>　<span class="hljs-symbol">RAMD</span> <span class="hljs-symbol">P20</span> <span class="hljs-symbol">L32</span> <span class="hljs-symbol">H64</span><br>备注：<br>　三个参数都可单独使用，如使用<span class="hljs-symbol">RAMD</span> <span class="hljs-symbol">P10</span>时，将可用内存的<span class="hljs-number">10</span><span class="hljs-comment">%设置为RamDisk。</span><br></code></pre></td></tr></table></figure>
+<h3 id="REGI"><a href="#REGI" class="headerlink" title="[REGI]"></a>[REGI]</h3><figure class="highlight nsis"><table><tr><td class="code"><pre><code class="hljs nsis">格式：REGI [前导]&lt;<span class="hljs-params">HKLM</span>|<span class="hljs-params">HKCU</span>|<span class="hljs-params">HKCR</span>|<span class="hljs-params">HKU</span>|HKCC&gt;&lt;\子项\&gt;&#123;&lt;键名,变量名&gt;|[[键名][操作符][[类型符]数据值]]&#125;<br>功能：读取或设置、删除注册表数据。<br>参数：<br>　前导符<span class="hljs-string">&quot;$&quot;</span>、<span class="hljs-string">&quot;#&quot;</span>、<span class="hljs-string">&quot;@&quot;</span>分别表示读取注册表中的REG_SZ、REG_DWORD、REG_BINARY类型数据，省略表示设置、删除注册表数据。变量名(默认为RegDat)用于保存返回值。<br>　子项名所选ROOTKEY下注册表项的完整名。<br>　键值名要操作的键值名。省略则操作默认键值；如果操作符为<span class="hljs-string">&quot;!&quot;</span>且没有<span class="hljs-string">&quot;=&quot;</span>，则用于删除整个子项。<br>　操作符操作符<span class="hljs-string">&quot;!&quot;</span>为删除整个子项；操作符<span class="hljs-string">&quot;=&quot;</span>且没有数据为删除；操作符<span class="hljs-string">&quot;=&quot;</span>且有数据为设置数据。<br>　类型符数据类型。省略为字符串；<span class="hljs-string">&quot;#&quot;</span>为REG_DWORD类型数据，如<span class="hljs-string">&quot;#0x20&quot;</span>；<span class="hljs-string">&quot;@&quot;</span>为REG_BINARY类数据，如<span class="hljs-string">&quot;@23 34 90 255&quot;</span><br>　数据值字符串空值用<span class="hljs-string">&quot;&quot;</span>表示、REG_DWORD类型数据、REG_BINARY类型数据支持<span class="hljs-number">16</span>进制数值。<br>示例：<br>　REGI <span class="hljs-params">HKCU</span>\SOFTWARE\WinCMD\Version=<span class="hljs-comment">#1200</span><br>　REGI <span class="hljs-params">HKCR</span>\lnkfile\IsShortcut=<span class="hljs-string">&quot;&quot;</span><br>　REGI <span class="hljs-variable">$HKCU</span>\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache,IECache<br>备注：<br>　此命令比较复杂，请仔细看说明，示例<span class="hljs-number">3</span>为读取IE缓存的位置。<br></code></pre></td></tr></table></figure>
+<h3 id="RPOS"><a href="#RPOS" class="headerlink" title="[RPOS]"></a>[RPOS]</h3><figure class="highlight gherkin"><table><tr><td class="code"><pre><code class="hljs gherkin">格式：RPOS <span class="hljs-variable">&lt;变量名&gt;</span><span class="hljs-variable">&lt;=&gt;</span><span class="hljs-variable">&lt;字符串&gt;</span><span class="hljs-variable">&lt;,字符&gt;</span><span class="hljs-variable">&lt;,数值&gt;</span><br>功能：返回指定<span class="hljs-string">&quot;字符&quot;</span>在<span class="hljs-string">&quot;字符串&quot;</span>右边起出现的位置。<br>参数：<br>　变量名:用于保存命令结果的变量名；<br>　字符串:被检测的字符串，长度不能超2K；<br>　字符:被检测的字符，不区分大小写；<br>　数值:指定被检测的字符出现的次数。<br>示例：<br>　RPOS iPos=123A56|<span class="hljs-string">1234A6</span>|<span class="hljs-string">abcdef,a,2</span><br><span class="hljs-string">　RPOS iPos=123A56</span>|<span class="hljs-string">1234A6</span>|<span class="hljs-string">abcdef,a,3</span><br><span class="hljs-string">备注：</span><br><span class="hljs-string">　当&quot;数值&quot;小于1时返回最左边被检测字符的位置，如上例的结果是4；返回结果为0时表示没有找到。</span><br><span class="hljs-string">　该命令按Unicode字符串处理，示例1的返回值为12，示例2的返回值为4。</span><br></code></pre></td></tr></table></figure>
+<h3 id="RSTR"><a href="#RSTR" class="headerlink" title="[RSTR]"></a>[RSTR]</h3><figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts">格式：RSTR <span class="hljs-params">&lt;变量名&gt;</span><span class="hljs-params">&lt;=&gt;</span><span class="hljs-params">&lt;字符串&gt;</span><span class="hljs-params">&lt;,数目&gt;</span><br>功能：从指定<span class="hljs-string">&quot;字符串&quot;</span>的右边截取指定数目的字符，并将结果返回给指定名称的变量。<br>参数：<br>　变量名:用于保存命令结果的变量名；<br>　字符串:源字符串，长度不能超<span class="hljs-number">2</span>K；<br>　数目:指定截取字符的数目。<br>示例：<br>　RSTR aStr=<span class="hljs-number">1234567890</span>,<span class="hljs-number">2</span><br>　RSTR aStr=<span class="hljs-number">1234567890</span>,<span class="hljs-number">5</span><br>备注：<br>　当<span class="hljs-string">&quot;数值&quot;</span>小于<span class="hljs-number">1</span>时或超出源字符串的长度时，返回结果为整个源字符串(相当于字符串复制)；<br>　该命令按Unicode字符串处理，示例<span class="hljs-number">1</span>的返回值为<span class="hljs-string">&quot;90&quot;</span>，示例<span class="hljs-number">2</span>的返回值为<span class="hljs-string">&quot;67890&quot;</span>。<br></code></pre></td></tr></table></figure>
+<h3 id="RUNS"><a href="#RUNS" class="headerlink" title="[RUNS]"></a>[RUNS]</h3><figure class="highlight taggerscript"><table><tr><td class="code"><pre><code class="hljs taggerscript">格式：RUNS &lt;程序命令&gt;&lt;*|,&gt;&lt;启动项名称&gt;<br>功能：设置Windows的启动项<br>参数：<br>　程序命令为EXE、CMD、BAT各种可执行的命令，可带参数；启动项名称为文字。<br>示例：<br>　RUNS PECMD.EXE EXEC !<span class="hljs-variable">%CurDrv%</span><span class="hljs-symbol">\外</span>置程序<span class="hljs-symbol">\D</span>RIVER<span class="hljs-symbol">\S</span>TARTDRIVER.CMD,安装驱动。<br>备注：<br>　原REGI命令可实现相同的功能，只是用REGI命令表示需要文字太长，才将这一功能单独做成一条命令。<br>　程序命令和启动项名称之间的分隔符为右起的&quot;*&quot;或左起的&quot;。大白菜官网<br>　本命令不能在命令行中使用，只能在配置文件中使用。<br></code></pre></td></tr></table></figure>
+<h3 id="SEND"><a href="#SEND" class="headerlink" title="[SEND]"></a>[SEND]</h3><figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog">格式：<span class="hljs-symbol">SEND</span> &lt;按键代码<span class="hljs-number">1</span>[<span class="hljs-symbol">_</span>|^]&gt;,[按键代码<span class="hljs-number">2</span>],[按键代码<span class="hljs-number">3</span>]...<br>功能：模拟按键。<br>参数：<br>　虚拟按键代码，如<span class="hljs-symbol">VK_NUMLOCK</span>，请参相关考编程文档。如果按键代码以<span class="hljs-string">&quot;_&quot;</span>结束，则仅模拟按键按下；<span class="hljs-string">&quot;^&quot;</span>则仅模拟按键弹起；否则模拟按下并弹起。<br>示例：<br>　<span class="hljs-symbol">SEND</span> <span class="hljs-number">0x12</span><span class="hljs-symbol">_</span>,<span class="hljs-number">0x09</span><span class="hljs-symbol">_</span>,<span class="hljs-number">0x09</span>^,<span class="hljs-number">0x12</span>^<br>备注：<br>　上面的示例模拟<span class="hljs-symbol">Alt</span>+<span class="hljs-symbol">Tab</span>。按键代码支持<span class="hljs-number">16</span>进制和十进制。<br></code></pre></td></tr></table></figure>
+<h3 id="SERV"><a href="#SERV" class="headerlink" title="[SERV]"></a>[SERV]</h3><figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts">格式：SERV [!]<span class="hljs-params">&lt;服务名称&gt;</span><br>功能：启动或停止服务或驱动程序。<br>参数：<br>　指定服务名称。前导<span class="hljs-string">&quot;!&quot;</span>表示停止服务，否则启动服务。<br>示例：<br>　SERV FBWF<br>备注：<br>　此命令来启动FBWF服务(如果安装了的话)，以增加系统盘的可写空间，这样PE就能在光盘上运行了。<br></code></pre></td></tr></table></figure>
+<h3 id="SHEL"><a href="#SHEL" class="headerlink" title="[SHEL]"></a>[SHEL]</h3><figure class="highlight stata"><table><tr><td class="code"><pre><code class="hljs stata">格式：<span class="hljs-keyword">SHEL</span> &lt;文件名(含路径)&gt;,[密码MD5字符串],[重试次数]<br>功能：加载指定的<span class="hljs-keyword">SHELL</span>，并将<span class="hljs-keyword">SHELL</span>锁定。<br>参数：<br>　文件名为<span class="hljs-keyword">SHELL</span>文件名(含路径，可使用环境变量)。<br>　密码是英文字母和数字，区分大小写，密码的最大长度是12个字符。<br>　省略密码MD5字符串时会自动登录，默认的重试机会为3次。<br>示例：<br>　<span class="hljs-keyword">SHEL</span> %SystemRoot%\EXPLORER.EXE,e10adc3949ba59abbe56e057f20f883e,5<br>备注：<br>　本命令功能与EXEC $相似，修改进程中关机代码(挂接<span class="hljs-string">&quot;ExitWindowsEx&quot;</span>函数)。<br>　本命令同时具有锁定<span class="hljs-keyword">SHELL</span>的功能，当<span class="hljs-keyword">SHELL</span>被杀时能自动加载<span class="hljs-keyword">SHELL</span>。<br>　带登录密码的<span class="hljs-keyword">SHELL</span>命令，建议在它之前开启LOGO命令。<br>　<span class="hljs-keyword">SHEL</span>命令之后的TEXT命令的各参数可能要重新设置。<br>　<span class="hljs-keyword">SHEL</span>命令必须在HOTK命令之后，本命令不能在命令行中使用，只能在配置文件中使用。<br></code></pre></td></tr></table></figure>
+<h3 id="SHOW"><a href="#SHOW" class="headerlink" title="[SHOW]"></a>[SHOW]</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql">格式：<span class="hljs-keyword">SHOW</span> [硬盤號|標識符][:分區號],[盤符]<br>功能：顯示系統存在的移動硬盤或固定硬盤的隱藏分區，並給這些分區分配盤符。<br>參數：<br>　硬盤號: 本機中存在的硬盤，&quot;0&quot;表示&quot;hd0&quot;，&quot;1&quot;表示&quot;hd1&quot;，&quot;2&quot;表示&quot;hd2&quot;，依次類推；<br>　標識符: 表示硬盤類型的標識，固定硬盤用&quot;F&quot;表示，移動硬盤用&quot;R&quot;表示，標識符與硬盤號只取其一；<br>　分區號: &quot;0&quot;表示所有還沒指派盤符的分區，&quot;1&quot;表示第<span class="hljs-number">1</span>分區，&quot;2&quot;表示第<span class="hljs-number">2</span>分區，依次類推；<br>　盤符: 用字母&quot;C～Z&quot;表示(不帶&quot;:&quot;)，省略&quot;盤符&quot;或設置盤符不合理時由 PECMD.EXE 自動分配盤符。<br>示例：<br>　<span class="hljs-keyword">SHOW</span> <span class="hljs-number">0</span>:<span class="hljs-number">1</span>,H<br>　<span class="hljs-keyword">SHOW</span> R:<span class="hljs-number">1</span>,U<br>　<span class="hljs-keyword">SHOW</span> F:<span class="hljs-number">0</span><br>　<span class="hljs-keyword">SHOW</span><br>備註：<br>　某些機型在WinPE啓動後已經可以識別移動硬盤，但沒有爲移動硬盤指派盤符，可以通過 <span class="hljs-keyword">SHOW</span> 命令的&quot;R&quot;標識符爲移動硬盤分配盤符，示例<span class="hljs-number">2</span>表示給&quot;移動硬盤的第1分區&quot;指派爲盤符&quot;U:&quot;；<br>　示例<span class="hljs-number">1</span>表示&quot;硬盤0隱藏分區1&quot;指派爲盤符&quot;H:&quot;，示例<span class="hljs-number">3</span>表示自動爲&quot;固定硬盤的所有隱藏分區&quot;指派盤符；<br>　刪除盤符可用SUBJ命令，該命令與SUBJ命令配合，可載入隱藏分區的外置程序並保持原分區隱藏屬性。<br></code></pre></td></tr></table></figure>
+<h3 id="SHUT"><a href="#SHUT" class="headerlink" title="[SHUT]"></a>[SHUT]</h3><figure class="highlight coq"><table><tr><td class="code"><pre><code class="hljs coq">格式：SHUT [H|<span class="hljs-type">E</span>|<span class="hljs-type">R</span>|<span class="hljs-type">S</span>]<br>功能：关闭或重启计算机等操作。<br>参数：<br>　无参数:默认为关闭系统；<br>　参数<span class="hljs-string">&quot;H&quot;</span>:执行休眠操作，只能在正常系统中使用，系统必须支持休眠(可在控制面板中启用休眠)；<br>　参数<span class="hljs-string">&quot;E&quot;</span>:关闭系统前先弹出光驱，<span class="hljs-number">10</span>秒后再关闭系统；<br>　参数<span class="hljs-string">&quot;R&quot;</span>:执行重启系统操作；<br>　参数<span class="hljs-string">&quot;S&quot;</span>:执行挂起系统操作，只能在正常系统中使用。<br>示例：<br>　SHUT E<br>　SHUT R<br>　SHUT H<br>　SHUT S<br>备注：<br>　该命令可在命令行中使用，此功能是快速关机，可能不会保存所有数据。　　　　　 　　　　　　<br></code></pre></td></tr></table></figure>
+<h3 id="SITE"><a href="#SITE" class="headerlink" title="[SITE]"></a>[SITE]</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros">格式：SITE &lt;文件目录路径&gt;,&lt;文件目录属性&gt;<br>功能：设置或清除文件目录的属性,SITE命令支持A、H、R、S四种属性。<br>参数：<br>　设置属性用<span class="hljs-string">&quot;+&quot;</span>，清除属性用<span class="hljs-string">&quot;-&quot;</span>，(<span class="hljs-attribute">A</span>=ARCHIVE; <span class="hljs-attribute">H</span>=HIDDEN; <span class="hljs-attribute">R</span>=READONLY; <span class="hljs-attribute">S</span>=SYSTEM)<br>示例：<br>　SITE %SystemRoot%\System32\PELOGON.EXE,+H +R<br>备注：<br>　SITE命令既可设置文件属性，也可设置目录属性。<br></code></pre></td></tr></table></figure>
+<h3 id="STRL"><a href="#STRL" class="headerlink" title="[STRL]"></a>[STRL]</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros">格式：STRL &lt;变量名&gt;&lt;=&gt;&lt;字符串&gt;<br>功能：返回指定<span class="hljs-string">&quot;字符串&quot;</span>的长度。<br>参数：<br>　变量名:用于保存命令结果的变量名；<br>　字符串:被检测的字符串，长度不能超2K；<br>示例：<br>　STRL <span class="hljs-attribute">iLen</span>=1234567890<br>　STRL <span class="hljs-attribute">dLen</span>=一二三四五<br>备注：<br>　该命令的返回结果是Unicode字符串的长度，示例1的返回值为10，示例2的返回值为5<br></code></pre></td></tr></table></figure>
+<h3 id="SUBJ"><a href="#SUBJ" class="headerlink" title="[SUBJ]"></a>[SUBJ]</h3><figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">格式：<span class="hljs-keyword">SUBJ </span>&lt;虚拟驱动器&gt;,[指派给虚拟驱动器的路径]<br>功能：将路径与驱动器号关联，相当于CMD的<span class="hljs-keyword">SUBST命令。</span><br><span class="hljs-keyword"></span>参数：<br>　如果省略<span class="hljs-string">&quot;指派给虚拟驱动器的路径&quot;</span>，则删除指定的虚拟驱动器。<br>示例：<br>　<span class="hljs-keyword">SUBJ </span><span class="hljs-keyword">B:,X:\PE_Tools</span><br><span class="hljs-keyword"></span>备注：<br>　虚拟时，虚拟驱动器须是不存在的；删除虚拟驱动器时，盘符必须准确，否则可能会删除物理驱动器。<br></code></pre></td></tr></table></figure>
+<h3 id="TEAM"><a href="#TEAM" class="headerlink" title="[TEAM]"></a>[TEAM]</h3><figure class="highlight coq"><table><tr><td class="code"><pre><code class="hljs coq">格式：TEAM [命令<span class="hljs-number">1</span>][|<span class="hljs-type">命令2</span>][|<span class="hljs-type">命令3</span>]...[|<span class="hljs-type">命令n</span>]<br>功能：按顺预执行指定命令群组中的各条命令。<br>参数：<br>　一条或多条命令，多条命令之间用<span class="hljs-string">&quot;|&quot;</span>分开。<br>示例：<br>　TEAM TEXT载入桌面|<span class="hljs-type">LOGO</span>|<span class="hljs-type">SHEL</span> %SystemRoot%\EXPLORER.EXE|<span class="hljs-type">WAIT</span> <span class="hljs-number">3000</span><br>备注：<br>　本命令后面的命令中不能嵌入IFEX或FIND命令。<br></code></pre></td></tr></table></figure>
+<h3 id="TEMP"><a href="#TEMP" class="headerlink" title="[TEMP]"></a>[TEMP]</h3><figure class="highlight mathematica"><table><tr><td class="code"><pre><code class="hljs mathematica">格式：<span class="hljs-variable">TEMP</span> <span class="hljs-operator">&lt;</span><span class="hljs-punctuation">[</span><span class="hljs-operator">@</span><span class="hljs-punctuation">]</span><span class="hljs-built_in">Delete</span><span class="hljs-operator">|</span><span class="hljs-built_in">Setting</span><span class="hljs-operator">&gt;</span><br>功能：清理用户临时文件夹或重新设用户置临时文件夹的位置。<br>参数：<br>　<span class="hljs-built_in">Delete</span>表示清理临时目录，前导<span class="hljs-operator">@</span>表示不经用户确认直接清理；<span class="hljs-built_in">Setting</span>表示重新设置临时目录的位置。<br>示例：<br>　<span class="hljs-variable">TEMP</span> <span class="hljs-built_in">Delete</span><br>备注：<br>　不要在配置文件使用本命令，必须启动到桌面使用；本命令是从注册表读取临时目录位置。<br></code></pre></td></tr></table></figure>
+<h3 id="TEXT"><a href="#TEXT" class="headerlink" title="[TEXT]"></a>[TEXT]</h3><figure class="highlight scss"><table><tr><td class="code"><pre><code class="hljs scss">格式：TEXT <span class="hljs-selector-attr">[文字行1]</span><span class="hljs-selector-attr">[\n]</span>文字行2<span class="hljs-selector-attr">[\n]</span>文字行3...]<span class="hljs-selector-attr">[#颜色]</span><span class="hljs-selector-attr">[L左]</span><span class="hljs-selector-attr">[T上]</span><span class="hljs-selector-attr">[R右]</span><span class="hljs-selector-attr">[B下]</span><span class="hljs-selector-attr">[ $字体大小]</span><br>功能：在登录画面中或桌面窗口显示文字。<br>参数：<br>　文字为空则清除最近定义的矩形区内的文字；默认颜色为白色，默认座标大致在左上角；结尾&quot;*&quot;表示显示新文字前不清除原来已显示的文字。<br>示例：<br>　TEXT正在注册组件<span class="hljs-selector-id">#0xFFDDDD</span> L4 T720 R300 B768 $20<br>备注：<br>　本命令支持多行显示文字，文字行间用&quot;\n&quot;表示断行。<br>　字体大小默认为14(相当宋体小<span class="hljs-number">5</span>号)。<br>　指定的位置<span class="hljs-selector-attr">[左,上,右,下]</span>与文字的长度和字体的大小有关。<br>　本命令在登录期间(配置文件)中使用时将在登录画面显示文字，在Windows中(登录后)使用将在桌面窗口显示文字；当文字为空时则清除最近定义的矩形区内的文字。<br></code></pre></td></tr></table></figure>
+<h3 id="TIME"><a href="#TIME" class="headerlink" title="[TIME]"></a>[TIME]</h3><figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">格式：<span class="hljs-built_in">TIME</span> &lt;定时器名称&gt;,&lt;定时器周期&gt;,[定时器事件]<br>功能：在<span class="hljs-variable">_SUB</span>定义的窗口内建立一个定时器控件。<br>参数：<br>　定时器名称:字符串，定时器的名称应是唯一的，不能与其它控件名称或环境变量名称同名。<br>　定时器周期:数字，单位为毫秒，数值大于<span class="hljs-number">0</span>表示定时器即刻工作，数值为<span class="hljs-number">0</span>时表示定时器暂停工作。<br>　定时器事件:触发定时器时执行的命令，必须是PECMD支持的有效命令。<br>示例：<br>　<span class="hljs-built_in">TIME</span> Timer1,<span class="hljs-number">10000</span>,FILE %TEMP%\*.*<br>备注：<br>　<span class="hljs-built_in">TIME</span>命令必须位于<span class="hljs-variable">_SUB</span>命令和<span class="hljs-variable">_END</span>命令之间，其它位置的<span class="hljs-built_in">TIME</span>命令无效，参照<span class="hljs-variable">_SUB</span>、<span class="hljs-built_in">CALL</span>命令说明。<br>　环境变量%定时器名称%为定时器的工作状态，<span class="hljs-number">0</span>为暂停，非<span class="hljs-number">0</span>为已启动。<br>　暂停定时器可用<span class="hljs-string">&quot;ENVI @定时器名=0&quot;</span>，再启动定时器可用<span class="hljs-string">&quot;ENVI @定时器名=定时器周期(数值)&quot;</span> 。<br></code></pre></td></tr></table></figure>
+<h3 id="TIPS"><a href="#TIPS" class="headerlink" title="[TIPS]"></a>[TIPS]</h3><figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog">格式：<span class="hljs-symbol">TIPS</span> [提示框标题],&lt;提示框内容&gt;,[提示框寿命],[图标样式<span class="hljs-symbol">ID</span>],[&lt;@[<span class="hljs-symbol">A</span>]提示框位置&gt;|[托盘栏图标]]<br>功能：在屏幕指定位置或托盘处显示一个气泡提示框，省略所有参数时表示清除托盘栏无效图标。<br>参数：<br>　提示框标题:字符串，提示框标题处显示的文字，长度不能超过<span class="hljs-number">64</span>个字符，超出部分无效。<br>　提示框内容:字符串，提示框显示的正文内容，长度不能超过<span class="hljs-number">256</span>个字符，可以用<span class="hljs-string">&quot;\n&quot;</span>表示分行。<br>　提示框寿命:数字，表示提示框持续显示的时间(毫秒)，省略为默认<span class="hljs-number">10</span>秒，最长显示时间由系统决定。<br>　图标样式<span class="hljs-symbol">ID</span>:数字，默认<span class="hljs-number">0</span>(无图标)，<span class="hljs-number">1</span>(信息图标)，<span class="hljs-number">2</span>(警告图标)，<span class="hljs-number">3</span>(错误图标)，<span class="hljs-number">4</span>或以上(托盘图标)<br>　提示框位置:必须带前导<span class="hljs-string">&quot;@&quot;</span> ，表示在屏幕指定位置显示提示框，前导<span class="hljs-string">&quot;A&quot;</span>表示箭型提示框，省略<span class="hljs-string">&quot;A&quot;</span>时表示方型提示框，位置用<span class="hljs-symbol">LxxTyy</span>表示(xx、yy代表数字)，该参数与<span class="hljs-string">&quot;托盘栏图标&quot;</span>不能同用<br>　托盘栏图标:格式为<span class="hljs-string">&quot;文件名#数字&quot;</span>，省略<span class="hljs-string">&quot;文件名&quot;</span>时使用<span class="hljs-symbol">PECMD</span>.<span class="hljs-symbol">EXE</span>程序资源中指定的图标。<br>示例：<br>　<span class="hljs-symbol">TIPS</span>标题,内容\n可分行\n第<span class="hljs-number">3</span>行,<span class="hljs-number">5000</span>,<span class="hljs-number">1</span>,#<span class="hljs-number">1</span><br>　<span class="hljs-symbol">TIPS</span>标题,内容\n可分行\n第<span class="hljs-number">3</span>行,<span class="hljs-number">5000</span>,<span class="hljs-number">2</span>,@aL600T400<br>备注：<br>　托盘栏气泡提示框可以在<span class="hljs-symbol">PECMD</span>.<span class="hljs-symbol">EXE</span>结束后继续显示，<span class="hljs-symbol">PECMD</span>.<span class="hljs-symbol">EXE</span> 生命比提示框寿命长时<span class="hljs-symbol">PECMD</span>.<span class="hljs-symbol">EXE</span>会在指定时间后结束提示框；<span class="hljs-symbol">PECMD</span>.<span class="hljs-symbol">EXE</span> 生命期结束后仍然存在的提示框由系统或用户处理。<br>　屏幕提示框在<span class="hljs-symbol">PECMD</span> 结束后也结束，所以要保证<span class="hljs-symbol">PECMD</span> 生命期比提示框寿命稍长( <span class="hljs-symbol">WAIT</span> 命令延时)。<br></code></pre></td></tr></table></figure>
+<h3 id="UPNP"><a href="#UPNP" class="headerlink" title="[UPNP]"></a>[UPNP]</h3><figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">格式：UPNP [$]&lt;参数&gt;<br>功能：执行<span class="hljs-keyword">BartPE.EXE的功能。</span><br><span class="hljs-keyword"></span>参数：<br>　前导<span class="hljs-string">&quot;$&quot;</span>表示显示<span class="hljs-keyword">BartPE.EXE的执行界面；</span><br><span class="hljs-keyword"></span>　参数为<span class="hljs-keyword">BartPE.EXE的命令行参数。</span><br><span class="hljs-keyword"></span>示例：<br>　UPNP -pnp<br>　UPNP $-pnp<br>备注：<br>　本命令内钳新版<span class="hljs-keyword">BartPE.EXE执行代码，WinPE无需BartPE.EXE文件也可完成BartPE.EXE的功能；</span><br><span class="hljs-keyword"></span>　本命令为阻塞模式执行，命令完成后才执行下一条命令；注意<span class="hljs-keyword">BartPE.EXE参数及其大小写。</span><br></code></pre></td></tr></table></figure>
+<h3 id="USER"><a href="#USER" class="headerlink" title="[USER]"></a>[USER]</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><code class="hljs dockerfile">格式：<span class="hljs-keyword">USER</span> &lt;用户名&gt;&lt;*|,&gt;&lt;公司名&gt;<br>功能：设置<span class="hljs-string">&quot;我的电脑&quot;</span>右键菜单属性中的用户名和公司名。<br>参数：<br>　参数为文字。<br>示例：<br>　<span class="hljs-keyword">USER</span>老九*无忧启动论坛<br>　<span class="hljs-keyword">USER</span>老九,无忧启动论坛<br>备注：<br>　用户名和公司名之间的分隔符为右起的<span class="hljs-string">&quot;*&quot;</span>或左起的<span class="hljs-string">&quot;,&quot;</span>。本命令仅能在配置文件中使用。<br></code></pre></td></tr></table></figure>
+<h3 id="WAIT"><a href="#WAIT" class="headerlink" title="[WAIT]"></a>[WAIT]</h3><figure class="highlight gcode"><table><tr><td class="code"><pre><code class="hljs gcode">格式：WAIT [-][等待时间],[量变名称]<br>功能：暂停或等待指定时间后再继续执行命令。<br>参数：<br>　前导<span class="hljs-string">&quot;-&quot;</span> :在指定的等待时间内遇到任何按键即中止等待，否则直至等待时间结束；<br>　等待时间:数值<span class="hljs-comment">(单位毫秒)</span>，数值为<span class="hljs-number">0</span>时遇到按键即中止，若无按键会无限等待<span class="hljs-comment">(相当于任意键继续)</span>；<br>　量变名称:用于保存等待期间按键的变量，用户的按键结果将保存在指定的变量中。<br>示例：<br>　WAIT <span class="hljs-number">2000</span><br>　WAIT <span class="hljs-number">0</span>,PKey<br>备注：<br>　参数为<span class="hljs-number">0</span>则暂停，任意键继续，不要在短时间间隔内连续使用暂停功能，也建议暂停功能只使用一次；WAIT <span class="hljs-number">0</span>可检测用户的按键<span class="hljs-string">&#x27; A&#x27;</span>～<span class="hljs-string">&#x27;Z&#x27;</span>或<span class="hljs-string">&#x27;0&#x27;</span>～<span class="hljs-string">&#x27;9&#x27;</span>，省略变量名时按键结果保存在环境变量<span class="hljs-meta">%</span>PressKey<span class="hljs-meta">%</span>中。<br></code></pre></td></tr></table></figure>
+<h3 id="WALL"><a href="#WALL" class="headerlink" title="[WALL]"></a>[WALL]</h3><figure class="highlight taggerscript"><table><tr><td class="code"><pre><code class="hljs taggerscript">格式：WALL &lt;壁纸文件名&gt;<br>功能：设置壁纸<br>参数：<br>　参数为壁纸文件名。<br>示例：<br>　WALL <span class="hljs-variable">%CurDrv%</span><span class="hljs-symbol">\外</span>置程序<span class="hljs-symbol">\W</span>allPage.JPG<br>备注：<br>　支持环境变量、支持各种格式的图形文件。设置壁纸的WALL必须在加载桌面SHEL命令之前。<br>　本命令不能在命令行中使用，只能在配置文件中使用。<br></code></pre></td></tr></table></figure>
+]]></content>
       <tags>
         <tag>WinPE</tag>
         <tag>PECMD</tag>
