@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>VS ATL的exe模板无法生成dll的解决方案</title>
-    <url>/2021/06/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <url>/2021/04/29/VS-ATL%E7%9A%84exe%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E7%94%9F%E6%88%90dll%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>报错信息：</p>
 <figure class="highlight verilog"><table><tr><td class="code"><pre><code class="hljs verilog">EXEC : error : MIDL will <span class="hljs-keyword">not</span> <span class="hljs-keyword">generate</span> DLLDATA<span class="hljs-variable">.C</span> unless you have at least <span class="hljs-number">1</span> <span class="hljs-keyword">interface</span> in the main project.<br></code></pre></td></tr></table></figure>
 <p>提示信息：</p>
@@ -42,8 +42,8 @@ D-->E(输入../ATLProject1/ATLProject1PS.def)
       </tags>
   </entry>
   <entry>
-    <title>winPE下的PECMD命令详解</title>
-    <url>/2021/07/01/winPE%E4%B8%8B%E7%9A%84PECMD%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
+    <title>WinPE下的PECMD命令详解</title>
+    <url>/2020/12/01/WinPE%E4%B8%8B%E7%9A%84PECMD%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<h2 id="winPE下的PECMD命令详解"><a href="#winPE下的PECMD命令详解" class="headerlink" title="winPE下的PECMD命令详解"></a>winPE下的PECMD命令详解</h2><p>　目前，国内winpe系统大都有一个核心软件支持，这就是pecmd.exe(一个命令行解释程序）共有70多条。<br>  转载自：<a href="https://www.twblogs.net/a/5b836da22b71776c51e30018">https://www.twblogs.net/a/5b836da22b71776c51e30018</a><br>         <a href="https://www.twblogs.net/a/5b836da42b71776c51e30024">https://www.twblogs.net/a/5b836da42b71776c51e30024</a></p>
 <h3 id="命令的分类："><a href="#命令的分类：" class="headerlink" title="命令的分类："></a>命令的分类：</h3><ol>
 <li>常用命令行命令</li>
