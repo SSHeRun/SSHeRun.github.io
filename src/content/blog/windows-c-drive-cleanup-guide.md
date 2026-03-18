@@ -2,6 +2,7 @@
 title: 'Windows C盘清理完全指南：安全释放系统空间'
 description: 'C盘空间不足是Windows用户最头疼的问题。本文提供从简单到进阶的完整清理方案，帮你安全释放系统空间，无需重装系统。'
 pubDate: '2020-09-14'
+heroImage: '../../assets/cover-windows-c-drive-cleanup-guide.jpg'
 tags: ['Windows', '系统优化', '工具教程']
 ---
 

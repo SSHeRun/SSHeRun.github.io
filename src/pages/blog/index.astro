@@ -82,12 +82,12 @@ const posts = (await getCollection('blog')).sort(
 				font-size: 0.9rem;
 			}
 
-			/* ── Grid ── */
-			.post-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-				gap: 1.5rem;
-			}
+		/* ── Grid ── */
+		.post-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+			gap: 1.5rem;
+		}
 
 			/* ── Card ── */
 			.post-card {
@@ -175,15 +175,26 @@ const posts = (await getCollection('blog')).sort(
 				letter-spacing: 0.02em;
 			}
 
-			@media (max-width: 720px) {
-				.post-grid {
-					grid-template-columns: 1fr;
-				}
-				.page-header {
-					flex-direction: column;
-					gap: 0.25rem;
-				}
+		@media (max-width: 720px) {
+			.post-grid {
+				grid-template-columns: 1fr;
+				gap: 1rem;
 			}
+			.page-header {
+				flex-direction: column;
+				gap: 0.25rem;
+				margin: 1.5rem 0 1.5rem;
+			}
+			.page-title { font-size: 1.6rem; }
+			.card-body { padding: 1rem; }
+			.card-body h2 { font-size: 1rem; }
+		}
+		@media (max-width: 480px) {
+			.page-title { font-size: 1.4rem; }
+			.card-body { padding: 0.85rem; }
+			.card-body h2 { font-size: 0.95rem; }
+			.description { font-size: 0.82rem; }
+		}
 		</style>
 	</body>
 </html>
