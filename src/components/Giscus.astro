@@ -11,7 +11,7 @@ function loadGiscus() {
 	const container = document.getElementById('giscus-container');
 	if (!container || container.querySelector('iframe')) return;
 
-	const theme = document.documentElement.dataset.theme === 'dark'
+	const theme = document.documentElement.getAttribute('data-theme') === 'dark'
 		? 'dark_dimmed'
 		: 'light';
 
@@ -41,11 +41,12 @@ loadGiscus();
 	.comments {
 		margin-top: 3rem;
 		padding-top: 2rem;
-		border-top: 1px solid var(--border-color);
+		border-top: 1px solid var(--glass-border);
 	}
 	.comments-title {
 		font-size: 1.25rem;
 		margin: 0 0 1.5rem;
 		letter-spacing: -0.02em;
+		color: var(--text-primary);
 	}
 </style>

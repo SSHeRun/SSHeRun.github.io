@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BackToTop from '../components/BackToTop.astro';
 import BaseHead from '../components/BaseHead.astro';
+import ReadingProgress from '../components/ReadingProgress.astro';
 import CopyCode from '../components/CopyCode.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
@@ -11,9 +12,9 @@ import Header from '../components/Header.astro';
 import ReadingTime from '../components/ReadingTime.astro';
 import { SITE_TITLE } from '../consts';
 
-type Props = CollectionEntry<'blog'>['data'] & { body?: string };
+type Props = CollectionEntry<'blog'>['data'] & { body?: string; slug?: string };
 
-const { title, description, pubDate, updatedDate, heroImage, tags, body = '' } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags, body = '', slug = '' } = Astro.props;
 
 const jsonLd = {
 	"@context": "https://schema.org",
@@ -44,12 +45,13 @@ const jsonLd = {
 	</head>
 
 	<body>
+		<ReadingProgress />
 		<Header />
 		<main>
 			<article>
 				{heroImage && (
 					<div class="hero-image">
-						<Image width={1020} height={510} src={heroImage} alt="" />
+						<Image width={1020} height={510} src={heroImage} alt="" transition:name={slug ? `post-img-${slug}` : undefined} />
 					</div>
 				)}
 				<div class="article-header">
@@ -91,59 +93,78 @@ const jsonLd = {
 	article {
 		padding: 2rem 0;
 	}
+
+	/* ── Hero Image ── */
 	.hero-image {
-		margin-bottom: 2rem;
+		margin-bottom: 2.5rem;
 	}
 	.hero-image img {
 		width: 100%;
-		border-radius: var(--radius-lg);
-		box-shadow: var(--shadow-lg);
+		border-radius: var(--radius-xl);
+		box-shadow: var(--shadow-lg), 0 0 40px color-mix(in srgb, var(--accent) 10%, transparent);
 	}
+
+	/* ── Article Header ── */
 	.article-header {
 		margin-bottom: 2.5rem;
 		padding-bottom: 1.5rem;
-		border-bottom: 1px solid var(--border-color);
+		border-bottom: 1px solid var(--border);
 	}
 	.article-header h1 {
 		font-size: 2rem;
-		margin: 0.5rem 0 0.75rem;
+		margin: 0.6rem 0 0.85rem;
 		letter-spacing: -0.03em;
 		line-height: 1.3;
 	}
+
+	/* ── Meta ── */
 	.meta {
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		font-size: 0.9rem;
-		color: var(--text-tertiary);
+		font-size: 0.88rem;
+		color: var(--text-muted);
 	}
 	.dot {
-		color: var(--text-tertiary);
-		opacity: 0.5;
+		opacity: 0.4;
 	}
 	.updated {
-		color: var(--text-tertiary);
-		font-size: 0.85rem;
+		font-size: 0.83rem;
 	}
+
+	/* ── Tags ── */
 	.tags {
 		display: flex;
 		gap: 0.5rem;
 		flex-wrap: wrap;
 	}
 	.tag {
-		padding: 0.2rem 0.65rem;
-		background: color-mix(in srgb, var(--accent) 10%, transparent);
+		padding: 0.2rem 0.7rem;
+		background: var(--glass-bg);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		border: 1px solid var(--glass-border);
 		color: var(--accent);
 		border-radius: 999px;
 		font-size: 0.8rem;
 		font-weight: 500;
+		letter-spacing: 0.02em;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
 	}
+	.tag:hover {
+		border-color: var(--border-glow);
+		box-shadow: var(--shadow-glow);
+	}
+
+	/* ── Prose ── */
 	.prose {
 		font-size: 1.05rem;
 		line-height: 1.8;
 	}
 	.prose :global(h2) {
 		margin-top: 2.5rem;
+		padding-bottom: 0.4rem;
+		border-bottom: 1px solid var(--border);
 	}
 	.prose :global(h3) {
 		margin-top: 2rem;
@@ -153,14 +174,34 @@ const jsonLd = {
 	}
 	.prose :global(pre) {
 		margin: 1.5em 0;
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-md);
 	}
 	.prose :global(img) {
 		border-radius: var(--radius-md);
 		margin: 1.5em 0;
+		box-shadow: var(--shadow-md);
 	}
+	.prose :global(blockquote) {
+		border-left-color: var(--accent);
+		background: var(--glass-bg);
+	}
+	.prose :global(a) {
+		color: var(--accent);
+		text-decoration-color: color-mix(in srgb, var(--accent) 30%, transparent);
+		text-underline-offset: 3px;
+		transition: text-decoration-color 0.2s ease;
+	}
+	.prose :global(a:hover) {
+		text-decoration-color: var(--accent);
+	}
+
 	@media (max-width: 720px) {
 		.article-header h1 {
 			font-size: 1.6rem;
+		}
+		.hero-image img {
+			border-radius: var(--radius-lg);
 		}
 	}
 </style>

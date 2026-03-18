@@ -20,8 +20,10 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
-			<h1 class="page-title">全部文章</h1>
-			<p class="page-desc">共 {posts.length} 篇</p>
+			<div class="page-header">
+				<h1 class="page-title">全部文章</h1>
+				<span class="post-count">共 {posts.length} 篇</span>
+			</div>
 
 			<div class="post-grid">
 				{posts.map((post) => (
@@ -34,6 +36,7 @@ const posts = (await getCollection('blog')).sort(
 									width={640}
 									height={320}
 									loading="lazy"
+									transition:name={`post-img-${post.id}`}
 								/>
 							</div>
 						)}
@@ -61,38 +64,51 @@ const posts = (await getCollection('blog')).sort(
 
 		<style>
 			main {
-				max-width: 860px;
+				max-width: var(--max-width-wide);
+			}
+			.page-header {
+				display: flex;
+				align-items: baseline;
+				gap: 1rem;
+				margin: 2rem 0 2.5rem;
 			}
 			.page-title {
 				font-size: 2rem;
-				margin: 2rem 0 0.25rem;
+				margin: 0;
 				letter-spacing: -0.03em;
 			}
-			.page-desc {
-				color: var(--text-tertiary);
-				margin: 0 0 2.5rem;
-				font-size: 0.95rem;
+			.post-count {
+				color: var(--text-muted);
+				font-size: 0.9rem;
 			}
+
+			/* ── Grid ── */
 			.post-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
 				gap: 1.5rem;
 			}
+
+			/* ── Card ── */
 			.post-card {
 				display: flex;
 				flex-direction: column;
 				border-radius: var(--radius-lg);
 				text-decoration: none;
-				transition: all var(--transition);
-				border: 1px solid var(--border-color);
+				border: 1px solid var(--glass-border);
 				overflow: hidden;
-				background: var(--bg-primary);
+				background: var(--glass-bg);
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 			}
 			.post-card:hover {
-				border-color: color-mix(in srgb, var(--accent) 30%, var(--border-color));
+				border-color: var(--border-glow);
 				transform: translateY(-3px);
-				box-shadow: var(--shadow-lg);
+				box-shadow: var(--shadow-glow), var(--shadow-lg);
 			}
+
+			/* ── Card Image ── */
 			.card-image {
 				width: 100%;
 				aspect-ratio: 2 / 1;
@@ -102,11 +118,13 @@ const posts = (await getCollection('blog')).sort(
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-				transition: transform 0.4s ease;
+				transition: transform 0.45s ease;
 			}
 			.post-card:hover .card-image img {
 				transform: scale(1.06);
 			}
+
+			/* ── Card Body ── */
 			.card-body {
 				padding: 1.25rem;
 				flex: 1;
@@ -118,6 +136,7 @@ const posts = (await getCollection('blog')).sort(
 				margin: 0.5rem 0;
 				color: var(--text-primary);
 				line-height: 1.4;
+				letter-spacing: -0.01em;
 			}
 			.description {
 				font-size: 0.875rem;
@@ -130,6 +149,8 @@ const posts = (await getCollection('blog')).sort(
 				overflow: hidden;
 				flex: 1;
 			}
+
+			/* ── Meta ── */
 			.post-meta {
 				display: flex;
 				align-items: center;
@@ -137,7 +158,7 @@ const posts = (await getCollection('blog')).sort(
 				font-size: 0.8rem;
 			}
 			.date {
-				color: var(--text-tertiary);
+				color: var(--text-muted);
 			}
 			.tags {
 				display: flex;
@@ -146,15 +167,21 @@ const posts = (await getCollection('blog')).sort(
 			}
 			.tag {
 				padding: 0.1rem 0.5rem;
-				background: color-mix(in srgb, var(--accent) 10%, transparent);
+				background: color-mix(in srgb, var(--accent) 12%, transparent);
 				color: var(--accent);
 				border-radius: 999px;
 				font-size: 0.72rem;
 				font-weight: 500;
+				letter-spacing: 0.02em;
 			}
+
 			@media (max-width: 720px) {
 				.post-grid {
 					grid-template-columns: 1fr;
+				}
+				.page-header {
+					flex-direction: column;
+					gap: 0.25rem;
 				}
 			}
 		</style>

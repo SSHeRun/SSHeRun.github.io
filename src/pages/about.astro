@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import PostHeatmap from '../components/PostHeatmap.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
@@ -15,8 +16,10 @@ import { SITE_TITLE } from '../consts';
 		<main>
 			<div class="about">
 				<div class="about-hero">
-					<div class="avatar">
-						<span class="avatar-text">S</span>
+					<div class="avatar-ring">
+						<div class="avatar">
+							<span class="avatar-text">S</span>
+						</div>
 					</div>
 					<div class="about-intro">
 						<h1>关于本站</h1>
@@ -36,14 +39,33 @@ import { SITE_TITLE } from '../consts';
 
 					<h2>Agent 友好意味着什么？</h2>
 					<p>本站实现了以下面向 Agent 的特性：</p>
-					<ul>
-						<li><code>/llms.txt</code> — 遵循 <a href="https://llmstxt.org" target="_blank">llmstxt.org</a> 标准，让 LLM 快速理解站点结构和内容概览</li>
-						<li><code>/llms-full.txt</code> — 所有文章的完整 Markdown 内容，一次请求获取全部上下文</li>
-						<li><code>/blog/[slug].md</code> — 每篇文章的纯 Markdown 端点，机器可直接消费</li>
-						<li><strong>JSON-LD 结构化数据</strong> — 每篇文章嵌入 Schema.org BlogPosting 标记</li>
-						<li><code>/robots.txt</code> — 开放所有 AI 爬虫访问</li>
-						<li><code>/rss.xml</code> + <code>/sitemap-index.xml</code> — 标准的内容发现协议</li>
-					</ul>
+
+					<div class="features-grid">
+						<div class="feature-card glass">
+							<code>/llms.txt</code>
+							<span>遵循 <a href="https://llmstxt.org" target="_blank">llmstxt.org</a> 标准，让 LLM 快速理解站点结构和内容概览</span>
+						</div>
+						<div class="feature-card glass">
+							<code>/llms-full.txt</code>
+							<span>所有文章的完整 Markdown 内容，一次请求获取全部上下文</span>
+						</div>
+						<div class="feature-card glass">
+							<code>/blog/[slug].md</code>
+							<span>每篇文章的纯 Markdown 端点，机器可直接消费</span>
+						</div>
+						<div class="feature-card glass">
+							<strong>JSON-LD 结构化数据</strong>
+							<span>每篇文章嵌入 Schema.org BlogPosting 标记</span>
+						</div>
+						<div class="feature-card glass">
+							<code>/robots.txt</code>
+							<span>开放所有 AI 爬虫访问</span>
+						</div>
+						<div class="feature-card glass">
+							<code>/rss.xml</code> + <code>/sitemap-index.xml</code>
+							<span>标准的内容发现协议</span>
+						</div>
+					</div>
 
 					<h2>技术栈</h2>
 					<ul>
@@ -60,31 +82,33 @@ import { SITE_TITLE } from '../consts';
 				</div>
 
 				<div class="about-links">
-					<a href="https://github.com/SSHeRun" target="_blank" class="link-card">
+					<a href="https://github.com/SSHeRun" target="_blank" class="link-card glass">
 						<svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor">
 							<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
 						</svg>
 						<span>GitHub</span>
 					</a>
-					<a href="/llms.txt" class="link-card">
+					<a href="/llms.txt" class="link-card glass">
 						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
 							<path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path>
 						</svg>
 						<span>llms.txt</span>
 					</a>
-					<a href="/rss.xml" class="link-card">
+					<a href="/rss.xml" class="link-card glass">
 						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
 							<path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3zm0 4a1 1 0 000 2 6 6 0 016 6 1 1 0 102 0 8 8 0 00-8-8zm0 4a1 1 0 000 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4zm0 4a1 1 0 100 2 1 1 0 000-2z"></path>
 						</svg>
 						<span>RSS</span>
 					</a>
-					<a href="/blog" class="link-card">
+					<a href="/blog" class="link-card glass">
 						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
 							<path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"></path>
 						</svg>
 						<span>全部文章</span>
 					</a>
 				</div>
+
+				<PostHeatmap />
 			</div>
 		</main>
 		<Footer />
@@ -96,27 +120,37 @@ import { SITE_TITLE } from '../consts';
 			.about {
 				padding: 3rem 0;
 			}
+
+			/* ── Hero ── */
 			.about-hero {
 				display: flex;
 				align-items: center;
 				gap: 1.5rem;
 				margin-bottom: 2.5rem;
 			}
+			.avatar-ring {
+				flex-shrink: 0;
+				padding: 3px;
+				border-radius: 50%;
+				background: var(--accent-gradient);
+			}
 			.avatar {
 				width: 80px;
 				height: 80px;
 				border-radius: 50%;
-				background: var(--accent-gradient);
+				background: var(--bg-surface);
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				flex-shrink: 0;
-				box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 5px color-mix(in srgb, var(--accent) 30%, transparent);
+				box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 20%, transparent);
 			}
 			.avatar-text {
 				font-size: 2rem;
 				font-weight: 700;
-				color: white;
+				background: var(--accent-gradient);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
 			}
 			.about-intro h1 {
 				font-size: 1.8rem;
@@ -124,10 +158,12 @@ import { SITE_TITLE } from '../consts';
 				letter-spacing: -0.03em;
 			}
 			.tagline {
-				color: var(--text-secondary);
+				color: var(--text-muted);
 				margin: 0;
 				font-size: 1rem;
 			}
+
+			/* ── Content ── */
 			.about-content {
 				margin-bottom: 2.5rem;
 			}
@@ -157,9 +193,11 @@ import { SITE_TITLE } from '../consts';
 			}
 			.about-content code {
 				padding: 0.15rem 0.4rem;
-				background: var(--bg-tertiary);
-				border-radius: 4px;
+				background: var(--glass-bg);
+				border: 1px solid var(--glass-border);
+				border-radius: var(--radius-sm);
 				font-size: 0.9em;
+				color: var(--accent);
 			}
 			.about-content a {
 				color: var(--accent);
@@ -171,6 +209,39 @@ import { SITE_TITLE } from '../consts';
 			.about-content strong {
 				color: var(--text-primary);
 			}
+
+			/* ── Features Grid ── */
+			.features-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 0.75rem;
+				margin: 1rem 0 1.5rem;
+			}
+			.feature-card {
+				padding: 1rem 1.15rem;
+				border-radius: var(--radius-md);
+				display: flex;
+				flex-direction: column;
+				gap: 0.35rem;
+				transition: border-color 0.25s ease, box-shadow 0.25s ease;
+			}
+			.feature-card:hover {
+				border-color: var(--border-glow);
+				box-shadow: var(--shadow-glow);
+			}
+			.feature-card code {
+				font-size: 0.85em;
+			}
+			.feature-card span {
+				font-size: 0.9rem;
+				color: var(--text-secondary);
+				line-height: 1.6;
+			}
+			.feature-card a {
+				color: var(--accent);
+			}
+
+			/* ── Links ── */
 			.about-links {
 				display: flex;
 				gap: 0.75rem;
@@ -182,21 +253,21 @@ import { SITE_TITLE } from '../consts';
 				gap: 0.5rem;
 				padding: 0.65rem 1.25rem;
 				border-radius: var(--radius-lg);
-				border: 1px solid var(--border-color);
 				text-decoration: none;
 				color: var(--text-secondary);
 				font-size: 0.9rem;
-				transition: all var(--transition);
+				transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 			}
 			.link-card:hover {
-				border-color: color-mix(in srgb, var(--accent) 40%, var(--border-color));
+				border-color: var(--border-glow);
 				color: var(--accent);
-				background: color-mix(in srgb, var(--accent) 5%, transparent);
-				transform: translateY(-1px);
+				box-shadow: var(--shadow-glow);
+				transform: translateY(-2px);
 			}
 			.link-card svg {
 				flex-shrink: 0;
 			}
+
 			@media (max-width: 720px) {
 				.about-hero {
 					flex-direction: column;
@@ -204,6 +275,9 @@ import { SITE_TITLE } from '../consts';
 				}
 				.about-links {
 					justify-content: center;
+				}
+				.features-grid {
+					grid-template-columns: 1fr;
 				}
 			}
 		</style>

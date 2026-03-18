@@ -22,15 +22,17 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 		color: var(--text-secondary);
 		text-decoration: none;
 		border-radius: var(--radius-sm);
-		transition: all var(--transition);
+		cursor: pointer;
+		transition: color 0.2s ease, background 0.2s ease;
 	}
 	a:hover {
 		color: var(--text-primary);
-		background: var(--bg-tertiary);
+		background: var(--glass-bg);
 	}
 	a.active {
 		color: var(--accent);
-		background: color-mix(in srgb, var(--accent) 8%, transparent);
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
 		font-weight: 600;
 	}
 </style>

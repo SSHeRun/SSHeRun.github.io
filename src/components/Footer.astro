@@ -12,7 +12,7 @@ const today = new Date();
 </footer>
 <style>
 	footer {
-		border-top: 1px solid var(--border-color);
+		border-top: 1px solid var(--glass-border);
 		margin-top: 4rem;
 	}
 	.footer-inner {
@@ -23,16 +23,16 @@ const today = new Date();
 		justify-content: space-between;
 		align-items: center;
 		font-size: 0.85rem;
-		color: var(--text-tertiary);
+		color: var(--text-muted);
 	}
 	.footer-inner p {
 		margin: 0;
-		color: var(--text-tertiary);
+		color: var(--text-muted);
 	}
 	.footer-inner a {
 		color: var(--text-secondary);
 		text-decoration: none;
-		transition: color var(--transition);
+		transition: color 0.2s ease;
 	}
 	.footer-inner a:hover {
 		color: var(--accent);

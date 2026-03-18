@@ -8,9 +8,21 @@ globs:
 
 ## 技术架构
 - 框架：Astro 6.x，静态站点生成（SSG）
+- 样式：Tailwind CSS v4（`@tailwindcss/vite` 插件）+ CSS 自定义属性
+- 页面过渡：Astro View Transitions（`ClientRouter`）
+- 知识图谱：Cytoscape.js（通过 ESM CDN 动态加载）
 - 部署：GitHub Pages，通过 GitHub Actions 自动构建（push main 触发）
 - Node >= 22.12.0
 - 安装依赖必须使用 `--legacy-peer-deps`（astro-mermaid peer dep 兼容性）
+
+## 设计系统
+- 配色通过 CSS 自定义属性定义在 `src/styles/global.css` 的 `:root` 和 `[data-theme="dark"]` 中
+- 亮色主色：`#0891b2`（青）/ `#7c3aed`（紫）
+- 暗色主色：`#00f0ff`（霓虹青）/ `#a855f7`（紫）
+- 毛玻璃效果使用 `--glass-bg` + `--glass-border` + `backdrop-filter: blur()`
+- 主题通过 `<html data-theme="dark|light">` 切换，默认跟随系统
+- 组件不使用硬编码颜色值，一律引用 CSS 自定义属性
+- Tailwind `@theme` 块定义字体和颜色 token
 
 ## 文章规范
 - 文章存放在 `src/content/blog/` 下，格式为 Markdown (.md)
@@ -30,15 +42,26 @@ globs:
 - `/blog/{slug}.md` — 单篇纯 Markdown
 - 这些端点从内容集合自动生成，不需要手动维护
 
+## 页面与组件
+- `BaseHead.astro` — 包含 `ClientRouter`（View Transitions）和主题初始化脚本
+- `Header.astro` — `transition:persist`，毛玻璃导航栏，含 ThemeToggle
+- `ThemeToggle.astro` — localStorage 持久化主题偏好，同步 Giscus 主题
+- `ReadingProgress.astro` — 文章页顶部渐变进度条
+- `PostHeatmap.astro` — GitHub 风格发文热力图（关于页使用）
+- `CodeSandbox.astro` — StackBlitz iframe 嵌入组件
+- `/graph` — Cytoscape.js 可视化文章-标签关系网络
+
 ## 设计原则
 - 博客主题："做一个对 Agent 友好的博客"
+- 视觉风格：Glassmorphism + Cyberpunk 配色
 - 中文优先（日期 zh-CN、评论中文、排版针对中文优化）
-- 暗色模式通过 CSS `prefers-color-scheme` 自动切换
+- 暗色模式通过 `data-theme` 属性切换，默认跟随系统 `prefers-color-scheme`
 - 尽量用自定义 remark 插件而不是引入第三方包
-- 样式变量定义在 `src/styles/global.css` 的 `:root` 中
+- View Transitions 实现页面间平滑过渡，封面图使用 `transition:name` 实现 morph
 
 ## 关键文件
-- `astro.config.mjs` — Astro 配置和 remark 插件注册
+- `astro.config.mjs` — Astro 配置，Tailwind Vite 插件，remark 插件注册
+- `src/styles/global.css` — Tailwind v4 `@import` + `@theme` + 设计系统变量
 - `src/plugins/remark-wikilinks.mjs` — Obsidian wikilinks 解析插件
 - `src/content.config.ts` — 内容集合 Schema
 - `src/components/Giscus.astro` — 评论系统配置（GitHub Discussions）

@@ -1,0 +1,85 @@
+---
+interface Props {
+	/** StackBlitz project URL or ID (e.g., "vitejs/vite/tree/main/packages/create-vite/template-vanilla") */
+	src: string;
+	/** Display title */
+	title?: string;
+	/** Height in pixels */
+	height?: number;
+	/** Files to open (comma-separated) */
+	file?: string;
+	/** Terminal command to run */
+	terminal?: string;
+}
+
+const {
+	src,
+	title = 'Code Sandbox',
+	height = 450,
+	file = '',
+	terminal = '',
+} = Astro.props;
+
+const baseUrl = src.startsWith('http') ? src : `https://stackblitz.com/edit/${src}`;
+const params = new URLSearchParams({ embed: '1', theme: 'dark' });
+if (file) params.set('file', file);
+if (terminal) params.set('terminal', terminal);
+const iframeSrc = `${baseUrl}?${params.toString()}`;
+---
+
+<div class="sandbox-wrapper">
+	<div class="sandbox-header">
+		<span class="sandbox-title">{title}</span>
+		<a href={baseUrl} target="_blank" class="sandbox-open" title="在 StackBlitz 中打开">
+			<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+			</svg>
+		</a>
+	</div>
+	<iframe
+		src={iframeSrc}
+		title={title}
+		style={`height: ${height}px;`}
+		loading="lazy"
+		allow="accelerometer; clipboard-write; encrypted-media; gyroscope"
+	></iframe>
+</div>
+
+<style>
+	.sandbox-wrapper {
+		margin: 1.5em 0;
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		background: var(--bg-surface);
+	}
+	.sandbox-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.5rem 1rem;
+		background: var(--glass-bg);
+		border-bottom: 1px solid var(--glass-border);
+		font-size: 0.85rem;
+	}
+	.sandbox-title {
+		color: var(--text-secondary);
+		font-weight: 500;
+	}
+	.sandbox-open {
+		color: var(--text-muted);
+		display: flex;
+		padding: 0.25rem;
+		border-radius: 4px;
+		cursor: pointer;
+		transition: color 0.2s ease;
+	}
+	.sandbox-open:hover {
+		color: var(--accent);
+	}
+	iframe {
+		width: 100%;
+		border: 0;
+		display: block;
+	}
+</style>

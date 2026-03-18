@@ -1,0 +1,122 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const pubDates = posts.map(p => p.data.pubDate.toISOString().slice(0, 10));
+
+const today = new Date();
+const oneYearAgo = new Date(today);
+oneYearAgo.setFullYear(today.getFullYear() - 1);
+
+const startDay = oneYearAgo.getDay();
+const weeks: Array<Array<{ date: string; level: number }>> = [];
+let currentWeek: Array<{ date: string; level: number }> = [];
+
+for (let i = 0; i < startDay; i++) {
+	currentWeek.push({ date: '', level: -1 });
+}
+
+const dateCounter = new Map<string, number>();
+for (const d of pubDates) dateCounter.set(d, (dateCounter.get(d) || 0) + 1);
+
+const cursor = new Date(oneYearAgo);
+while (cursor <= today) {
+	const dateStr = cursor.toISOString().slice(0, 10);
+	const count = dateCounter.get(dateStr) || 0;
+	const level = count === 0 ? 0 : count === 1 ? 1 : count === 2 ? 2 : 3;
+	currentWeek.push({ date: dateStr, level });
+	if (currentWeek.length === 7) {
+		weeks.push(currentWeek);
+		currentWeek = [];
+	}
+	cursor.setDate(cursor.getDate() + 1);
+}
+if (currentWeek.length > 0) {
+	weeks.push(currentWeek);
+}
+---
+
+<div class="heatmap-wrapper">
+	<h3 class="heatmap-title">发文记录</h3>
+	<div class="heatmap">
+		{weeks.map((week) => (
+			<div class="heatmap-col">
+				{week.map((day) => (
+					<div
+						class:list={['heatmap-cell', { [`level-${day.level}`]: day.level >= 0, empty: day.level < 0 }]}
+						title={day.date ? `${day.date}` : ''}
+					/>
+				))}
+			</div>
+		))}
+	</div>
+	<div class="heatmap-legend">
+		<span>少</span>
+		<div class="heatmap-cell level-0"></div>
+		<div class="heatmap-cell level-1"></div>
+		<div class="heatmap-cell level-2"></div>
+		<div class="heatmap-cell level-3"></div>
+		<span>多</span>
+	</div>
+</div>
+
+<style>
+	.heatmap-wrapper {
+		padding: 1.5rem 0;
+	}
+	.heatmap-title {
+		font-size: 1rem;
+		margin: 0 0 0.75rem;
+		color: var(--text-secondary);
+		font-weight: 600;
+	}
+	.heatmap {
+		display: flex;
+		gap: 3px;
+		overflow-x: auto;
+		padding-bottom: 0.5rem;
+	}
+	.heatmap-col {
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+	}
+	.heatmap-cell {
+		width: 12px;
+		height: 12px;
+		border-radius: 2px;
+		transition: background 0.15s ease;
+	}
+	.heatmap-cell.empty {
+		visibility: hidden;
+	}
+	.heatmap-cell.level-0 {
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+	}
+	.heatmap-cell.level-1 {
+		background: color-mix(in srgb, var(--accent) 30%, transparent);
+		border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+	}
+	.heatmap-cell.level-2 {
+		background: color-mix(in srgb, var(--accent) 55%, transparent);
+		border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+	}
+	.heatmap-cell.level-3 {
+		background: var(--accent);
+		border: 1px solid var(--accent);
+		box-shadow: 0 0 6px color-mix(in srgb, var(--accent) 40%, transparent);
+	}
+	.heatmap-legend {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		margin-top: 0.5rem;
+		font-size: 0.75rem;
+		color: var(--text-muted);
+	}
+	.heatmap-legend .heatmap-cell {
+		width: 10px;
+		height: 10px;
+	}
+</style>

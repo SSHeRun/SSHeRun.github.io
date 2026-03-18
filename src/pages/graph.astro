@@ -1,0 +1,262 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const posts = await getCollection('blog');
+
+const nodes: Array<{ id: string; label: string; type: string; url?: string }> = [];
+const edges: Array<{ source: string; target: string; type: string }> = [];
+const tagSet = new Set<string>();
+
+for (const post of posts) {
+	nodes.push({ id: post.id, label: post.data.title, type: 'post', url: `/blog/${post.id}/` });
+
+	if (post.data.tags) {
+		for (const tag of post.data.tags) {
+			if (!tagSet.has(tag)) {
+				tagSet.add(tag);
+				nodes.push({ id: `tag:${tag}`, label: tag, type: 'tag' });
+			}
+			edges.push({ source: post.id, target: `tag:${tag}`, type: 'tag' });
+		}
+	}
+
+	const wikilinks = (post.body || '').match(/\[\[([^\]|#]+)/g);
+	if (wikilinks) {
+		for (const match of wikilinks) {
+			const target = match.slice(2).trim();
+			const targetPost = posts.find(p => p.id === target);
+			if (targetPost) {
+				edges.push({ source: post.id, target: targetPost.id, type: 'wikilink' });
+			}
+		}
+	}
+}
+
+const graphData = JSON.stringify({ nodes, edges });
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={`知识图谱 - ${SITE_TITLE}`} description="文章与标签的关系网络可视化" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="graph-header">
+				<h1>知识图谱</h1>
+				<p class="graph-desc">文章与标签的关系网络</p>
+			</div>
+			<div class="graph-container">
+				<div id="cy"></div>
+				<div class="graph-legend">
+					<span class="legend-item"><span class="legend-dot legend-post"></span>文章</span>
+					<span class="legend-item"><span class="legend-dot legend-tag"></span>标签</span>
+					<span class="legend-item"><span class="legend-line legend-link"></span>引用</span>
+				</div>
+			</div>
+		</main>
+		<Footer />
+
+		<script is:inline define:vars={{ graphData }}>
+			const data = JSON.parse(graphData);
+			const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+			const accentCyan = isDark ? '#00f0ff' : '#0891b2';
+			const accentPurple = isDark ? '#a855f7' : '#7c3aed';
+			const textColor = isDark ? '#f0f4f8' : '#1e293b';
+			const bgSurface = isDark ? '#111827' : '#ffffff';
+			const borderColor = isDark ? 'rgba(255,255,255,0.08)' : '#e2e8f0';
+
+			import('https://esm.sh/cytoscape@3.33.1').then(({ default: cytoscape }) => {
+				const elements = [];
+
+				for (const node of data.nodes) {
+					elements.push({
+						data: { id: node.id, label: node.label, nodeType: node.type, url: node.url || '' }
+					});
+				}
+				for (const edge of data.edges) {
+					elements.push({
+						data: { source: edge.source, target: edge.target, edgeType: edge.type }
+					});
+				}
+
+				const cy = cytoscape({
+					container: document.getElementById('cy'),
+					elements,
+					style: [
+						{
+							selector: 'node[nodeType="post"]',
+							style: {
+								'background-color': accentCyan,
+								'label': 'data(label)',
+								'color': textColor,
+								'font-size': '13px',
+								'text-halign': 'center',
+								'text-valign': 'bottom',
+								'text-margin-y': 8,
+								'width': 32,
+								'height': 32,
+								'border-width': 2,
+								'border-color': accentCyan,
+								'text-max-width': '120px',
+								'text-wrap': 'wrap',
+							}
+						},
+						{
+							selector: 'node[nodeType="tag"]',
+							style: {
+								'background-color': accentPurple,
+								'label': 'data(label)',
+								'color': textColor,
+								'font-size': '12px',
+								'text-halign': 'center',
+								'text-valign': 'bottom',
+								'text-margin-y': 6,
+								'width': 22,
+								'height': 22,
+								'shape': 'diamond',
+								'border-width': 2,
+								'border-color': accentPurple,
+							}
+						},
+						{
+							selector: 'edge[edgeType="tag"]',
+							style: {
+								'line-color': borderColor,
+								'width': 1.5,
+								'curve-style': 'bezier',
+								'opacity': 0.6,
+							}
+						},
+						{
+							selector: 'edge[edgeType="wikilink"]',
+							style: {
+								'line-color': accentCyan,
+								'width': 2,
+								'curve-style': 'bezier',
+								'target-arrow-shape': 'triangle',
+								'target-arrow-color': accentCyan,
+								'arrow-scale': 0.8,
+								'opacity': 0.8,
+							}
+						},
+						{
+							selector: 'node:active',
+							style: {
+								'overlay-opacity': 0,
+							}
+						},
+						{
+							selector: 'node.hover',
+							style: {
+								'border-width': 3,
+								'font-weight': 'bold',
+							}
+						}
+					],
+					layout: {
+						name: 'cose',
+						idealEdgeLength: 120,
+						nodeOverlap: 30,
+						padding: 40,
+						animate: true,
+						animationDuration: 500,
+					},
+					minZoom: 0.3,
+					maxZoom: 3,
+					wheelSensitivity: 0.3,
+				});
+
+				cy.on('tap', 'node[nodeType="post"]', (evt) => {
+					const url = evt.target.data('url');
+					if (url) window.location.href = url;
+				});
+
+				cy.on('mouseover', 'node', (evt) => {
+					evt.target.addClass('hover');
+					document.getElementById('cy').style.cursor = evt.target.data('nodeType') === 'post' ? 'pointer' : 'default';
+				});
+				cy.on('mouseout', 'node', (evt) => {
+					evt.target.removeClass('hover');
+					document.getElementById('cy').style.cursor = 'default';
+				});
+			});
+		</script>
+
+		<style>
+			main {
+				max-width: var(--max-width-wide);
+			}
+			.graph-header {
+				padding: 2rem 0 1rem;
+			}
+			.graph-header h1 {
+				font-size: 2rem;
+				margin: 0 0 0.25rem;
+				letter-spacing: -0.03em;
+			}
+			.graph-desc {
+				color: var(--text-muted);
+				margin: 0;
+				font-size: 0.95rem;
+			}
+			.graph-container {
+				position: relative;
+				border: 1px solid var(--glass-border);
+				border-radius: var(--radius-xl);
+				overflow: hidden;
+				background: var(--bg-surface);
+			}
+			#cy {
+				width: 100%;
+				height: 500px;
+			}
+			.graph-legend {
+				position: absolute;
+				bottom: 1rem;
+				left: 1rem;
+				display: flex;
+				gap: 1rem;
+				font-size: 0.8rem;
+				color: var(--text-muted);
+				background: var(--glass-bg);
+				backdrop-filter: blur(8px);
+				padding: 0.5rem 1rem;
+				border-radius: var(--radius-md);
+				border: 1px solid var(--glass-border);
+			}
+			.legend-item {
+				display: flex;
+				align-items: center;
+				gap: 0.35rem;
+			}
+			.legend-dot {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+			}
+			.legend-post { background: var(--accent); }
+			.legend-tag {
+				background: var(--accent-secondary);
+				border-radius: 2px;
+				transform: rotate(45deg);
+				width: 8px;
+				height: 8px;
+			}
+			.legend-line {
+				width: 16px;
+				height: 2px;
+				background: var(--accent);
+			}
+			@media (max-width: 720px) {
+				#cy { height: 350px; }
+			}
+		</style>
+	</body>
+</html>

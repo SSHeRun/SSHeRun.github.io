@@ -1,6 +1,5 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
@@ -16,6 +15,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = FallbackImage } = Astro.props;
 ---
+
+<ClientRouter />
+
+<!-- Theme init (before body to prevent FOUC) -->
+<script is:inline>
+(function() {
+	const saved = localStorage.getItem('theme');
+	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+	const theme = saved || (prefersDark ? 'dark' : 'light');
+	document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
