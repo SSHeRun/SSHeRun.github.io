@@ -1,0 +1,241 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 5);
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<div class="hero-bg"></div>
+				<div class="hero-content">
+					<p class="hero-label">Agent-Friendly Blog</p>
+					<h1>一个对 <span class="accent">Agent</span> 友好的博客</h1>
+					<p class="subtitle">不只是给人看的网站，也是给 AI 读的接口。探索 Agent 时代个人网站的新形态。</p>
+				</div>
+			</section>
+
+			<section class="recent-posts">
+				<div class="section-header">
+					<h2>最新文章</h2>
+					<a href="/blog" class="view-all">查看全部 &rarr;</a>
+				</div>
+				<div class="post-list">
+					{posts.map((post) => (
+						<a href={`/blog/${post.id}/`} class="post-card">
+							{post.data.heroImage && (
+								<div class="post-image">
+									<Image
+										src={post.data.heroImage}
+										alt={post.data.title}
+										width={320}
+										height={180}
+										loading="lazy"
+									/>
+								</div>
+							)}
+							<div class="post-body">
+								<div class="post-meta">
+									<FormattedDate date={post.data.pubDate} />
+									{post.data.tags && (
+										<div class="tags">
+											{post.data.tags.map((tag: string) => (
+												<span class="tag">{tag}</span>
+											))}
+										</div>
+									)}
+								</div>
+								<h3>{post.data.title}</h3>
+								{post.data.description && <p>{post.data.description}</p>}
+							</div>
+						</a>
+					))}
+				</div>
+			</section>
+		</main>
+		<Footer />
+
+		<style>
+			main {
+				max-width: 860px;
+			}
+			.hero {
+				position: relative;
+				padding: 4rem 0 3rem;
+				overflow: hidden;
+			}
+			.hero-bg {
+				position: absolute;
+				inset: -40px;
+				background:
+					radial-gradient(ellipse 600px 300px at 70% 20%, color-mix(in srgb, var(--accent) 12%, transparent), transparent),
+					radial-gradient(ellipse 400px 250px at 20% 80%, color-mix(in srgb, var(--accent) 8%, transparent), transparent);
+				filter: blur(40px);
+				pointer-events: none;
+				z-index: -1;
+			}
+			.hero-content {
+				position: relative;
+			}
+			.hero-label {
+				font-size: 0.85rem;
+				font-weight: 600;
+				color: var(--accent);
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+				margin: 0 0 0.75rem;
+			}
+			.hero h1 {
+				font-size: 2.5rem;
+				margin: 0 0 0.75rem;
+				letter-spacing: -0.03em;
+				line-height: 1.2;
+			}
+			.accent {
+				background: var(--accent-gradient);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+			.subtitle {
+				font-size: 1.2rem;
+				color: var(--text-secondary);
+				margin: 0;
+			}
+			.recent-posts {
+				padding: 1rem 0;
+			}
+			.section-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				margin-bottom: 1.5rem;
+			}
+			.section-header h2 {
+				font-size: 1.25rem;
+				margin: 0;
+				color: var(--text-primary);
+			}
+			.view-all {
+				font-size: 0.9rem;
+				color: var(--text-secondary);
+				text-decoration: none;
+				transition: color var(--transition);
+			}
+			.view-all:hover {
+				color: var(--accent);
+			}
+			.post-list {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+			}
+			.post-card {
+				display: flex;
+				gap: 1.25rem;
+				padding: 1rem;
+				border-radius: var(--radius-lg);
+				text-decoration: none;
+				transition: all var(--transition);
+				border: 1px solid transparent;
+			}
+			.post-card:hover {
+				background: var(--bg-secondary);
+				border-color: var(--border-color);
+				transform: translateY(-1px);
+				box-shadow: var(--shadow-md);
+			}
+			.post-image {
+				flex-shrink: 0;
+				width: 200px;
+				height: 112px;
+				border-radius: var(--radius-md);
+				overflow: hidden;
+			}
+			.post-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.3s ease;
+			}
+			.post-card:hover .post-image img {
+				transform: scale(1.05);
+			}
+			.post-body {
+				flex: 1;
+				min-width: 0;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			.post-card h3 {
+				font-size: 1.1rem;
+				margin: 0.35rem 0 0.25rem;
+				color: var(--text-primary);
+				line-height: 1.4;
+			}
+			.post-card p {
+				font-size: 0.88rem;
+				color: var(--text-secondary);
+				margin: 0;
+				line-height: 1.5;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+			.post-meta {
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				font-size: 0.825rem;
+				color: var(--text-tertiary);
+			}
+			.tags {
+				display: flex;
+				gap: 0.375rem;
+			}
+			.tag {
+				padding: 0.1rem 0.5rem;
+				background: color-mix(in srgb, var(--accent) 10%, transparent);
+				color: var(--accent);
+				border-radius: 999px;
+				font-size: 0.75rem;
+				font-weight: 500;
+			}
+			@media (max-width: 720px) {
+				.hero {
+					padding: 2.5rem 0 2rem;
+				}
+				.hero h1 {
+					font-size: 2rem;
+				}
+				.subtitle {
+					font-size: 1.05rem;
+				}
+				.post-card {
+					flex-direction: column;
+					gap: 0.75rem;
+				}
+				.post-image {
+					width: 100%;
+					height: 160px;
+				}
+			}
+		</style>
+	</body>
+</html>

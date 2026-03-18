@@ -1,4 +1,4 @@
-name: Deploy Hexo to GitHub Pages
+name: Deploy Astro to GitHub Pages
 
 on:
   push:
@@ -27,11 +27,11 @@ jobs:
 
       - run: npm ci
 
-      - run: npx hexo generate
+      - run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: dist
 
   deploy:
     needs: build

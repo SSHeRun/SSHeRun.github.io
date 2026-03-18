@@ -1,0 +1,51 @@
+---
+---
+
+<section class="comments">
+	<h2 class="comments-title">评论</h2>
+	<div id="giscus-container"></div>
+</section>
+
+<script>
+function loadGiscus() {
+	const container = document.getElementById('giscus-container');
+	if (!container || container.querySelector('iframe')) return;
+
+	const theme = document.documentElement.dataset.theme === 'dark'
+		? 'dark_dimmed'
+		: 'light';
+
+	const script = document.createElement('script');
+	script.src = 'https://giscus.app/client.js';
+	script.setAttribute('data-repo', 'SSHeRun/SSHeRun.github.io');
+	script.setAttribute('data-repo-id', '');
+	script.setAttribute('data-category', 'Announcements');
+	script.setAttribute('data-category-id', '');
+	script.setAttribute('data-mapping', 'pathname');
+	script.setAttribute('data-strict', '0');
+	script.setAttribute('data-reactions-enabled', '1');
+	script.setAttribute('data-emit-metadata', '0');
+	script.setAttribute('data-input-position', 'top');
+	script.setAttribute('data-theme', theme);
+	script.setAttribute('data-lang', 'zh-CN');
+	script.setAttribute('data-loading', 'lazy');
+	script.crossOrigin = 'anonymous';
+	script.async = true;
+	container.appendChild(script);
+}
+
+loadGiscus();
+</script>
+
+<style>
+	.comments {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--border-color);
+	}
+	.comments-title {
+		font-size: 1.25rem;
+		margin: 0 0 1.5rem;
+		letter-spacing: -0.02em;
+	}
+</style>

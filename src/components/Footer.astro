@@ -1,0 +1,47 @@
+---
+const today = new Date();
+---
+
+<footer>
+	<div class="footer-inner">
+		<p class="copyright">&copy; {today.getFullYear()} SSHeRun</p>
+		<p class="powered">
+			Powered by <a href="https://astro.build/" target="_blank">Astro</a>
+		</p>
+	</div>
+</footer>
+<style>
+	footer {
+		border-top: 1px solid var(--border-color);
+		margin-top: 4rem;
+	}
+	.footer-inner {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 2rem 1.5rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 0.85rem;
+		color: var(--text-tertiary);
+	}
+	.footer-inner p {
+		margin: 0;
+		color: var(--text-tertiary);
+	}
+	.footer-inner a {
+		color: var(--text-secondary);
+		text-decoration: none;
+		transition: color var(--transition);
+	}
+	.footer-inner a:hover {
+		color: var(--accent);
+	}
+	@media (max-width: 720px) {
+		.footer-inner {
+			flex-direction: column;
+			gap: 0.5rem;
+			text-align: center;
+		}
+	}
+</style>

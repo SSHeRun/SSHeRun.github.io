@@ -1,0 +1,61 @@
+---
+---
+
+<script>
+document.querySelectorAll('pre').forEach((pre) => {
+	if (pre.querySelector('.copy-btn')) return;
+
+	const btn = document.createElement('button');
+	btn.className = 'copy-btn';
+	btn.setAttribute('aria-label', '复制代码');
+	btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
+
+	btn.addEventListener('click', async () => {
+		const code = pre.querySelector('code');
+		const text = code ? code.textContent || '' : pre.textContent || '';
+		try {
+			await navigator.clipboard.writeText(text);
+			btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+			btn.classList.add('copied');
+			setTimeout(() => {
+				btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
+				btn.classList.remove('copied');
+			}, 2000);
+		} catch {}
+	});
+
+	pre.style.position = 'relative';
+	pre.appendChild(btn);
+});
+</script>
+
+<style is:global>
+	.copy-btn {
+		position: absolute;
+		top: 0.5rem;
+		right: 0.5rem;
+		padding: 0.35rem;
+		border-radius: 6px;
+		border: 1px solid transparent;
+		background: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+		color: var(--text-tertiary);
+		cursor: pointer;
+		opacity: 0;
+		transition: all 0.2s ease;
+		backdrop-filter: blur(4px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	pre:hover .copy-btn {
+		opacity: 1;
+	}
+	.copy-btn:hover {
+		color: var(--accent);
+		border-color: var(--border-color);
+		background: var(--bg-secondary);
+	}
+	.copy-btn.copied {
+		color: #22c55e;
+	}
+</style>

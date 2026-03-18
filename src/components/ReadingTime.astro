@@ -1,0 +1,20 @@
+---
+interface Props {
+	content: string;
+}
+
+const { content } = Astro.props;
+const cjkChars = (content.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g) || []).length;
+const words = content.replace(/[\u4e00-\u9fff\u3400-\u4dbf]/g, '').split(/\s+/).filter(Boolean).length;
+const minutes = Math.ceil((cjkChars / 300 + words / 200));
+const time = minutes < 1 ? 1 : minutes;
+---
+
+<span class="reading-time">{time} 分钟阅读</span>
+
+<style>
+	.reading-time {
+		font-size: 0.85rem;
+		color: var(--text-tertiary);
+	}
+</style>

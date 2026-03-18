@@ -1,0 +1,211 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={`关于 - ${SITE_TITLE}`} description="关于这个 Agent 友好的博客" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="about">
+				<div class="about-hero">
+					<div class="avatar">
+						<span class="avatar-text">S</span>
+					</div>
+					<div class="about-intro">
+						<h1>关于本站</h1>
+						<p class="tagline">一个对 Agent 友好的博客</p>
+					</div>
+				</div>
+
+				<div class="about-content">
+					<h2>为什么做这个博客？</h2>
+					<p>
+						传统个人网站是给人看的 — 精心排版的 HTML、漂亮的 CSS、流畅的交互。
+						但在 Agent 时代，你的网站的访客不只是人类，还有无数 AI Agent 在爬取、理解、引用你的内容。
+					</p>
+					<p>
+						这个博客是一次实践：<strong>如何让一个网站同时对人和 Agent 都友好？</strong>
+					</p>
+
+					<h2>Agent 友好意味着什么？</h2>
+					<p>本站实现了以下面向 Agent 的特性：</p>
+					<ul>
+						<li><code>/llms.txt</code> — 遵循 <a href="https://llmstxt.org" target="_blank">llmstxt.org</a> 标准，让 LLM 快速理解站点结构和内容概览</li>
+						<li><code>/llms-full.txt</code> — 所有文章的完整 Markdown 内容，一次请求获取全部上下文</li>
+						<li><code>/blog/[slug].md</code> — 每篇文章的纯 Markdown 端点，机器可直接消费</li>
+						<li><strong>JSON-LD 结构化数据</strong> — 每篇文章嵌入 Schema.org BlogPosting 标记</li>
+						<li><code>/robots.txt</code> — 开放所有 AI 爬虫访问</li>
+						<li><code>/rss.xml</code> + <code>/sitemap-index.xml</code> — 标准的内容发现协议</li>
+					</ul>
+
+					<h2>技术栈</h2>
+					<ul>
+						<li><a href="https://astro.build" target="_blank">Astro</a> — 现代静态站点生成器</li>
+						<li><a href="https://pages.github.com" target="_blank">GitHub Pages</a> — 托管与部署</li>
+						<li><a href="https://giscus.app" target="_blank">Giscus</a> — 基于 GitHub Discussions 的评论系统</li>
+					</ul>
+
+					<h2>关于作者</h2>
+					<p>
+						SSHeRun，关注 AI、系统技术和开发工具链。相信在 Agent 时代，
+						个人网站不只是数字名片，而是你在互联网上的<strong>可编程接口</strong>。
+					</p>
+				</div>
+
+				<div class="about-links">
+					<a href="https://github.com/SSHeRun" target="_blank" class="link-card">
+						<svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor">
+							<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+						</svg>
+						<span>GitHub</span>
+					</a>
+					<a href="/llms.txt" class="link-card">
+						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
+							<path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path>
+						</svg>
+						<span>llms.txt</span>
+					</a>
+					<a href="/rss.xml" class="link-card">
+						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
+							<path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3zm0 4a1 1 0 000 2 6 6 0 016 6 1 1 0 102 0 8 8 0 00-8-8zm0 4a1 1 0 000 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4zm0 4a1 1 0 100 2 1 1 0 000-2z"></path>
+						</svg>
+						<span>RSS</span>
+					</a>
+					<a href="/blog" class="link-card">
+						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
+							<path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"></path>
+						</svg>
+						<span>全部文章</span>
+					</a>
+				</div>
+			</div>
+		</main>
+		<Footer />
+
+		<style>
+			main {
+				max-width: 760px;
+			}
+			.about {
+				padding: 3rem 0;
+			}
+			.about-hero {
+				display: flex;
+				align-items: center;
+				gap: 1.5rem;
+				margin-bottom: 2.5rem;
+			}
+			.avatar {
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+				background: var(--accent-gradient);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-shrink: 0;
+				box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 5px color-mix(in srgb, var(--accent) 30%, transparent);
+			}
+			.avatar-text {
+				font-size: 2rem;
+				font-weight: 700;
+				color: white;
+			}
+			.about-intro h1 {
+				font-size: 1.8rem;
+				margin: 0 0 0.25rem;
+				letter-spacing: -0.03em;
+			}
+			.tagline {
+				color: var(--text-secondary);
+				margin: 0;
+				font-size: 1rem;
+			}
+			.about-content {
+				margin-bottom: 2.5rem;
+			}
+			.about-content h2 {
+				font-size: 1.2rem;
+				margin: 2rem 0 0.75rem;
+				letter-spacing: -0.02em;
+			}
+			.about-content h2:first-child {
+				margin-top: 0;
+			}
+			.about-content p {
+				color: var(--text-secondary);
+				font-size: 1.02rem;
+				line-height: 1.8;
+				margin: 0 0 0.75rem;
+			}
+			.about-content ul {
+				color: var(--text-secondary);
+				font-size: 1.02rem;
+				line-height: 1.8;
+				padding-left: 1.25rem;
+				margin: 0 0 1rem;
+			}
+			.about-content li {
+				margin-bottom: 0.35rem;
+			}
+			.about-content code {
+				padding: 0.15rem 0.4rem;
+				background: var(--bg-tertiary);
+				border-radius: 4px;
+				font-size: 0.9em;
+			}
+			.about-content a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			.about-content a:hover {
+				text-decoration: underline;
+			}
+			.about-content strong {
+				color: var(--text-primary);
+			}
+			.about-links {
+				display: flex;
+				gap: 0.75rem;
+				flex-wrap: wrap;
+			}
+			.link-card {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 0.65rem 1.25rem;
+				border-radius: var(--radius-lg);
+				border: 1px solid var(--border-color);
+				text-decoration: none;
+				color: var(--text-secondary);
+				font-size: 0.9rem;
+				transition: all var(--transition);
+			}
+			.link-card:hover {
+				border-color: color-mix(in srgb, var(--accent) 40%, var(--border-color));
+				color: var(--accent);
+				background: color-mix(in srgb, var(--accent) 5%, transparent);
+				transform: translateY(-1px);
+			}
+			.link-card svg {
+				flex-shrink: 0;
+			}
+			@media (max-width: 720px) {
+				.about-hero {
+					flex-direction: column;
+					text-align: center;
+				}
+				.about-links {
+					justify-content: center;
+				}
+			}
+		</style>
+	</body>
+</html>

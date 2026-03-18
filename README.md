@@ -1,98 +1,62 @@
-# SSHeRun's Blog
+# Astro Starter Kit: Blog
 
-基于 Hexo 8.x + Fluid 主题的个人博客，通过 GitHub Actions 自动部署到 GitHub Pages。
-
-## 快速开始
-
-### 环境要求
-
-- Node.js >= 20
-- npm
-
-### 安装依赖
-
-```bash
-npm install
+```sh
+npm create astro@latest -- --template blog
 ```
 
-### 本地预览
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-```bash
-npx hexo server
+Features:
+
+- ✅ Minimal styling (make it your own!)
+- ✅ 100/100 Lighthouse performance
+- ✅ SEO-friendly with canonical URLs and Open Graph data
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Markdown & MDX support
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+├── public/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
 ```
 
-浏览器打开 http://localhost:4000 即可预览。
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## 写新文章
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-### 方法一：命令行创建
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-```bash
-npx hexo new "文章标题"
-```
+Any static assets, like images, can be placed in the `public/` directory.
 
-这会在 `source/_posts/` 下生成 `文章标题.md`，然后编辑该文件即可。
+## 🧞 Commands
 
-### 方法二：手动创建
+All commands are run from the root of the project, from a terminal:
 
-直接在 `source/_posts/` 目录下新建 `.md` 文件，格式如下：
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-```markdown
----
-title: 文章标题
-date: 2026-03-18 12:00:00
-tags:
-  - 标签1
-  - 标签2
-categories:
-  - 分类名
----
+## 👀 Want to learn more?
 
-正文内容（支持 Markdown 语法）...
-```
+Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
-## 发布文章
+## Credit
 
-只需要把改动推送到 `main` 分支，GitHub Actions 会自动构建并部署：
-
-```bash
-git add .
-git commit -m "新文章：文章标题"
-git push
-```
-
-推送后等待约 1-2 分钟，访问 https://ssherun.github.io 即可看到更新。
-
-## 项目结构
-
-```
-├── _config.yml          # Hexo 主配置
-├── _config.fluid.yml    # Fluid 主题配置
-├── source/
-│   ├── _posts/          # ✏️ 文章放这里（Markdown）
-│   └── about/           # 关于页面
-├── scaffolds/           # 文章模板
-├── .github/workflows/   # GitHub Actions 自动部署
-└── package.json         # 依赖管理
-```
-
-## 常用命令
-
-| 命令 | 说明 |
-|------|------|
-| `npx hexo new "标题"` | 创建新文章 |
-| `npx hexo server` | 本地预览（http://localhost:4000） |
-| `npx hexo generate` | 生成静态文件 |
-| `npx hexo clean` | 清理缓存和已生成文件 |
-
-## 自定义配置
-
-- **站点配置**：编辑 `_config.yml`（标题、作者、URL 等）
-- **主题配置**：编辑 `_config.fluid.yml`（外观、导航栏、页脚等）
-- **Fluid 主题文档**：https://hexo.fluid-dev.com/docs/guide/
-
-## 注意事项
-
-1. GitHub Pages 部署源需设置为 **GitHub Actions**（在仓库 Settings > Pages 中配置）
-2. 文章文件名建议使用英文或拼音，避免 URL 编码问题
-3. 图片可放在 `source/img/` 目录下，在文章中用 `/img/xxx.png` 引用
+This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
