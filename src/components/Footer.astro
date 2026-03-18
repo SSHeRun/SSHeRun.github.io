@@ -38,10 +38,19 @@ const today = new Date();
 		color: var(--accent);
 	}
 	@media (max-width: 720px) {
+		footer { margin-top: 2.5rem; }
 		.footer-inner {
 			flex-direction: column;
 			gap: 0.5rem;
 			text-align: center;
+			padding: 1.5rem 1rem;
+		}
+	}
+	@media (max-width: 480px) {
+		footer { margin-top: 2rem; }
+		.footer-inner {
+			padding: 1.25rem 0.75rem;
+			font-size: 0.8rem;
 		}
 	}
 </style>

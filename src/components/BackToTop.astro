@@ -31,8 +31,8 @@ if (btn) {
 		position: fixed;
 		bottom: 2rem;
 		right: 2rem;
-		width: 42px;
-		height: 42px;
+		width: 44px;
+		height: 44px;
 		border-radius: 50%;
 		border: 1px solid var(--glass-border);
 		background: var(--glass-bg);
@@ -63,5 +63,11 @@ if (btn) {
 	}
 	.back-to-top.visible:hover {
 		transform: translateY(-2px);
+	}
+	@media (max-width: 480px) {
+		.back-to-top {
+			bottom: 1rem;
+			right: 1rem;
+		}
 	}
 </style>

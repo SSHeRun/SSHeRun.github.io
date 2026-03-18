@@ -69,7 +69,10 @@ const iframeSrc = `${baseUrl}?${params.toString()}`;
 	.sandbox-open {
 		color: var(--text-muted);
 		display: flex;
-		padding: 0.25rem;
+		align-items: center;
+		justify-content: center;
+		min-width: 44px;
+		min-height: 44px;
 		border-radius: 4px;
 		cursor: pointer;
 		transition: color 0.2s ease;
@@ -81,5 +84,13 @@ const iframeSrc = `${baseUrl}?${params.toString()}`;
 		width: 100%;
 		border: 0;
 		display: block;
+	}
+	@media (max-width: 720px) {
+		iframe { max-height: 320px; }
+		.sandbox-header { padding: 0.4rem 0.75rem; }
+	}
+	@media (max-width: 480px) {
+		iframe { max-height: 260px; }
+		.sandbox-wrapper { border-radius: var(--radius-md); }
 	}
 </style>

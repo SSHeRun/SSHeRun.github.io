@@ -34,7 +34,8 @@ document.querySelectorAll('pre').forEach((pre) => {
 		position: absolute;
 		top: 0.5rem;
 		right: 0.5rem;
-		padding: 0.35rem;
+		min-width: 44px;
+		min-height: 44px;
 		border-radius: var(--radius-sm);
 		border: 1px solid transparent;
 		background: var(--glass-bg);
@@ -51,6 +52,11 @@ document.querySelectorAll('pre').forEach((pre) => {
 	pre:hover .copy-btn {
 		opacity: 1;
 	}
+	@media (hover: none), (pointer: coarse) {
+		.copy-btn {
+			opacity: 0.7;
+		}
+	}
 	.copy-btn:hover {
 		color: var(--accent);
 		border-color: var(--glass-border);
@@ -58,5 +64,6 @@ document.querySelectorAll('pre').forEach((pre) => {
 	}
 	.copy-btn.copied {
 		color: #22c55e;
+		opacity: 1;
 	}
 </style>

@@ -188,15 +188,12 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 	font-size: 0.95em;
-	min-width: 480px;
 }
 th, td {
 	padding: 0.75em 1em;
 	border: 1px solid var(--border);
 	text-align: left;
-	white-space: nowrap;
 }
-td { white-space: normal; }
 th {
 	background: var(--glass-bg);
 	font-weight: 600;
@@ -286,6 +283,8 @@ a.wikilink::after {
 	h2 { font-size: 1.3em; }
 	h3 { font-size: 1.15em; }
 	pre { padding: 0.75em; font-size: 0.8em; border-radius: var(--radius-sm); }
+	table { font-size: 0.85em; }
+	th, td { padding: 0.5em 0.6em; }
 }
 
 /* ── SR Only ── */

@@ -247,17 +247,18 @@ import { SITE_TITLE } from '../consts';
 				gap: 0.75rem;
 				flex-wrap: wrap;
 			}
-			.link-card {
-				display: flex;
-				align-items: center;
-				gap: 0.5rem;
-				padding: 0.65rem 1.25rem;
-				border-radius: var(--radius-lg);
-				text-decoration: none;
-				color: var(--text-secondary);
-				font-size: 0.9rem;
-				transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-			}
+		.link-card {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0.65rem 1.25rem;
+			min-height: 44px;
+			border-radius: var(--radius-lg);
+			text-decoration: none;
+			color: var(--text-secondary);
+			font-size: 0.9rem;
+			transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+		}
 			.link-card:hover {
 				border-color: var(--border-glow);
 				color: var(--accent);
