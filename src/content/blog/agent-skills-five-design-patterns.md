@@ -131,3 +131,11 @@ npx skills add google/adk-docs -y -g
 - [Reddit 讨论](https://www.reddit.com/r/agentdevelopmentkit/comments/1rqq414/5_design_patterns_for_structuring_agent_skills/)
 - [Agent Skills 规范](https://agentskills.io)
 - [代码仓库](https://github.com/shuvajyotikar13/agent-design-patterns)
+
+## 相关文章
+
+- [[agent-skills-hub|Agent Skills Hub：发现和管理优质 AI Agent Skills]]
+- [[ai-multi-advisor-decision-system|把德鲁克、芒格、乔布斯装进 AI 系统：一套多顾问决策架构]]
+- [[dual-entry-human-agent-design|产品的两个入口：为什么 AI 时代要同时为人类和 Agent 设计]]
+- [[anthropic-skills-lessons|Anthropic 内部数百个 Skills 的经验：九大类型和写好 Skill 的秘诀]]
+- [[hello-world|做一个对 Agent 友好的博客]]

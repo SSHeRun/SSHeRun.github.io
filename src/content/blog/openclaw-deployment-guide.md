@@ -365,6 +365,6 @@ npx skills add op7418/Claude-to-IM-skill
 
 ## 相关文档
 
-- [[OpenClaw-Clawdbot-完全指南]]
-- [[Agent-Skills-Hub平台]]
-- [[世界级Agentic工程师指南]]
+## 相关文章
+
+- [[openclaw-complete-guide|OpenClaw/Clawdbot 完全指南：从入门到精通]]

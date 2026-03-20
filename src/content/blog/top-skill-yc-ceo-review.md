@@ -80,3 +80,12 @@ Skill 对 AI 如何向用户提问也有严格要求：
 - [原文推文](https://x.com/dontbesilent/status/2034180260049363291)
 - [gstack GitHub](https://github.com/garrytan/gstack)（Garry Tan, YC CEO）
 - [[agent-skills-five-design-patterns|Agent Skills 五大设计模式]]
+
+## 相关文章
+
+- [[ai-customer-service-revenue|客服不是成本中心：AI 正在重写企业和用户之间的关系结构]]
+- [[gstack-yc-ceo-factory|gstack：YC CEO 用来日产 2 万行代码的 Claude Code 软件工厂]]
+- [[taste-at-speed-pm-skill|Taste at Speed：当构建成本趋近于零，PM 的核心技能变了]]
+- [[software-engineering-splits-three|软件工程正在分裂为三层：你在哪一层？]]
+- [[first-principles-startup-review|用 AI 做第一性原理审查：一个创业计划被推翻的 48 小时]]
+- [[top-skill-yc-ceo-review|顶级 Skill 长什么样：YC CEO 的 600 行提示词为什么能审查一切]]

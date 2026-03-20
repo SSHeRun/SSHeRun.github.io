@@ -298,6 +298,6 @@ ln -s ../../shared agent2/workspace/shared
 
 ## 相关文档
 
-- [[OpenClaw部署与集成完整教程]]
-- [[Agent-Skills-Hub平台]]
-- [[世界级Agentic工程师指南]]
+## 相关文章
+
+- [[openclaw-deployment-guide|OpenClaw 部署完全指南：5种方案任你选]]

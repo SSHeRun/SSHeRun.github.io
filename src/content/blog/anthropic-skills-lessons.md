@@ -114,5 +114,12 @@ Anthropic 的做法是有机发现：先在 sandbox 文件夹试用，有了 tra
 
 - [原文推文](https://x.com/i/status/2033949937936085378)
 - 作者：Thariq (@trq212)，Anthropic 工程师
-- [[agent-skills-five-design-patterns|Agent Skills 五大设计模式]]
-- [[top-skill-yc-ceo-review|顶级 Skill 长什么样：YC CEO 的 plan-ceo-review]]
+
+## 相关文章
+
+- [[agent-skills-five-design-patterns|Agent Skills 五大设计模式：从工具到队友的进化]]
+- [[agent-skills-hub|Agent Skills Hub：发现和管理优质 AI Agent Skills]]
+- [[ai-multi-advisor-decision-system|把德鲁克、芒格、乔布斯装进 AI 系统：一套多顾问决策架构]]
+- [[dual-entry-human-agent-design|产品的两个入口：为什么 AI 时代要同时为人类和 Agent 设计]]
+- [[hello-world|做一个对 Agent 友好的博客]]
+- [[top-skill-yc-ceo-review|顶级 Skill 长什么样：YC CEO 的 600 行提示词为什么能审查一切]]

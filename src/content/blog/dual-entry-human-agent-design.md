@@ -89,3 +89,11 @@ Agent 负责从 0 到 70，人类负责从 70 到 100。两个入口不是割裂
 - [原文推文](https://x.com/i/status/2034121715811553657)
 - 作者：数字生命卡兹克 (@Khazix0918)
 - 产品：[LibTV](https://libtv.liblib.art)（Liblib）
+
+## 相关文章
+
+- [[agent-skills-five-design-patterns|Agent Skills 五大设计模式：从工具到队友的进化]]
+- [[agent-skills-hub|Agent Skills Hub：发现和管理优质 AI Agent Skills]]
+- [[ai-multi-advisor-decision-system|把德鲁克、芒格、乔布斯装进 AI 系统：一套多顾问决策架构]]
+- [[anthropic-skills-lessons|Anthropic 内部数百个 Skills 的经验：九大类型和写好 Skill 的秘诀]]
+- [[hello-world|做一个对 Agent 友好的博客]]

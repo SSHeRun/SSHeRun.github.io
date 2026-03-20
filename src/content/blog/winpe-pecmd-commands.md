@@ -1361,3 +1361,9 @@ tags: ['WinPE', 'PECMD', '命令详解']
 　支持环境变量、支持各种格式的图形文件。设置壁纸的WALL必须在加载桌面SHEL命令之前。
 　本命令不能在命令行中使用，只能在配置文件中使用。
 ```
+
+## 相关文章
+
+- [[windows-c-drive-cleanup-guide|Windows C盘清理完全指南：安全释放系统空间]]
+- [[winpe-pecmd-commands|WinPE下的PECMD命令详解]]
+- [[vs-atl-exe-cannot-generate-dll|VS ATL的exe模板无法生成dll的解决方案]]
