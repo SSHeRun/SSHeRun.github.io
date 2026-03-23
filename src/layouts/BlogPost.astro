@@ -88,7 +88,9 @@ const jsonLd = {
 
 <style>
 	main {
-		max-width: 760px;
+		width: 100%;
+		max-width: min(760px, calc(100% - 2rem));
+		box-sizing: border-box;
 	}
 	article {
 		padding: 2rem 0;
@@ -203,7 +205,9 @@ const jsonLd = {
 	}
 
 	@media (max-width: 720px) {
-		main { max-width: calc(100% - 1.5rem); }
+		main {
+			max-width: min(760px, calc(100% - 1.5rem));
+		}
 		article { padding: 1rem 0; }
 		.article-header {
 			margin-bottom: 1.5rem;

@@ -10,6 +10,16 @@ const posts = await getCollection('blog');
 const nodes: Array<{ id: string; label: string; type: string; url?: string }> = [];
 const edges: Array<{ source: string; target: string; type: string }> = [];
 const tagSet = new Set<string>();
+const edgeKey = (s: string, t: string, type: string) => `${s}\0${t}\0${type}`;
+const seenEdges = new Set<string>();
+
+function addEdge(source: string, target: string, type: string) {
+	if (source === target) return;
+	const key = edgeKey(source, target, type);
+	if (seenEdges.has(key)) return;
+	seenEdges.add(key);
+	edges.push({ source, target, type });
+}
 
 for (const post of posts) {
 	nodes.push({ id: post.id, label: post.data.title, type: 'post', url: `/blog/${post.id}/` });
@@ -20,7 +30,7 @@ for (const post of posts) {
 				tagSet.add(tag);
 				nodes.push({ id: `tag:${tag}`, label: tag, type: 'tag' });
 			}
-			edges.push({ source: post.id, target: `tag:${tag}`, type: 'tag' });
+			addEdge(post.id, `tag:${tag}`, 'tag');
 		}
 	}
 
@@ -28,9 +38,9 @@ for (const post of posts) {
 	if (wikilinks) {
 		for (const match of wikilinks) {
 			const target = match.slice(2).trim();
-			const targetPost = posts.find(p => p.id === target);
+			const targetPost = posts.find((p) => p.id === target);
 			if (targetPost) {
-				edges.push({ source: post.id, target: targetPost.id, type: 'wikilink' });
+				addEdge(post.id, targetPost.id, 'wikilink');
 			}
 		}
 	}
@@ -191,7 +201,9 @@ const graphData = JSON.stringify({ nodes, edges });
 
 		<style>
 			main {
-				max-width: var(--max-width-wide);
+				width: 100%;
+				max-width: min(var(--max-width-wide), calc(100% - 2rem));
+				box-sizing: border-box;
 			}
 			.graph-header {
 				padding: 2rem 0 1rem;

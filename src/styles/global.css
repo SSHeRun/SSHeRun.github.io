@@ -82,6 +82,7 @@
 /* ── Base ── */
 html {
 	scroll-behavior: smooth;
+	overflow-x: clip;
 }
 
 body {
@@ -95,13 +96,17 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	transition: background 0.3s ease, color 0.3s ease;
+	overflow-x: clip;
+	min-width: 0;
 }
 
 main {
-	width: var(--max-width);
-	max-width: calc(100% - 2rem);
+	width: 100%;
+	max-width: min(var(--max-width), 100% - 2rem);
 	margin: 0 auto;
 	padding: 2rem 1rem;
+	box-sizing: border-box;
+	min-width: 0;
 }
 
 /* ── Typography ── */
@@ -265,11 +270,16 @@ a.wikilink::after {
 
 /* ── Responsive ── */
 @media (max-width: 960px) {
-	main { max-width: calc(100% - 3rem); }
+	main {
+		max-width: min(var(--max-width), calc(100% - 3rem));
+	}
 }
 @media (max-width: 720px) {
 	body { font-size: 16px; }
-	main { padding: 1.5rem 1rem; max-width: calc(100% - 2rem); }
+	main {
+		padding: 1.5rem 1rem;
+		max-width: min(var(--max-width), calc(100% - 2rem));
+	}
 	h1 { font-size: 1.75em; }
 	h2 { font-size: 1.5em; }
 	pre { padding: 1em; font-size: 0.85em; }
@@ -278,7 +288,10 @@ a.wikilink::after {
 }
 @media (max-width: 480px) {
 	body { font-size: 15px; }
-	main { padding: 1rem 0.75rem; max-width: calc(100% - 1.5rem); }
+	main {
+		padding: 1rem 0.75rem;
+		max-width: min(var(--max-width), calc(100% - 1.5rem));
+	}
 	h1 { font-size: 1.5em; }
 	h2 { font-size: 1.3em; }
 	h3 { font-size: 1.15em; }

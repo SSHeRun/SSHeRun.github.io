@@ -11,8 +11,10 @@
 </button>
 
 <script>
-const toggle = document.getElementById('theme-toggle');
-if (toggle) {
+function bindThemeToggle() {
+	const toggle = document.getElementById('theme-toggle');
+	if (!toggle || toggle.dataset.bound === '1') return;
+	toggle.dataset.bound = '1';
 	toggle.addEventListener('click', () => {
 		const current = document.documentElement.getAttribute('data-theme');
 		const next = current === 'dark' ? 'light' : 'dark';
@@ -28,6 +30,8 @@ if (toggle) {
 		}
 	});
 }
+bindThemeToggle();
+document.addEventListener('astro:page-load', bindThemeToggle);
 </script>
 
 <style>

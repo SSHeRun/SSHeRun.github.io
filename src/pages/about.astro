@@ -115,7 +115,9 @@ import { SITE_TITLE } from '../consts';
 
 		<style>
 			main {
-				max-width: 760px;
+				width: 100%;
+				max-width: min(760px, calc(100% - 2rem));
+				box-sizing: border-box;
 			}
 			.about {
 				padding: 3rem 0;

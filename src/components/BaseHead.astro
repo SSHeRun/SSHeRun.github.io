@@ -18,13 +18,19 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <ClientRouter />
 
-<!-- Theme init (before body to prevent FOUC) -->
+<!-- Theme: 首屏 + 每次 View Transition 后从 localStorage 恢复（否则新页面会丢 data-theme） -->
 <script is:inline>
-(function() {
-	const saved = localStorage.getItem('theme');
-	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-	const theme = saved || (prefersDark ? 'dark' : 'light');
-	document.documentElement.setAttribute('data-theme', theme);
+(function () {
+	function applyStoredTheme() {
+		try {
+			var saved = localStorage.getItem('theme');
+			var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			var theme = saved || (prefersDark ? 'dark' : 'light');
+			document.documentElement.setAttribute('data-theme', theme);
+		} catch (e) {}
+	}
+	applyStoredTheme();
+	document.addEventListener('astro:page-load', applyStoredTheme);
 })();
 </script>
 

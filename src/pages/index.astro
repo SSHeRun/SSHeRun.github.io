@@ -72,7 +72,9 @@ const posts = (await getCollection('blog'))
 
 		<style>
 			main {
-				max-width: var(--max-width-wide);
+				width: 100%;
+				max-width: min(var(--max-width-wide), calc(100% - 2rem));
+				box-sizing: border-box;
 			}
 
 			/* ── Hero ── */
@@ -127,6 +129,8 @@ const posts = (await getCollection('blog'))
 				margin: 0 0 0.85rem;
 				letter-spacing: -0.03em;
 				line-height: 1.15;
+				overflow-wrap: anywhere;
+				word-break: break-word;
 			}
 			.accent {
 				background: var(--accent-gradient);
@@ -140,6 +144,7 @@ const posts = (await getCollection('blog'))
 				margin: 0;
 				max-width: 560px;
 				line-height: 1.7;
+				overflow-wrap: anywhere;
 			}
 
 			/* ── Section ── */

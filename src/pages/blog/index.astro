@@ -64,7 +64,9 @@ const posts = (await getCollection('blog')).sort(
 
 		<style>
 			main {
-				max-width: var(--max-width-wide);
+				width: 100%;
+				max-width: min(var(--max-width-wide), calc(100% - 2rem));
+				box-sizing: border-box;
 			}
 			.page-header {
 				display: flex;
