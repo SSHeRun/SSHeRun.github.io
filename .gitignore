@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # vscode/cursor setting folder
 .vscode/
+.cursor/

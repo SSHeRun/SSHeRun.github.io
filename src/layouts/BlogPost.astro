@@ -16,6 +16,9 @@ type Props = CollectionEntry<'blog'>['data'] & { body?: string; slug?: string };
 
 const { title, description, pubDate, updatedDate, heroImage, tags, body = '', slug = '' } = Astro.props;
 
+const postPageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const heroImageUrl = heroImage ? new URL(heroImage.src, Astro.site).href : undefined;
+
 const jsonLd = {
 	"@context": "https://schema.org",
 	"@type": "BlogPosting",
@@ -32,15 +35,23 @@ const jsonLd = {
 		"@type": "Person",
 		"name": "SSHeRun"
 	},
-	"url": new URL(Astro.url.pathname, Astro.site).toString(),
+	"url": postPageUrl,
 	"inLanguage": "zh-CN",
 	...(tags && tags.length > 0 && { "keywords": tags.join(", ") }),
+	...(heroImageUrl && { "image": [heroImageUrl] }),
 };
 ---
 
 <html lang="zh-CN">
 	<head>
-		<BaseHead title={`${title} - ${SITE_TITLE}`} description={description} />
+		<BaseHead
+			title={`${title} - ${SITE_TITLE}`}
+			description={description}
+			image={heroImage}
+			ogType="article"
+			articlePublishedTime={pubDate.toISOString()}
+			articleModifiedTime={updatedDate?.toISOString()}
+		/>
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 	</head>
 
@@ -51,7 +62,13 @@ const jsonLd = {
 			<article>
 				{heroImage && (
 					<div class="hero-image">
-						<Image width={1020} height={510} src={heroImage} alt="" transition:name={slug ? `post-img-${slug}` : undefined} />
+						<Image
+							width={1020}
+							height={510}
+							src={heroImage}
+							alt={`「${title}」封面图`}
+							transition:name={slug ? `post-img-${slug}` : undefined}
+						/>
 					</div>
 				)}
 				<div class="article-header">
