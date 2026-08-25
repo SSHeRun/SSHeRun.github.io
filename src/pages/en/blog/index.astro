@@ -1,0 +1,226 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import TagList from '../../../components/TagList.astro';
+import { currentLocale } from '../../../i18n/config';
+import { postPath, postsForLocale } from '../../../i18n/posts';
+import { t, tagLabel } from '../../../i18n/ui';
+import SitePage from '../../../layouts/SitePage.astro';
+import { TAG_CLUSTERS, tagPath } from '../../../lib/taxonomy';
+
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const tagCounts = new Map<string, number>();
+for (const post of posts) {
+	for (const tag of post.data.tags ?? []) {
+		tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+	}
+}
+const featuredTags = TAG_CLUSTERS.flatMap((cluster) =>
+	cluster.tags
+		.filter((tag) => tagCounts.has(tag))
+		.map((tag) => ({ tag, count: tagCounts.get(tag) ?? 0 })),
+);
+---
+
+<SitePage title={`${t(locale, 'allPosts')} - ${t(locale, 'siteTitle')}`} description={t(locale, 'siteDescription')}>
+		<main>
+			<div class="page-header">
+				<h1 class="page-title">{t(locale, 'allPosts')}</h1>
+				<span class="post-count">{t(locale, 'postCount', { n: posts.length })}</span>
+			</div>
+
+			{
+				featuredTags.length > 0 && (
+					<div class="tag-cloud">
+						{featuredTags.map(({ tag, count }) => (
+							<a href={tagPath(tag, locale)}>
+								{tagLabel(locale, tag)}
+								<span>{count}</span>
+							</a>
+						))}
+					</div>
+				)
+			}
+
+			<div class="post-grid">
+				{posts.map((post) => (
+					<a href={postPath(locale, post)} class="post-card">
+						{post.data.heroImage && (
+							<div class="card-image">
+								<Image
+									src={post.data.heroImage}
+									alt={post.data.title}
+									width={640}
+									height={320}
+									loading="lazy"
+									transition:name={`post-img-${post.id}`}
+								/>
+							</div>
+						)}
+						<div class="card-body">
+							<div class="post-meta">
+								<span class="date"><FormattedDate date={post.data.pubDate} /></span>
+								<TagList tags={post.data.tags} linked={false} compact />
+							</div>
+							<h2>{post.data.title}</h2>
+							{post.data.description && (
+								<p class="description">{post.data.description}</p>
+							)}
+						</div>
+					</a>
+				))}
+			</div>
+		</main>
+</SitePage>
+
+		<style>
+			main {
+				width: 100%;
+				max-width: min(var(--max-width-wide), calc(100% - 2rem));
+				box-sizing: border-box;
+			}
+			.page-header {
+				display: flex;
+				align-items: baseline;
+				gap: 1rem;
+				margin: 2rem 0 2.5rem;
+			}
+			.page-title {
+				font-size: 2rem;
+				margin: 0;
+				letter-spacing: -0.03em;
+			}
+			.post-count {
+				color: var(--text-muted);
+				font-size: 0.9rem;
+			}
+
+		/* ── Grid ── */
+		.post-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+			gap: 1.5rem;
+		}
+
+			/* ── Card ── */
+			.post-card {
+				display: flex;
+				flex-direction: column;
+				border-radius: var(--radius-lg);
+				text-decoration: none;
+				border: 1px solid var(--glass-border);
+				overflow: hidden;
+				background: var(--glass-bg);
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+			}
+			.post-card:hover {
+				border-color: var(--border-glow);
+				transform: translateY(-3px);
+				box-shadow: var(--shadow-glow), var(--shadow-lg);
+			}
+
+			/* ── Card Image ── */
+			.card-image {
+				width: 100%;
+				aspect-ratio: 2 / 1;
+				overflow: hidden;
+			}
+			.card-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.45s ease;
+			}
+			.post-card:hover .card-image img {
+				transform: scale(1.06);
+			}
+
+			/* ── Card Body ── */
+			.card-body {
+				padding: 1.25rem;
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+			}
+			.card-body h2 {
+				font-size: 1.1rem;
+				margin: 0.5rem 0;
+				color: var(--text-primary);
+				line-height: 1.4;
+				letter-spacing: -0.01em;
+			}
+			.description {
+				font-size: 0.875rem;
+				color: var(--text-secondary);
+				margin: 0;
+				line-height: 1.6;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				flex: 1;
+			}
+
+			/* ── Meta ── */
+			.post-meta {
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				font-size: 0.8rem;
+			}
+			.date {
+				color: var(--text-muted);
+			}
+			.tag-cloud {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem;
+				margin: -1rem 0 2rem;
+			}
+			.tag-cloud a {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.3rem;
+				padding: 0.2rem 0.65rem;
+				border-radius: 999px;
+				border: 1px solid var(--glass-border);
+				color: var(--accent);
+				text-decoration: none;
+				font-size: 0.78rem;
+			}
+			.tag-cloud a:hover {
+				border-color: var(--border-glow);
+			}
+			.tag-cloud span {
+				color: var(--text-muted);
+				font-size: 0.7rem;
+			}
+
+		@media (max-width: 720px) {
+			.post-grid {
+				grid-template-columns: 1fr;
+				gap: 1rem;
+			}
+			.page-header {
+				flex-direction: column;
+				gap: 0.25rem;
+				margin: 1.5rem 0 1.5rem;
+			}
+			.page-title { font-size: 1.6rem; }
+			.card-body { padding: 1rem; }
+			.card-body h2 { font-size: 1rem; }
+		}
+		@media (max-width: 480px) {
+			.page-title { font-size: 1.4rem; }
+			.card-body { padding: 0.85rem; }
+			.card-body h2 { font-size: 0.95rem; }
+			.description { font-size: 0.82rem; }
+		}
+		</style>

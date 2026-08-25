@@ -1,13 +1,13 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { postPath, postsForLocale } from '../i18n/posts';
 
 export const GET: APIRoute = async () => {
-  const posts = await getCollection('blog');
-  const sorted = posts.sort(
+  const posts = postsForLocale(await getCollection('blog'), 'zh-CN').sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
   );
 
-  const sections = sorted.map((post) => {
+  const sections = posts.map((post) => {
     const tags = post.data.tags?.length ? `\n标签: ${post.data.tags.join(', ')}` : '';
     const updated = post.data.updatedDate
       ? `\n更新时间: ${post.data.updatedDate.toISOString().split('T')[0]}`
@@ -15,7 +15,7 @@ export const GET: APIRoute = async () => {
 
     return `<article>
 <title>${post.data.title}</title>
-<url>https://ssherun.github.io/blog/${post.id}/</url>
+<url>https://ssherun.github.io${postPath('zh-CN', post)}</url>
 <description>${post.data.description}</description>
 <published>${post.data.pubDate.toISOString().split('T')[0]}</published>${updated}${tags}
 
@@ -25,9 +25,8 @@ ${post.body}
 
   const body = `# SSHeRun's Blog — 完整内容
 
-> 一个对 Agent 友好的博客。本文件包含所有文章的完整 Markdown 内容，供 AI Agent / LLM 一次性获取全站上下文。
+> ${posts.length} 篇中文文章。English: https://ssherun.github.io/en/llms-full.txt
 > 站点地址: https://ssherun.github.io
-> 文章数量: ${sorted.length}
 > 生成时间: ${new Date().toISOString().split('T')[0]}
 
 ---

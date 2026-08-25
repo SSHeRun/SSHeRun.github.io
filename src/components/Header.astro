@@ -1,27 +1,36 @@
 ---
-import { SITE_TITLE } from '../consts';
+import { currentLocale, localizedPath } from '../i18n/config';
+import { t } from '../i18n/ui';
 import HeaderLink from './HeaderLink.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 import ThemeToggle from './ThemeToggle.astro';
+
+const locale = currentLocale(Astro.currentLocale);
+const home = localizedPath(locale, '/');
 ---
 
-<header class="glass" transition:persist>
+<header class="glass">
 	<nav>
-		<a href="/" class="logo">{SITE_TITLE}</a>
+		<a href={home} class="logo">
+			<span class="logo-mark" aria-hidden="true"></span>
+			{t(locale, 'siteTitle')}
+		</a>
 		<div class="nav-links" id="nav-links">
-			<HeaderLink href="/">首页</HeaderLink>
-			<HeaderLink href="/blog">文章</HeaderLink>
-			<HeaderLink href="/tags">标签</HeaderLink>
-			<HeaderLink href="/graph">图谱</HeaderLink>
-			<HeaderLink href="/about">关于</HeaderLink>
+			<HeaderLink href={home}>{t(locale, 'navHome')}</HeaderLink>
+			<HeaderLink href={localizedPath(locale, '/blog/')}>{t(locale, 'navBlog')}</HeaderLink>
+			<HeaderLink href={localizedPath(locale, '/tags/')}>{t(locale, 'navTags')}</HeaderLink>
+			<HeaderLink href={localizedPath(locale, '/graph/')}>{t(locale, 'navGraph')}</HeaderLink>
+			<HeaderLink href={localizedPath(locale, '/about/')}>{t(locale, 'navAbout')}</HeaderLink>
 		</div>
 		<div class="nav-actions">
+			<LanguageSwitcher />
 			<ThemeToggle />
 			<a href="https://github.com/SSHeRun" target="_blank" class="github-link" aria-label="GitHub">
 				<svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor">
 					<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
 				</svg>
 			</a>
-			<button class="menu-toggle" id="menu-toggle" aria-label="切换菜单">
+			<button class="menu-toggle" id="menu-toggle" aria-label={t(locale, 'navMenu')}>
 				<svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
 					<line x1="3" y1="6" x2="21" y2="6"/>
 					<line x1="3" y1="12" x2="21" y2="12"/>
@@ -80,13 +89,24 @@ import ThemeToggle from './ThemeToggle.astro';
 		min-width: 0;
 	}
 	.logo {
-		font-weight: 700;
-		font-size: 1.1rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.55rem;
+		font-family: var(--font-display);
+		font-weight: 650;
+		font-size: 1.08rem;
 		color: var(--text-primary);
 		text-decoration: none;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.03em;
 		flex-shrink: 0;
 		transition: color 0.2s ease;
+	}
+	.logo-mark {
+		width: 0.62rem;
+		height: 0.62rem;
+		border-radius: 999px;
+		background: var(--accent-gradient);
+		box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 45%, transparent);
 	}
 	.logo:hover {
 		color: var(--accent);

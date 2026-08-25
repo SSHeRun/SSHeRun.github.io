@@ -2,7 +2,7 @@
 
 > 一个对 Agent 友好的博客 — 探索 AI 时代的个人网站新形态
 
-**线上地址**: https://ssherun.github.io
+**线上地址**: https://ssherun.github.io · [English](https://ssherun.github.io/en/)
 
 ## 项目定位
 

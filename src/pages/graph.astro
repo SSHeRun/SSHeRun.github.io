@@ -1,43 +1,51 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_TITLE } from '../consts';
+import { currentLocale } from '../i18n/config';
+import { postsForLocale } from '../i18n/posts';
+import { clusterLabel, t } from '../i18n/ui';
+import SitePage from '../layouts/SitePage.astro';
 import { buildGraphData } from '../lib/graph-data';
 import { TAG_CLUSTERS } from '../lib/taxonomy';
 
-const posts = await getCollection('blog');
-const graph = buildGraphData(posts);
-const graphData = JSON.stringify({ nodes: graph.nodes, edges: graph.edges });
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale);
+const graph = buildGraphData(posts, locale);
+const graphData = JSON.stringify({
+	nodes: graph.nodes,
+	edges: graph.edges,
+	ui: {
+		cluster: t(locale, 'graphCluster'),
+		tag: t(locale, 'graphTag'),
+		post: t(locale, 'graphPost'),
+		openPost: t(locale, 'graphOpenPost'),
+		openTag: t(locale, 'graphOpenTag'),
+		belong: t(locale, 'graphBelong'),
+		relatedTags: t(locale, 'graphRelatedTags'),
+		relatedPosts: t(locale, 'graphRelatedPosts'),
+	},
+});
 const usedClusters = TAG_CLUSTERS.filter((cluster) =>
 	graph.nodes.some((node) => node.type === 'cluster' && node.id === `cluster:${cluster.id}`),
 );
 ---
 
-<!doctype html>
-<html lang="zh-CN">
-	<head>
-		<BaseHead title={`知识图谱 - ${SITE_TITLE}`} description="文章、标签与主题群的关系网络可视化" />
-	</head>
-	<body>
-		<Header />
+<SitePage title={`${t(locale, 'graphTitle')} - ${t(locale, 'siteTitle')}`} description={t(locale, 'graphHint')} wide>
 		<main>
 			<div class="graph-header">
-				<h1>知识图谱</h1>
+				<h1>{t(locale, 'graphTitle')}</h1>
 				<p class="graph-desc">
-					{graph.stats.posts} 篇文章 · {graph.stats.tags} 个标签 · {graph.stats.clusters} 个主题群 · {graph.stats.edges} 条关系
+					{t(locale, 'graphDesc', graph.stats)}
 				</p>
-				<p class="graph-hint">点节点看邻域；双击文章打开正文。青色箭头是文内引用，紫色线是标签之间的关系。</p>
+				<p class="graph-hint">{t(locale, 'graphHint')}</p>
 				<div class="graph-toolbar">
-					<input id="graph-search" type="search" placeholder="搜索文章或标签" />
+					<input id="graph-search" type="search" placeholder={t(locale, 'graphSearch')} />
 					<div id="graph-filters" class="graph-filters">
-						<button type="button" data-cluster="all" class="active">全部</button>
+						<button type="button" data-cluster="all" class="active">{t(locale, 'graphAll')}</button>
 						{
 							usedClusters.map((cluster) => (
 								<button type="button" data-cluster={cluster.id}>
 									<span class="swatch" style={`background:${cluster.color}`}></span>
-									{cluster.label}
+									{clusterLabel(locale, cluster.id)}
 								</button>
 							))
 						}
@@ -47,19 +55,19 @@ const usedClusters = TAG_CLUSTERS.filter((cluster) =>
 			<div class="graph-container">
 				<div id="cy"></div>
 				<aside id="graph-panel" hidden>
-					<button id="graph-panel-close" type="button" aria-label="关闭">×</button>
+					<button id="graph-panel-close" type="button" aria-label={t(locale, 'graphClose')}>×</button>
 					<div id="graph-panel-body"></div>
 				</aside>
 				<div class="graph-legend">
-					<span class="legend-item"><span class="legend-box"></span>主题群</span>
-					<span class="legend-item"><span class="legend-dot legend-post"></span>文章</span>
-					<span class="legend-item"><span class="legend-dot legend-tag"></span>标签</span>
-					<span class="legend-item"><span class="legend-line legend-link"></span>引用</span>
-					<span class="legend-item"><span class="legend-line legend-rel"></span>标签关系</span>
+					<span class="legend-item"><span class="legend-box"></span>{t(locale, 'graphCluster')}</span>
+					<span class="legend-item"><span class="legend-dot legend-post"></span>{t(locale, 'graphPost')}</span>
+					<span class="legend-item"><span class="legend-dot legend-tag"></span>{t(locale, 'graphTag')}</span>
+					<span class="legend-item"><span class="legend-line legend-link"></span>{t(locale, 'graphCitation')}</span>
+					<span class="legend-item"><span class="legend-line legend-rel"></span>{t(locale, 'graphTagRel')}</span>
 				</div>
 			</div>
 		</main>
-		<Footer />
+</SitePage>
 
 		<script id="graph-data" type="application/json" set:html={graphData} />
 		<script>
@@ -259,5 +267,3 @@ const usedClusters = TAG_CLUSTERS.filter((cluster) =>
 				.graph-header h1 { font-size: 1.4rem; }
 			}
 		</style>
-	</body>
-</html>

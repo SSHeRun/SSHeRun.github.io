@@ -1,15 +1,16 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
 import TagList from '../../components/TagList.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { currentLocale } from '../../i18n/config';
+import { postPath, postsForLocale } from '../../i18n/posts';
+import { t, tagLabel } from '../../i18n/ui';
+import SitePage from '../../layouts/SitePage.astro';
 import { TAG_CLUSTERS, tagPath } from '../../lib/taxonomy';
 
-const posts = (await getCollection('blog')).sort(
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
@@ -26,25 +27,19 @@ const featuredTags = TAG_CLUSTERS.flatMap((cluster) =>
 );
 ---
 
-<!doctype html>
-<html lang="zh-CN">
-	<head>
-		<BaseHead title={`文章 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
+<SitePage title={`${t(locale, 'allPosts')} - ${t(locale, 'siteTitle')}`} description={t(locale, 'siteDescription')}>
 		<main>
 			<div class="page-header">
-				<h1 class="page-title">全部文章</h1>
-				<span class="post-count">共 {posts.length} 篇</span>
+				<h1 class="page-title">{t(locale, 'allPosts')}</h1>
+				<span class="post-count">{t(locale, 'postCount', { n: posts.length })}</span>
 			</div>
 
 			{
 				featuredTags.length > 0 && (
 					<div class="tag-cloud">
 						{featuredTags.map(({ tag, count }) => (
-							<a href={tagPath(tag)}>
-								{tag}
+							<a href={tagPath(tag, locale)}>
+								{tagLabel(locale, tag)}
 								<span>{count}</span>
 							</a>
 						))}
@@ -54,7 +49,7 @@ const featuredTags = TAG_CLUSTERS.flatMap((cluster) =>
 
 			<div class="post-grid">
 				{posts.map((post) => (
-					<a href={`/blog/${post.id}/`} class="post-card">
+					<a href={postPath(locale, post)} class="post-card">
 						{post.data.heroImage && (
 							<div class="card-image">
 								<Image
@@ -81,7 +76,7 @@ const featuredTags = TAG_CLUSTERS.flatMap((cluster) =>
 				))}
 			</div>
 		</main>
-		<Footer />
+</SitePage>
 
 		<style>
 			main {
@@ -229,5 +224,3 @@ const featuredTags = TAG_CLUSTERS.flatMap((cluster) =>
 			.description { font-size: 0.82rem; }
 		}
 		</style>
-	</body>
-</html>

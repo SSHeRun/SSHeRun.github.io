@@ -1,12 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
-import { SITE_TITLE } from '../../consts';
+import { currentLocale, localizedPath } from '../../i18n/config';
+import { postsForLocale } from '../../i18n/posts';
+import { clusterLabel, t, tagLabel } from '../../i18n/ui';
+import SitePage from '../../layouts/SitePage.astro';
 import { graphTagPath, TAG_CLUSTERS, tagPath } from '../../lib/taxonomy';
 
-const posts = await getCollection('blog');
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale);
 const counts = new Map<string, number>();
 for (const post of posts) {
 	for (const tag of post.data.tags ?? []) {
@@ -26,17 +27,15 @@ const extras = [...counts.keys()]
 	.map((tag) => ({ tag, count: counts.get(tag) ?? 0 }));
 ---
 
-<!doctype html>
-<html lang="zh-CN">
-	<head>
-		<BaseHead title={`标签 - ${SITE_TITLE}`} description="按主题群浏览博客标签，并跳转到对应文章或知识图谱。" />
-	</head>
-	<body>
-		<Header />
+<SitePage title={`${t(locale, 'tagsTitle')} - ${t(locale, 'siteTitle')}`} description={t(locale, 'tagsIntro', { n: counts.size })}>
 		<main>
 			<div class="page-header">
-				<h1>标签</h1>
-				<p>共 {counts.size} 个标签，按主题群归类。点标签看文章，或到<a href="/graph">知识图谱</a>看关系。</p>
+				<h1>{t(locale, 'tagsTitle')}</h1>
+				<p>
+					{t(locale, 'tagsIntro', { n: counts.size })}
+					<a href={localizedPath(locale, '/graph/')}>{t(locale, 'knowledgeGraph')}</a>
+					{t(locale, 'tagsSeeRelations')}
+				</p>
 			</div>
 
 			{
@@ -44,16 +43,16 @@ const extras = [...counts.keys()]
 					<section class="cluster">
 						<h2>
 							<span class="swatch" style={`background:${group.color}`}></span>
-							{group.label}
+							{clusterLabel(locale, group.id)}
 						</h2>
 						<ul>
 							{group.items.map(({ tag, count }) => (
 								<li>
-									<a class="tag" href={tagPath(tag)}>
-										{tag}
+									<a class="tag" href={tagPath(tag, locale)}>
+										{tagLabel(locale, tag)}
 										<span class="count">{count}</span>
 									</a>
-									<a class="graph-link" href={graphTagPath(tag)}>图谱</a>
+									<a class="graph-link" href={graphTagPath(tag, locale)}>{t(locale, 'navGraph')}</a>
 								</li>
 							))}
 						</ul>
@@ -64,12 +63,12 @@ const extras = [...counts.keys()]
 			{
 				extras.length > 0 && (
 					<section class="cluster">
-						<h2>未归类</h2>
+						<h2>{t(locale, 'uncategorized')}</h2>
 						<ul>
 							{extras.map(({ tag, count }) => (
 								<li>
-									<a class="tag" href={tagPath(tag)}>
-										{tag}
+									<a class="tag" href={tagPath(tag, locale)}>
+										{tagLabel(locale, tag)}
 										<span class="count">{count}</span>
 									</a>
 								</li>
@@ -79,9 +78,7 @@ const extras = [...counts.keys()]
 				)
 			}
 		</main>
-		<Footer />
-	</body>
-</html>
+</SitePage>
 
 <style>
 	main {

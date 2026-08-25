@@ -1,28 +1,35 @@
 ---
 import { getCollection } from 'astro:content';
+import { currentLocale } from '../i18n/config';
+import { postPath } from '../i18n/posts';
+import { t, tagLabel } from '../i18n/ui';
 import { pickRelatedPosts } from '../lib/related-posts';
 
 interface Props {
 	slug: string;
 	tags?: string[];
 	body?: string;
+	lang?: 'zh' | 'en';
 }
 
-const { slug, tags = [], body = '' } = Astro.props;
+const { slug, tags = [], body = '', lang } = Astro.props;
+const locale = currentLocale(Astro.currentLocale);
 const posts = await getCollection('blog');
-const related = pickRelatedPosts(posts, { slug, tags, body });
+const related = pickRelatedPosts(posts, { slug, tags, body, lang });
 ---
 
 {
 	related.length > 0 && (
 		<section class="related">
-			<h2>相关文章</h2>
+			<h2>{t(locale, 'relatedPosts')}</h2>
 			<ul>
 				{related.map((post) => (
 					<li>
-						<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+						<a href={postPath(locale, post)}>{post.data.title}</a>
 						{post.data.tags && post.data.tags.length > 0 && (
-							<span class="overlap">{post.data.tags.filter((tag) => tags.includes(tag)).join(' · ')}</span>
+							<span class="overlap">
+								{post.data.tags.filter((tag) => tags.includes(tag)).map((tag) => tagLabel(locale, tag)).join(' · ')}
+							</span>
 						)}
 					</li>
 				))}

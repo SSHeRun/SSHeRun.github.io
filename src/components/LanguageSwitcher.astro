@@ -1,0 +1,76 @@
+---
+import { currentLocale, localeMeta, LOCALES, switchLocalePath, type Locale } from '../i18n/config';
+import { findTranslation, translationKey } from '../i18n/posts';
+import { t } from '../i18n/ui';
+import { getCollection } from 'astro:content';
+
+const locale = currentLocale(Astro.currentLocale);
+const pathname = Astro.url.pathname;
+const blogMatch = pathname.match(/\/blog\/([^/]+)\/?$/);
+let switchMap: Partial<Record<Locale, string>> = {};
+
+if (blogMatch) {
+	const posts = await getCollection('blog');
+	const here = posts.find((post) => {
+		const key = translationKey(post);
+		return key === blogMatch[1] && (post.data.lang === 'en' ? 'en' : 'zh-CN') === locale;
+	});
+	const key = here ? translationKey(here) : blogMatch[1];
+	for (const loc of LOCALES) {
+		const version = findTranslation(posts, key, loc);
+		switchMap[loc] = version
+			? switchLocalePath(pathname, loc)
+			: switchLocalePath('/blog/', loc);
+	}
+}
+---
+
+<div class="lang-switch" role="navigation" aria-label={t(locale, 'langSwitch')}>
+	{
+		LOCALES.map((loc) => {
+			const href = switchMap[loc] ?? switchLocalePath(pathname, loc);
+			const active = loc === locale;
+			return (
+				<a
+					href={href}
+					hreflang={localeMeta[loc].hreflang}
+					class:list={{ active }}
+					aria-current={active ? 'true' : undefined}
+				>
+					{localeMeta[loc].short}
+				</a>
+			);
+		})
+	}
+</div>
+
+<style>
+	.lang-switch {
+		display: inline-flex;
+		align-items: center;
+		border: 1px solid var(--glass-border);
+		border-radius: 999px;
+		overflow: hidden;
+		background: var(--glass-bg);
+	}
+	.lang-switch a {
+		min-width: 36px;
+		min-height: 32px;
+		padding: 0 0.55rem;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		color: var(--text-muted);
+		text-decoration: none;
+	}
+	.lang-switch a:hover {
+		color: var(--text-primary);
+	}
+	.lang-switch a.active {
+		color: var(--accent);
+		background: color-mix(in srgb, var(--accent) 12%, transparent);
+	}
+</style>

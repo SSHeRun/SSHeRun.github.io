@@ -1,0 +1,162 @@
+---
+import { getCollection } from 'astro:content';
+import { currentLocale, localizedPath } from '../../../i18n/config';
+import { postsForLocale } from '../../../i18n/posts';
+import { clusterLabel, t, tagLabel } from '../../../i18n/ui';
+import SitePage from '../../../layouts/SitePage.astro';
+import { graphTagPath, TAG_CLUSTERS, tagPath } from '../../../lib/taxonomy';
+
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale);
+const counts = new Map<string, number>();
+for (const post of posts) {
+	for (const tag of post.data.tags ?? []) {
+		counts.set(tag, (counts.get(tag) ?? 0) + 1);
+	}
+}
+
+const groups = TAG_CLUSTERS.map((cluster) => ({
+	...cluster,
+	items: cluster.tags
+		.map((tag) => ({ tag, count: counts.get(tag) ?? 0 }))
+		.filter((item) => item.count > 0),
+})).filter((group) => group.items.length > 0);
+
+const extras = [...counts.keys()]
+	.filter((tag) => !TAG_CLUSTERS.some((c) => c.tags.includes(tag)))
+	.map((tag) => ({ tag, count: counts.get(tag) ?? 0 }));
+---
+
+<SitePage title={`${t(locale, 'tagsTitle')} - ${t(locale, 'siteTitle')}`} description={t(locale, 'tagsIntro', { n: counts.size })}>
+		<main>
+			<div class="page-header">
+				<h1>{t(locale, 'tagsTitle')}</h1>
+				<p>
+					{t(locale, 'tagsIntro', { n: counts.size })}
+					<a href={localizedPath(locale, '/graph/')}>{t(locale, 'knowledgeGraph')}</a>
+					{t(locale, 'tagsSeeRelations')}
+				</p>
+			</div>
+
+			{
+				groups.map((group) => (
+					<section class="cluster">
+						<h2>
+							<span class="swatch" style={`background:${group.color}`}></span>
+							{clusterLabel(locale, group.id)}
+						</h2>
+						<ul>
+							{group.items.map(({ tag, count }) => (
+								<li>
+									<a class="tag" href={tagPath(tag, locale)}>
+										{tagLabel(locale, tag)}
+										<span class="count">{count}</span>
+									</a>
+									<a class="graph-link" href={graphTagPath(tag, locale)}>{t(locale, 'navGraph')}</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				))
+			}
+
+			{
+				extras.length > 0 && (
+					<section class="cluster">
+						<h2>{t(locale, 'uncategorized')}</h2>
+						<ul>
+							{extras.map(({ tag, count }) => (
+								<li>
+									<a class="tag" href={tagPath(tag, locale)}>
+										{tagLabel(locale, tag)}
+										<span class="count">{count}</span>
+									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				)
+			}
+		</main>
+</SitePage>
+
+<style>
+	main {
+		width: 100%;
+		max-width: min(var(--max-width-wide), calc(100% - 2rem));
+		box-sizing: border-box;
+	}
+	.page-header {
+		padding: 2rem 0 1rem;
+	}
+	.page-header h1 {
+		font-size: 2rem;
+		margin: 0 0 0.4rem;
+		letter-spacing: -0.03em;
+	}
+	.page-header p {
+		margin: 0;
+		color: var(--text-muted);
+	}
+	.page-header a {
+		color: var(--accent);
+	}
+	.cluster {
+		margin-bottom: 2rem;
+	}
+	.cluster h2 {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 1.15rem;
+		margin: 0 0 0.85rem;
+	}
+	.swatch {
+		width: 10px;
+		height: 10px;
+		border-radius: 2px;
+	}
+	.cluster ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.65rem 1rem;
+	}
+	.cluster li {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+	}
+	.tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.25rem 0.75rem;
+		border-radius: 999px;
+		border: 1px solid var(--glass-border);
+		background: var(--glass-bg);
+		color: var(--accent);
+		text-decoration: none;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+	.tag:hover {
+		border-color: var(--border-glow);
+		box-shadow: var(--shadow-glow);
+	}
+	.count {
+		color: var(--text-muted);
+		font-size: 0.75rem;
+		font-weight: 400;
+	}
+	.graph-link {
+		font-size: 0.75rem;
+		color: var(--text-muted);
+		text-decoration: none;
+	}
+	.graph-link:hover {
+		color: var(--accent);
+	}
+</style>

@@ -1,9 +1,19 @@
 ---
+import { currentLocale, localeMeta } from '../i18n/config';
+import { t } from '../i18n/ui';
+
+interface Props {
+	term?: string;
+}
+
+const { term } = Astro.props;
+const locale = currentLocale(Astro.currentLocale);
+const giscusLang = localeMeta[locale].giscusLang;
 ---
 
 <section class="comments">
-	<h2 class="comments-title">评论</h2>
-	<div id="giscus-container"></div>
+	<h2 class="comments-title">{t(locale, 'comments')}</h2>
+	<div id="giscus-container" data-lang={giscusLang} data-term={term ?? ''}></div>
 </section>
 
 <script>
@@ -14,6 +24,8 @@ function loadGiscus() {
 	const theme = document.documentElement.getAttribute('data-theme') === 'dark'
 		? 'dark_dimmed'
 		: 'light';
+	const lang = container.dataset.lang || 'zh-CN';
+	const term = container.dataset.term || '';
 
 	const script = document.createElement('script');
 	script.src = 'https://giscus.app/client.js';
@@ -21,13 +33,18 @@ function loadGiscus() {
 	script.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkxODIwNDY1OTc=');
 	script.setAttribute('data-category', 'Announcements');
 	script.setAttribute('data-category-id', 'DIC_kwDOCtnPhc4C4qT0');
-	script.setAttribute('data-mapping', 'pathname');
+	if (term) {
+		script.setAttribute('data-mapping', 'specific');
+		script.setAttribute('data-term', term);
+	} else {
+		script.setAttribute('data-mapping', 'pathname');
+	}
 	script.setAttribute('data-strict', '0');
 	script.setAttribute('data-reactions-enabled', '1');
 	script.setAttribute('data-emit-metadata', '0');
 	script.setAttribute('data-input-position', 'top');
 	script.setAttribute('data-theme', theme);
-	script.setAttribute('data-lang', 'zh-CN');
+	script.setAttribute('data-lang', lang);
 	script.setAttribute('data-loading', 'lazy');
 	script.crossOrigin = 'anonymous';
 	script.async = true;

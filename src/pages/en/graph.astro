@@ -1,0 +1,269 @@
+---
+import { getCollection } from 'astro:content';
+import { currentLocale } from '../../i18n/config';
+import { postsForLocale } from '../../i18n/posts';
+import { clusterLabel, t } from '../../i18n/ui';
+import SitePage from '../../layouts/SitePage.astro';
+import { buildGraphData } from '../../lib/graph-data';
+import { TAG_CLUSTERS } from '../../lib/taxonomy';
+
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale);
+const graph = buildGraphData(posts, locale);
+const graphData = JSON.stringify({
+	nodes: graph.nodes,
+	edges: graph.edges,
+	ui: {
+		cluster: t(locale, 'graphCluster'),
+		tag: t(locale, 'graphTag'),
+		post: t(locale, 'graphPost'),
+		openPost: t(locale, 'graphOpenPost'),
+		openTag: t(locale, 'graphOpenTag'),
+		belong: t(locale, 'graphBelong'),
+		relatedTags: t(locale, 'graphRelatedTags'),
+		relatedPosts: t(locale, 'graphRelatedPosts'),
+	},
+});
+const usedClusters = TAG_CLUSTERS.filter((cluster) =>
+	graph.nodes.some((node) => node.type === 'cluster' && node.id === `cluster:${cluster.id}`),
+);
+---
+
+<SitePage title={`${t(locale, 'graphTitle')} - ${t(locale, 'siteTitle')}`} description={t(locale, 'graphHint')} wide>
+		<main>
+			<div class="graph-header">
+				<h1>{t(locale, 'graphTitle')}</h1>
+				<p class="graph-desc">
+					{t(locale, 'graphDesc', graph.stats)}
+				</p>
+				<p class="graph-hint">{t(locale, 'graphHint')}</p>
+				<div class="graph-toolbar">
+					<input id="graph-search" type="search" placeholder={t(locale, 'graphSearch')} />
+					<div id="graph-filters" class="graph-filters">
+						<button type="button" data-cluster="all" class="active">{t(locale, 'graphAll')}</button>
+						{
+							usedClusters.map((cluster) => (
+								<button type="button" data-cluster={cluster.id}>
+									<span class="swatch" style={`background:${cluster.color}`}></span>
+									{clusterLabel(locale, cluster.id)}
+								</button>
+							))
+						}
+					</div>
+				</div>
+			</div>
+			<div class="graph-container">
+				<div id="cy"></div>
+				<aside id="graph-panel" hidden>
+					<button id="graph-panel-close" type="button" aria-label={t(locale, 'graphClose')}>×</button>
+					<div id="graph-panel-body"></div>
+				</aside>
+				<div class="graph-legend">
+					<span class="legend-item"><span class="legend-box"></span>{t(locale, 'graphCluster')}</span>
+					<span class="legend-item"><span class="legend-dot legend-post"></span>{t(locale, 'graphPost')}</span>
+					<span class="legend-item"><span class="legend-dot legend-tag"></span>{t(locale, 'graphTag')}</span>
+					<span class="legend-item"><span class="legend-line legend-link"></span>{t(locale, 'graphCitation')}</span>
+					<span class="legend-item"><span class="legend-line legend-rel"></span>{t(locale, 'graphTagRel')}</span>
+				</div>
+			</div>
+		</main>
+</SitePage>
+
+		<script id="graph-data" type="application/json" set:html={graphData} />
+		<script>
+			import '../../scripts/init-graph.ts';
+		</script>
+
+		<style>
+			main {
+				width: 100%;
+				max-width: min(1100px, calc(100% - 2rem));
+				box-sizing: border-box;
+			}
+			.graph-header {
+				padding: 2rem 0 1rem;
+			}
+			.graph-header h1 {
+				font-size: 2rem;
+				margin: 0 0 0.25rem;
+				letter-spacing: -0.03em;
+			}
+			.graph-desc,
+			.graph-hint {
+				color: var(--text-muted);
+				margin: 0;
+				font-size: 0.95rem;
+			}
+			.graph-hint {
+				margin-top: 0.35rem;
+				font-size: 0.85rem;
+			}
+			.graph-toolbar {
+				display: flex;
+				flex-direction: column;
+				gap: 0.75rem;
+				margin-top: 1rem;
+			}
+			#graph-search {
+				width: min(360px, 100%);
+				padding: 0.55rem 0.8rem;
+				border: 1px solid var(--glass-border);
+				border-radius: var(--radius-md);
+				background: var(--bg-surface);
+				color: var(--text-primary);
+			}
+			.graph-filters {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem;
+			}
+			.graph-filters button {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.35rem;
+				padding: 0.3rem 0.7rem;
+				border: 1px solid var(--glass-border);
+				border-radius: 999px;
+				background: var(--glass-bg);
+				color: var(--text-secondary);
+				font-size: 0.8rem;
+				cursor: pointer;
+			}
+			.graph-filters button.active,
+			.graph-filters button:hover {
+				border-color: var(--border-glow);
+				color: var(--text-primary);
+			}
+			.swatch {
+				width: 8px;
+				height: 8px;
+				border-radius: 2px;
+			}
+			.graph-container {
+				position: relative;
+				border: 1px solid var(--glass-border);
+				border-radius: var(--radius-xl);
+				overflow: hidden;
+				background: var(--bg-surface);
+			}
+			#cy {
+				width: 100%;
+				height: 640px;
+			}
+			#graph-panel {
+				position: absolute;
+				top: 1rem;
+				right: 1rem;
+				width: min(280px, calc(100% - 2rem));
+				max-height: calc(100% - 2rem);
+				overflow: auto;
+				padding: 1rem 1.1rem 1.1rem;
+				background: var(--glass-bg);
+				backdrop-filter: blur(12px);
+				border: 1px solid var(--glass-border);
+				border-radius: var(--radius-lg);
+				box-shadow: var(--shadow-md);
+			}
+			#graph-panel-close {
+				position: absolute;
+				top: 0.45rem;
+				right: 0.55rem;
+				border: 0;
+				background: transparent;
+				color: var(--text-muted);
+				font-size: 1.2rem;
+				cursor: pointer;
+			}
+			#graph-panel-body :global(.panel-kicker) {
+				margin: 0;
+				font-size: 0.75rem;
+				color: var(--text-muted);
+			}
+			#graph-panel-body :global(h2) {
+				margin: 0.2rem 0 0.6rem;
+				font-size: 1.05rem;
+			}
+			#graph-panel-body :global(h3) {
+				margin: 0.8rem 0 0.3rem;
+				font-size: 0.8rem;
+				color: var(--text-muted);
+			}
+			#graph-panel-body :global(ul) {
+				margin: 0;
+				padding-left: 1rem;
+				font-size: 0.85rem;
+			}
+			#graph-panel-body :global(a) {
+				color: var(--accent);
+			}
+			.graph-legend {
+				position: absolute;
+				bottom: 1rem;
+				left: 1rem;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+				font-size: 0.8rem;
+				color: var(--text-muted);
+				background: var(--glass-bg);
+				backdrop-filter: blur(8px);
+				padding: 0.5rem 1rem;
+				border-radius: var(--radius-md);
+				border: 1px solid var(--glass-border);
+			}
+			.legend-item {
+				display: flex;
+				align-items: center;
+				gap: 0.35rem;
+			}
+			.legend-dot {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+			}
+			.legend-box {
+				width: 12px;
+				height: 8px;
+				border-radius: 2px;
+				background: var(--text-secondary);
+			}
+			.legend-post { background: var(--accent); }
+			.legend-tag {
+				background: var(--accent-secondary);
+				border-radius: 2px;
+				transform: rotate(45deg);
+				width: 8px;
+				height: 8px;
+			}
+			.legend-line {
+				width: 16px;
+				height: 2px;
+				background: var(--accent);
+			}
+			.legend-rel {
+				background: var(--accent-secondary);
+			}
+			@media (max-width: 720px) {
+				#cy { height: 420px; }
+				.graph-header { padding: 1rem 0 0.75rem; }
+				.graph-header h1 { font-size: 1.6rem; }
+				#graph-panel {
+					top: auto;
+					bottom: 3.2rem;
+					right: 0.6rem;
+					left: 0.6rem;
+					width: auto;
+					max-height: 42%;
+				}
+				.graph-legend {
+					font-size: 0.72rem;
+					padding: 0.4rem 0.75rem;
+					gap: 0.5rem;
+				}
+			}
+			@media (max-width: 480px) {
+				#cy { height: 360px; }
+				.graph-container { border-radius: var(--radius-lg); }
+				.graph-header h1 { font-size: 1.4rem; }
+			}
+		</style>

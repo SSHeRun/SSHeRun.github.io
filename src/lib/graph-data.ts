@@ -1,8 +1,11 @@
-import { getTagCluster, TAG_CLUSTERS, TAG_RELATIONS, unknownTags } from './taxonomy';
+import type { Locale } from '../i18n/config';
+import { localizedPath } from '../i18n/config';
+import { clusterLabel, tagLabel } from '../i18n/ui';
+import { getTagCluster, TAG_CLUSTERS, TAG_RELATIONS, tagPath, unknownTags } from './taxonomy';
 
 export type GraphPost = {
 	id: string;
-	data: { title: string; tags?: string[] };
+	data: { title: string; tags?: string[]; translationKey?: string; lang?: 'zh' | 'en' };
 	body?: string;
 };
 
@@ -31,7 +34,11 @@ export type GraphPayload = {
 
 const edgeKey = (s: string, t: string, type: string) => `${s}\0${t}\0${type}`;
 
-export function buildGraphData(posts: GraphPost[]): GraphPayload {
+function postKey(post: GraphPost): string {
+	return post.data.translationKey ?? post.id.replace(/\.en$/, '');
+}
+
+export function buildGraphData(posts: GraphPost[], locale: Locale = 'zh-CN'): GraphPayload {
 	const nodes: GraphNode[] = [];
 	const edges: GraphEdge[] = [];
 	const seenEdges = new Set<string>();
@@ -50,7 +57,7 @@ export function buildGraphData(posts: GraphPost[]): GraphPayload {
 	for (const cluster of TAG_CLUSTERS) {
 		nodes.push({
 			id: `cluster:${cluster.id}`,
-			label: cluster.label,
+			label: clusterLabel(locale, cluster.id),
 			type: 'cluster',
 			cluster: cluster.id,
 			clusterColor: cluster.color,
@@ -71,9 +78,9 @@ export function buildGraphData(posts: GraphPost[]): GraphPayload {
 
 		nodes.push({
 			id: `tag:${tag}`,
-			label: tag,
+			label: tagLabel(locale, tag),
 			type: 'tag',
-			url: `/tags/${encodeURIComponent(tag)}/`,
+			url: tagPath(tag, locale),
 			cluster: cluster?.id,
 			clusterColor: cluster?.color,
 			weight: count,
@@ -98,24 +105,25 @@ export function buildGraphData(posts: GraphPost[]): GraphPayload {
 	}
 
 	for (const post of posts) {
+		const key = postKey(post);
 		nodes.push({
-			id: post.id,
+			id: key,
 			label: post.data.title,
 			type: 'post',
-			url: `/blog/${post.id}/`,
+			url: localizedPath(locale, `/blog/${key}/`),
 			weight: post.data.tags?.length ?? 1,
 		});
 
 		for (const tag of post.data.tags ?? []) {
-			addEdge(post.id, `tag:${tag}`, 'tag');
+			addEdge(key, `tag:${tag}`, 'tag');
 		}
 
 		const wikilinks = (post.body || '').match(/\[\[([^\]|#]+)/g);
 		if (wikilinks) {
 			for (const match of wikilinks) {
-				const target = match.slice(2).trim();
-				if (posts.some((p) => p.id === target)) {
-					addEdge(post.id, target, 'wikilink');
+				const target = match.slice(2).trim().replace(/\.en$/, '');
+				if (posts.some((p) => postKey(p) === target || p.id === target)) {
+					addEdge(key, target, 'wikilink');
 				}
 			}
 		}

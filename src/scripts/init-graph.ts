@@ -16,9 +16,21 @@ type GraphEdge = {
 	type: string;
 };
 
+type GraphUi = {
+	cluster: string;
+	tag: string;
+	post: string;
+	openPost: string;
+	openTag: string;
+	belong: string;
+	relatedTags: string;
+	relatedPosts: string;
+};
+
 type GraphPayload = {
 	nodes: GraphNode[];
 	edges: GraphEdge[];
+	ui?: GraphUi;
 };
 
 function readTheme() {
@@ -35,7 +47,7 @@ function readTheme() {
 
 function payload(): GraphPayload {
 	const el = document.getElementById('graph-data');
-	if (!el?.textContent) return { nodes: [], edges: [] };
+	if (!el?.textContent) return { nodes: [], edges: [], ui: undefined };
 	return JSON.parse(el.textContent);
 }
 
@@ -240,19 +252,29 @@ function renderPanel(node: cytoscape.NodeSingular) {
 			})
 			.join('');
 
-	const typeLabel = type === 'cluster' ? '主题群' : type === 'tag' ? '标签' : '文章';
+	const copy = data.ui ?? {
+		cluster: '主题群',
+		tag: '标签',
+		post: '文章',
+		openPost: '打开文章',
+		openTag: '查看该标签下的文章',
+		belong: '所属主题',
+		relatedTags: '相关标签',
+		relatedPosts: '相关文章',
+	};
+	const typeLabel = type === 'cluster' ? copy.cluster : type === 'tag' ? copy.tag : copy.post;
 	const primary =
 		url && type !== 'cluster'
-			? `<p><a class="panel-primary" href="${url}">${type === 'tag' ? '查看该标签下的文章' : '打开文章'}</a></p>`
+			? `<p><a class="panel-primary" href="${url}">${type === 'tag' ? copy.openTag : copy.openPost}</a></p>`
 			: '';
 
 	panelBody.innerHTML = `
 		<p class="panel-kicker">${typeLabel}</p>
 		<h2>${label}</h2>
 		${primary}
-		${clusters.length ? `<h3>所属主题</h3><ul>${list(clusters)}</ul>` : ''}
-		${tags.length ? `<h3>相关标签</h3><ul>${list(tags)}</ul>` : ''}
-		${posts.length ? `<h3>相关文章</h3><ul>${list(posts)}</ul>` : ''}
+		${clusters.length ? `<h3>${copy.belong}</h3><ul>${list(clusters)}</ul>` : ''}
+		${tags.length ? `<h3>${copy.relatedTags}</h3><ul>${list(tags)}</ul>` : ''}
+		${posts.length ? `<h3>${copy.relatedPosts}</h3><ul>${list(posts)}</ul>` : ''}
 	`;
 	panel.hidden = false;
 }

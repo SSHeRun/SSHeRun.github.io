@@ -1,27 +1,28 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { postPath, postsForLocale, translationKey } from '../i18n/posts';
+import { t } from '../i18n/ui';
 
 export const GET: APIRoute = async () => {
-  const posts = await getCollection('blog');
-  const sorted = posts.sort(
+  const posts = postsForLocale(await getCollection('blog'), 'zh-CN').sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
   );
 
-  const postList = sorted
+  const postList = posts
     .map((p) => {
       const tags = p.data.tags?.length ? ` [${p.data.tags.join(', ')}]` : '';
-      return `- [${p.data.title}](https://ssherun.github.io/blog/${p.id}/): ${p.data.description}${tags}`;
+      return `- [${p.data.title}](https://ssherun.github.io${postPath('zh-CN', p)}): ${p.data.description}${tags}`;
     })
     .join('\n');
 
   const body = `# SSHeRun's Blog
 
-> 一个对 Agent 友好的博客。本站不仅为人类读者提供良好的阅读体验，也为 AI Agent 提供结构化、机器可读的内容接口。探索 Agent 时代个人网站的新形态。
+> ${t('zh-CN', 'siteDescription')}
 
 站点地址: https://ssherun.github.io
 作者: SSHeRun
-语言: 中文
-文章数量: ${sorted.length}
+语言: 中文（默认） / [English](https://ssherun.github.io/en/llms.txt)
+文章数量: ${posts.length}
 
 ## 博客文章
 
@@ -29,19 +30,17 @@ ${postList}
 
 ## 完整内容
 
-- [所有文章完整内容](https://ssherun.github.io/llms-full.txt): 包含所有博客文章的完整 Markdown 内容，适合需要深度理解站点内容的 Agent 使用。
+- [所有文章完整内容](https://ssherun.github.io/llms-full.txt)
 
 ## 站点结构
 
-- [首页](https://ssherun.github.io/): 最新文章列表
-- [文章列表](https://ssherun.github.io/blog/): 全部博客文章
-- [关于](https://ssherun.github.io/about/): 关于作者
-- [RSS 订阅](https://ssherun.github.io/rss.xml): RSS feed
-- [站点地图](https://ssherun.github.io/sitemap-index.xml): Sitemap
-
-## Optional
-
-- [GitHub](https://github.com/SSHeRun): 作者的 GitHub 主页
+- [首页](https://ssherun.github.io/)
+- [文章列表](https://ssherun.github.io/blog/)
+- [标签](https://ssherun.github.io/tags/)
+- [知识图谱](https://ssherun.github.io/graph/)
+- [关于](https://ssherun.github.io/about/)
+- [English](https://ssherun.github.io/en/)
+- [RSS](https://ssherun.github.io/rss.xml)
 `;
 
   return new Response(body, {

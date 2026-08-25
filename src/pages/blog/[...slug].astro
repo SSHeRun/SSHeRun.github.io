@@ -1,11 +1,12 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { translationKey } from '../../i18n/posts';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
+	const posts = (await getCollection('blog')).filter((post) => (post.data.lang ?? 'zh') !== 'en');
 	return posts.map((post) => ({
-		params: { slug: post.id },
+		params: { slug: translationKey(post) },
 		props: post,
 	}));
 }
@@ -15,6 +16,11 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data} slug={post.id} body={post.body || ''}>
+<BlogPost
+	{...post.data}
+	slug={translationKey(post)}
+	translationKey={translationKey(post)}
+	body={post.body || ''}
+>
 	<Content />
 </BlogPost>

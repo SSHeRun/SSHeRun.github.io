@@ -1,0 +1,294 @@
+---
+import PostHeatmap from '../../components/PostHeatmap.astro';
+import { currentLocale, localizedPath } from '../../i18n/config';
+import { t } from '../../i18n/ui';
+import SitePage from '../../layouts/SitePage.astro';
+
+const locale = currentLocale(Astro.currentLocale);
+---
+
+<SitePage title={`${t(locale, 'navAbout')} - ${t(locale, 'siteTitle')}`} description={t(locale, 'aboutMeta')}>
+		<main>
+			<div class="about">
+				<div class="about-hero">
+					<div class="avatar-ring">
+						<div class="avatar">
+							<span class="avatar-text">S</span>
+						</div>
+					</div>
+					<div class="about-intro">
+						<h1>{t(locale, 'aboutTitle')}</h1>
+						<p class="tagline">{t(locale, 'aboutTagline')}</p>
+					</div>
+				</div>
+
+				<div class="about-content">
+					<h2>{t(locale, 'aboutWhyTitle')}</h2>
+					<p>{t(locale, 'aboutWhy1')}</p>
+					<p>
+						{t(locale, 'aboutWhy2Lead')}<strong>{t(locale, 'aboutWhy2Strong')}</strong>
+					</p>
+
+					<h2>{t(locale, 'aboutFeaturesTitle')}</h2>
+					<p>{t(locale, 'aboutFeaturesLead')}</p>
+
+					<div class="features-grid">
+						<div class="feature-card glass">
+							<code>/llms.txt</code>
+							<span>{t(locale, 'aboutFeatLlms')}</span>
+						</div>
+						<div class="feature-card glass">
+							<code>/llms-full.txt</code>
+							<span>{t(locale, 'aboutFeatFull')}</span>
+						</div>
+						<div class="feature-card glass">
+							<code>/blog/[slug].md</code>
+							<span>{t(locale, 'aboutFeatMd')}</span>
+						</div>
+						<div class="feature-card glass">
+							<strong>JSON-LD</strong>
+							<span>{t(locale, 'aboutFeatJsonld')}</span>
+						</div>
+						<div class="feature-card glass">
+							<code>/robots.txt</code>
+							<span>{t(locale, 'aboutFeatRobots')}</span>
+						</div>
+						<div class="feature-card glass">
+							<code>/rss.xml</code> + <code>/sitemap-index.xml</code>
+							<span>{t(locale, 'aboutFeatRss')}</span>
+						</div>
+					</div>
+
+					<h2>{t(locale, 'aboutStackTitle')}</h2>
+					<ul>
+						<li><a href="https://astro.build" target="_blank">Astro</a> — {t(locale, 'aboutStackAstro')}</li>
+						<li><a href="https://pages.github.com" target="_blank">GitHub Pages</a> — {t(locale, 'aboutStackPages')}</li>
+						<li><a href="https://giscus.app" target="_blank">Giscus</a> — {t(locale, 'aboutStackGiscus')}</li>
+					</ul>
+
+					<h2>{t(locale, 'aboutAuthorTitle')}</h2>
+					<p>{t(locale, 'aboutAuthor')}</p>
+				</div>
+
+				<div class="about-links">
+					<a href="https://github.com/SSHeRun" target="_blank" class="link-card glass">
+						<svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor">
+							<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+						</svg>
+						<span>GitHub</span>
+					</a>
+					<a href={localizedPath(locale, '/llms.txt')} class="link-card glass">
+						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
+							<path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path>
+						</svg>
+						<span>llms.txt</span>
+					</a>
+					<a href={localizedPath(locale, '/rss.xml')} class="link-card glass">
+						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
+							<path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3zm0 4a1 1 0 000 2 6 6 0 016 6 1 1 0 102 0 8 8 0 00-8-8zm0 4a1 1 0 000 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4zm0 4a1 1 0 100 2 1 1 0 000-2z"></path>
+						</svg>
+						<span>RSS</span>
+					</a>
+					<a href={localizedPath(locale, '/blog/')} class="link-card glass">
+						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
+							<path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"></path>
+						</svg>
+						<span>{t(locale, 'aboutAllPosts')}</span>
+					</a>
+				</div>
+
+				<PostHeatmap />
+			</div>
+		</main>
+</SitePage>
+
+		<style>
+			main {
+				width: 100%;
+				max-width: min(760px, calc(100% - 2rem));
+				box-sizing: border-box;
+			}
+			.about {
+				padding: 3rem 0;
+			}
+
+			/* ── Hero ── */
+			.about-hero {
+				display: flex;
+				align-items: center;
+				gap: 1.5rem;
+				margin-bottom: 2.5rem;
+			}
+			.avatar-ring {
+				flex-shrink: 0;
+				padding: 3px;
+				border-radius: 50%;
+				background: var(--accent-gradient);
+			}
+			.avatar {
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+				background: var(--bg-surface);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 20%, transparent);
+			}
+			.avatar-text {
+				font-size: 2rem;
+				font-weight: 700;
+				background: var(--accent-gradient);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+			.about-intro h1 {
+				font-size: 1.8rem;
+				margin: 0 0 0.25rem;
+				letter-spacing: -0.03em;
+			}
+			.tagline {
+				color: var(--text-muted);
+				margin: 0;
+				font-size: 1rem;
+			}
+
+			/* ── Content ── */
+			.about-content {
+				margin-bottom: 2.5rem;
+			}
+			.about-content h2 {
+				font-size: 1.2rem;
+				margin: 2rem 0 0.75rem;
+				letter-spacing: -0.02em;
+			}
+			.about-content h2:first-child {
+				margin-top: 0;
+			}
+			.about-content p {
+				color: var(--text-secondary);
+				font-size: 1.02rem;
+				line-height: 1.8;
+				margin: 0 0 0.75rem;
+			}
+			.about-content ul {
+				color: var(--text-secondary);
+				font-size: 1.02rem;
+				line-height: 1.8;
+				padding-left: 1.25rem;
+				margin: 0 0 1rem;
+			}
+			.about-content li {
+				margin-bottom: 0.35rem;
+			}
+			.about-content code {
+				padding: 0.15rem 0.4rem;
+				background: var(--glass-bg);
+				border: 1px solid var(--glass-border);
+				border-radius: var(--radius-sm);
+				font-size: 0.9em;
+				color: var(--accent);
+			}
+			.about-content a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			.about-content a:hover {
+				text-decoration: underline;
+			}
+			.about-content strong {
+				color: var(--text-primary);
+			}
+
+			/* ── Features Grid ── */
+			.features-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 0.75rem;
+				margin: 1rem 0 1.5rem;
+			}
+			.feature-card {
+				padding: 1rem 1.15rem;
+				border-radius: var(--radius-md);
+				display: flex;
+				flex-direction: column;
+				gap: 0.35rem;
+				transition: border-color 0.25s ease, box-shadow 0.25s ease;
+			}
+			.feature-card:hover {
+				border-color: var(--border-glow);
+				box-shadow: var(--shadow-glow);
+			}
+			.feature-card code {
+				font-size: 0.85em;
+			}
+			.feature-card span {
+				font-size: 0.9rem;
+				color: var(--text-secondary);
+				line-height: 1.6;
+			}
+			.feature-card a {
+				color: var(--accent);
+			}
+
+			/* ── Links ── */
+			.about-links {
+				display: flex;
+				gap: 0.75rem;
+				flex-wrap: wrap;
+			}
+		.link-card {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0.65rem 1.25rem;
+			min-height: 44px;
+			border-radius: var(--radius-lg);
+			text-decoration: none;
+			color: var(--text-secondary);
+			font-size: 0.9rem;
+			transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+		}
+			.link-card:hover {
+				border-color: var(--border-glow);
+				color: var(--accent);
+				box-shadow: var(--shadow-glow);
+				transform: translateY(-2px);
+			}
+			.link-card svg {
+				flex-shrink: 0;
+			}
+
+		@media (max-width: 720px) {
+			.about { padding: 1.5rem 0; }
+			.about-hero {
+				flex-direction: column;
+				text-align: center;
+				margin-bottom: 1.5rem;
+				gap: 1rem;
+			}
+			.about-intro h1 { font-size: 1.5rem; }
+			.about-links {
+				justify-content: center;
+			}
+			.features-grid {
+				grid-template-columns: 1fr;
+				gap: 0.5rem;
+			}
+			.feature-card {
+				padding: 0.85rem 1rem;
+			}
+			.about-content h2 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+			.about-content p, .about-content ul { font-size: 0.95rem; }
+			.link-card {
+				padding: 0.55rem 1rem;
+				font-size: 0.85rem;
+			}
+		}
+		@media (max-width: 480px) {
+			.about-intro h1 { font-size: 1.3rem; }
+			.avatar { width: 64px; height: 64px; }
+			.avatar-text { font-size: 1.6rem; }
+		}
+		</style>

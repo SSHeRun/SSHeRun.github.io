@@ -23,13 +23,14 @@ globs:
 - 主题通过 `<html data-theme="dark|light">` 切换，默认跟随系统
 - 组件不使用硬编码颜色值，一律引用 CSS 自定义属性
 - Tailwind `@theme` 块定义字体和颜色 token
+- 西文用自托管 Sora 可变字体，中文回退 PingFang SC / 微软雅黑 UI
 
 ## 文章规范
 - 文章存放在 `src/content/blog/` 下，格式为 Markdown (.md)
 - Frontmatter 必须包含：title, description, pubDate
-- 可选字段：updatedDate, heroImage, tags
+- 可选字段：updatedDate, heroImage, tags, lang (`zh` | `en`)，translationKey
+- 中文稿 `hello-world.md` → `/blog/hello-world/`；英文稿 `hello-world.en.md`（`lang: en`）→ `/en/blog/hello-world/`
 - heroImage 路径格式：`../../assets/xxx.jpg`
-- 文件名即 slug，用于 URL（如 `hello-world.md` → `/blog/hello-world/`）
 
 ## Markdown 扩展
 - 支持 Obsidian 双向链接 `[[slug]]` `[[slug|text]]` `[[slug#heading]]`
@@ -44,7 +45,7 @@ globs:
 
 ## 页面与组件
 - `BaseHead.astro` — 包含 `ClientRouter`（View Transitions）和主题初始化脚本
-- `Header.astro` — `transition:persist`，毛玻璃导航栏，含 ThemeToggle
+- `Header.astro` — 毛玻璃导航栏，含语言切换与 ThemeToggle（不要 `transition:persist`，否则语言切换后导航会停在旧 locale）
 - `ThemeToggle.astro` — localStorage 持久化主题偏好，同步 Giscus 主题
 - `ReadingProgress.astro` — 文章页顶部渐变进度条
 - `PostHeatmap.astro` — GitHub 风格发文热力图（关于页使用）
@@ -54,7 +55,8 @@ globs:
 ## 设计原则
 - 博客主题："做一个对 Agent 友好的博客"
 - 视觉风格：Glassmorphism + Cyberpunk 配色
-- 中文优先（日期 zh-CN、评论中文、排版针对中文优化）
+- 中文优先（默认无前缀）；英文在 `/en/`，界面与文章成对，含 hreflang
+- 日期跟随 locale（zh-CN / en-US），Giscus `data-lang` 同步，共享同一讨论 term
 - 暗色模式通过 `data-theme` 属性切换，默认跟随系统 `prefers-color-scheme`
 - 尽量用自定义 remark 插件而不是引入第三方包
 - View Transitions 实现页面间平滑过渡，封面图使用 `transition:name` 实现 morph

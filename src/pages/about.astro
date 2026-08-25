@@ -1,18 +1,13 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
 import PostHeatmap from '../components/PostHeatmap.astro';
-import { SITE_TITLE } from '../consts';
+import { currentLocale, localizedPath } from '../i18n/config';
+import { t } from '../i18n/ui';
+import SitePage from '../layouts/SitePage.astro';
+
+const locale = currentLocale(Astro.currentLocale);
 ---
 
-<!doctype html>
-<html lang="zh-CN">
-	<head>
-		<BaseHead title={`关于 - ${SITE_TITLE}`} description="关于这个 Agent 友好的博客" />
-	</head>
-	<body>
-		<Header />
+<SitePage title={`${t(locale, 'navAbout')} - ${t(locale, 'siteTitle')}`} description={t(locale, 'aboutMeta')}>
 		<main>
 			<div class="about">
 				<div class="about-hero">
@@ -22,63 +17,57 @@ import { SITE_TITLE } from '../consts';
 						</div>
 					</div>
 					<div class="about-intro">
-						<h1>关于本站</h1>
-						<p class="tagline">一个对 Agent 友好的博客</p>
+						<h1>{t(locale, 'aboutTitle')}</h1>
+						<p class="tagline">{t(locale, 'aboutTagline')}</p>
 					</div>
 				</div>
 
 				<div class="about-content">
-					<h2>为什么做这个博客？</h2>
+					<h2>{t(locale, 'aboutWhyTitle')}</h2>
+					<p>{t(locale, 'aboutWhy1')}</p>
 					<p>
-						传统个人网站是给人看的 — 精心排版的 HTML、漂亮的 CSS、流畅的交互。
-						但在 Agent 时代，你的网站的访客不只是人类，还有无数 AI Agent 在爬取、理解、引用你的内容。
-					</p>
-					<p>
-						这个博客是一次实践：<strong>如何让一个网站同时对人和 Agent 都友好？</strong>
+						{t(locale, 'aboutWhy2Lead')}<strong>{t(locale, 'aboutWhy2Strong')}</strong>
 					</p>
 
-					<h2>Agent 友好意味着什么？</h2>
-					<p>本站实现了以下面向 Agent 的特性：</p>
+					<h2>{t(locale, 'aboutFeaturesTitle')}</h2>
+					<p>{t(locale, 'aboutFeaturesLead')}</p>
 
 					<div class="features-grid">
 						<div class="feature-card glass">
 							<code>/llms.txt</code>
-							<span>遵循 <a href="https://llmstxt.org" target="_blank">llmstxt.org</a> 标准，让 LLM 快速理解站点结构和内容概览</span>
+							<span>{t(locale, 'aboutFeatLlms')}</span>
 						</div>
 						<div class="feature-card glass">
 							<code>/llms-full.txt</code>
-							<span>所有文章的完整 Markdown 内容，一次请求获取全部上下文</span>
+							<span>{t(locale, 'aboutFeatFull')}</span>
 						</div>
 						<div class="feature-card glass">
 							<code>/blog/[slug].md</code>
-							<span>每篇文章的纯 Markdown 端点，机器可直接消费</span>
+							<span>{t(locale, 'aboutFeatMd')}</span>
 						</div>
 						<div class="feature-card glass">
-							<strong>JSON-LD 结构化数据</strong>
-							<span>每篇文章嵌入 Schema.org BlogPosting 标记</span>
+							<strong>JSON-LD</strong>
+							<span>{t(locale, 'aboutFeatJsonld')}</span>
 						</div>
 						<div class="feature-card glass">
 							<code>/robots.txt</code>
-							<span>开放所有 AI 爬虫访问</span>
+							<span>{t(locale, 'aboutFeatRobots')}</span>
 						</div>
 						<div class="feature-card glass">
 							<code>/rss.xml</code> + <code>/sitemap-index.xml</code>
-							<span>标准的内容发现协议</span>
+							<span>{t(locale, 'aboutFeatRss')}</span>
 						</div>
 					</div>
 
-					<h2>技术栈</h2>
+					<h2>{t(locale, 'aboutStackTitle')}</h2>
 					<ul>
-						<li><a href="https://astro.build" target="_blank">Astro</a> — 现代静态站点生成器</li>
-						<li><a href="https://pages.github.com" target="_blank">GitHub Pages</a> — 托管与部署</li>
-						<li><a href="https://giscus.app" target="_blank">Giscus</a> — 基于 GitHub Discussions 的评论系统</li>
+						<li><a href="https://astro.build" target="_blank">Astro</a> — {t(locale, 'aboutStackAstro')}</li>
+						<li><a href="https://pages.github.com" target="_blank">GitHub Pages</a> — {t(locale, 'aboutStackPages')}</li>
+						<li><a href="https://giscus.app" target="_blank">Giscus</a> — {t(locale, 'aboutStackGiscus')}</li>
 					</ul>
 
-					<h2>关于作者</h2>
-					<p>
-						SSHeRun，关注 AI、系统技术和开发工具链。相信在 Agent 时代，
-						个人网站不只是数字名片，而是你在互联网上的<strong>可编程接口</strong>。
-					</p>
+					<h2>{t(locale, 'aboutAuthorTitle')}</h2>
+					<p>{t(locale, 'aboutAuthor')}</p>
 				</div>
 
 				<div class="about-links">
@@ -88,30 +77,30 @@ import { SITE_TITLE } from '../consts';
 						</svg>
 						<span>GitHub</span>
 					</a>
-					<a href="/llms.txt" class="link-card glass">
+					<a href={localizedPath(locale, '/llms.txt')} class="link-card glass">
 						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
 							<path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path>
 						</svg>
 						<span>llms.txt</span>
 					</a>
-					<a href="/rss.xml" class="link-card glass">
+					<a href={localizedPath(locale, '/rss.xml')} class="link-card glass">
 						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
 							<path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3zm0 4a1 1 0 000 2 6 6 0 016 6 1 1 0 102 0 8 8 0 00-8-8zm0 4a1 1 0 000 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4zm0 4a1 1 0 100 2 1 1 0 000-2z"></path>
 						</svg>
 						<span>RSS</span>
 					</a>
-					<a href="/blog" class="link-card glass">
+					<a href={localizedPath(locale, '/blog/')} class="link-card glass">
 						<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor">
 							<path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"></path>
 						</svg>
-						<span>全部文章</span>
+						<span>{t(locale, 'aboutAllPosts')}</span>
 					</a>
 				</div>
 
 				<PostHeatmap />
 			</div>
 		</main>
-		<Footer />
+</SitePage>
 
 		<style>
 			main {
@@ -303,5 +292,3 @@ import { SITE_TITLE } from '../consts';
 			.avatar-text { font-size: 1.6rem; }
 		}
 		</style>
-	</body>
-</html>

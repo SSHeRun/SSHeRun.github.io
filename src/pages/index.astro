@@ -1,43 +1,38 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
 import TagList from '../components/TagList.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { currentLocale, localizedPath } from '../i18n/config';
+import { postPath, postsForLocale } from '../i18n/posts';
+import { t } from '../i18n/ui';
+import SitePage from '../layouts/SitePage.astro';
 
-const posts = (await getCollection('blog'))
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale)
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 5);
 ---
 
-<!doctype html>
-<html lang="zh-CN">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
+<SitePage title={t(locale, 'siteTitle')} description={t(locale, 'siteDescription')}>
 		<main>
 			<section class="hero">
 				<div class="hero-mesh"></div>
 				<div class="hero-content">
-					<span class="hero-pill glass">Agent-Friendly Blog</span>
-					<h1>一个对 <span class="accent">Agent</span> 友好的博客</h1>
-					<p class="subtitle">不只是给人看的网站，也是给 AI 读的接口。探索 Agent 时代个人网站的新形态。</p>
+					<span class="hero-pill glass">{t(locale, 'heroPill')}</span>
+					<h1>{t(locale, 'heroTitleBefore')} <span class="accent">Agent</span>{t(locale, 'heroTitleAfter')}</h1>
+					<p class="subtitle">{t(locale, 'heroSubtitle')}</p>
 				</div>
 			</section>
 
 			<section class="recent-posts">
 				<div class="section-header">
-					<h2>最新文章</h2>
-					<a href="/blog" class="view-all">查看全部 &rarr;</a>
+					<h2>{t(locale, 'latestPosts')}</h2>
+					<a href={localizedPath(locale, '/blog/')} class="view-all">{t(locale, 'viewAll')}</a>
 				</div>
 				<div class="post-list">
 					{posts.map((post) => (
-						<a href={`/blog/${post.id}/`} class="post-card">
+						<a href={postPath(locale, post)} class="post-card">
 							{post.data.heroImage && (
 								<div class="post-image">
 									<Image
@@ -63,7 +58,7 @@ const posts = (await getCollection('blog'))
 				</div>
 			</section>
 		</main>
-		<Footer />
+</SitePage>
 
 		<style>
 			main {
@@ -120,10 +115,11 @@ const posts = (await getCollection('blog'))
 				box-shadow: inset 0 0 0 1px var(--border-glow);
 			}
 			.hero h1 {
-				font-size: 2.75rem;
+				font-size: clamp(1.85rem, 1.2rem + 2.4vw, 2.85rem);
 				margin: 0 0 0.85rem;
-				letter-spacing: -0.03em;
-				line-height: 1.15;
+				letter-spacing: -0.035em;
+				line-height: 1.18;
+				text-wrap: balance;
 				overflow-wrap: anywhere;
 				word-break: break-word;
 			}
@@ -302,5 +298,3 @@ const posts = (await getCollection('blog'))
 			}
 		}
 		</style>
-	</body>
-</html>

@@ -1,16 +1,19 @@
 import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { postsForLocale, postPath } from '../i18n/posts';
+import { t } from '../i18n/ui';
 
 export async function GET(context) {
-	const posts = await getCollection('blog');
+	const posts = postsForLocale(await getCollection('blog'), 'zh-CN').sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
 	return rss({
-		title: SITE_TITLE,
-		description: SITE_DESCRIPTION,
+		title: t('zh-CN', 'siteTitle'),
+		description: t('zh-CN', 'siteDescription'),
 		site: context.site,
 		items: posts.map((post) => ({
 			...post.data,
-			link: `/blog/${post.id}/`,
+			link: postPath('zh-CN', post),
 		})),
 	});
 }

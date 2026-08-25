@@ -5,13 +5,14 @@ type RelatedInput = {
 	tags?: string[];
 	body?: string;
 	limit?: number;
+	lang?: 'zh' | 'en';
 };
 
 export function pickRelatedPosts(
 	posts: CollectionEntry<'blog'>[],
-	{ slug, tags = [], body = '', limit = 4 }: RelatedInput,
+	{ slug, tags = [], body = '', limit = 4, lang }: RelatedInput,
 ): CollectionEntry<'blog'>[] {
-	if (body.includes('## 相关文章')) return [];
+	if (body.includes('## 相关文章') || body.includes('## Related posts')) return [];
 	const mine = new Set(tags);
 	if (mine.size === 0) return [];
 
@@ -22,7 +23,8 @@ export function pickRelatedPosts(
 	}
 
 	return posts
-		.filter((post) => post.id !== slug && !already.has(post.id))
+		.filter((post) => (lang ? (post.data.lang ?? 'zh') === lang : true))
+		.filter((post) => post.id !== slug && !already.has(post.id) && !already.has(post.id.replace(/\.en$/, '')))
 		.map((post) => {
 			const overlap = (post.data.tags ?? []).filter((tag) => mine.has(tag)).length;
 			return { post, overlap };

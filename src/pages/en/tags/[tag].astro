@@ -1,0 +1,149 @@
+---
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import TagList from '../../../components/TagList.astro';
+import { currentLocale, localizedPath } from '../../../i18n/config';
+import { postPath, postsForLocale } from '../../../i18n/posts';
+import { clusterLabel, t, tagLabel } from '../../../i18n/ui';
+import SitePage from '../../../layouts/SitePage.astro';
+import { getTagCluster, graphTagPath, TAG_RELATIONS, tagPath } from '../../../lib/taxonomy';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	const tags = new Set<string>();
+	for (const post of posts) {
+		for (const tag of post.data.tags ?? []) tags.add(tag);
+	}
+
+	return [...tags].map((tag) => ({
+		params: { tag },
+		props: { tag },
+	}));
+}
+
+const { tag } = Astro.props;
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale)
+	.filter((post) => post.data.tags?.includes(tag))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const cluster = getTagCluster(tag);
+const related = TAG_RELATIONS.filter(([a, b]) => a === tag || b === tag).map(([a, b]) => (a === tag ? b : a));
+const clusterName = cluster ? clusterLabel(locale, cluster.id) : '';
+---
+
+<SitePage
+	title={`${tagLabel(locale, tag)} - ${t(locale, 'tagsTitle')} - ${t(locale, 'siteTitle')}`}
+	description={`${tagLabel(locale, tag)} · ${t(locale, 'tagPosts', { n: posts.length })}`}
+>
+		<main>
+			<div class="page-header">
+				<p class="crumb">
+					<a href={localizedPath(locale, '/tags/')}>{t(locale, 'tagsTitle')}</a>
+					{cluster && <span> / {clusterName}</span>}
+				</p>
+				<h1>{tagLabel(locale, tag)}</h1>
+				<p class="meta">
+					{t(locale, 'tagPosts', { n: posts.length })}
+					{cluster && <span>· {clusterName}</span>}
+					<a href={graphTagPath(tag, locale)}>{t(locale, 'viewInGraph')}</a>
+				</p>
+				{
+					related.length > 0 && (
+						<p class="related-tags">
+							{t(locale, 'relatedTags')}
+							{related.map((item) => (
+								<a href={tagPath(item, locale)}>{tagLabel(locale, item)}</a>
+							))}
+						</p>
+					)
+				}
+			</div>
+
+			<ul class="post-list">
+				{
+					posts.map((post) => (
+						<li>
+							<a href={postPath(locale, post)}>
+								<span class="date">
+									<FormattedDate date={post.data.pubDate} />
+								</span>
+								<strong>{post.data.title}</strong>
+								<span class="desc">{post.data.description}</span>
+							</a>
+							<TagList tags={post.data.tags} compact />
+						</li>
+					))
+				}
+			</ul>
+		</main>
+</SitePage>
+
+<style>
+	main {
+		width: 100%;
+		max-width: min(var(--max-width-wide), calc(100% - 2rem));
+		box-sizing: border-box;
+	}
+	.page-header {
+		padding: 2rem 0 1rem;
+	}
+	.crumb,
+	.meta,
+	.related-tags {
+		color: var(--text-muted);
+		font-size: 0.9rem;
+	}
+	.crumb a,
+	.meta a,
+	.related-tags a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+	.page-header h1 {
+		font-size: 2rem;
+		margin: 0.35rem 0;
+		letter-spacing: -0.03em;
+	}
+	.related-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 0.75rem;
+		margin-top: 0.75rem;
+	}
+	.post-list {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 3rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+	.post-list li {
+		padding-bottom: 1.25rem;
+		border-bottom: 1px solid var(--border);
+	}
+	.post-list a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		text-decoration: none;
+		color: inherit;
+	}
+	.post-list strong {
+		font-size: 1.05rem;
+	}
+	.post-list a:hover strong {
+		color: var(--accent);
+	}
+	.date {
+		font-size: 0.8rem;
+		color: var(--text-muted);
+	}
+	.desc {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+	}
+	.post-list :global(.tag-list) {
+		margin-top: 0.5rem;
+	}
+</style>

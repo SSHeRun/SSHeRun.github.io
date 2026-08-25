@@ -56,9 +56,10 @@ function buildUrl(target, heading, pathPrefix) {
  *   ![[image.png]]        → image embed
  */
 export default function remarkWikilinks(opts = {}) {
-  const pathPrefix = opts.pathPrefix ?? '/blog/';
+  return (tree, file) => {
+    const filePath = file.path || file.history?.[0] || '';
+    const pathPrefix = opts.pathPrefix ?? (/\.en\.mdx?$/.test(filePath) ? '/en/blog/' : '/blog/');
 
-  return (tree) => {
     visit(tree, 'text', (node, index, parent) => {
       if (!parent || !WIKILINK_RE.test(node.value)) return;
 

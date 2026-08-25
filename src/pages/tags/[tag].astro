@@ -1,11 +1,12 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
 import TagList from '../../components/TagList.astro';
-import { SITE_TITLE } from '../../consts';
+import { currentLocale, localizedPath } from '../../i18n/config';
+import { postPath, postsForLocale } from '../../i18n/posts';
+import { clusterLabel, t, tagLabel } from '../../i18n/ui';
+import SitePage from '../../layouts/SitePage.astro';
 import { getTagCluster, graphTagPath, TAG_RELATIONS, tagPath } from '../../lib/taxonomy';
 
 export async function getStaticPaths() {
@@ -17,48 +18,42 @@ export async function getStaticPaths() {
 
 	return [...tags].map((tag) => ({
 		params: { tag },
-		props: {
-			tag,
-			posts: posts
-				.filter((post) => post.data.tags?.includes(tag))
-				.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
-		},
+		props: { tag },
 	}));
 }
 
-const { tag, posts } = Astro.props;
+const { tag } = Astro.props;
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale)
+	.filter((post) => post.data.tags?.includes(tag))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const cluster = getTagCluster(tag);
 const related = TAG_RELATIONS.filter(([a, b]) => a === tag || b === tag).map(([a, b]) => (a === tag ? b : a));
+const clusterName = cluster ? clusterLabel(locale, cluster.id) : '';
 ---
 
-<!doctype html>
-<html lang="zh-CN">
-	<head>
-		<BaseHead
-			title={`${tag} - 标签 - ${SITE_TITLE}`}
-			description={`标签「${tag}」下的 ${posts.length} 篇文章${cluster ? `，属于「${cluster.label}」` : ''}。`}
-		/>
-	</head>
-	<body>
-		<Header />
+<SitePage
+	title={`${tagLabel(locale, tag)} - ${t(locale, 'tagsTitle')} - ${t(locale, 'siteTitle')}`}
+	description={`${tagLabel(locale, tag)} · ${t(locale, 'tagPosts', { n: posts.length })}`}
+>
 		<main>
 			<div class="page-header">
 				<p class="crumb">
-					<a href="/tags/">标签</a>
-					{cluster && <span> / {cluster.label}</span>}
+					<a href={localizedPath(locale, '/tags/')}>{t(locale, 'tagsTitle')}</a>
+					{cluster && <span> / {clusterName}</span>}
 				</p>
-				<h1>{tag}</h1>
+				<h1>{tagLabel(locale, tag)}</h1>
 				<p class="meta">
-					{posts.length} 篇文章
-					{cluster && <span>· {cluster.label}</span>}
-					<a href={graphTagPath(tag)}>在图谱中查看</a>
+					{t(locale, 'tagPosts', { n: posts.length })}
+					{cluster && <span>· {clusterName}</span>}
+					<a href={graphTagPath(tag, locale)}>{t(locale, 'viewInGraph')}</a>
 				</p>
 				{
 					related.length > 0 && (
 						<p class="related-tags">
-							相关标签：
+							{t(locale, 'relatedTags')}
 							{related.map((item) => (
-								<a href={tagPath(item)}>{item}</a>
+								<a href={tagPath(item, locale)}>{tagLabel(locale, item)}</a>
 							))}
 						</p>
 					)
@@ -69,12 +64,25 @@ const related = TAG_RELATIONS.filter(([a, b]) => a === tag || b === tag).map(([a
 				{
 					posts.map((post) => (
 						<li>
-							<a href={`/blog/${post.id}/`}>
-								<span class="date">
-									<FormattedDate date={post.data.pubDate} />
+							<a href={postPath(locale, post)} class="post-row">
+								{post.data.heroImage && (
+									<span class="thumb">
+										<Image
+											src={post.data.heroImage}
+											alt={post.data.title}
+											width={220}
+											height={110}
+											loading="lazy"
+										/>
+									</span>
+								)}
+								<span class="post-copy">
+									<span class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</span>
+									<strong>{post.data.title}</strong>
+									<span class="desc">{post.data.description}</span>
 								</span>
-								<strong>{post.data.title}</strong>
-								<span class="desc">{post.data.description}</span>
 							</a>
 							<TagList tags={post.data.tags} compact />
 						</li>
@@ -82,9 +90,7 @@ const related = TAG_RELATIONS.filter(([a, b]) => a === tag || b === tag).map(([a
 				}
 			</ul>
 		</main>
-		<Footer />
-	</body>
-</html>
+</SitePage>
 
 <style>
 	main {
@@ -108,9 +114,10 @@ const related = TAG_RELATIONS.filter(([a, b]) => a === tag || b === tag).map(([a
 		text-decoration: none;
 	}
 	.page-header h1 {
-		font-size: 2rem;
+		font-size: clamp(1.55rem, 1.1rem + 1.4vw, 2rem);
 		margin: 0.35rem 0;
 		letter-spacing: -0.03em;
+		text-wrap: balance;
 	}
 	.related-tags {
 		display: flex;
@@ -130,12 +137,33 @@ const related = TAG_RELATIONS.filter(([a, b]) => a === tag || b === tag).map(([a
 		padding-bottom: 1.25rem;
 		border-bottom: 1px solid var(--border);
 	}
-	.post-list a {
+	.post-row {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		text-decoration: none;
+		color: inherit;
+	}
+	.thumb {
+		flex-shrink: 0;
+		width: 148px;
+		aspect-ratio: 2 / 1;
+		overflow: hidden;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--glass-border);
+		background: var(--bg-surface);
+	}
+	.thumb img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+	.post-copy {
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
-		text-decoration: none;
-		color: inherit;
+		min-width: 0;
 	}
 	.post-list strong {
 		font-size: 1.05rem;
@@ -153,5 +181,14 @@ const related = TAG_RELATIONS.filter(([a, b]) => a === tag || b === tag).map(([a
 	}
 	.post-list :global(.tag-list) {
 		margin-top: 0.5rem;
+	}
+	@media (max-width: 720px) {
+		.post-row { gap: 0.75rem; }
+		.thumb { width: 112px; }
+		.page-header h1 { font-size: 1.45rem; }
+	}
+	@media (max-width: 480px) {
+		.post-row { flex-direction: column; align-items: stretch; }
+		.thumb { width: 100%; }
 	}
 </style>

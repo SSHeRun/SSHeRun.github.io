@@ -1,5 +1,6 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
+import { postPath, translationKey } from '../../i18n/posts';
 
 /** YAML 双引号字符串转义，避免标题/摘要含 " 或换行时整段 frontmatter 损坏 */
 function yamlDoubleQuoted(value: string): string {
@@ -11,9 +12,9 @@ function yamlDoubleQuoted(value: string): string {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getCollection('blog');
+  const posts = (await getCollection('blog')).filter((post) => (post.data.lang ?? 'zh') !== 'en');
   return posts.map((post) => ({
-    params: { slug: post.id },
+    params: { slug: translationKey(post) },
     props: { post },
   }));
 };
@@ -21,6 +22,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const GET: APIRoute = async ({ props }) => {
   const { post } = props as { post: Awaited<ReturnType<typeof getCollection>>[number] };
   const { title, description, pubDate, updatedDate, tags } = post.data;
+  const key = translationKey(post);
 
   const frontmatter = [
     '---',
@@ -31,7 +33,8 @@ export const GET: APIRoute = async ({ props }) => {
     ...(tags?.length
       ? [`tags: [${tags.map((t: string) => yamlDoubleQuoted(t)).join(', ')}]`]
       : []),
-    `url: https://ssherun.github.io/blog/${post.id}/`,
+    `lang: zh`,
+    `url: https://ssherun.github.io${postPath('zh-CN', post)}`,
     '---',
   ].join('\n');
 

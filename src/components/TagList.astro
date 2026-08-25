@@ -1,4 +1,8 @@
 ---
+import { currentLocale } from '../i18n/config';
+import { tagLabel } from '../i18n/ui';
+import { tagPath } from '../lib/taxonomy';
+
 interface Props {
 	tags?: string[];
 	linked?: boolean;
@@ -6,6 +10,7 @@ interface Props {
 }
 
 const { tags = [], linked = true, compact = false } = Astro.props;
+const locale = currentLocale(Astro.currentLocale);
 ---
 
 {
@@ -13,11 +18,11 @@ const { tags = [], linked = true, compact = false } = Astro.props;
 		<div class:list={['tag-list', { compact }]}>
 			{tags.map((tag) =>
 				linked ? (
-					<a class="tag" href={`/tags/${encodeURIComponent(tag)}/`}>
-						{tag}
+					<a class="tag" href={tagPath(tag, locale)}>
+						{tagLabel(locale, tag)}
 					</a>
 				) : (
-					<span class="tag">{tag}</span>
+					<span class="tag">{tagLabel(locale, tag)}</span>
 				),
 			)}
 		</div>
@@ -31,18 +36,20 @@ const { tags = [], linked = true, compact = false } = Astro.props;
 		flex-wrap: wrap;
 	}
 	.tag {
-		padding: 0.2rem 0.7rem;
+		padding: 0.18rem 0.7rem;
 		background: var(--glass-bg);
 		backdrop-filter: blur(8px);
 		-webkit-backdrop-filter: blur(8px);
 		border: 1px solid var(--glass-border);
 		color: var(--accent);
 		border-radius: 999px;
-		font-size: 0.8rem;
-		font-weight: 500;
-		letter-spacing: 0.02em;
+		font-family: var(--font-display);
+		font-size: 0.78rem;
+		font-weight: 550;
+		letter-spacing: 0.01em;
+		line-height: 1.5;
 		text-decoration: none;
-		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 	}
 	a.tag:hover {
 		border-color: var(--border-glow);

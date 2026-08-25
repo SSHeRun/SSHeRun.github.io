@@ -1,3 +1,5 @@
+import { localizedPath, type Locale } from '../i18n/config';
+
 /**
  * 博客受控标签词表。
  *
@@ -90,12 +92,13 @@ export function getTagCluster(tag: string): TagCluster | undefined {
 	return TAG_TO_CLUSTER.get(tag);
 }
 
-export function tagPath(tag: string): string {
-	return `/tags/${encodeURIComponent(tag)}/`;
+export function tagPath(tag: string, locale: Locale = 'zh-CN'): string {
+	return localizedPath(locale, `/tags/${encodeURIComponent(tag)}/`);
 }
 
-export function graphTagPath(tag: string): string {
-	return `/graph?tag=${encodeURIComponent(tag)}`;
+export function graphTagPath(tag: string, locale: Locale = 'zh-CN'): string {
+	const base = localizedPath(locale, '/graph/').replace(/\/$/, '');
+	return `${base}?tag=${encodeURIComponent(tag)}`;
 }
 
 export function unknownTags(tags: string[]): string[] {

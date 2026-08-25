@@ -1,8 +1,19 @@
 ---
 import { getCollection } from 'astro:content';
+import { currentLocale } from '../i18n/config';
+import { translationKey } from '../i18n/posts';
+import { t } from '../i18n/ui';
 
+const locale = currentLocale(Astro.currentLocale);
 const posts = await getCollection('blog');
-const pubDates = posts.map(p => p.data.pubDate.toISOString().slice(0, 10));
+const seen = new Set<string>();
+const pubDates: string[] = [];
+for (const post of posts) {
+	const key = translationKey(post);
+	if (seen.has(key)) continue;
+	seen.add(key);
+	pubDates.push(post.data.pubDate.toISOString().slice(0, 10));
+}
 
 const today = new Date();
 const oneYearAgo = new Date(today);
@@ -37,7 +48,7 @@ if (currentWeek.length > 0) {
 ---
 
 <div class="heatmap-wrapper">
-	<h3 class="heatmap-title">发文记录</h3>
+	<h3 class="heatmap-title">{t(locale, 'heatmapTitle')}</h3>
 	<div class="heatmap">
 		{weeks.map((week) => (
 			<div class="heatmap-col">
@@ -51,12 +62,12 @@ if (currentWeek.length > 0) {
 		))}
 	</div>
 	<div class="heatmap-legend">
-		<span>少</span>
+		<span>{t(locale, 'heatmapLess')}</span>
 		<div class="heatmap-cell level-0"></div>
 		<div class="heatmap-cell level-1"></div>
 		<div class="heatmap-cell level-2"></div>
 		<div class="heatmap-cell level-3"></div>
-		<span>多</span>
+		<span>{t(locale, 'heatmapMore')}</span>
 	</div>
 </div>
 

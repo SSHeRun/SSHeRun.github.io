@@ -1,16 +1,20 @@
 ---
+import { currentLocale } from '../i18n/config';
+import { t } from '../i18n/ui';
+
 interface Props {
 	content: string;
 }
 
 const { content } = Astro.props;
+const locale = currentLocale(Astro.currentLocale);
 const cjkChars = (content.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g) || []).length;
 const words = content.replace(/[\u4e00-\u9fff\u3400-\u4dbf]/g, '').split(/\s+/).filter(Boolean).length;
 const minutes = Math.ceil((cjkChars / 300 + words / 200));
 const time = minutes < 1 ? 1 : minutes;
 ---
 
-<span class="reading-time">{time} 分钟阅读</span>
+<span class="reading-time">{t(locale, 'readingTime', { n: time })}</span>
 
 <style>
 	.reading-time {
