@@ -11,6 +11,8 @@ Garry Tan 是 Y Combinator 的 CEO。在过去 60 天里，他写了超过 60 �
 
 这不是靠加班，是靠工具。他把自己的整套 Claude Code 工具集开源了，叫 gstack，一周拿了 26900 个 Star。
 
+![代码工厂流水线](../../assets/inline-gstack-yc-ceo-factory-01.jpg)
+
 ## gstack 是什么
 
 一句话：把 Claude Code 变成一个你实际管理的虚拟工程团队。
@@ -355,6 +357,8 @@ Claude: > browse resume
 **`/guard`** — 全安全模式 — 在一个命令结合 `/careful` + `/freeze`。破坏性命令警告加目录作用域编辑。触碰生产或调试实时系统时用。
 
 **`/unfreeze`** — 移除 `/freeze` 边界，再次允许所有地方编辑。钩子为会话保持注册 — 它们只是允许一切。再次运行 `/freeze` 设新边界。
+
+![并行工位环形车间](../../assets/inline-gstack-yc-ceo-factory-02.jpg)
 
 ## 10-15 个并行 Sprint
 

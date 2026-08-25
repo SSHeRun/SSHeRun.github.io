@@ -14,6 +14,8 @@ tags: ['Agent', 'AI', 'llms.txt']
 
 **对 Agent 友好**，意味着让你的内容以机器可高效消费的方式存在，就像你的网站不只有一张脸（HTML），还有一个大脑（结构化数据 + 纯文本接口）。
 
+![人类博客与机器可读的双界面](../../assets/inline-hello-world-01.jpg)
+
 ## 本站的 Agent 友好实践
 
 ### 1. llms.txt — 给 LLM 的说明书
@@ -54,6 +56,8 @@ Agent 只需读这一个文件，就能理解整个站点。
 以上所有 Agent 友好端点都不是手动维护的静态文件。它们由 Astro 在构建时从内容集合自动生成 —— 新写一篇文章，`llms.txt`、`llms-full.txt`、`.md` 端点全部自动更新。
 
 零维护成本，这才是可持续的做法。
+
+![知识库化作可连接的结构化节点](../../assets/inline-hello-world-02.jpg)
 
 ### 6. Obsidian 双向链接
 

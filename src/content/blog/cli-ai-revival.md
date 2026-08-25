@@ -10,6 +10,8 @@ tags: ['CLI', 'AI', '开发工具', '自动化', 'MCP']
 
 CLI（命令行界面）正在 AI 时代迎来复兴。飞书、钉钉、企微、谷歌、Stripe 等巨头在近期都开源了自己的 CLI 产品。**CLI 是 AI 的母语**，比 GUI 更适合 AI Agent 调用。
 
+![弧形终端操作台](../../assets/inline-cli-ai-revival-01.jpg)
+
 ## 为什么 CLI 适合 AI？
 
 ### CLI 的天然优势
@@ -120,6 +122,8 @@ gh issue list --repo openclaw/openclaw |
 
 - **Claude Code / Codex**：上线 tool search 功能，按需加载 MCP（借鉴 CLI 的渐进式披露）
 - **MCPorter**：把 MCP 转换成 CLI 格式供 Agent 调用
+
+![玻璃管道数据流](../../assets/inline-cli-ai-revival-02.jpg)
 
 ## 官方 CLI 工具示例
 

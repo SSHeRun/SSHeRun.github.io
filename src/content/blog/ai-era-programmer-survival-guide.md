@@ -10,6 +10,8 @@ tags: ['AI', '程序员', '职业发展', '35岁危机']
 
 ## 一、AI时代的残酷真相：CRUD Boy已死
 
+![空荡工位与系统图纸](../../assets/inline-ai-era-programmer-survival-guide-01.jpg)
+
 半夜睡不着，想了想AI对程序员的冲击。
 
 **真相很残酷：** 如果你的工作内容能在 200K token 内被完整描述，那么AI对你就是"一击必杀"。
@@ -182,6 +184,8 @@ AI 的致命弱点：
 ---
 
 ## 六、案例：AI的三大翻车现场
+
+![审出结构里的暗裂](../../assets/inline-ai-era-programmer-survival-guide-02.jpg)
 
 ### 案例1：限流算法性能问题
 

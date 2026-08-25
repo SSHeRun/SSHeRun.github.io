@@ -12,6 +12,8 @@ tags: ['创业', '冷启动', '增长', 'AI']
 
 48 小时后，他推翻了所有计划。
 
+![计划模型被拆解审视](../../assets/inline-first-principles-startup-review-01.jpg)
+
 ## 错误一：在 8 个平台"看起来很忙"
 
 原计划是同时在 X、Reddit、Product Hunt、Hacker News、LinkedIn、小红书、即刻、V2EX 发布。听起来覆盖面很广。
@@ -61,6 +63,8 @@ AI 说："你在验证'工具能用'，不是'用户能拿到结果'。"
 真正的 MVP 应该是：做一个 Bot，用户发产品信息，AI 分析后告诉用户去哪发、用什么角度，用户自己去发，一周后看结果。
 
 1 周上线，而不是 4 周。手动分析前 10 个用户积累经验。如果假设不成立，只浪费 1 周。
+
+![只聚焦一条渠道](../../assets/inline-first-principles-startup-review-02.jpg)
 
 ## 三个增长原则
 

@@ -23,7 +23,7 @@ tags: ["AI", "组织管理", "生产力"]
 
 ## 一个 130 年前的故事
 
-![AI与组织](https://images.pexels.com/photos/8849295/pexels-photo-8849295.jpeg?auto=compress&cs=tinysrgb&h=650&w=940)
+![旧工厂待按电力逻辑重设计](../../assets/inline-ai-organization-redesign-01.jpg)
 
 
 1890 年代，工厂换上电动机，所有人都以为生产力会爆发。结果之后 30 年，产出几乎没变。
@@ -36,7 +36,7 @@ tags: ["AI", "组织管理", "生产力"]
 
 ## 四个隐藏的陷阱
 
-![团队协作](https://images.pexels.com/photos/5257005/pexels-photo-5257005.jpeg?auto=compress&cs=tinysrgb&h=650&w=940)
+![各自对着屏幕却无法对齐](../../assets/inline-ai-organization-redesign-02.jpg)
 
 
 ### 1. 协调崩溃
@@ -144,9 +144,6 @@ Goldman Sachs 称 Cognition 的 Agent Devin 为「our new employee」，不是�
 **这些才是真正决定一家公司变强还是变弱的经营场景。**
 
 ## 上下文是壁垒
-
-![AI技术](https://images.pexels.com/photos/16380906/pexels-photo-16380906.jpeg?auto=compress&cs=tinysrgb&h=650&w=940)
-
 
 当所有人都能用同样的模型时，模型就不再是壁垒。
 

@@ -12,6 +12,8 @@ tags: ['AI', 'Agent', '决策', '思维模型']
 
 这不是玄学，是一套实际在跑的 Claude Code 多顾问系统。
 
+![六席顾问议事厅](../../assets/inline-ai-multi-advisor-decision-system-01.jpg)
+
 ## 六位顾问各司其职
 
 ### 彼得·德鲁克 — 商务增长顾问
@@ -80,6 +82,8 @@ CEO（最终决策者）
 - 专属刹车机制（识别什么不该做）
 
 决策流程：先匹配领域 → 调用对应顾问 → 自己拍板。
+
+![决策者与思维框架](../../assets/inline-ai-multi-advisor-decision-system-02.jpg)
 
 ## 为什么这个思路值得关注
 

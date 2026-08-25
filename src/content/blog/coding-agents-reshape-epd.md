@@ -16,6 +16,8 @@ tags: ['AI', 'Agent', '组织设计', '产品']
 
 **编程 Agent 突然让写代码变得异常简单。** 那么，EPD 的角色定位会怎么变？
 
+![空会议室与原型](../../assets/inline-coding-agents-reshape-epd-01.jpg)
+
 ## 流程的变化
 
 - **PRD 已死** —— 传统的 PRD → 设计稿 → 代码流程终结了
@@ -71,6 +73,8 @@ tags: ['AI', 'Agent', '组织设计', '产品']
 ## 新的角色分化：建设者 vs 评审者
 
 我们看到 EPD 中正在形成两类角色。
+
+![建设者与评审者](../../assets/inline-coding-agents-reshape-epd-02.jpg)
 
 ### 建设者
 

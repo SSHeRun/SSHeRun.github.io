@@ -12,6 +12,8 @@ Agent Skills 规范（agentskills.io）定义了技能的打包格式——SKILL
 
 五种设计模式回答了这个问题。
 
+![五种技能工件](../../assets/inline-agent-skills-five-design-patterns-01.jpg)
+
 ## 什么是 Agent Skill？
 
 先厘清一个常见混淆：Tool 和 Skill 不是一回事。
@@ -101,6 +103,8 @@ Agent 不再是在读文件，而是在导航。
 解决：维护本地缓存。检查文件哈希，如果已分析过，直接从缓存读取。从 30 秒降到 0 秒。
 
 Agent 可以回答"你知道什么？"——展示它的长期记忆。
+
+![分层档案探索](../../assets/inline-agent-skills-five-design-patterns-02.jpg)
 
 ## 选择模式的决策树
 

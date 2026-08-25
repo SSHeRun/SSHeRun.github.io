@@ -23,6 +23,8 @@ Exit 1
 :END
 ```
 
+![深夜对着 IDE 排查 ATL 工程](../../assets/inline-vs-atl-exe-cannot-generate-dll-01.jpg)
+
 ## 操作过程
 
 ```mermaid
@@ -43,6 +45,9 @@ graph TB
 代理/存根（PS）项目有一个预构建事件，用于检查`dlldata.c`的存在。但是，由于此文件与代理/存根项目`.vcxproj`不在同一文件夹中，因此找不到该文件。更改所有配置/平台的 Pre-Build 事件，以便它在父文件夹中查找`dlldata.c`
 
 其次在链接代理/存根项目时，由于相同的原因，链接器将找不到`ATLProject1ps.def`,因为它位于`ATLProject1`文件夹中。
+
+![调整预构建事件与链接器输入](../../assets/inline-vs-atl-exe-cannot-generate-dll-02.jpg)
+
 ## 解决方法
 
 ### setp one

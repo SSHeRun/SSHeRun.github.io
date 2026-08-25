@@ -8,6 +8,8 @@ tags: ['OpenClaw', '部署教程', '飞书', 'Telegram']
 
 OpenClaw 怎么部署？本文整合了 5 篇部署教程，涵盖本地部署、服务器部署、飞书集成、Telegram 配置等完整方案。
 
+![本地机与机柜桥接](../../assets/inline-openclaw-deployment-guide-01.jpg)
+
 ## 部署方案对比
 
 ### 方案 1：本地部署
@@ -290,6 +292,8 @@ npx skills add op7418/Claude-to-IM-skill
 - 宿主无关
 
 ---
+
+![网关与通讯通道](../../assets/inline-openclaw-deployment-guide-02.jpg)
 
 ## 方案选择建议
 

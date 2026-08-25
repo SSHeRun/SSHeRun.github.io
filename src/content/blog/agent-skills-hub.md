@@ -14,6 +14,8 @@ Agent Skills Hub 是一个 Skills 发现与管理平台，三天不到开发完�
 
 ---
 
+![技能星图大厅](../../assets/inline-agent-skills-hub-01.jpg)
+
 ## 解决的三大痛点
 
 ### 1. 如何找到合适的 Skills？
@@ -183,6 +185,8 @@ Agent Skills Hub 是一个 Skills 发现与管理平台，三天不到开发完�
 - 协作开发
 
 ---
+
+![组合技能模块](../../assets/inline-agent-skills-hub-02.jpg)
 
 ## 使用建议
 

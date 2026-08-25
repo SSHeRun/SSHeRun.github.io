@@ -37,6 +37,8 @@ Agent 越堆越多，角色越分越细，流程越设计越完整，最后不�
 
 ---
 
+![交接中信息飞散](../../assets/inline-forceful-systems-fly-off-multi-agent-illusion-01.jpg)
+
 ## 一、为什么“虚拟公司式多 Agent”这么容易让人误判？
 
 因为这类设计特别符合人的直觉。
@@ -229,6 +231,8 @@ PM Agent → 架构师 Agent → Dev Agent → QA Agent
 这不是接力赛，而是并行撒网。
 
 ---
+
+![主脑并行收敛](../../assets/inline-forceful-systems-fly-off-multi-agent-illusion-02.jpg)
 
 ## 五、验证 Agent 最好的身份：否定者，而不是接棒者
 

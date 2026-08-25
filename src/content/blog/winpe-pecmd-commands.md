@@ -10,6 +10,8 @@ tags: ['WinPE', 'PECMD', '命令详解']
 
 > 转载自：[twblogs.net](https://www.twblogs.net/a/5b836da22b71776c51e30018)
 
+![维修台上的 WinPE 启动环境](../../assets/inline-winpe-pecmd-commands-01.jpg)
+
 ## 系统变量
 
 | 变量名 | 说明 |
@@ -575,6 +577,8 @@ tags: ['WinPE', 'PECMD', '命令详解']
 　IMAG命令必须位于_SUB命令和_END命令之间，其它位置的IMAG命令无效，参照_SUB、CALL命令说明。
 　因PECMD.EXE是脚本解释程序，不建议加载大尺寸的图像文件，否则显示会慢。
 ```
+
+![在命令行里解释 PECMD](../../assets/inline-winpe-pecmd-commands-02.jpg)
 
 ### INIT
 

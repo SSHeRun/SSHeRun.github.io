@@ -23,10 +23,9 @@ Google Stitch 生成的界面确实很漂亮，但当我让它生成第二个、
 
 **AI 生成的 UI 很美，但不一致。这是 AI 设计工具的通病。**
 
+![零散不一致的界面碎片](../../assets/inline-ai-ui-design-workflow-01.jpg)
+
 ## 为什么 AI 生成的 UI 不一致？
-
-![UI设计界面](https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&h=650&w=940)
-
 
 AI 每次生成都是独立的创作过程。它不记得上一个页面用了什么颜色，不知道按钮应该多大，不清楚间距规范是什么。
 
@@ -134,6 +133,8 @@ AI 的创造力是双刃剑：
 - 同样存在一致性问题
 
 **核心问题都一样：AI 不记得上下文，不遵守规范。**
+
+![骨架之后再覆上质感](../../assets/inline-ai-ui-design-workflow-02.jpg)
 
 ## 核心原则
 

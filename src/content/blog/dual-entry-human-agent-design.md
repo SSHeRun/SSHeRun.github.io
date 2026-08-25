@@ -14,6 +14,8 @@ AI 时代的产品，可能得同时为人类和 Agent 设计两个入口。
 
 LibTV 是我看到的第一个真正这样做的产品。
 
+![双入口汇入核心](../../assets/inline-dual-entry-human-agent-design-01.jpg)
+
 ## 两个入口，一套能力
 
 LibTV 是 Liblib 做的 AI 视频创作工具。它有两个完全不同的入口：
@@ -48,6 +50,8 @@ Agent 生态需要开放，但开放不等于把核心竞争力全部送出去�
 4. 如果要精修，打开画布，所有素材和节点都在，专业调整
 
 Agent 负责从 0 到 70，人类负责从 70 到 100。两个入口不是割裂的，是打通的。
+
+![初稿精修画布](../../assets/inline-dual-entry-human-agent-design-02.jpg)
 
 ## 对做产品的人意味着什么
 

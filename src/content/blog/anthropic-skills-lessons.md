@@ -10,6 +10,8 @@ Anthropic 内部有数百个 Skills 在活跃使用。最近，他们的工程�
 
 一个常见误解是 Skills "只是 Markdown 文件"。实际上，最有趣的 Skills 是文件夹——包含脚本、资产、数据，Agent 可以发现、探索和操作它们。
 
+![技能抽屉档案](../../assets/inline-anthropic-skills-lessons-01.jpg)
+
 ## 九大 Skill 类型
 
 在梳理了所有 Skills 后，Anthropic 发现它们聚集成几个反复出现的类别。最好的 Skill 干净地落入其中一个类别，最让人困惑的则横跨多个。
@@ -91,6 +93,8 @@ Claude 启动时扫描所有 Skill 的 description 来决定是否触发。所�
 ### 用 Hooks 做安全护栏
 
 比如 `/careful` 阻止 rm -rf、DROP TABLE、force-push；`/freeze` 只允许编辑特定目录。按需启用，不要全局开启。
+
+![护栏下打磨技能](../../assets/inline-anthropic-skills-lessons-02.jpg)
 
 ## 分发：从仓库到市场
 

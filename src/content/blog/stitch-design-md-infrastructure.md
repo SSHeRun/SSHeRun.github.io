@@ -19,6 +19,8 @@ tags: ["AI", "Stitch", "设计系统", "Agent", "产品思考"]
 
 而 `DESIGN.md`，就是这个方向里最关键的一层。
 
+![设计系统基础设施](../../assets/inline-stitch-design-md-infrastructure-01.jpg)
+
 ---
 
 ## 先说结论：Stitch 的重点已经不是“生成页面”，而是“稳定生成整套一致的页面”
@@ -175,6 +177,8 @@ Stitch 现在支持：
 **AI IDE 里的设计能力供应商。**
 
 这件事如果做成，意义会很大。
+
+![人与机器共读规范](../../assets/inline-stitch-design-md-infrastructure-02.jpg)
 
 ---
 

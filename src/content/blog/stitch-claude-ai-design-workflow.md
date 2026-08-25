@@ -10,6 +10,8 @@ tags: ['AI', '设计', 'Claude Code', 'Google Stitch', '工作流', '产品开�
 
 Google Stitch 2.0 + Claude Code 通过 MCP 连接，彻底改变了 AI 驱动的产品设计流程。**一个人在一小时内就能完成过去需要数周和数千美元的专业设计工作**。关键不在于 AI 生成设计，而在于 `design.md` 文件实现的设计系统一致性。
 
+![双屏设计与代码相连](../../assets/inline-stitch-claude-ai-design-workflow-01.jpg)
+
 ## 传统设计流程的痛点
 
 ### 旧流程的成本
@@ -116,6 +118,8 @@ Stitch 2.0 是一个 **AI 原生画布**，可以：
 - 随着产品发展不断更新 `design.md`
 - 添加新的组件规则、新模式、新约束
 - 它与你一起成长
+
+![一份规范照亮整套页面](../../assets/inline-stitch-claude-ai-design-workflow-02.jpg)
 
 ### 第 3 步：通过 MCP 连接 Stitch 和 Claude Code
 

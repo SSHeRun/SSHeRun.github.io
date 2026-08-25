@@ -8,6 +8,8 @@ tags: ['OpenClaw', 'AI Agent', '自动化', '教程']
 
 OpenClaw/Clawdbot 是什么？一个 24/7 运行、能主动联系你、拥有长期记忆的 AI 助手。本文整合了三篇深度教程，带你从零开始掌握 OpenClaw。
 
+![深夜常亮的主机](../../assets/inline-openclaw-complete-guide-01.jpg)
+
 ## 什么是 Clawdbot？
 
 **Clawdbot = Claude Code + Bot 化工作流**
@@ -131,6 +133,8 @@ workspace/
 - 可以 /new 新建或 /reset 清空
 
 ---
+
+![分层记忆档案库](../../assets/inline-openclaw-complete-guide-02.jpg)
 
 ## 10 个优化技巧
 
