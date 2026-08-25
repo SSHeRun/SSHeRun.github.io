@@ -3,7 +3,7 @@ title: 'OpenClaw/Clawdbot 完全指南：从入门到精通'
 description: '全面解析 OpenClaw/Clawdbot - 24/7 运行的 AI 助手。涵盖概念介绍、硬件部署、实战用例、配置技巧和 10 个优化方法，让你的 AI Agent 真正成为得力助手。'
 pubDate: '2026-03-13'
 heroImage: '../../assets/cover-openclaw-complete-guide.jpg'
-tags: ['OpenClaw', 'AI Agent', '自动化', '教程']
+tags: ['OpenClaw', 'Agent', '教程']
 ---
 
 OpenClaw/Clawdbot 是什么？一个 24/7 运行、能主动联系你、拥有长期记忆的 AI 助手。本文整合了三篇深度教程，带你从零开始掌握 OpenClaw。

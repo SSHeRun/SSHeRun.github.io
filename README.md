@@ -53,6 +53,7 @@
 │   │   ├── index.astro            # 首页（动画渐变 Hero）
 │   │   ├── about.astro            # 关于页（含热力图）
 │   │   ├── graph.astro            # 知识图谱页（Cytoscape.js 可视化）
+│   │   ├── tags/                  # 标签索引与标签详情
 │   │   ├── blog/
 │   │   │   ├── index.astro        # 文章列表页
 │   │   │   ├── [...slug].astro    # 文章详情页（HTML）
@@ -64,6 +65,7 @@
 │   │   └── remark-wikilinks.mjs   # 自定义插件：Obsidian 双向链接支持
 │   ├── styles/
 │   │   └── global.css             # Tailwind v4 配置 + 设计系统（@theme）
+│   ├── lib/                       # 标签词表、图谱数据、相关文章
 │   ├── consts.ts                  # 站点标题、描述等常量
 │   └── content.config.ts          # 内容集合 Schema 定义
 └── tsconfig.json
@@ -102,9 +104,15 @@ description: '一句话描述，会显示在列表和 SEO 中'
 pubDate: '2026-03-18'
 updatedDate: '2026-03-19'        # 可选
 heroImage: '../../assets/xxx.jpg' # 可选，封面图
-tags: ['标签1', '标签2']          # 可选
+tags: ['Agent', 'Skills']          # 可选，使用受控词表
 ---
 ```
+
+标签使用 `src/lib/taxonomy.ts` 中的受控词表，每篇 2–4 个，便于知识图谱聚成主题群：
+
+`Agent` / `Skills` / `Claude Code` / `OpenClaw` / `产品` / `设计` / `组织` / `创业` / `职业` / `工程` / `LLM` / `思考` / `工具` / `开源` / `效率` / `Windows` / `教程`
+
+同义词请合并（如「多 Agent」「多智能体」「AI Agent」统一为 `Agent`）。不要给几乎每篇都打 `AI`，否则图谱会塌成单枢纽。
 
 ### Markdown 扩展语法
 

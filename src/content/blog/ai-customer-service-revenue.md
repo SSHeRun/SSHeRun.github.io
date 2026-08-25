@@ -3,7 +3,7 @@ title: '客服不是成本中心：AI 正在重写企业和用户之间的关系
 description: '当 AI 把"认真对待一个用户"的成本压到接近零，商业世界的底层逻辑就变了。客服不再是擦屁股的部门，而是企业和用户之间最重要的接口。'
 pubDate: '2026-03-20'
 heroImage: '../../assets/cover-ai-customer-service.jpg'
-tags: ['AI', '商业', '创业', '用户关系']
+tags: ['创业', '产品']
 ---
 
 过去二十年，互联网把商业世界里几乎所有能优化的环节都优化了。信息更快，支付更顺，物流更强，价格更透明。
@@ -81,9 +81,6 @@ tags: ['AI', '商业', '创业', '用户关系']
 
 ## 相关文章
 
-- [[ai-customer-service-revenue|客服不是成本中心：AI 正在重写企业和用户之间的关系结构]]
-- [[gstack-yc-ceo-factory|gstack：YC CEO 用来日产 2 万行代码的 Claude Code 软件工厂]]
-- [[taste-at-speed-pm-skill|Taste at Speed：当构建成本趋近于零，PM 的核心技能变了]]
-- [[software-engineering-splits-three|软件工程正在分裂为三层：你在哪一层？]]
-- [[first-principles-startup-review|用 AI 做第一性原理审查：一个创业计划被推翻的 48 小时]]
-- [[top-skill-yc-ceo-review|顶级 Skill 长什么样：YC CEO 的 600 行提示词为什么能审查一切]]
+- [[youmind-nonconsensus-startup-choices|《YouMind 创业路上的非共识选择》读后感：别被叙事绑架，回到真实用户]]
+- [[whatnot-cpo-regrets-pm-exists|Whatnot CPO：「我们后悔产品经理这种职能存在」]]
+- [[ai-organization-redesign|AI 让员工变快了，为什么公司没变强？]]

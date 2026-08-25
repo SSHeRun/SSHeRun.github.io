@@ -3,7 +3,7 @@ title: 'CLI：AI 时代的命令行复兴'
 description: 'CLI（命令行界面）正在 AI 时代迎来复兴。飞书、钉钉、企微、谷歌、Stripe 等巨头都开源了 CLI 产品。CLI 是 AI 的母语，比 GUI 更适合 AI Agent 调用。'
 pubDate: '2026-04-05'
 heroImage: '../../assets/cover-cli-ai-revival.jpg'
-tags: ['CLI', 'AI', '开发工具', '自动化', 'MCP']
+tags: ['工程', 'Agent', '工具']
 ---
 
 ## 核心观点
@@ -191,3 +191,9 @@ gh repo create my-new-repo
 ---
 
 *来源：[V2EX - TechShrimp](https://www.v2ex.com/t/1203629)*
+
+## 相关文章
+
+- [[hello-world|做一个对 Agent 友好的博客]]
+- [[openclaw-complete-guide|OpenClaw/Clawdbot 完全指南：从入门到精通]]
+- [[learn-by-scraping|学一个新领域，我现在的第一步是把它抓下来]]

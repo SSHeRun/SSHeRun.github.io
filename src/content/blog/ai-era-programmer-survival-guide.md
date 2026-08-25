@@ -3,7 +3,7 @@ title: 'AI时代程序员生存指南：35岁+才是黄金年龄？揭秘"码奸
 description: 'AI不是来抢饭碗的，而是来给老程序员送助攻的。这篇文章会颠覆你对"35岁程序员危机"的所有认知，揭示为什么经验丰富的程序员在AI时代反而更吃香。'
 pubDate: '2026-03-24'
 heroImage: '../../assets/cover-ai-era-programmer-survival-guide.jpg'
-tags: ['AI', '程序员', '职业发展', '35岁危机']
+tags: ['职业', '思考']
 ---
 
 > **核心观点预警：** 这篇文章会颠覆你对"35岁程序员危机"的所有认知。AI不是来抢饭碗的，而是来给老程序员送助攻的。
@@ -318,3 +318,9 @@ AI 的致命弱点：
 
 - [AI编程时代，为什么35岁以上程序员会更吃香？](https://github.com/microwind/algorithms/blob/main/start-here/Why-Programmers-35-Plus-Are-Thriving-in-AI-Era.md)
 - [码奸 - est の 输入输出和出入](https://blog.est.im/2026/stderr-10)
+
+## 相关文章
+
+- [[programmer-35-crisis-and-self-rescue|35岁程序员危机与自救指南]]
+- [[software-engineering-splits-three|软件工程正在分裂为三层：你在哪一层？]]
+- [[ai-fatigue-truth-10x-workload|AI让你效率翻倍？醒醒吧，你的工作量已经是过去的10倍了]]

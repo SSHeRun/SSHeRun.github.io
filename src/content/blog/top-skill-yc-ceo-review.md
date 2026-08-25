@@ -3,7 +3,7 @@ title: '顶级 Skill 长什么样：YC CEO 的 600 行提示词为什么能审�
 description: 'YC CEO Garry Tan 开源了自己的 Claude Code 工具集 gstack，其中 plan-ceo-review 这个 Skill 约 600 行，却能跨领域审查任何计划。它做对了三件事。'
 pubDate: '2026-03-19'
 heroImage: '../../assets/cover-top-skill-yc-ceo-review.jpg'
-tags: ['AI', 'Agent', 'Skill', 'Claude Code']
+tags: ['Skills', 'Claude Code', 'Agent']
 ---
 
 YC CEO Garry Tan 上周把自己用的 Claude Code 工具集开源了，项目叫 gstack，一周拿了 19000 个 Star。里面有 10 个工具，其中一个叫 plan-ceo-review。
@@ -87,9 +87,7 @@ Skill 对 AI 如何向用户提问也有严格要求：
 
 ## 相关文章
 
-- [[ai-customer-service-revenue|客服不是成本中心：AI 正在重写企业和用户之间的关系结构]]
 - [[gstack-yc-ceo-factory|gstack：YC CEO 用来日产 2 万行代码的 Claude Code 软件工厂]]
-- [[taste-at-speed-pm-skill|Taste at Speed：当构建成本趋近于零，PM 的核心技能变了]]
-- [[software-engineering-splits-three|软件工程正在分裂为三层：你在哪一层？]]
+- [[anthropic-skills-lessons|Anthropic 内部数百个 Skills 的经验：九大类型和写好 Skill 的秘诀]]
 - [[first-principles-startup-review|用 AI 做第一性原理审查：一个创业计划被推翻的 48 小时]]
-- [[top-skill-yc-ceo-review|顶级 Skill 长什么样：YC CEO 的 600 行提示词为什么能审查一切]]
+- [[agent-skills-five-design-patterns|Agent Skills 五大设计模式：从工具到队友的进化]]

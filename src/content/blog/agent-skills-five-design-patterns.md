@@ -3,7 +3,7 @@ title: 'Agent Skills 五大设计模式：从工具到队友的进化'
 description: 'Google Cloud 发布 Agent Skills 五大设计模式，定义了 AI Agent 技能的内容组织方式。从 Tool Wrapper 到 Pipeline，每种模式解决不同场景的问题。'
 pubDate: '2026-03-19'
 heroImage: '../../assets/cover-agent-skills-five-design-patterns.jpg'
-tags: ['AI', 'Agent', '设计模式']
+tags: ['Agent', 'Skills']
 ---
 
 Google Cloud Tech 在 "Advent of Agents Season 2" 系列中发布了一个重要内容：Agent Skills 的五大设计模式。

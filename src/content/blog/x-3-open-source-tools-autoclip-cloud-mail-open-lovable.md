@@ -3,7 +3,7 @@ title: 'X 上三款开源神器：AutoClip / Cloud-Mail / Open Lovable（值不�
 description: '一口气看完三条推：自动剪视频、自建邮箱、网站复刻成 React。按“适合谁/坑在哪/怎么最快验证”给出可落地判断。'
 pubDate: '2026-04-30'
 heroImage: '../../assets/cover-x-3-open-source-tools-autoclip-cloud-mail-open-lovable.jpg'
-tags: ['AI', '开源', '工具', '内容创作', 'Cloudflare', '前端']
+tags: ['开源', '工具']
 ---
 
 最近 X 上连续刷到三条“看起来很香”的开源项目推荐，主题非常一致：**用 AI 把一件很重的活变成流水线**。
@@ -101,3 +101,9 @@ tags: ['AI', '开源', '工具', '内容创作', 'Cloudflare', '前端']
 - **你想快速做前端原型**：冲 **Open Lovable**（用它做原型，不做抄袭上线）
 
 如果你告诉我你更关心哪一条（剪视频 / 邮箱 / 前端原型），我可以把那条的“最小可行跑通路径”再细化成一页清单，照着做就能出结果。
+
+## 相关文章
+
+- [[learn-by-scraping|学一个新领域，我现在的第一步是把它抓下来]]
+- [[cli-ai-revival|CLI：AI 时代的命令行复兴]]
+- [[agent-skills-hub|Agent Skills Hub：发现和管理优质 AI Agent Skills]]

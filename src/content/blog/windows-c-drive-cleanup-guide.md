@@ -3,7 +3,7 @@ title: 'Windows C盘清理完全指南：安全释放系统空间'
 description: 'C盘空间不足是Windows用户最头疼的问题。本文提供从简单到进阶的完整清理方案，帮你安全释放系统空间，无需重装系统。'
 pubDate: '2020-09-14'
 heroImage: '../../assets/cover-windows-c-drive-cleanup-guide.jpg'
-tags: ['Windows', '系统优化', '工具教程']
+tags: ['Windows', '教程']
 ---
 
 C盘空间不足恐怕是Windows用户遇到的最头疼的问题。随着使用时间增加，C盘剩余空间日益减小，尤其是Win10系统普及后，系统占用空间越来越大。
@@ -197,14 +197,8 @@ C盘清理从简单到进阶的完整方案：
 
 ---
 
-## 相关文档
-
-- [[OpenClaw部署与集成完整教程]]
-- [[The Tao Of Backup]]
-- [[Be careful what you copy- Invisibly inserting usernames into text with Zero-Width Characters]]
 
 ## 相关文章
 
-- [[windows-c-drive-cleanup-guide|Windows C盘清理完全指南：安全释放系统空间]]
 - [[winpe-pecmd-commands|WinPE下的PECMD命令详解]]
 - [[vs-atl-exe-cannot-generate-dll|VS ATL的exe模板无法生成dll的解决方案]]

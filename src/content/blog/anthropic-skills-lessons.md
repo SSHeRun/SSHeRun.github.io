@@ -3,7 +3,7 @@ title: 'Anthropic 内部数百个 Skills 的经验：九大类型和写好 Skill
 description: 'Anthropic 工程师 Thariq 分享了团队在 Claude Code 中使用数百个 Skills 的实战经验。Skill 不只是 Markdown 文件，而是包含脚本、资产和数据的完整能力单元。'
 pubDate: '2026-03-20'
 heroImage: '../../assets/cover-anthropic-skills-lessons.jpg'
-tags: ['AI', 'Agent', 'Skill', 'Claude Code']
+tags: ['Skills', 'Claude Code', 'Agent']
 ---
 
 Anthropic 内部有数百个 Skills 在活跃使用。最近，他们的工程师 Thariq 分享了团队在实际使用中学到的经验。

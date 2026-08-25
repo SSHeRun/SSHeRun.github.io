@@ -3,7 +3,7 @@ title: 'WinPE下的PECMD命令详解'
 description: 'WinPE系统核心软件PECMD.EXE的70多条命令详解，包括常用命令、窗口控件、字符串处理等。'
 pubDate: '2020-12-01'
 heroImage: '../../assets/cover-winpe-pecmd.jpg'
-tags: ['WinPE', 'PECMD', '命令详解']
+tags: ['Windows', '教程']
 ---
 
 目前，国内 WinPE 系统大都有一个核心软件支持，这就是 PECMD.EXE — 一个命令行解释程序，共有 70 多条命令。
@@ -1369,5 +1369,4 @@ tags: ['WinPE', 'PECMD', '命令详解']
 ## 相关文章
 
 - [[windows-c-drive-cleanup-guide|Windows C盘清理完全指南：安全释放系统空间]]
-- [[winpe-pecmd-commands|WinPE下的PECMD命令详解]]
 - [[vs-atl-exe-cannot-generate-dll|VS ATL的exe模板无法生成dll的解决方案]]

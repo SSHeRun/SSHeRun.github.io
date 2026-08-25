@@ -3,7 +3,7 @@ title: 'Agent Skills Hub：发现和管理优质 AI Agent Skills'
 description: '三天开发的 Skills 发现平台，解决如何找到优质 Skills、如何找到 Skills 大神、如何组合使用 Skills 三大痛点。纯 Vibe Coding 开发，展示 AI 辅助开发的强大能力。'
 pubDate: '2026-03-08'
 heroImage: '../../assets/cover-agent-skills-hub.jpg'
-tags: ['Agent Skills', '开源', 'Vibe Coding', '资源发现']
+tags: ['Skills', '开源', 'Agent']
 ---
 
 Agent Skills Hub 是一个 Skills 发现与管理平台，三天不到开发完成，纯 Vibe Coding（AI 辅助开发）。

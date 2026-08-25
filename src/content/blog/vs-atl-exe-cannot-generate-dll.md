@@ -3,7 +3,7 @@ title: 'VS ATL的exe模板无法生成dll的解决方案'
 description: '使用 VS ATL 的 exe 模板时遇到 MIDL 无法生成 DLLDATA.C 的解决方案。'
 pubDate: '2021-04-29'
 heroImage: '../../assets/cover-vs-atl.jpg'
-tags: ['ATL', '解决方案']
+tags: ['Windows', '教程']
 ---
 
 # 问题
@@ -77,4 +77,3 @@ graph TB
 
 - [[windows-c-drive-cleanup-guide|Windows C盘清理完全指南：安全释放系统空间]]
 - [[winpe-pecmd-commands|WinPE下的PECMD命令详解]]
-- [[vs-atl-exe-cannot-generate-dll|VS ATL的exe模板无法生成dll的解决方案]]

@@ -3,7 +3,7 @@ title: "糟糕！45年前的论文被判AI生成，人类该如何自证？"
 description: "当AI检测器把1981年的论文判定为AI生成，人类陷入了「自证困境」。这不是科幻，而是正在发生的现实。"
 pubDate: "2026-03-27"
 heroImage: "../../assets/cover-ai-proof-human.jpg"
-tags: ["AI", "AI检测", "学术诚信", "人工智能"]
+tags: ['思考']
 ---
 
 # 糟糕！45年前的论文被判AI生成，人类该如何自证？
@@ -392,3 +392,8 @@ tags: ["AI", "AI检测", "学术诚信", "人工智能"]
 *本文由 SSHeRun 原创，首发于个人博客*  
 *创作时间：2026-03-27*  
 *欢迎留言讨论，期待你的自证方法！*
+
+## 相关文章
+
+- [[ai-cannot-replace-human-experience|AI 无法代替人的体验]]
+- [[ai-era-clarity-matters|AI 时代最稀缺的能力：把话说清楚]]

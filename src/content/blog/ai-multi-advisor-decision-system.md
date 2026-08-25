@@ -3,7 +3,7 @@ title: '把德鲁克、芒格、乔布斯装进 AI 系统：一套多顾问决�
 description: '一位创业者把六位世界级思想家的思维体系做成 Agent，构建了一套 Claude Code 多顾问决策系统。每次做决策，先让对应领域的大师过一遍。'
 pubDate: '2026-03-19'
 heroImage: '../../assets/cover-ai-multi-advisor-decision-system.jpg'
-tags: ['AI', 'Agent', '决策', '思维模型']
+tags: ['Agent', 'Skills', '思考']
 ---
 
 一位叫 Jaden 的创业者做了一件有点荒诞、但越用越觉得对的事：把六位他最尊敬的人，装进了他的工作系统。

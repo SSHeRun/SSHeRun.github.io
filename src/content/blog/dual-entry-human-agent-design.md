@@ -3,7 +3,7 @@ title: '产品的两个入口：为什么 AI 时代要同时为人类和 Agent �
 description: 'LibTV 做了一个示范：同一套底层能力，一边是给专业用户的无限画布，一边是给 Agent 的 Skills。这可能是 Agent 时代产品设计的真正答案。'
 pubDate: '2026-03-20'
 heroImage: '../../assets/cover-dual-entry-human-agent.jpg'
-tags: ['AI', 'Agent', '产品设计', 'Skills']
+tags: ['Agent', 'Skills', '产品']
 ---
 
 昨天看到一个观点，觉得对做产品的人来说非常重要：

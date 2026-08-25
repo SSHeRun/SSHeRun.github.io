@@ -4,205 +4,72 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
+import { buildGraphData } from '../lib/graph-data';
+import { TAG_CLUSTERS } from '../lib/taxonomy';
 
 const posts = await getCollection('blog');
-
-const nodes: Array<{ id: string; label: string; type: string; url?: string }> = [];
-const edges: Array<{ source: string; target: string; type: string }> = [];
-const tagSet = new Set<string>();
-const edgeKey = (s: string, t: string, type: string) => `${s}\0${t}\0${type}`;
-const seenEdges = new Set<string>();
-
-function addEdge(source: string, target: string, type: string) {
-	if (source === target) return;
-	const key = edgeKey(source, target, type);
-	if (seenEdges.has(key)) return;
-	seenEdges.add(key);
-	edges.push({ source, target, type });
-}
-
-for (const post of posts) {
-	nodes.push({ id: post.id, label: post.data.title, type: 'post', url: `/blog/${post.id}/` });
-
-	if (post.data.tags) {
-		for (const tag of post.data.tags) {
-			if (!tagSet.has(tag)) {
-				tagSet.add(tag);
-				nodes.push({ id: `tag:${tag}`, label: tag, type: 'tag' });
-			}
-			addEdge(post.id, `tag:${tag}`, 'tag');
-		}
-	}
-
-	const wikilinks = (post.body || '').match(/\[\[([^\]|#]+)/g);
-	if (wikilinks) {
-		for (const match of wikilinks) {
-			const target = match.slice(2).trim();
-			const targetPost = posts.find((p) => p.id === target);
-			if (targetPost) {
-				addEdge(post.id, targetPost.id, 'wikilink');
-			}
-		}
-	}
-}
-
-const graphData = JSON.stringify({ nodes, edges });
+const graph = buildGraphData(posts);
+const graphData = JSON.stringify({ nodes: graph.nodes, edges: graph.edges });
+const usedClusters = TAG_CLUSTERS.filter((cluster) =>
+	graph.nodes.some((node) => node.type === 'cluster' && node.id === `cluster:${cluster.id}`),
+);
 ---
 
 <!doctype html>
 <html lang="zh-CN">
 	<head>
-		<BaseHead title={`知识图谱 - ${SITE_TITLE}`} description="文章与标签的关系网络可视化" />
+		<BaseHead title={`知识图谱 - ${SITE_TITLE}`} description="文章、标签与主题群的关系网络可视化" />
 	</head>
 	<body>
 		<Header />
 		<main>
 			<div class="graph-header">
 				<h1>知识图谱</h1>
-				<p class="graph-desc">文章与标签的关系网络</p>
+				<p class="graph-desc">
+					{graph.stats.posts} 篇文章 · {graph.stats.tags} 个标签 · {graph.stats.clusters} 个主题群 · {graph.stats.edges} 条关系
+				</p>
+				<p class="graph-hint">点节点看邻域；双击文章打开正文。青色箭头是文内引用，紫色线是标签之间的关系。</p>
+				<div class="graph-toolbar">
+					<input id="graph-search" type="search" placeholder="搜索文章或标签" />
+					<div id="graph-filters" class="graph-filters">
+						<button type="button" data-cluster="all" class="active">全部</button>
+						{
+							usedClusters.map((cluster) => (
+								<button type="button" data-cluster={cluster.id}>
+									<span class="swatch" style={`background:${cluster.color}`}></span>
+									{cluster.label}
+								</button>
+							))
+						}
+					</div>
+				</div>
 			</div>
 			<div class="graph-container">
 				<div id="cy"></div>
+				<aside id="graph-panel" hidden>
+					<button id="graph-panel-close" type="button" aria-label="关闭">×</button>
+					<div id="graph-panel-body"></div>
+				</aside>
 				<div class="graph-legend">
+					<span class="legend-item"><span class="legend-box"></span>主题群</span>
 					<span class="legend-item"><span class="legend-dot legend-post"></span>文章</span>
 					<span class="legend-item"><span class="legend-dot legend-tag"></span>标签</span>
 					<span class="legend-item"><span class="legend-line legend-link"></span>引用</span>
+					<span class="legend-item"><span class="legend-line legend-rel"></span>标签关系</span>
 				</div>
 			</div>
 		</main>
 		<Footer />
 
-		<script is:inline define:vars={{ graphData }}>
-			const data = JSON.parse(graphData);
-			const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-
-			const accentCyan = isDark ? '#00f0ff' : '#0891b2';
-			const accentPurple = isDark ? '#a855f7' : '#7c3aed';
-			const textColor = isDark ? '#f0f4f8' : '#1e293b';
-			const bgSurface = isDark ? '#111827' : '#ffffff';
-			const borderColor = isDark ? 'rgba(255,255,255,0.08)' : '#e2e8f0';
-
-			import('https://esm.sh/cytoscape@3.33.1').then(({ default: cytoscape }) => {
-				const elements = [];
-
-				for (const node of data.nodes) {
-					elements.push({
-						data: { id: node.id, label: node.label, nodeType: node.type, url: node.url || '' }
-					});
-				}
-				for (const edge of data.edges) {
-					elements.push({
-						data: { source: edge.source, target: edge.target, edgeType: edge.type }
-					});
-				}
-
-				const cy = cytoscape({
-					container: document.getElementById('cy'),
-					elements,
-					style: [
-						{
-							selector: 'node[nodeType="post"]',
-							style: {
-								'background-color': accentCyan,
-								'label': 'data(label)',
-								'color': textColor,
-								'font-size': '13px',
-								'text-halign': 'center',
-								'text-valign': 'bottom',
-								'text-margin-y': 8,
-								'width': 32,
-								'height': 32,
-								'border-width': 2,
-								'border-color': accentCyan,
-								'text-max-width': '120px',
-								'text-wrap': 'wrap',
-							}
-						},
-						{
-							selector: 'node[nodeType="tag"]',
-							style: {
-								'background-color': accentPurple,
-								'label': 'data(label)',
-								'color': textColor,
-								'font-size': '12px',
-								'text-halign': 'center',
-								'text-valign': 'bottom',
-								'text-margin-y': 6,
-								'width': 22,
-								'height': 22,
-								'shape': 'diamond',
-								'border-width': 2,
-								'border-color': accentPurple,
-							}
-						},
-						{
-							selector: 'edge[edgeType="tag"]',
-							style: {
-								'line-color': borderColor,
-								'width': 1.5,
-								'curve-style': 'bezier',
-								'opacity': 0.6,
-							}
-						},
-						{
-							selector: 'edge[edgeType="wikilink"]',
-							style: {
-								'line-color': accentCyan,
-								'width': 2,
-								'curve-style': 'bezier',
-								'target-arrow-shape': 'triangle',
-								'target-arrow-color': accentCyan,
-								'arrow-scale': 0.8,
-								'opacity': 0.8,
-							}
-						},
-						{
-							selector: 'node:active',
-							style: {
-								'overlay-opacity': 0,
-							}
-						},
-						{
-							selector: 'node.hover',
-							style: {
-								'border-width': 3,
-								'font-weight': 'bold',
-							}
-						}
-					],
-					layout: {
-						name: 'cose',
-						idealEdgeLength: 120,
-						nodeOverlap: 30,
-						padding: 40,
-						animate: true,
-						animationDuration: 500,
-					},
-					minZoom: 0.3,
-					maxZoom: 3,
-					wheelSensitivity: 0.3,
-				});
-
-				cy.on('tap', 'node[nodeType="post"]', (evt) => {
-					const url = evt.target.data('url');
-					if (url) window.location.href = url;
-				});
-
-				cy.on('mouseover', 'node', (evt) => {
-					evt.target.addClass('hover');
-					document.getElementById('cy').style.cursor = evt.target.data('nodeType') === 'post' ? 'pointer' : 'default';
-				});
-				cy.on('mouseout', 'node', (evt) => {
-					evt.target.removeClass('hover');
-					document.getElementById('cy').style.cursor = 'default';
-				});
-			});
+		<script id="graph-data" type="application/json" set:html={graphData} />
+		<script>
+			import '../scripts/init-graph.ts';
 		</script>
 
 		<style>
 			main {
 				width: 100%;
-				max-width: min(var(--max-width-wide), calc(100% - 2rem));
+				max-width: min(1100px, calc(100% - 2rem));
 				box-sizing: border-box;
 			}
 			.graph-header {
@@ -213,10 +80,56 @@ const graphData = JSON.stringify({ nodes, edges });
 				margin: 0 0 0.25rem;
 				letter-spacing: -0.03em;
 			}
-			.graph-desc {
+			.graph-desc,
+			.graph-hint {
 				color: var(--text-muted);
 				margin: 0;
 				font-size: 0.95rem;
+			}
+			.graph-hint {
+				margin-top: 0.35rem;
+				font-size: 0.85rem;
+			}
+			.graph-toolbar {
+				display: flex;
+				flex-direction: column;
+				gap: 0.75rem;
+				margin-top: 1rem;
+			}
+			#graph-search {
+				width: min(360px, 100%);
+				padding: 0.55rem 0.8rem;
+				border: 1px solid var(--glass-border);
+				border-radius: var(--radius-md);
+				background: var(--bg-surface);
+				color: var(--text-primary);
+			}
+			.graph-filters {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem;
+			}
+			.graph-filters button {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.35rem;
+				padding: 0.3rem 0.7rem;
+				border: 1px solid var(--glass-border);
+				border-radius: 999px;
+				background: var(--glass-bg);
+				color: var(--text-secondary);
+				font-size: 0.8rem;
+				cursor: pointer;
+			}
+			.graph-filters button.active,
+			.graph-filters button:hover {
+				border-color: var(--border-glow);
+				color: var(--text-primary);
+			}
+			.swatch {
+				width: 8px;
+				height: 8px;
+				border-radius: 2px;
 			}
 			.graph-container {
 				position: relative;
@@ -227,14 +140,61 @@ const graphData = JSON.stringify({ nodes, edges });
 			}
 			#cy {
 				width: 100%;
-				height: 500px;
+				height: 640px;
+			}
+			#graph-panel {
+				position: absolute;
+				top: 1rem;
+				right: 1rem;
+				width: min(280px, calc(100% - 2rem));
+				max-height: calc(100% - 2rem);
+				overflow: auto;
+				padding: 1rem 1.1rem 1.1rem;
+				background: var(--glass-bg);
+				backdrop-filter: blur(12px);
+				border: 1px solid var(--glass-border);
+				border-radius: var(--radius-lg);
+				box-shadow: var(--shadow-md);
+			}
+			#graph-panel-close {
+				position: absolute;
+				top: 0.45rem;
+				right: 0.55rem;
+				border: 0;
+				background: transparent;
+				color: var(--text-muted);
+				font-size: 1.2rem;
+				cursor: pointer;
+			}
+			#graph-panel-body :global(.panel-kicker) {
+				margin: 0;
+				font-size: 0.75rem;
+				color: var(--text-muted);
+			}
+			#graph-panel-body :global(h2) {
+				margin: 0.2rem 0 0.6rem;
+				font-size: 1.05rem;
+			}
+			#graph-panel-body :global(h3) {
+				margin: 0.8rem 0 0.3rem;
+				font-size: 0.8rem;
+				color: var(--text-muted);
+			}
+			#graph-panel-body :global(ul) {
+				margin: 0;
+				padding-left: 1rem;
+				font-size: 0.85rem;
+			}
+			#graph-panel-body :global(a) {
+				color: var(--accent);
 			}
 			.graph-legend {
 				position: absolute;
 				bottom: 1rem;
 				left: 1rem;
 				display: flex;
-				gap: 1rem;
+				flex-wrap: wrap;
+				gap: 0.75rem;
 				font-size: 0.8rem;
 				color: var(--text-muted);
 				background: var(--glass-bg);
@@ -253,6 +213,12 @@ const graphData = JSON.stringify({ nodes, edges });
 				height: 10px;
 				border-radius: 50%;
 			}
+			.legend-box {
+				width: 12px;
+				height: 8px;
+				border-radius: 2px;
+				background: var(--text-secondary);
+			}
 			.legend-post { background: var(--accent); }
 			.legend-tag {
 				background: var(--accent-secondary);
@@ -266,21 +232,32 @@ const graphData = JSON.stringify({ nodes, edges });
 				height: 2px;
 				background: var(--accent);
 			}
-		@media (max-width: 720px) {
-			#cy { height: 350px; }
-			.graph-header { padding: 1rem 0 0.75rem; }
-			.graph-header h1 { font-size: 1.6rem; }
-			.graph-legend {
-				font-size: 0.72rem;
-				padding: 0.4rem 0.75rem;
-				gap: 0.6rem;
+			.legend-rel {
+				background: var(--accent-secondary);
 			}
-		}
-		@media (max-width: 480px) {
-			#cy { height: 280px; }
-			.graph-container { border-radius: var(--radius-lg); }
-			.graph-header h1 { font-size: 1.4rem; }
-		}
+			@media (max-width: 720px) {
+				#cy { height: 420px; }
+				.graph-header { padding: 1rem 0 0.75rem; }
+				.graph-header h1 { font-size: 1.6rem; }
+				#graph-panel {
+					top: auto;
+					bottom: 3.2rem;
+					right: 0.6rem;
+					left: 0.6rem;
+					width: auto;
+					max-height: 42%;
+				}
+				.graph-legend {
+					font-size: 0.72rem;
+					padding: 0.4rem 0.75rem;
+					gap: 0.5rem;
+				}
+			}
+			@media (max-width: 480px) {
+				#cy { height: 360px; }
+				.graph-container { border-radius: var(--radius-lg); }
+				.graph-header h1 { font-size: 1.4rem; }
+			}
 		</style>
 	</body>
 </html>

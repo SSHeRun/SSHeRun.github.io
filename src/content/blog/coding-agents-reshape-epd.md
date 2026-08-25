@@ -3,7 +3,7 @@ title: '编程 Agent 如何重塑工程、产品和设计'
 description: '编程 Agent 让写代码变得异常简单，EPD 的角色定位会怎么变？从 PRD 已死到建设者 vs 评审者的新分化。'
 pubDate: '2026-04-02'
 heroImage: '../../assets/cover-coding-agents-reshape-epd.jpg'
-tags: ['AI', 'Agent', '组织设计', '产品']
+tags: ['Agent', '产品', '组织']
 ---
 
 > 原文：[How Coding Agents Are Reshaping EPD](https://x.com/hwchase17/status/2031051115169808685)  
@@ -113,3 +113,9 @@ tags: ['AI', 'Agent', '组织设计', '产品']
 3. **通才价值上升**：能跨越 EPD 边界的人，影响力会显著提升
 4. **评审能力变成稀缺资源**：能快速、准确地评审代码/设计/产品的人会越来越值钱
 5. **角色融合是趋势**：未来的组织可能不再是严格的职能分工，而是建设者 + 评审者的混合模式
+
+## 相关文章
+
+- [[whatnot-cpo-regrets-pm-exists|Whatnot CPO：「我们后悔产品经理这种职能存在」]]
+- [[taste-at-speed-pm-skill|Taste at Speed：当构建成本趋近于零，PM 的核心技能变了]]
+- [[software-engineering-splits-three|软件工程正在分裂为三层：你在哪一层？]]

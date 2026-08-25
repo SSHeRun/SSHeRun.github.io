@@ -3,7 +3,7 @@ title: "AI 让员工变快了，为什么公司没变强？"
 description: "所有人都在用 ChatGPT，为什么公司业绩没有起飞？130 年前的电动机故事，揭示了今天 AI 落地的真相。"
 pubDate: "2026-03-29"
 heroImage: "../../assets/cover-ai-organization-redesign.jpg"
-tags: ["AI", "组织管理", "生产力"]
+tags: ['组织', '效率']
 ---
 
 # AI 让员工变快了，为什么公司没变强？
@@ -209,3 +209,9 @@ Asana 的数据说，10% 的「超级生产者」每周通过 AI 节省 20 小�
 - Deloitte: State of AI in enterprise
 
 **原文来源：** Founder Park
+
+## 相关文章
+
+- [[coding-agents-reshape-epd|编程 Agent 如何重塑工程、产品和设计]]
+- [[whatnot-cpo-regrets-pm-exists|Whatnot CPO：「我们后悔产品经理这种职能存在」]]
+- [[ai-fatigue-truth-10x-workload|AI让你效率翻倍？醒醒吧，你的工作量已经是过去的10倍了]]

@@ -1,0 +1,68 @@
+---
+interface Props {
+	tags?: string[];
+	linked?: boolean;
+	compact?: boolean;
+}
+
+const { tags = [], linked = true, compact = false } = Astro.props;
+---
+
+{
+	tags.length > 0 && (
+		<div class:list={['tag-list', { compact }]}>
+			{tags.map((tag) =>
+				linked ? (
+					<a class="tag" href={`/tags/${encodeURIComponent(tag)}/`}>
+						{tag}
+					</a>
+				) : (
+					<span class="tag">{tag}</span>
+				),
+			)}
+		</div>
+	)
+}
+
+<style>
+	.tag-list {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+	.tag {
+		padding: 0.2rem 0.7rem;
+		background: var(--glass-bg);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		border: 1px solid var(--glass-border);
+		color: var(--accent);
+		border-radius: 999px;
+		font-size: 0.8rem;
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		text-decoration: none;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+	a.tag:hover {
+		border-color: var(--border-glow);
+		box-shadow: var(--shadow-glow);
+	}
+	.compact {
+		gap: 0.375rem;
+	}
+	.compact .tag {
+		padding: 0.1rem 0.5rem;
+		background: color-mix(in srgb, var(--accent) 12%, transparent);
+		border: none;
+		font-size: 0.72rem;
+		backdrop-filter: none;
+	}
+	@media (max-width: 720px) {
+		.tag-list { gap: 0.35rem; }
+		.tag {
+			padding: 0.15rem 0.55rem;
+			font-size: 0.72rem;
+		}
+	}
+</style>

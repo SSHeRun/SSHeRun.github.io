@@ -1,9 +1,9 @@
 ---
-title: '力大转飞：为什么“虚拟公司式”多 Agent 架构大多会失败'
+title: '力大砖飞：为什么“虚拟公司式”多 Agent 架构大多会失败'
 description: '把 Agent 命名成 PM、架构师、开发、测试，看起来像一家完整公司，实际上却常常让信息在交接中死亡。多 Agent 的真正价值不是角色分工，而是并行搜索与主脑收敛。'
 pubDate: '2026-04-15'
 heroImage: '../../assets/cover-forceful-systems-fly-off-multi-agent-illusion.jpg'
-tags: ['AI', 'Agent', '多Agent', '架构设计', 'Context Engineering']
+tags: ['Agent', '工程']
 ---
 
 最近看到一篇很硬的长文，标题很长，但核心判断一句话就够了：
@@ -29,7 +29,7 @@ tags: ['AI', 'Agent', '多Agent', '架构设计', 'Context Engineering']
 
 我更愿意用四个字概括这类系统的结局：
 
-# 力大转飞
+# 力大砖飞
 
 Agent 越堆越多，角色越分越细，流程越设计越完整，最后不是更稳，而是更容易失真、漂移、失控。
 
@@ -114,7 +114,7 @@ Agent 越堆越多，角色越分越细，流程越设计越完整，最后不�
 
 问题不是突然爆炸，而是缓慢失真。
 
-这就是为什么我觉得“力大转飞”这个词特别贴切：
+这就是为什么我觉得“力大砖飞”这个词特别贴切：
 
 - 你以为自己在增强系统
 - 实际上是在增加旋转惯性
@@ -319,7 +319,7 @@ PM Agent → 架构师 Agent → Dev Agent → QA Agent
 
 如果这些做不到，Agent 再多也只是在把系统复杂度堆高。
 
-所以我觉得，“力大转飞”很适合做这类系统的提醒词。
+所以我觉得，“力大砖飞”很适合做这类系统的提醒词。
 
 它能一下点破那个幻觉：
 
@@ -346,7 +346,7 @@ PM Agent → 架构师 Agent → Dev Agent → QA Agent
 
 而一旦复杂度继续上升，它就会开始——
 
-**力大转飞。**
+**力大砖飞。**
 
 ## 配图
 
@@ -416,3 +416,9 @@ flowchart TB
 
 - 原文：<https://x.com/i/status/2043898494818410731>
 - 相关思路：Anthropic Context Engineering、OpenAI Codex long-horizon tasks、Google Context-driven Development
+
+## 相关文章
+
+- [[agent-skills-five-design-patterns|Agent Skills 五大设计模式：从工具到队友的进化]]
+- [[ai-multi-advisor-decision-system|把德鲁克、芒格、乔布斯装进 AI 系统：一套多顾问决策架构]]
+- [[cli-ai-revival|CLI：AI 时代的命令行复兴]]

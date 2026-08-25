@@ -5,6 +5,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import TagList from '../components/TagList.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 const posts = (await getCollection('blog'))
@@ -52,13 +53,7 @@ const posts = (await getCollection('blog'))
 							<div class="post-body">
 								<div class="post-meta">
 									<FormattedDate date={post.data.pubDate} />
-									{post.data.tags && (
-										<div class="tags">
-											{post.data.tags.map((tag: string) => (
-												<span class="tag">{tag}</span>
-											))}
-										</div>
-									)}
+									<TagList tags={post.data.tags} linked={false} compact />
 								</div>
 								<h3>{post.data.title}</h3>
 								{post.data.description && <p>{post.data.description}</p>}

@@ -4,7 +4,7 @@ description: 'Garry Tan 开源了他的 Claude Code 工具集 gstack，15 个 Sk
 pubDate: '2026-03-20'
 updatedDate: '2026-03-21'
 heroImage: '../../assets/cover-gstack-yc-ceo-factory.jpg'
-tags: ['AI', 'Claude Code', '开发效率', '工具']
+tags: ['Claude Code', 'Skills', '工程', '开源']
 ---
 
 Garry Tan 是 Y Combinator 的 CEO。在过去 60 天里，他写了超过 60 万行生产代码，35% 是测试，每天 1 到 2 万行可用代码。同时他还在全职做 YC CEO 的工作。
@@ -416,9 +416,7 @@ gstack 解决这个。`/review` 和 `/ship` 现在是 Greptile 感知的。它�
 
 ## 相关文章
 
-- [[ai-customer-service-revenue|客服不是成本中心：AI 正在重写企业和用户之间的关系结构]]
-- [[gstack-yc-ceo-factory|gstack：YC CEO 用来日产 2 万行代码的 Claude Code 软件工厂]]
+- [[top-skill-yc-ceo-review|顶级 Skill 长什么样：YC CEO 的 600 行提示词为什么能审查一切]]
+- [[anthropic-skills-lessons|Anthropic 内部数百个 Skills 的经验：九大类型和写好 Skill 的秘诀]]
 - [[taste-at-speed-pm-skill|Taste at Speed：当构建成本趋近于零，PM 的核心技能变了]]
 - [[software-engineering-splits-three|软件工程正在分裂为三层：你在哪一层？]]
-- [[first-principles-startup-review|用 AI 做第一性原理审查：一个创业计划被推翻的 48 小时]]
-- [[top-skill-yc-ceo-review|顶级 Skill 长什么样：YC CEO 的 600 行提示词为什么能审查一切]]

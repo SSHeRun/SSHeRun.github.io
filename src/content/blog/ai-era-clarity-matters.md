@@ -3,7 +3,7 @@ title: 'AI 时代最稀缺的能力：把话说清楚'
 description: '为什么 99% 的人给 AI 提的问题都是垃圾？因为我们从未真正学会如何清晰表达。这篇文章告诉你，如何用「说清楚」这个看似简单的能力，让 AI 成为你的杠杆而非垃圾制造机。'
 pubDate: '2026-04-04'
 heroImage: '../../assets/cover-ai-era-clarity-matters.jpg'
-tags: ['AI', '沟通', '思维', '效率']
+tags: ['思考', '效率']
 ---
 
 > "凡是能说的，都能说清楚；说不清楚的，就应该沉默。" —— 维特根斯坦
@@ -210,3 +210,9 @@ tags: ['AI', '沟通', '思维', '效率']
 ---
 
 *本文灵感来源于 @Jaden_riku 的推文，结合个人实践整理而成。*
+
+## 相关文章
+
+- [[ai-cannot-replace-human-experience|AI 无法代替人的体验]]
+- [[first-principles-startup-review|用 AI 做第一性原理审查：一个创业计划被推翻的 48 小时]]
+- [[ai-fatigue-truth-10x-workload|AI让你效率翻倍？醒醒吧，你的工作量已经是过去的10倍了]]

@@ -3,7 +3,7 @@ title: 'AI让你效率翻倍？醒醒吧，你的工作量已经是过去的10�
 description: '硅谷一线工程师揭露AI应用真相：93%开发者用AI，效率只提升10%；使用AI工具反而下降19%。AI疲劳的本质是什么？如何正确与AI相处？'
 pubDate: '2026-03-26'
 heroImage: '../../assets/cover-ai-fatigue-truth-10x-workload.jpg'
-tags: ['AI', '职场', '效率', '深度思考']
+tags: ['职业', '效率', '思考']
 ---
 
 ## 一、硅谷裁员潮背后，一线工程师戳破了AI神话
@@ -322,3 +322,9 @@ tags: ['AI', '职场', '效率', '深度思考']
 - 来源：每日经济新闻
 - 受访人：Siddhant Khare（科技公司Ona的软件工程师）
 - 数据来源：DX平台、METR机构
+
+## 相关文章
+
+- [[programmer-35-crisis-and-self-rescue|35岁程序员危机与自救指南]]
+- [[ai-era-programmer-survival-guide|AI时代程序员生存指南：35岁+才是黄金年龄？揭秘"码奸"的生存法则]]
+- [[ai-era-clarity-matters|AI 时代最稀缺的能力：把话说清楚]]

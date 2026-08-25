@@ -10,6 +10,8 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Giscus from '../components/Giscus.astro';
 import Header from '../components/Header.astro';
 import ReadingTime from '../components/ReadingTime.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
+import TagList from '../components/TagList.astro';
 import { SITE_TITLE } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'] & { body?: string; slug?: string };
@@ -83,17 +85,12 @@ const jsonLd = {
 						<ReadingTime content={body} />
 					</div>
 					<h1>{title}</h1>
-					{tags && tags.length > 0 && (
-						<div class="tags">
-							{tags.map((tag: string) => (
-								<span class="tag">{tag}</span>
-							))}
-						</div>
-					)}
+					<TagList tags={tags} />
 				</div>
 				<div class="prose">
 					<slot />
 				</div>
+				<RelatedPosts slug={slug} tags={tags} body={body} />
 				<Giscus />
 			</article>
 		</main>
@@ -149,30 +146,6 @@ const jsonLd = {
 	}
 	.updated {
 		font-size: 0.83rem;
-	}
-
-	/* ── Tags ── */
-	.tags {
-		display: flex;
-		gap: 0.5rem;
-		flex-wrap: wrap;
-	}
-	.tag {
-		padding: 0.2rem 0.7rem;
-		background: var(--glass-bg);
-		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
-		border: 1px solid var(--glass-border);
-		color: var(--accent);
-		border-radius: 999px;
-		font-size: 0.8rem;
-		font-weight: 500;
-		letter-spacing: 0.02em;
-		transition: border-color 0.2s ease, box-shadow 0.2s ease;
-	}
-	.tag:hover {
-		border-color: var(--border-glow);
-		box-shadow: var(--shadow-glow);
 	}
 
 	/* ── Prose ── */
@@ -243,11 +216,6 @@ const jsonLd = {
 			flex-wrap: wrap;
 			gap: 0.35rem;
 			font-size: 0.82rem;
-		}
-		.tags { gap: 0.35rem; }
-		.tag {
-			padding: 0.15rem 0.55rem;
-			font-size: 0.72rem;
 		}
 		.prose {
 			font-size: 1rem;

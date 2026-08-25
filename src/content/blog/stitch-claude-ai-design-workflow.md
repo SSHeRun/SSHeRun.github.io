@@ -3,7 +3,7 @@ title: 'Google Stitch 2.0 + Claude Code：AI 设计工作流的革命'
 description: 'Google Stitch 2.0 + Claude Code 通过 MCP 连接，让一个人在一小时内完成过去需要数周和数千美元的专业设计工作。关键在于 design.md 文件实现的设计系统一致性。'
 pubDate: '2026-04-06'
 heroImage: '../../assets/cover-stitch-claude-workflow.jpg'
-tags: ['AI', '设计', 'Claude Code', 'Google Stitch', '工作流', '产品开发']
+tags: ['设计', 'Claude Code', '产品']
 ---
 
 ## 核心观点
@@ -281,3 +281,9 @@ Stitch 有时会设计你应用中尚不存在的功能（如"最近活动"部�
 ---
 
 *来源：[X/Twitter - @PrajwalTomar_](https://x.com/i/status/2037104246647382058)*
+
+## 相关文章
+
+- [[stitch-design-md-infrastructure|为什么 Google Stitch 的 DESIGN.md 值得关注：AI UI 正从出图工具走向设计基础设施]]
+- [[ai-ui-design-workflow|AI 生成的 UI 为什么不能直接用？我找到了解决方案]]
+- [[design-without-designing|Design Without Designing：工程师如何用 AI 交付高质量设计]]

@@ -3,7 +3,7 @@ title: 'AI 无法代替人的体验'
 description: '一场 AI 大会结束后，真正留下来的不是技术炫技，而是那些无法被压缩、无法被替代的人类体验。'
 pubDate: '2026-04-11'
 heroImage: '../../assets/cover-ai-cannot-replace-human-experience.jpg'
-tags: ['AI', '体验', '思考', '线下']
+tags: ['思考']
 ---
 
 北京亦庄，一场 AI 大会刚刚结束。
@@ -169,3 +169,8 @@ AI 很擅长给你更快的最优解。
 ---
 
 原帖来源：[@数字生命卡兹克](https://x.com/Khazix0918/status/2042507385370243139)
+
+## 相关文章
+
+- [[ai-era-clarity-matters|AI 时代最稀缺的能力：把话说清楚]]
+- [[ai-proof-human|糟糕！45年前的论文被判AI生成，人类该如何自证？]]

@@ -3,7 +3,7 @@ title: 'OpenClaw 部署完全指南：5种方案任你选'
 description: '从本地部署到服务器部署，从 WhatsApp 到飞书集成，5 种部署方案详解。包含一键安装、飞书桥接、Telegram 配置等完整教程，让你的 AI Agent 快速上线。'
 pubDate: '2026-03-13'
 heroImage: '../../assets/cover-openclaw-deployment-guide.jpg'
-tags: ['OpenClaw', '部署教程', '飞书', 'Telegram']
+tags: ['OpenClaw', '教程']
 ---
 
 OpenClaw 怎么部署？本文整合了 5 篇部署教程，涵盖本地部署、服务器部署、飞书集成、Telegram 配置等完整方案。

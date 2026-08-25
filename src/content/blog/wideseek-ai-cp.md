@@ -3,7 +3,7 @@ title: "AI界最强CP翻车了？4B小模型吊打671B巨无霸，秘密竟是..
 description: "DeepSeek教会了AI「深度思考」，但清华团队说：光Deep不够，还得Wide！4B模型凭什么比肩671B？答案藏在计算机最经典的CP里"
 pubDate: "2026-03-27"
 heroImage: "../../assets/cover-wideseek-ai-cp.jpg"
-tags: ["AI", "多智能体", "DeepSeek", "深度学习"]
+tags: ['LLM', 'Agent']
 ---
 
 # AI界最强CP翻车了？4B小模型吊打671B巨无霸，秘密竟是...
@@ -275,3 +275,8 @@ WideSeek-R1 给我们的三个教训：
 
 *本文由 SSHeRun 原创，首发于个人博客*  
 *创作时间：2026-03-27*
+
+## 相关文章
+
+- [[deepseek-engram-conditional-memory|DeepSeek Engram：条件记忆——大模型稀疏性的新轴]]
+- [[forceful-systems-fly-off-multi-agent-illusion|力大砖飞：为什么“虚拟公司式”多 Agent 架构大多会失败]]

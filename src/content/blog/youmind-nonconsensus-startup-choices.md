@@ -3,7 +3,7 @@ title: '《YouMind 创业路上的非共识选择》读后感：别被叙事绑�
 description: '读玉伯的这篇复盘：创业先校准“愿不愿/能不能/值不值”，用密集访谈找方向，警惕融资叙事反向洗脑；Agent 时代更稀缺的是品味与心力。'
 pubDate: '2026-04-29'
 heroImage: '../../assets/cover-youmind-nonconsensus-startup-choices.jpg'
-tags: ['创业', '方法论', '用户访谈', 'Agent']
+tags: ['创业', '产品', 'Agent']
 ---
 
 > 原文：Frank Wang 玉伯（@lifesinger）《YouMind 创业路上的非共识选择》
@@ -65,3 +65,9 @@ tags: ['创业', '方法论', '用户访谈', 'Agent']
 - **写一份“不做清单”**：明确哪些战场我/团队不碰（比如要靠巨额算力或渠道优势的方向）。
 - **对外叙事与对内决策分离**：对外可以讲愿景，但对内路标必须可验证（留存、付费、激活、交付周期）。
 - **优先设计“做减法”的机制**：每周删功能/删需求的例会，往往比加功能更能提升产品密度。
+
+## 相关文章
+
+- [[first-principles-startup-review|用 AI 做第一性原理审查：一个创业计划被推翻的 48 小时]]
+- [[ai-customer-service-revenue|客服不是成本中心：AI 正在重写企业和用户之间的关系结构]]
+- [[whatnot-cpo-regrets-pm-exists|Whatnot CPO：「我们后悔产品经理这种职能存在」]]

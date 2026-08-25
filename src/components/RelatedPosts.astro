@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import { pickRelatedPosts } from '../lib/related-posts';
+
+interface Props {
+	slug: string;
+	tags?: string[];
+	body?: string;
+}
+
+const { slug, tags = [], body = '' } = Astro.props;
+const posts = await getCollection('blog');
+const related = pickRelatedPosts(posts, { slug, tags, body });
+---
+
+{
+	related.length > 0 && (
+		<section class="related">
+			<h2>相关文章</h2>
+			<ul>
+				{related.map((post) => (
+					<li>
+						<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+						{post.data.tags && post.data.tags.length > 0 && (
+							<span class="overlap">{post.data.tags.filter((tag) => tags.includes(tag)).join(' · ')}</span>
+						)}
+					</li>
+				))}
+			</ul>
+		</section>
+	)
+}
+
+<style>
+	.related {
+		margin: 3rem 0 1rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--border);
+	}
+	.related h2 {
+		font-size: 1.15rem;
+		margin: 0 0 0.85rem;
+		letter-spacing: -0.02em;
+	}
+	.related ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.65rem;
+	}
+	.related a {
+		color: var(--accent);
+		text-decoration-color: color-mix(in srgb, var(--accent) 30%, transparent);
+		text-underline-offset: 3px;
+	}
+	.overlap {
+		display: block;
+		margin-top: 0.15rem;
+		font-size: 0.78rem;
+		color: var(--text-muted);
+	}
+</style>

@@ -3,7 +3,7 @@ title: "为什么 Google Stitch 的 DESIGN.md 值得关注：AI UI 正从出图�
 description: "结合 Stitch 官方 DESIGN.md 文档和一线使用者的实践，分析 Google Stitch 为什么不只是 AI 出图工具，而是在构建 AI 时代的设计基础设施。"
 pubDate: "2026-03-28"
 heroImage: "../../assets/cover-stitch-design-md.jpg"
-tags: ["AI", "Stitch", "设计系统", "Agent", "产品思考"]
+tags: ['设计', 'Agent', '产品']
 ---
 
 # 为什么 Google Stitch 的 DESIGN.md 值得关注：AI UI 正从出图工具走向设计基础设施
@@ -311,3 +311,9 @@ Stitch 现在支持：
 > Stitch 的目标，不只是帮你画几张页面，而是把设计系统变成 AI 时代可以传递、执行和复用的基础设施。
 
 如果这个方向成立，那它带来的变化，可能不会小于当年设计系统本身对前端工程的影响。
+
+## 相关文章
+
+- [[stitch-claude-ai-design-workflow|Google Stitch 2.0 + Claude Code：AI 设计工作流的革命]]
+- [[ai-ui-design-workflow|AI 生成的 UI 为什么不能直接用？我找到了解决方案]]
+- [[design-without-designing|Design Without Designing：工程师如何用 AI 交付高质量设计]]

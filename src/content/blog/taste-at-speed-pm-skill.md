@@ -3,7 +3,7 @@ title: 'Taste at Speed：当构建成本趋近于零，PM 的核心技能变了'
 description: 'Anthropic 的 Boris Cherny 每天提交 20-30 个 PR，100% 由 Claude 编写。当构建不再是瓶颈，产品经理最重要的能力变成了快速评估、大量淘汰、只发布幸存者。'
 pubDate: '2026-03-20'
 heroImage: '../../assets/cover-taste-at-speed.jpg'
-tags: ['AI', '产品管理', 'Claude Code', '效率']
+tags: ['产品', 'Claude Code', '效率']
 ---
 
 Boris Cherny 加入 Anthropic 的第一个 PR 被拒了。不是因为代码不好，是因为他手写了代码。
@@ -91,9 +91,7 @@ Boris 的预测："到年底，每个人都是产品经理，每个人都写代�
 
 ## 相关文章
 
-- [[ai-customer-service-revenue|客服不是成本中心：AI 正在重写企业和用户之间的关系结构]]
+- [[coding-agents-reshape-epd|编程 Agent 如何重塑工程、产品和设计]]
 - [[gstack-yc-ceo-factory|gstack：YC CEO 用来日产 2 万行代码的 Claude Code 软件工厂]]
-- [[taste-at-speed-pm-skill|Taste at Speed：当构建成本趋近于零，PM 的核心技能变了]]
+- [[whatnot-cpo-regrets-pm-exists|Whatnot CPO：「我们后悔产品经理这种职能存在」]]
 - [[software-engineering-splits-three|软件工程正在分裂为三层：你在哪一层？]]
-- [[first-principles-startup-review|用 AI 做第一性原理审查：一个创业计划被推翻的 48 小时]]
-- [[top-skill-yc-ceo-review|顶级 Skill 长什么样：YC CEO 的 600 行提示词为什么能审查一切]]

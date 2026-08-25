@@ -3,7 +3,7 @@ title: '学一个新领域，我现在的第一步是把它抓下来'
 description: '学一个新领域的第一步不是读书，而是把最好的内容源批量抓下来，做成私人知识库。用 XCrawl 从零到两小时构建 80 篇高质量文档的知识库。'
 pubDate: '2026-03-21'
 heroImage: '../../assets/cover-learn-by-scraping.jpg'
-tags: ['学习', '知识库', '工具', '效率', 'AI']
+tags: ['工具', '效率', 'Agent']
 ---
 
 最近一直在看 Simon Willison 的文章。
@@ -161,3 +161,8 @@ XCrawl 内置 robots.txt 检测，只采集公开内容。但选目标站时还�
 ---
 
 **原文链接：** https://x.com/i/status/2034793001864872440
+
+## 相关文章
+
+- [[cli-ai-revival|CLI：AI 时代的命令行复兴]]
+- [[x-3-open-source-tools-autoclip-cloud-mail-open-lovable|X 上三款开源神器：AutoClip / Cloud-Mail / Open Lovable（值不值得冲？）]]

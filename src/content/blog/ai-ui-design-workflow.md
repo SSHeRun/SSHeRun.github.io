@@ -3,7 +3,7 @@ title: "AI 生成的 UI 为什么不能直接用？我找到了解决方案"
 description: "Google Stitch 很美，但每个页面都不一样。Pencil 很规范，但不够好看。把它们组合起来，才是 AI 时代 UI 设计的正确打开方式。"
 pubDate: "2026-03-29"
 heroImage: "../../assets/cover-ai-ui-design-workflow.jpg"
-tags: ["AI工具", "UI设计", "产品开发"]
+tags: ['设计', '产品', '工具']
 ---
 
 # AI 生成的 UI 为什么不能直接用？我找到了解决方案
@@ -190,3 +190,9 @@ AI 时代的 UI 设计，不是让 AI 完全自由发挥，而是给它一个框
 - Uizard：草图转 UI
 
 **核心经验：** 多花 1 小时设计规范，省 2 天开发时间。
+
+## 相关文章
+
+- [[stitch-design-md-infrastructure|为什么 Google Stitch 的 DESIGN.md 值得关注：AI UI 正从出图工具走向设计基础设施]]
+- [[stitch-claude-ai-design-workflow|Google Stitch 2.0 + Claude Code：AI 设计工作流的革命]]
+- [[design-without-designing|Design Without Designing：工程师如何用 AI 交付高质量设计]]

@@ -3,7 +3,7 @@ title: 'Design Without Designing：工程师如何用 AI 交付高质量设计'
 description: '工程师不需要成为设计师。通过正确的 harness（工具组合），你可以在三个月内从零到周周交付设计。这是 Neethan Wu 的完整设计系统。'
 pubDate: '2026-03-21'
 heroImage: '../../assets/cover-design-without-designing.jpg'
-tags: ['AI', 'Agent', '设计', '工程师', '工具', '生产力']
+tags: ['设计', 'Agent', '工程']
 ---
 
 我是一个工程师，三个月前从未接触过 UI/UX 设计。
@@ -161,3 +161,9 @@ Agents 正在改变一个人能覆盖的范围。不要被传统的角色边界�
 ---
 
 **原文链接：** https://x.com/i/status/2034786360356204934
+
+## 相关文章
+
+- [[stitch-design-md-infrastructure|为什么 Google Stitch 的 DESIGN.md 值得关注：AI UI 正从出图工具走向设计基础设施]]
+- [[ai-ui-design-workflow|AI 生成的 UI 为什么不能直接用？我找到了解决方案]]
+- [[stitch-claude-ai-design-workflow|Google Stitch 2.0 + Claude Code：AI 设计工作流的革命]]

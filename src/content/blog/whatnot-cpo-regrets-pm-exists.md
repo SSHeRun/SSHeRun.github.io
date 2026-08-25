@@ -3,7 +3,7 @@ title: 'Whatnot CPO：「我们后悔产品经理这种职能存在」'
 description: 'Lenny 访谈 Whatnot CPO Tom Verrilli：反对默认 PM 编制，更少更资深按问题配置；AI 让验证变便宜，「产品剧场」难再藏。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-whatnot-cpo-regrets-pm-exists.jpg'
-tags: ['产品管理', '组织设计', 'AI', '创业', 'Whatnot']
+tags: ['产品', '组织', '创业']
 ---
 
 Lenny 最近一期 [访谈](https://www.lennysnewsletter.com/p/this-cpo-regrets-that-product-management)请到 Whatnot CPO **Tom Verrilli**（前 Twitch CPO、Twitter 产品增长）。标题很冲——「我们后悔产品经理这种职能存在」——但意思不是砍光 PM，而是：
@@ -78,3 +78,9 @@ Tom 的说法很直：雇太多 PM，会把本来能做决策的工程师和设�
 局限也说清楚：Whatnot 已有强产品文化 + 极高招聘漏斗；超大组织、弱对齐场景未必照搬。他自己也承认——**没有唯一正确的产品管理方式。**
 
 完整笔记在第二大脑：`创业商业/Whatnot-CPO后悔产品经理存在-Lenny访谈要点.md`。原节目：[Lenny's Newsletter](https://www.lennysnewsletter.com/p/this-cpo-regrets-that-product-management) · [YouTube](https://www.youtube.com/watch?v=ruvis-VWg2s)。
+
+## 相关文章
+
+- [[coding-agents-reshape-epd|编程 Agent 如何重塑工程、产品和设计]]
+- [[taste-at-speed-pm-skill|Taste at Speed：当构建成本趋近于零，PM 的核心技能变了]]
+- [[ai-organization-redesign|AI 让员工变快了，为什么公司没变强？]]

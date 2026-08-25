@@ -3,7 +3,7 @@ title: '软件工程正在分裂为三层：你在哪一层？'
 description: '当实现成本趋近于零，瓶颈从编码转移到判断力。软件工程市场正在分裂为三个层级，不仅薪酬不同，工作内容和所需技能都在根本性分化。'
 pubDate: '2026-03-20'
 heroImage: '../../assets/cover-software-engineering-splits.jpg'
-tags: ['AI', '软件工程', '职业', '趋势']
+tags: ['工程', '职业']
 ---
 
 一家大型区域银行花了几个月权衡是自建还是外购一个支付对账系统。利益相关者犹豫不决。与此同时，一个处理错误未被发现，导致数千笔商业交易延迟，触发了 200 万美元的监管罚款和数周的负面新闻。
@@ -81,9 +81,7 @@ AI 改变了这一点。一个有 AI 辅助的开发者，现在可以以合理�
 
 ## 相关文章
 
-- [[ai-customer-service-revenue|客服不是成本中心：AI 正在重写企业和用户之间的关系结构]]
+- [[coding-agents-reshape-epd|编程 Agent 如何重塑工程、产品和设计]]
+- [[ai-era-programmer-survival-guide|AI时代程序员生存指南：35岁+才是黄金年龄？揭秘"码奸"的生存法则]]
 - [[gstack-yc-ceo-factory|gstack：YC CEO 用来日产 2 万行代码的 Claude Code 软件工厂]]
 - [[taste-at-speed-pm-skill|Taste at Speed：当构建成本趋近于零，PM 的核心技能变了]]
-- [[software-engineering-splits-three|软件工程正在分裂为三层：你在哪一层？]]
-- [[first-principles-startup-review|用 AI 做第一性原理审查：一个创业计划被推翻的 48 小时]]
-- [[top-skill-yc-ceo-review|顶级 Skill 长什么样：YC CEO 的 600 行提示词为什么能审查一切]]

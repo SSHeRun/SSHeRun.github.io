@@ -3,7 +3,7 @@ title: 'DeepSeek Engram：条件记忆——大模型稀疏性的新轴'
 description: '解析 DeepSeek Engram：用 O(1) 查表补上 MoE 缺失的「条件记忆」，同参同算力下推理与长上下文提升往往比背知识更大。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-deepseek-engram-conditional-memory.jpg'
-tags: ['AI', 'LLM', 'DeepSeek', 'MoE', '稀疏模型']
+tags: ['LLM', '工程']
 ---
 
 DeepSeek 这篇 [Engram](https://arxiv.org/abs/2601.07372) 把话说得很直：MoE 解决了「条件计算」，但 Transformer 还缺一个原生的「知识查找」原语——大量早期层在用算力假装查表。他们提出的 **条件记忆（conditional memory）**，就是补这条轴。
@@ -87,4 +87,9 @@ Engram 的立场很清楚：
 Engram 的核心贡献不是「又一个 embedding 技巧」，而是把 **条件记忆** 提升成和 MoE 并列的建模原语，并用 U 形分配律给出可操作的容量切分。若你关注 Agent、长上下文和推理成本，这篇比纯刷榜模型发布更值得读。
 
 - 论文：https://arxiv.org/abs/2601.07372  
-- 代码：https://github.com/deepseek-ai/Engram  
+- 代码：https://github.com/deepseek-ai/Engram
+
+## 相关文章
+
+- [[wideseek-ai-cp|AI界最强CP翻车了？4B小模型吊打671B巨无霸，秘密竟是...]]
+- [[software-engineering-splits-three|软件工程正在分裂为三层：你在哪一层？]]
