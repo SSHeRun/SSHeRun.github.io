@@ -30,6 +30,8 @@ Engram 的立场很清楚：
 
 ## Engram 怎么做
 
+![条件记忆检索路径](../../assets/inline-deepseek-engram-conditional-memory-03.jpg)
+
 模块骨架可以概括成四步：
 
 1. **Tokenizer 压缩**：归一化等价 token（大小写、NFKC 等），提高语义密度（文中称 128k 词表有效规模约降 23%）。  

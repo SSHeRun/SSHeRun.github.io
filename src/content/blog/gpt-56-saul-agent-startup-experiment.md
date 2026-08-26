@@ -27,6 +27,8 @@ Harness 用「心跳循环」定期发「继续」，让 Saul 在中等思考强
 
 ## 24 小时成绩单
 
+![Agent 与真实商业摩擦](../../assets/inline-gpt-56-saul-agent-startup-experiment-03.jpg)
+
 | 指标 | 结果 |
 |------|------|
 | Token 消耗 | **3.207 亿** prompt tokens |

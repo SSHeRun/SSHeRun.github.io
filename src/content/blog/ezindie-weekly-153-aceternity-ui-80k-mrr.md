@@ -25,6 +25,8 @@ tags: ['创业', '独立开发', '变现']
 
 ## 主角：Aceternity UI 怎么从爱好做到月入六位数
 
+![分发优先于完美](../../assets/inline-ezindie-weekly-153-aceternity-ui-80k-mrr-03.jpg)
+
 Manu 是开发者，也经营网页设计工作室 **Aceternity**，帮创始人把想法做成网站。组件库最初只是个人项目的副产品。
 
 ### 关键转折：没人读博客，人人要复制粘贴

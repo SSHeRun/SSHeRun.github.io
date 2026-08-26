@@ -18,6 +18,8 @@ tags: ['创业', '传播', '产品']
 
 ## 三种原型，三种关系
 
+![Problem / Insight / Vision 原型](../../assets/inline-lenny-founder-archetypes-comms-strategy-03.jpg)
+
 每个 why 都独特，但几乎都落在三类之一；它们对应受众的三种感受：
 
 | 原型 | 动机 | 受众感受 |

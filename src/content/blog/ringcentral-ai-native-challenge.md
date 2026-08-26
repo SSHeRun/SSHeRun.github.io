@@ -20,6 +20,8 @@ RingCentral COO Kira Makagon 的说法很直白：当真正的 AI 工具普及�
 
 ## AI-Native Challenge：CEO 办公室发起的「全员交付」
 
+![全员 AI 原生挑战](../../assets/inline-ringcentral-ai-native-challenge-03.jpg)
+
 为在全球工程组织里建立 AI 流利度，RingCentral CEO 办公室赞助了 **AI-Native Challenge**：
 
 - 每位参与者拿到 **ChatGPT Work + Codex**

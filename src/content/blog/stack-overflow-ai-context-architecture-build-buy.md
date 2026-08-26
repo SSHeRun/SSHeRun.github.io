@@ -48,6 +48,8 @@ Ash 强调另一维度：**一致性与可预测性**。同问题多人问，答
 
 ## 自建 vs 购买：难的不只是代码
 
+![Agent 上下文护栏与信任分](../../assets/inline-stack-overflow-ai-context-architecture-build-buy-03.jpg)
+
 技术侧 RAG 都能写。Ash 认为真正贵的是：
 
 - Slack、Drive、Confluence、Jira… 汇入后的**冲突、残缺、错误**怎么识别与消解  

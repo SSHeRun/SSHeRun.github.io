@@ -25,6 +25,8 @@ tags: ['OpenAI', '网络安全', 'GPT-5.6']
 
 ## 数字说话：从 1.5% 到 95%
 
+![攻防分层与硬件密钥](../../assets/inline-openai-daybreak-gpt-56-cyber-defense-03.jpg)
+
 OpenAI 用内部评测 **Advanced Cybersecurity Completion Rate** 衡量模型对高级网络场景（利用链、认证绕过、权限提升等）的响应率：
 
 | 配置 | 完成率 |

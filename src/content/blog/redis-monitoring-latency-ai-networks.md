@@ -29,6 +29,8 @@ Prefill 一次性读完整 prompt；Decode 逐 token 写答案——负载下变
 
 ## 为什么延迟是「正确性」，不只是速度
 
+![RAG 检索优雅降级](../../assets/inline-redis-monitoring-latency-ai-networks-03.jpg)
+
 过载时 AI 系统很少直接 500，而是**悄悄变差**：
 
 - 搜索改搜内存子集，不碰全量索引
