@@ -2,7 +2,8 @@
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
+import SiteOgEn from '../assets/cover-agent-friendly-blog-en.jpg';
+import SiteOgZh from '../assets/cover-agent-friendly-blog.jpg';
 import { SITE_TITLE } from '../consts';
 import {
 	currentLocale,
@@ -28,13 +29,14 @@ const pageUrl = canonicalURL.href;
 const {
 	title,
 	description,
-	image = FallbackImage,
+	image: imageProp,
 	ogType = 'website',
 	articlePublishedTime,
 	articleModifiedTime,
 	locale = currentLocale(Astro.currentLocale),
 	alternates = pageAlternates(Astro.url.pathname, Astro.site),
 } = Astro.props;
+const image = imageProp ?? (locale === 'en' ? SiteOgEn : SiteOgZh);
 const meta = localeMeta[locale];
 const rssHref = new URL(locale === 'en' ? 'en/rss.xml' : 'rss.xml', Astro.site).href;
 const ogImageUrl = new URL(image.src, Astro.site).href;

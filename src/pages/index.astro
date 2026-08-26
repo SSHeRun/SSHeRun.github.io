@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import heroScene from '../assets/hero-agent-friendly-blog.jpg';
 import FormattedDate from '../components/FormattedDate.astro';
 import TagList from '../components/TagList.astro';
 import { currentLocale, localizedPath } from '../i18n/config';
@@ -17,6 +18,19 @@ const posts = postsForLocale(await getCollection('blog'), locale)
 <SitePage title={t(locale, 'siteTitle')} description={t(locale, 'siteDescription')}>
 		<main>
 			<section class="hero">
+				<div class="hero-visual" aria-hidden="true">
+					<Image
+						src={heroScene}
+						alt=""
+						width={1600}
+						height={800}
+						sizes="100vw"
+						loading="eager"
+						fetchpriority="high"
+						class="hero-scene"
+					/>
+					<div class="hero-fade"></div>
+				</div>
 				<div class="hero-mesh"></div>
 				<div class="hero-content">
 					<span class="hero-pill glass">{t(locale, 'heroPill')}</span>
@@ -72,6 +86,44 @@ const posts = postsForLocale(await getCollection('blog'), locale)
 				position: relative;
 				padding: 5rem 0 3.5rem;
 				overflow: hidden;
+				min-height: clamp(280px, 38vw, 420px);
+				display: flex;
+				align-items: center;
+			}
+			.hero-visual {
+				position: absolute;
+				inset: 0;
+				z-index: -2;
+				pointer-events: none;
+			}
+			.hero-scene {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: 70% 40%;
+				opacity: 0.42;
+				filter: saturate(1.05) contrast(1.02);
+			}
+			:global([data-theme='dark']) .hero-scene {
+				opacity: 0.55;
+			}
+			.hero-fade {
+				position: absolute;
+				inset: 0;
+				background:
+					linear-gradient(
+						90deg,
+						var(--bg) 0%,
+						color-mix(in srgb, var(--bg) 82%, transparent) 42%,
+						color-mix(in srgb, var(--bg) 35%, transparent) 72%,
+						transparent 100%
+					),
+					linear-gradient(
+						180deg,
+						color-mix(in srgb, var(--bg) 20%, transparent) 0%,
+						transparent 35%,
+						color-mix(in srgb, var(--bg) 55%, transparent) 100%
+					);
 			}
 			.hero-mesh {
 				position: absolute;
