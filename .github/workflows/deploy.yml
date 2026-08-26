@@ -27,6 +27,8 @@ jobs:
 
       - run: npm ci --legacy-peer-deps
 
+      - run: npm run verify:blog
+
       - run: npm run build
 
       - uses: actions/upload-pages-artifact@v3

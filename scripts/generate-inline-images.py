@@ -111,6 +111,39 @@ POSTS: dict[str, dict[str, object]] = {
 }
 
 
+def infer_palette(slug: str) -> list[tuple[int, int, int]]:
+    h = hashlib.sha256(slug.encode()).hexdigest()
+    bases = [(8, 18, 42), (20, 16, 30), (12, 10, 24), (6, 20, 36), (10, 14, 28)]
+    accents = [(0, 180, 220), (255, 120, 80), (255, 90, 120), (255, 150, 40), (120, 220, 120)]
+    i = int(h[:2], 16) % len(bases)
+    j = int(h[2:4], 16) % len(accents)
+    k = int(h[4:6], 16) % len(accents)
+    return [bases[i], accents[j], accents[k]]
+
+
+def resolve_meta(slug: str) -> dict[str, object]:
+    if slug in POSTS:
+        return POSTS[slug]
+    zh_path = BLOG_DIR / f"{slug}.md"
+    if not zh_path.exists():
+        raise SystemExit(f"missing post: {slug}.md")
+    text = zh_path.read_text(encoding="utf-8")
+    title = slug.replace("-", " ")
+    if text.startswith("---"):
+        _, raw, _ = text.split("---", 2)
+        for line in raw.splitlines():
+            if line.startswith("title:"):
+                title = line.split(":", 1)[1].strip().strip("'\"")
+                break
+    return {
+        "palette": infer_palette(slug),
+        "captions": {
+            "zh": [f"{title}概览", f"{title}细节"],
+            "en": [f"{title} — overview", f"{title} — detail"],
+        },
+    }
+
+
 def seed_for(slug: str, idx: int) -> int:
     h = hashlib.sha256(f"{slug}:{idx}".encode()).hexdigest()
     return int(h[:8], 16)
@@ -249,7 +282,7 @@ def insert_images(body: str, slug: str, captions: list[str]) -> str:
 
 
 def process_slug(slug: str) -> None:
-    meta = POSTS[slug]
+    meta = resolve_meta(slug)
     generate_assets(slug, meta)
     captions = meta["captions"]  # type: ignore[assignment]
     for lang, suffix in (("zh", ".md"), ("en", ".en.md")):
@@ -266,7 +299,12 @@ def process_slug(slug: str) -> None:
 
 
 def main() -> None:
-    for slug in POSTS:
+    import sys
+
+    slugs = [s for s in sys.argv[1:] if not s.startswith("-")]
+    if not slugs:
+        slugs = list(POSTS.keys())
+    for slug in slugs:
         process_slug(slug)
 
 

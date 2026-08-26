@@ -84,6 +84,87 @@ POSTS: dict[str, dict] = {
     },
 }
 
+INLINE_REF_RE = re.compile(r"!\[([^\]]*)\]\(\.\./\.\./assets/(inline-[^)]+\.jpg)\)")
+
+
+def parse_frontmatter(path: Path) -> dict[str, object]:
+    text = path.read_text(encoding="utf-8")
+    if not text.startswith("---"):
+        return {}
+    _, raw, _ = text.split("---", 2)
+    data: dict[str, object] = {}
+    for line in raw.splitlines():
+        if ":" not in line:
+            continue
+        key, value = line.split(":", 1)
+        data[key.strip()] = value.strip().strip("'\"")
+    tags_match = re.search(r"tags:\s*\[(.*?)\]", raw, re.S)
+    if tags_match:
+        data["tags"] = [item.strip().strip("'\"") for item in tags_match.group(1).split(",") if item.strip()]
+    else:
+        data["tags"] = []
+    return data
+
+
+def infer_queries(slug: str, meta: dict[str, object]) -> list[str]:
+    tags = meta.get("tags") or []
+    tag_part = " ".join(str(t) for t in tags[:2])
+    slug_words = slug.replace("-", " ")
+    if tag_part:
+        return [f"{tag_part} technology abstract", f"{tag_part} workspace concept"]
+    return [f"{slug_words} technology", f"{slug_words} abstract concept"]
+
+
+def infer_captions(slug: str, lang: str, meta: dict[str, object]) -> list[str]:
+    path = BLOG_DIR / (f"{slug}.en.md" if lang == "en" else f"{slug}.md")
+    if path.exists():
+        text = path.read_text(encoding="utf-8")
+        refs = [m.group(1) for m in INLINE_REF_RE.finditer(text) if f"inline-{slug}-" in m.group(2)]
+        if len(refs) >= 2:
+            return refs[:2]
+    title = str(meta.get("title") or slug)
+    if lang == "en":
+        return [f"{title} — overview", f"{title} — detail"]
+    return [f"{title}概览", f"{title}细节"]
+
+
+def resolve_meta(slug: str) -> dict[str, object]:
+    if slug in POSTS:
+        return POSTS[slug]
+    zh_path = BLOG_DIR / f"{slug}.md"
+    if not zh_path.exists():
+        raise SystemExit(f"missing post: {slug}.md")
+    meta = parse_frontmatter(zh_path)
+    queries = infer_queries(slug, meta)
+    return {
+        "queries": queries,
+        "zh": infer_captions(slug, "zh", meta),
+        "en": infer_captions(slug, "en", meta),
+    }
+
+
+def missing_inline_files(slug: str) -> list[Path]:
+    missing: list[Path] = []
+    for path in (BLOG_DIR / f"{slug}.md", BLOG_DIR / f"{slug}.en.md"):
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        for match in INLINE_REF_RE.finditer(text):
+            asset = ASSETS / Path(match.group(2)).name
+            if not asset.exists() or asset.stat().st_size < 10_000:
+                if asset not in missing:
+                    missing.append(asset)
+    return missing
+
+
+def discover_slugs_with_missing_assets() -> list[str]:
+    slugs: set[str] = set()
+    for md in BLOG_DIR.glob("*.md"):
+        slug = md.name.replace(".en.md", "").replace(".md", "")
+        if missing_inline_files(slug):
+            slugs.add(slug)
+    return sorted(slugs)
+
 
 def load_pexels_key() -> str:
     if not ENV_FILE.exists():
@@ -172,7 +253,7 @@ def insert_images(text: str, slug: str, captions: list[str]) -> str:
 
 
 def process_slug(api_key: str, slug: str, used_ids: set[int], dry_run: bool = False) -> None:
-    meta = POSTS[slug]
+    meta = resolve_meta(slug)
     for idx, query in enumerate(meta["queries"], start=1):
         dest = ASSETS / f"inline-{slug}-0{idx}.jpg"
         if dest.exists() and dest.stat().st_size > 10000:
@@ -191,7 +272,6 @@ def process_slug(api_key: str, slug: str, used_ids: set[int], dry_run: bool = Fa
             continue
         text = path.read_text(encoding="utf-8")
         if "inline-" in text:
-            print(f"skip markdown already has inline images: {path.name}")
             continue
         updated = insert_images(text, slug, meta[lang])
         if updated != text:
@@ -202,16 +282,24 @@ def process_slug(api_key: str, slug: str, used_ids: set[int], dry_run: bool = Fa
 
 def main() -> None:
     dry_run = "--dry-run" in sys.argv
+    discover = "--discover" in sys.argv
     slugs = [s for s in sys.argv[1:] if not s.startswith("-")]
+
+    if discover:
+        found = discover_slugs_with_missing_assets()
+        if not found:
+            print("no missing inline assets")
+            return
+        for slug in found:
+            print(slug, "->", ", ".join(p.name for p in missing_inline_files(slug)))
+        return
+
     if not slugs:
-        slugs = list(POSTS.keys())
+        slugs = discover_slugs_with_missing_assets() or list(POSTS.keys())
 
     api_key = load_pexels_key()
     used_ids: set[int] = set()
     for slug in slugs:
-        if slug not in POSTS:
-            print(f"warn: unknown slug {slug}")
-            continue
         process_slug(api_key, slug, used_ids, dry_run=dry_run)
 
     print("done")

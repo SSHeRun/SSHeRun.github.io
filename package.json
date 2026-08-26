@@ -9,6 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "icons": "node scripts/generate-favicons.mjs",
+    "verify:blog": "node scripts/verify-blog-assets.mjs",
+    "publish:blog": "bash scripts/publish-blog.sh",
     "astro": "astro"
   },
   "dependencies": {
