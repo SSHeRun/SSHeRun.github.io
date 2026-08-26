@@ -3,7 +3,7 @@ title: 'Self-host your mail server in 2026: docker-mailserver, rspamd, and local
 description: '"Don''t self-host email" is outdated. Home vs VPS requirements, SPF/DKIM/DMARC setup, docker-mailserver, and Gmail-class antispam with rspamd plus a local Gemma model.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-self-host-mail-server-local-llm-antispam-en.jpg'
-tags: ['教程', '自建', '邮件']
+tags: ['教程', '工具', '开源']
 lang: en
 translationKey: 'self-host-mail-server-local-llm-antispam'
 ---
@@ -173,3 +173,10 @@ If you already run a homelab and a local LLM, wiring rspamd is probably the **hi
 ---
 
 **Source:** [You should self-host your mail server](https://blog.haschek.at/2026/you-should-selfhost-your-mail.html)
+
+## Related posts
+
+- [[x-3-open-source-tools-autoclip-cloud-mail-open-lovable|Three open-source tools from X]]
+- [[windows-c-drive-cleanup-guide|A complete guide to cleaning a Windows C: drive]]
+- [[openclaw-deployment-guide|OpenClaw deployment guide]]
+- [[cloudflare-workers-access-vibe-coded-apps|Cloudflare Workers Access for vibe-coded apps]]

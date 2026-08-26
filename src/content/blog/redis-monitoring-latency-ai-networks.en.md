@@ -3,7 +3,7 @@ title: 'Monitoring Looks Fine, Answers Get Worse: Latency Is a Correctness Probl
 description: 'Flat error rates hide thinner RAG context and truncated agent loops. Why TTFT, tail latency, per-stage retrieval metrics, and SLOs matter for answer quality—not just speed.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-redis-monitoring-latency-ai-networks-en.jpg'
-tags: ['Redis', 'AI', 'SRE', 'RAG']
+tags: ['工程', 'LLM', '工具']
 lang: en
 translationKey: 'redis-monitoring-latency-ai-networks'
 ---
@@ -102,3 +102,10 @@ GitHub cut Copilot's default toolset from 40 to 13 and saw **~400ms lower averag
 Latency in AI networks spans TTFT, ITL, end-to-end, and tail percentiles across retrieval, inference, tools, and fan-out. When any stage slips, systems often trade answer quality for availability. Monitor per stage, at the tail, with SLOs attached—before users notice the regression.
 
 **Source:** [Why it's important to monitor latency in AI networks](https://redis.io/blog/monitoring-latency-ai-networks/)
+
+## Related posts
+
+- [[stack-overflow-ai-context-architecture-build-buy|Stack Overflow on AI context architecture]]
+- [[kdc-knowledge-engineering-not-files|KDC: knowledge engineering is not files]]
+- [[cli-ai-revival|CLI: the command-line revival in the AI era]]
+- [[software-engineering-splits-three|Software engineering is splitting into three layers]]

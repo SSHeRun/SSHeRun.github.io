@@ -3,7 +3,7 @@ title: 'RingCentral Goes AI-Native: From Company-Wide Challenge to PMO OS'
 description: 'OpenAI case study: RingCentral gave ChatGPT Work and Codex to thousands of employees for end-to-end projects; PMO turned AI workflows into a program-management OS while accelerating AIR/AVA/ACE voice AI.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-ringcentral-ai-native-challenge-en.jpg'
-tags: ['AI', 'Enterprise AI', 'Product']
+tags: ['产品', '组织', '效率']
 lang: en
 translationKey: 'ringcentral-ai-native-challenge'
 ---
@@ -73,3 +73,10 @@ Public announcements around the same period also embed **OpenAI frontier models 
 ---
 
 **Source:** [How RingCentral builds AI-native work from engineering to ops](https://openai.com/index/ringcentral/)
+
+## Related posts
+
+- [[ai-organization-redesign|AI made people faster. Why not the company?]]
+- [[coding-agents-reshape-epd|How coding agents reshape EPD]]
+- [[whatnot-cpo-regrets-pm-exists|Whatnot's CPO: We regret that the PM function exists]]
+- [[taste-at-speed-pm-skill|Taste at Speed]]

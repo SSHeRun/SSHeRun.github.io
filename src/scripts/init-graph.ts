@@ -72,7 +72,7 @@ const elements = [
 			nodeType: node.type,
 			url: node.url || '',
 			cluster: node.cluster || '',
-			clusterColor: node.clusterColor || theme.accentSecondary,
+			clusterColor: node.clusterColor || (node.type === 'post' ? theme.accent : theme.accentSecondary),
 			weight: node.weight ?? 1,
 		},
 	})),
@@ -129,7 +129,7 @@ const cy = cytoscape({
 		{
 			selector: 'node[nodeType="post"]',
 			style: {
-				'background-color': theme.accent,
+				'background-color': 'data(clusterColor)',
 				label: 'data(label)',
 				color: theme.text,
 				'font-size': '11px',
@@ -138,7 +138,7 @@ const cy = cytoscape({
 				width: 26,
 				height: 26,
 				'border-width': 2,
-				'border-color': theme.accent,
+				'border-color': 'data(clusterColor)',
 				'text-max-width': '110px',
 				'text-wrap': 'ellipsis',
 			},
@@ -202,15 +202,22 @@ const cy = cytoscape({
 	],
 	layout: {
 		name: 'cose',
-		idealEdgeLength: 110,
-		nodeOverlap: 24,
-		padding: 36,
+		idealEdgeLength: 130,
+		nodeOverlap: 28,
+		padding: 48,
 		animate: true,
-		animationDuration: 600,
-		componentSpacing: 80,
-		nodeRepulsion: () => 6400,
-		gravity: 0.25,
-		numIter: 1200,
+		animationDuration: 700,
+		componentSpacing: 100,
+		nodeRepulsion: (node) => {
+			const type = node.data('nodeType');
+			if (type === 'cluster') return 12000;
+			if (type === 'tag') return 8000;
+			return 5200;
+		},
+		gravity: 0.18,
+		numIter: 1600,
+		coolingFactor: 0.95,
+		initialTemp: 1200,
 	},
 	minZoom: 0.25,
 	maxZoom: 3,
@@ -365,11 +372,7 @@ const observer = new MutationObserver(() => {
 	const next = readTheme();
 	cy.style()
 		.selector('node[nodeType="post"]')
-		.style({
-			'background-color': next.accent,
-			'border-color': next.accent,
-			color: next.text,
-		})
+		.style({ color: next.text })
 		.selector('node[nodeType="tag"], node[nodeType="cluster"]')
 		.style({ color: next.text })
 		.selector('edge[edgeType="wikilink"]')
@@ -377,6 +380,8 @@ const observer = new MutationObserver(() => {
 			'line-color': next.accent,
 			'target-arrow-color': next.accent,
 		})
+		.selector('edge[edgeType="related-tag"]')
+		.style({ 'line-color': next.accentSecondary })
 		.update();
 });
 observer.observe(themeRoot, { attributes: true, attributeFilter: ['data-theme'] });

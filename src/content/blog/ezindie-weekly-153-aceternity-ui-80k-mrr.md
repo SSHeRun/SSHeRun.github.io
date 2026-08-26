@@ -3,7 +3,7 @@ title: '独立开发周刊 153：一个 UI 组件库，两月收入 8 万美元'
 description: 'ezindie 第 153 期：Aceternity UI 从 7 个组件周末上线到 Pro 两月收入超 8 万；月总收 6–10 万、团队 6 人。附 Marblism、Robopost、Tattoon、formbricks 速览。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-ezindie-weekly-153-aceternity-ui-80k-mrr.jpg'
-tags: ['创业', '独立开发', '变现']
+tags: ['创业', '产品', '开源']
 ---
 
 [ezindie 独立开发变现周刊第 153 期](https://www.ezindie.com/weekly/issue-153) 的标题很直白：**一个网站 UI 组件库，每月收入 8 万美元。**
@@ -81,3 +81,10 @@ Manu 给 Pro 的明年目标是 **$10 万 MRR**，同时在试广告和 YouTube�
 ---
 
 *来源：[ezindie 周刊第 153 期](https://www.ezindie.com/weekly/issue-153)*
+
+## 相关文章
+
+- [[youmind-nonconsensus-startup-choices|YouMind 创业路上的非共识选择]]
+- [[ai-customer-service-revenue|客服不是成本中心]]
+- [[first-principles-startup-review|用 AI 做第一性原理审查]]
+- [[programmer-35-crisis-and-self-rescue|35岁程序员危机与自救指南]]

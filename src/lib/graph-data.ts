@@ -104,13 +104,19 @@ export function buildGraphData(posts: GraphPost[], locale: Locale = 'zh-CN'): Gr
 		}
 	}
 
+	const postIds = new Set(posts.map((p) => postKey(p)));
+
 	for (const post of posts) {
 		const key = postKey(post);
+		const primaryTag = (post.data.tags ?? []).find((tag) => getTagCluster(tag));
+		const cluster = primaryTag ? getTagCluster(primaryTag) : undefined;
 		nodes.push({
 			id: key,
 			label: post.data.title,
 			type: 'post',
 			url: localizedPath(locale, `/blog/${key}/`),
+			cluster: cluster?.id,
+			clusterColor: cluster?.color,
 			weight: post.data.tags?.length ?? 1,
 		});
 
@@ -122,7 +128,7 @@ export function buildGraphData(posts: GraphPost[], locale: Locale = 'zh-CN'): Gr
 		if (wikilinks) {
 			for (const match of wikilinks) {
 				const target = match.slice(2).trim().replace(/\.en$/, '');
-				if (posts.some((p) => postKey(p) === target || p.id === target)) {
+				if (postIds.has(target) || posts.some((p) => p.id === target)) {
 					addEdge(key, target, 'wikilink');
 				}
 			}

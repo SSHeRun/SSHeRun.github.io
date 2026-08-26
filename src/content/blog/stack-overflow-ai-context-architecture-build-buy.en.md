@@ -3,7 +3,7 @@ title: 'Before You Let Agents Run Loose: Stack Overflow on AI Context Architectu
 description: 'Context architecture is not the RAG pipeline — it is guardrails, Scopes, trust scores, and human-in-the-loop. Stack engineering and product leads unpack infrastructure vs architecture vs engineering, and what build-vs-buy debates miss.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-stack-overflow-ai-context-architecture-build-buy-en.jpg'
-tags: ['AI', 'Agent', 'RAG']
+tags: ['Agent', '工程', 'LLM']
 lang: en
 translationKey: 'stack-overflow-ai-context-architecture-build-buy'
 ---
@@ -70,3 +70,10 @@ Buying (they pitch Stack Internal) claims ~20 categories of edge cases already e
 ---
 
 **Source:** [What is AI context architecture? Why not just build your own?](https://stackoverflow.blog/2026/08/14/ndq-ai-context-architecture-build-buy/)
+
+## Related posts
+
+- [[kdc-knowledge-engineering-not-files|KDC: knowledge engineering is not files]]
+- [[forceful-systems-fly-off-multi-agent-illusion|Why virtual-company multi-agent setups fail]]
+- [[hello-world|An agent-friendly blog]]
+- [[dual-entry-human-agent-design|Two product entrances]]

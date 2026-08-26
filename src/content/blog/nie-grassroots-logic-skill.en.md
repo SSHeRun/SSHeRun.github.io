@@ -3,7 +3,7 @@ title: 'Book to Agent Skill: Nie’s Grassroots China Logic Toolbox'
 description: 'Open-source nie-grassroots-logic distills Nie Huihua’s book on grassroots governance into a Cursor/Codex skill — no full text, but frameworks for news, careers, investment, and local policy choices.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-nie-grassroots-logic-skill-en.jpg'
-tags: ['AI', 'Agent', 'Skill']
+tags: ['Agent', 'Skills', '思考']
 lang: en
 translationKey: 'nie-grassroots-logic-skill'
 ---
@@ -73,3 +73,10 @@ Open source, no full book text — buy the book if you want depth.
 ---
 
 **Takeaway for agent builders:** “monograph → skill” is a pattern worth copying — extract **repeatable judgment frameworks** from long texts instead of pasting PDF chunks every session. Cheaper tokens, steadier outputs.
+
+## Related posts
+
+- [[agent-skills-five-design-patterns|Five design patterns for Agent Skills]]
+- [[anthropic-skills-lessons|Lessons from hundreds of Skills inside Anthropic]]
+- [[top-skill-yc-ceo-review|What a top Skill looks like]]
+- [[ai-multi-advisor-decision-system|A multi-advisor decision system]]

@@ -3,7 +3,7 @@ title: 'Nvidia''s Risky Business: AI Infrastructure Funding Enters the Danger Zo
 description: 'Stratechery deep dive: from 1873 railroad bonds to hyperscaler debt, Google equity, and Nvidia''s $500B GPU financing platform — each funding layer is riskier than the last.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-nvidia-risky-business-ai-funding-en.jpg'
-tags: ['创业', 'AI', '芯片']
+tags: ['创业', '思考', 'LLM']
 lang: en
 translationKey: 'nvidia-risky-business-ai-funding'
 ---
@@ -93,3 +93,10 @@ For builders this isn't chip-stock gossip. Hyperscaler buildouts don't instantly
 
 **Source:** [Nvidia's Risky Business — Stratechery](https://stratechery.com/2026/nvidias-risky-business/)  
 **Related:** [The Google Capital Company](https://stratechery.com/2026/the-google-capital-company/) · [Nvidia Waves and Moats](https://stratechery.com/2024/nvidia-waves-and-moats/)
+
+## Related posts
+
+- [[youmind-nonconsensus-startup-choices|Notes on YouMind's non-consensus startup choices]]
+- [[first-principles-startup-review|First-principles review of a startup plan]]
+- [[gpt-56-saul-agent-startup-experiment|GPT-5.6 as a startup boss experiment]]
+- [[programmer-35-crisis-and-self-rescue|The 35-year-old programmer crisis]]

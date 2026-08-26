@@ -3,7 +3,7 @@ title: 'Agent 敢放手的前提：Stack Overflow 谈 AI 上下文架构'
 description: '上下文架构不是 RAG 管道，而是护栏、Scope、信任分与人机回环。Stack 工程与产品负责人拆解基础设施/架构/工程三分法，以及自建时常被低估的冲突消解与可预期性。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-stack-overflow-ai-context-architecture-build-buy.jpg'
-tags: ['AI', 'Agent', 'RAG']
+tags: ['Agent', '工程', 'LLM']
 ---
 
 RAG 搭好了，Agent 还是乱答、乱翻 Slack、把「创新脑暴频道」里的未上线想法当事实？问题往往不在模型，而在**上下文架构**——Stack Overflow 这篇 [No Dumb Questions 访谈](https://stackoverflow.blog/2026/08/14/ndq-ai-context-architecture-build-buy/) 把这件事讲得很直白。
@@ -68,3 +68,10 @@ Ash 强调另一维度：**一致性与可预测性**。同问题多人问，答
 ---
 
 **原文：** [What is AI context architecture? Why not just build your own?](https://stackoverflow.blog/2026/08/14/ndq-ai-context-architecture-build-buy/)
+
+## 相关文章
+
+- [[kdc-knowledge-engineering-not-files|KDC：知识工程不是文件]]
+- [[forceful-systems-fly-off-multi-agent-illusion|力大砖飞：多 Agent 幻觉]]
+- [[hello-world|做一个对 Agent 友好的博客]]
+- [[dual-entry-human-agent-design|产品的两个入口]]

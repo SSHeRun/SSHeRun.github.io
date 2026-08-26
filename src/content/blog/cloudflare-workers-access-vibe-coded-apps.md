@@ -3,7 +3,7 @@ title: 'Vibe Coding 的副作用：Cloudflare 让 Workers 默认先登录'
 description: 'AI 让人人都能部署公网应用，CISO 睡不着。Cloudflare Access for Workers 把策略绑在 Worker 上，账号级默认私有，ctx.access 免 JWT 拿身份——预览 URL 也不再裸奔。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-cloudflare-workers-access-vibe-coded-apps.jpg'
-tags: ['Cloudflare', 'Workers', '安全']
+tags: ['工程', '教程', '工具']
 ---
 
 AI 让产品、运营、设计都能「vibe code」出一个能用的内部工具，点几下就部署到公网。爽是爽，安全团队的头也大了：**任何员工都能把半成品或内部数据意外暴露在互联网上。**
@@ -86,3 +86,10 @@ export default {
 Vibe coding 把「谁能部署」的门槛打没了，**默认安全态**必须跟着产品走，不能靠开发者记忆。Access for Workers 把零信任从「配域名」升级成「配应用」，对跑 Workers/Pages 的团队是实打实省事故、省运维的配置项。
 
 **文档：** [Cloudflare Access for Workers](https://developers.cloudflare.com/workers/configuration/cloudflare-access/)
+
+## 相关文章
+
+- [[hello-world|做一个对 Agent 友好的博客]]
+- [[cli-ai-revival|CLI：AI 时代的命令行复兴]]
+- [[self-host-mail-server-local-llm-antispam|2026 自建邮件服务器教程]]
+- [[x-3-open-source-tools-autoclip-cloud-mail-open-lovable|X 上三款开源神器]]

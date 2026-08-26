@@ -3,7 +3,7 @@ title: '防御窗口收窄：OpenAI 扩展 Daybreak 与 GPT-5.6-Cyber'
 description: '攻击方将用 AI 规模化发动网络战，防守方时间不多。OpenAI 推出 Daybreak Blue/Red 分层访问与 GPT-5.6-Cyber，高级网络任务完成率从 1.5% 拉到 95%，并在 V8 等真实代码库中发现 CVE。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-openai-daybreak-gpt-56-cyber-defense.jpg'
-tags: ['OpenAI', '网络安全', 'GPT-5.6']
+tags: ['LLM', '工程', '教程']
 ---
 
 威胁行为者正在用 AI 以空前速度与规模发动网络攻击——包括全自主形态。OpenAI 的判断很直白：**在进攻型 AI 大规模落地之前，必须把前沿智能交到可信防守者手里。**
@@ -72,3 +72,10 @@ Blue 解决的是「护栏误伤防御」；Red + Cyber 解决的是「合法攻
 ---
 
 **原文：** [Expanding Daybreak as the Cyber Defense Window Narrows](https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/)
+
+## 相关文章
+
+- [[deepseek-engram-conditional-memory|DeepSeek Engram：条件记忆]]
+- [[wideseek-ai-cp|WideSeek：宽×深]]
+- [[cloudflare-workers-access-vibe-coded-apps|Cloudflare Workers Access]]
+- [[hello-world|做一个对 Agent 友好的博客]]

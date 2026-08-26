@@ -3,7 +3,7 @@ title: 'Indie Weekly #153: A UI Component Library Hit $80K in Two Months'
 description: 'ezindie issue 153: Aceternity UI went from 7 components shipped over a weekend to $80K+ Pro revenue in two months; $60–100K/mo total with a 6-person team. Plus Marblism, Robopost, Tattoon, formbricks.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-ezindie-weekly-153-aceternity-ui-80k-mrr-en.jpg'
-tags: ['创业', '独立开发', '变现']
+tags: ['创业', '产品', '开源']
 lang: en
 translationKey: 'ezindie-weekly-153-aceternity-ui-80k-mrr'
 ---
@@ -83,3 +83,10 @@ Manu targets **$100K MRR** for Pro next year and is testing ads and YouTube. For
 ---
 
 *Source: [ezindie weekly issue #153](https://www.ezindie.com/weekly/issue-153)*
+
+## Related posts
+
+- [[youmind-nonconsensus-startup-choices|Notes on YouMind's non-consensus startup choices]]
+- [[ai-customer-service-revenue|Customer support is not a cost center]]
+- [[first-principles-startup-review|First-principles review of a startup plan]]
+- [[programmer-35-crisis-and-self-rescue|The 35-year-old programmer crisis]]

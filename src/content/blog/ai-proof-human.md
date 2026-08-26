@@ -3,7 +3,7 @@ title: "糟糕！45年前的论文被判AI生成，人类该如何自证？"
 description: "当AI检测器把1981年的论文判定为AI生成，人类陷入了「自证困境」。这不是科幻，而是正在发生的现实。"
 pubDate: "2026-03-27"
 heroImage: "../../assets/cover-ai-proof-human.jpg"
-tags: ['思考']
+tags: ['思考', '职业']
 ---
 
 # 糟糕！45年前的论文被判AI生成，人类该如何自证？

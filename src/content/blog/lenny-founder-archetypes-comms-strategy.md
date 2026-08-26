@@ -3,7 +3,7 @@ title: '让人在乎你的创业：三种创始人原型与传播策略'
 description: 'Lenny 客座稿 Kristen Lowe：创业易、被在乎难；答案往往是「你为什么创办这家公司？」Problem / Insight / Vision 三种原型决定传播目标、语气与渠道。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-lenny-founder-archetypes-comms-strategy.jpg'
-tags: ['创业', '传播', '产品']
+tags: ['创业', '产品', '组织']
 ---
 
 [Lenny's Newsletter 这篇客座稿](https://www.lennysnewsletter.com/p/how-to-make-people-care-about-your)来自执行代笔与叙事策略师 **Kristen Lowe**（前 Hinge、即将出任 Scribe 创始人传播负责人）。核心不是教你写爆款标题，而是回答一个更基础的问题：
@@ -84,3 +84,10 @@ tags: ['创业', '传播', '产品']
 4. slop 越多，诚实、具体的 founder voice 越值钱。
 
 完整笔记在第二大脑：`创业商业/Lenny-创始人三种原型-让人在乎你的创业.md`。原文：[Lenny's Newsletter](https://www.lennysnewsletter.com/p/how-to-make-people-care-about-your)。
+
+## 相关文章
+
+- [[whatnot-cpo-regrets-pm-exists|Whatnot CPO：后悔 PM 职能存在]]
+- [[youmind-nonconsensus-startup-choices|YouMind 创业路上的非共识选择]]
+- [[coding-agents-reshape-epd|编程 Agent 如何重塑 EPD]]
+- [[ai-customer-service-revenue|客服不是成本中心]]

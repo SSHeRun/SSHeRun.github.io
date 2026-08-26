@@ -3,7 +3,7 @@ title: 'The Vibe-Coding Hangover: Cloudflare Locks Workers Behind Login by Defau
 description: 'AI lets anyone ship to the public Internet — and keeps CISOs awake. Access for Workers attaches policy to the Worker itself, defaults accounts to private, and exposes identity via ctx.access without JWT parsing.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-cloudflare-workers-access-vibe-coded-apps-en.jpg'
-tags: ['Cloudflare', 'Workers', 'Security']
+tags: ['工程', '教程', '工具']
 lang: en
 translationKey: 'cloudflare-workers-access-vibe-coded-apps'
 ---
@@ -90,3 +90,10 @@ This isn't just product packaging. In the old stack (FL1, NGINX + Lua), Access r
 Vibe coding removed the "who can deploy" barrier. **Secure-by-default** has to move at product speed, not developer discipline. Access for Workers upgrades zero trust from "configure hostnames" to "configure apps" — a real ops win for anyone on Workers/Pages.
 
 **Docs:** [Cloudflare Access for Workers](https://developers.cloudflare.com/workers/configuration/cloudflare-access/)
+
+## Related posts
+
+- [[hello-world|An agent-friendly blog]]
+- [[cli-ai-revival|CLI: the command-line revival in the AI era]]
+- [[self-host-mail-server-local-llm-antispam|Self-host a mail server in 2026]]
+- [[x-3-open-source-tools-autoclip-cloud-mail-open-lovable|Three open-source tools from X]]

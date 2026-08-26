@@ -3,7 +3,7 @@ title: 'RingCentral 全员 AI 原生：从 Challenge 到 PMO 操作系统'
 description: 'OpenAI 案例：RingCentral 用 ChatGPT Work 与 Codex 让数千员工交付端到端项目，PMO 把 AI workflow 变成项目管理 OS，同一套方法加速 AIR/AVA/ACE 语音 AI 产品。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-ringcentral-ai-native-challenge.jpg'
-tags: ['AI', '企业AI', '产品落地']
+tags: ['产品', '组织', '效率']
 ---
 
 一家年收入超过 26 亿美元、做了近 30 年企业通信的公司，现在怎么把 AI 写进组织 DNA？
@@ -71,3 +71,10 @@ Challenge 本身也是更大战略的可复制模型：RingCentral 用同一套 
 ---
 
 **原文：** [How RingCentral builds AI-native work from engineering to ops](https://openai.com/index/ringcentral/)
+
+## 相关文章
+
+- [[ai-organization-redesign|AI 让员工变快了，公司为何没变强]]
+- [[coding-agents-reshape-epd|编程 Agent 如何重塑 EPD]]
+- [[whatnot-cpo-regrets-pm-exists|Whatnot CPO：后悔 PM 职能存在]]
+- [[taste-at-speed-pm-skill|Taste at Speed]]

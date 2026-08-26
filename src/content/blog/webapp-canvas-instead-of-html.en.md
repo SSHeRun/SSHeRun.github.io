@@ -3,7 +3,7 @@ title: 'Why You Might Want to Build Your WebApp in Canvas Instead of HTML'
 description: 'Why Google Docs, Sheets, Canva, Miro, and Hivekit’s scheduler paint core UI on Canvas—speed, control, consistency, portability—and when you should not.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-webapp-canvas-instead-of-html-en.jpg'
-tags: ['Frontend', 'Canvas', 'Engineering', 'Performance']
+tags: ['工程', '设计', '效率']
 lang: en
 translationKey: 'webapp-canvas-instead-of-html'
 ---
@@ -74,3 +74,10 @@ Default to the DOM. Reach for Canvas when the heart of the app is a large spatia
 Do not pick Canvas because it “sounds fast.” If the UI is a document, use a document model. If it is a scene, use a scene model.
 
 > Source: [Why you might want to build your WebApp in Canvas instead of HTML](https://hivekit.io/blog/why-you-might-want-to-build-your-webapp-in-canvas-instead-of-html/) (Hivekit)
+
+## Related posts
+
+- [[design-without-designing|Design Without Designing]]
+- [[ai-ui-design-workflow|Why AI-generated UI is not shippable]]
+- [[stitch-claude-ai-design-workflow|Google Stitch 2.0 + Claude Code]]
+- [[software-engineering-splits-three|Software engineering is splitting into three layers]]

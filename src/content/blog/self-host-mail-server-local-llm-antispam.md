@@ -3,7 +3,7 @@ title: '2026 自建邮件服务器教程：docker-mailserver + rspamd + 本地 L
 description: '「邮件不能自建」是过时说法。本文拆解家里/VPS 部署条件、SPF/DKIM/DMARC 配置、docker-mailserver 选型，以及用 rspamd 接本地 Gemma 实现 Gmail 级反垃圾的完整路径。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-self-host-mail-server-local-llm-antispam.jpg'
-tags: ['教程', '自建', '邮件']
+tags: ['教程', '工具', '开源']
 ---
 
 在自建社区里，有一句老生常谈：**「什么都能自建，就是别碰邮件服务器。」**
@@ -175,3 +175,10 @@ docker-mailserver 等现代方案支持自动安全更新，但**备份和恢复
 ---
 
 **参考原文：** [You should self-host your mail server](https://blog.haschek.at/2026/you-should-selfhost-your-mail.html)
+
+## 相关文章
+
+- [[x-3-open-source-tools-autoclip-cloud-mail-open-lovable|X 上三款开源神器]]
+- [[windows-c-drive-cleanup-guide|Windows C盘清理完全指南]]
+- [[openclaw-deployment-guide|OpenClaw 部署完全指南]]
+- [[cloudflare-workers-access-vibe-coded-apps|Cloudflare Workers Access]]

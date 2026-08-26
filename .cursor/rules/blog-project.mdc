@@ -27,10 +27,13 @@ globs:
 
 ## 文章规范
 - 文章存放在 `src/content/blog/` 下，格式为 Markdown (.md)
-- Frontmatter 必须包含：title, description, pubDate
-- 可选字段：updatedDate, heroImage, tags, lang (`zh` | `en`)，translationKey
+- Frontmatter 必须包含：title, description, pubDate, heroImage, tags
+- 可选字段：updatedDate, lang (`zh` | `en`)，translationKey
 - 中文稿 `hello-world.md` → `/blog/hello-world/`；英文稿 `hello-world.en.md`（`lang: en`）→ `/en/blog/hello-world/`
 - heroImage 路径格式：`../../assets/xxx.jpg`
+- **标签词表**（`src/lib/taxonomy.ts`）：每篇 2–4 个；中英共用同一套中文标签；禁止新增一次性词；禁止单独打「AI」（用 Agent / LLM / 工程）
+- **图谱互链**：文末必须有 `## 相关文章` / `## Related posts`，用 `[[slug|标题]]` 链到 2–4 篇真实文章；否则知识图谱会少引用边
+- 发布前跑 `npm run verify:blog`（CI 也会跑）：校验封面、标签词表、中英标签一致、相关文章互链
 
 ## Markdown 扩展
 - 支持 Obsidian 双向链接 `[[slug]]` `[[slug|text]]` `[[slug#heading]]`

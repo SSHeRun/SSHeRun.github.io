@@ -3,7 +3,7 @@ title: 'The Defense Window Is Closing: OpenAI Expands Daybreak and GPT-5.6-Cyber
 description: 'Threat actors will weaponize AI at unprecedented speed and scale. OpenAI responds with Daybreak Blue/Red tiers and GPT-5.6-Cyber — lifting advanced cyber task completion from 1.5% to 95% and finding real CVEs in V8 and beyond.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-openai-daybreak-gpt-56-cyber-defense-en.jpg'
-tags: ['OpenAI', 'Cybersecurity', 'GPT-5.6']
+tags: ['LLM', '工程', '教程']
 lang: en
 translationKey: 'openai-daybreak-gpt-56-cyber-defense'
 ---
@@ -77,3 +77,10 @@ Most defenders should start with [Daybreak Blue](https://openai.com/daybreak/); 
 ---
 
 **Source:** [Expanding Daybreak as the Cyber Defense Window Narrows](https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/)
+
+## Related posts
+
+- [[deepseek-engram-conditional-memory|DeepSeek Engram: conditional memory]]
+- [[wideseek-ai-cp|WideSeek: wide × deep]]
+- [[cloudflare-workers-access-vibe-coded-apps|Cloudflare Workers Access for vibe-coded apps]]
+- [[hello-world|An agent-friendly blog]]

@@ -3,7 +3,7 @@ title: 'When a 45-year-old paper is flagged as AI'
 description: 'An AI detector scored a 1981 paper as machine-written. Humans are now stuck proving they are not a model. This is not science fiction. It is happening.'
 pubDate: '2026-03-27'
 heroImage: '../../assets/cover-ai-proof-human-en.jpg'
-tags: ['思考']
+tags: ['思考', '职业']
 lang: en
 translationKey: 'ai-proof-human'
 ---

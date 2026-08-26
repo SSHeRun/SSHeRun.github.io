@@ -3,7 +3,7 @@ title: 'Nvidia 的危险生意：AI 基建融资已进入危险区'
 description: 'Stratechery 深读：从 1873 铁路债券到 hyperscaler 发债与 Google 股权融资，再到 Nvidia 拉养老金建 $5000 亿 GPU 融资平台——每一层融资都比上一层更紧张。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-nvidia-risky-business-ai-funding.jpg'
-tags: ['创业', 'AI', '芯片']
+tags: ['创业', '思考', 'LLM']
 ---
 AI 基建的钱从哪来？过去一年，答案从「自由现金流」一路滑到「债务」，再滑到「股权」，现在轮到「养老金和保险浮存金」。
 
@@ -88,3 +88,10 @@ Thompson 的收束很干脆：
 
 **原文：** [Nvidia's Risky Business — Stratechery](https://stratechery.com/2026/nvidias-risky-business/)  
 **相关：** [The Google Capital Company](https://stratechery.com/2026/the-google-capital-company/) · [Nvidia Waves and Moats](https://stratechery.com/2024/nvidia-waves-and-moats/)
+
+## 相关文章
+
+- [[youmind-nonconsensus-startup-choices|YouMind 创业路上的非共识选择]]
+- [[first-principles-startup-review|用 AI 做第一性原理审查]]
+- [[gpt-56-saul-agent-startup-experiment|GPT-5.6 当老板实验]]
+- [[programmer-35-crisis-and-self-rescue|35岁程序员危机与自救指南]]

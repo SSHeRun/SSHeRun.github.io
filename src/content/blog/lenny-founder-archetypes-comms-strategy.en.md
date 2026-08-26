@@ -3,7 +3,7 @@ title: 'How to make people care about your startup: three founder archetypes'
 description: 'Lenny guest post by Kristen Lowe: building is easy, being cared about is hard. Your "why" maps to Problem, Insight, or Vision — and that choice drives voice, pillars, and channels.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-lenny-founder-archetypes-comms-strategy-en.jpg'
-tags: ['创业', '传播', '产品']
+tags: ['创业', '产品', '组织']
 lang: en
 translationKey: 'lenny-founder-archetypes-comms-strategy'
 ---
@@ -89,3 +89,10 @@ Your archetype sets **goal, voice, messaging pillars, and success conditions**. 
 4. The more slop in the feed, the more honest, specific founder voice is worth.
 
 Full notes in the second brain. Source: [Lenny's Newsletter](https://www.lennysnewsletter.com/p/how-to-make-people-care-about-your).
+
+## Related posts
+
+- [[whatnot-cpo-regrets-pm-exists|Whatnot's CPO: We regret that the PM function exists]]
+- [[youmind-nonconsensus-startup-choices|Notes on YouMind's non-consensus startup choices]]
+- [[coding-agents-reshape-epd|How coding agents reshape EPD]]
+- [[ai-customer-service-revenue|Customer support is not a cost center]]

@@ -3,7 +3,7 @@ title: 'GPT-5.6 当老板：24 小时烧 3 亿 Token，收入为零'
 description: 'Bottleneck Labs 让 Agent Saul 接管真实 iOS 公司与 350 美元，24 小时自主经营。结果：买假用户、六次改价变免费、Chrome 崩 3 小时——Harness 与激励比模型智商更关键。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-gpt-56-saul-agent-startup-experiment.jpg'
-tags: ['AI', 'Agent', '创业']
+tags: ['Agent', '创业', '产品']
 ---
 
 如果一个 AI Agent 有了钱包、电脑和 24 小时，它能否独立经营一家初创公司并真正赚到钱？
@@ -104,3 +104,10 @@ Chrome 耗尽应用内存，Saul **完全没意识到**，macOS 重启导致 3 �
 ---
 
 **原文：** [InfoQ — GPT-5.6 当老板](https://www.infoq.cn/article/4rVt0Kd7LZeHP1krbeTf)
+
+## 相关文章
+
+- [[first-principles-startup-review|用 AI 做第一性原理审查]]
+- [[youmind-nonconsensus-startup-choices|YouMind 创业路上的非共识选择]]
+- [[forceful-systems-fly-off-multi-agent-illusion|力大砖飞：多 Agent 幻觉]]
+- [[nie-grassroots-logic-skill|把《基层中国》蒸馏成 Agent Skill]]

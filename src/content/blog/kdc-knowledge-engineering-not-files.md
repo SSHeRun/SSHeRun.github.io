@@ -3,7 +3,7 @@ title: '软件不是文件：KDC 说找到材料 ≠ 获得知识'
 description: 'vivo 肖博 KDC 系列第二篇：Representation 不等于 Knowledge。旧版退款政策被 RAG 高分召回却答错——问题在版本、证据、成熟度与适用边界，而不只是向量检索。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-kdc-knowledge-engineering-not-files.jpg'
-tags: ['AI', 'RAG', '知识工程']
+tags: ['LLM', '工程', 'Agent']
 ---
 企业 AI 项目里，「建知识库」往往就是这条流水线：
 
@@ -158,3 +158,10 @@ KDC 不是要一切变复杂，而是让高价值、高复用、高风险的认�
 ---
 
 **原文：** [InfoQ — 软件不是文件：KDC 的知识工程主张](https://www.infoq.cn/article/N43yEF08JflwxI0S0Uec)
+
+## 相关文章
+
+- [[stack-overflow-ai-context-architecture-build-buy|Stack Overflow 谈 AI 上下文架构]]
+- [[hello-world|做一个对 Agent 友好的博客]]
+- [[learn-by-scraping|学一个新领域，先把它抓下来]]
+- [[deepseek-engram-conditional-memory|DeepSeek Engram：条件记忆]]

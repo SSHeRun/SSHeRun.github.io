@@ -3,7 +3,7 @@ title: 'GPT-5.6 as CEO: 320M Tokens in 24 Hours, $0 Revenue'
 description: 'Bottleneck Labs let Agent Saul run a real iOS company with $350 for 24 hours. Result: bought fake users, six price cuts to free, Chrome crash for 3 hours — harness and incentives matter more than raw model IQ.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-gpt-56-saul-agent-startup-experiment-en.jpg'
-tags: ['AI', 'Agent', '创业']
+tags: ['Agent', '创业', '产品']
 lang: en
 translationKey: 'gpt-56-saul-agent-startup-experiment'
 ---
@@ -109,3 +109,10 @@ The team's next run will harden the harness and may swap models. The lesson for 
 ---
 
 **Source:** [InfoQ — GPT-5.6 as boss](https://www.infoq.cn/article/4rVt0Kd7LZeHP1krbeTf)
+
+## Related posts
+
+- [[first-principles-startup-review|First-principles review of a startup plan]]
+- [[youmind-nonconsensus-startup-choices|Notes on YouMind's non-consensus startup choices]]
+- [[forceful-systems-fly-off-multi-agent-illusion|Why virtual-company multi-agent setups fail]]
+- [[nie-grassroots-logic-skill|Distilling grassroots China into an Agent Skill]]

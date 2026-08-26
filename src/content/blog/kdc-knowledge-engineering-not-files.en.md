@@ -3,7 +3,7 @@ title: 'Software Is Not Files: KDC on Finding Materials ≠ Having Knowledge'
 description: 'vivo Xiao Bo’s KDC series part 2: Representation is not Knowledge. A high-scoring RAG hit on an outdated refund policy produced a confident wrong answer — governance beats retrieval tuning.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-kdc-knowledge-engineering-not-files-en.jpg'
-tags: ['AI', 'RAG', 'Knowledge Engineering']
+tags: ['LLM', '工程', 'Agent']
 lang: en
 translationKey: 'kdc-knowledge-engineering-not-files'
 ---
@@ -164,3 +164,10 @@ Once knowledge can be referenced, the next question is judgment and action gover
 ---
 
 **Source:** [InfoQ — Software Is Not Files: KDC’s Knowledge Engineering Thesis](https://www.infoq.cn/article/N43yEF08JflwxI0S0Uec)
+
+## Related posts
+
+- [[stack-overflow-ai-context-architecture-build-buy|Stack Overflow on AI context architecture]]
+- [[hello-world|An agent-friendly blog]]
+- [[learn-by-scraping|Learn a new field by scraping it first]]
+- [[deepseek-engram-conditional-memory|DeepSeek Engram: conditional memory]]

@@ -3,7 +3,7 @@ title: '为什么你可能想用 Canvas 而不是 HTML 做 WebApp'
 description: 'Google Docs、Sheets、Canva、Miro、Hivekit 调度器为何把核心界面画在 Canvas 上：速度、控制、一致性与可移植性，以及何时绝对不该这么做。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-webapp-canvas-instead-of-html.jpg'
-tags: ['前端', 'Canvas', '工程', '性能']
+tags: ['工程', '设计', '效率']
 lang: zh
 ---
 
@@ -73,3 +73,10 @@ Canvas 已存在二十多年：HTML 里的一块空白画布，用 JavaScript �
 不要因为「听起来更快」就选 Canvas。界面像文档，就用文档模型；界面像场景，再用场景模型。
 
 > 原文：[Why you might want to build your WebApp in Canvas instead of HTML](https://hivekit.io/blog/why-you-might-want-to-build-your-webapp-in-canvas-instead-of-html/)（Hivekit）
+
+## 相关文章
+
+- [[design-without-designing|Design Without Designing]]
+- [[ai-ui-design-workflow|AI 生成 UI 为什么不能直接用]]
+- [[stitch-claude-ai-design-workflow|Google Stitch 2.0 + Claude Code]]
+- [[software-engineering-splits-three|软件工程正在分裂为三层]]

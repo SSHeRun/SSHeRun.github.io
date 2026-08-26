@@ -3,7 +3,7 @@ title: '监控看起来正常，答案却在变差：AI 网络里的延迟是正
 description: '错误率不变、答案变差——RAG 优雅降级与 Agent 超时截断让延迟成为质量信号。TTFT、尾延迟、分阶段检索监控与 SLO 怎么设。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-redis-monitoring-latency-ai-networks.jpg'
-tags: ['Redis', 'AI', 'SRE', 'RAG']
+tags: ['工程', 'LLM', '工具']
 ---
 
 你的监控一切正常，但用户觉得 AI 越来越「笨」——这在生产里太常见了。
@@ -97,3 +97,10 @@ Agent 编码场景里，工具执行可占主导（生成与工具被迫串行�
 AI 网络的延迟 = TTFT + ITL + 端到端 + 尾延迟，散落在检索、推理、工具与 fan-out 里。任一环节滑档，系统往往用「更差的答案」换可用性。按阶段、按尾部、绑 SLO 监控，才能在用户吐槽之前抓住质量回归。
 
 **原文：** [Why it's important to monitor latency in AI networks](https://redis.io/blog/monitoring-latency-ai-networks/)
+
+## 相关文章
+
+- [[stack-overflow-ai-context-architecture-build-buy|Stack Overflow 谈 AI 上下文架构]]
+- [[kdc-knowledge-engineering-not-files|KDC：知识工程不是文件]]
+- [[cli-ai-revival|CLI：AI 时代的命令行复兴]]
+- [[software-engineering-splits-three|软件工程正在分裂为三层]]
