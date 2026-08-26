@@ -7,10 +7,11 @@ tags: ['AI', 'Agent', 'RAG']
 lang: en
 translationKey: 'stack-overflow-ai-context-architecture-build-buy'
 ---
-
 You wired up RAG, but the agent still hallucinates, rifles through the wrong Slack channels, and treats brainstorm threads as shipped facts. The bottleneck is often **context architecture** — not the model. Stack Overflow's [No Dumb Questions episode](https://stackoverflow.blog/2026/08/14/ndq-ai-context-architecture-build-buy/) lays it out cleanly.
 
 ## Three terms, three jobs
+
+![Agent context guardrails](../../assets/inline-stack-overflow-ai-context-architecture-build-buy-01.jpg)
 
 | Term | What it covers |
 |------|----------------|
@@ -19,6 +20,9 @@ You wired up RAG, but the agent still hallucinates, rifles through the wrong Sla
 | **Context engineering** | Implementation — language, rerankers, indexing tactics |
 
 Their car analogy: car vs boat vs bike is **architecture**; make and model is **engineering**; parts sourcing is **infrastructure**. MCP skews architectural; RAG touches all three.
+
+
+![Where context architecture should be bought](../../assets/inline-stack-overflow-ai-context-architecture-build-buy-03.jpg)
 
 ## What architecture actually fixes
 
@@ -39,6 +43,8 @@ Once you refine the task to "sports car," that state should survive sessions. At
 - Control write-back too: does output land in the team pool or stay with me?
 
 ## The technical flow: cast a wide net, then filter
+
+![Build vs buy crossroads](../../assets/inline-stack-overflow-ai-context-architecture-build-buy-02.jpg)
 
 Stack Internal chains: pick retrieval strategy per question → context mapping / tabular grabs → trust scores → **rerank**. Doug's metaphor: trawl the ocean, toss oysters, keep the right fish, then size-filter. Good architecture also **fills gaps you didn't know existed** (e.g., correct tire PSI for your car model) and stays **model-agnostic**.
 

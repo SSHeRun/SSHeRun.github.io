@@ -7,12 +7,13 @@ tags: ['Redis', 'AI', 'SRE', 'RAG']
 lang: en
 translationKey: 'redis-monitoring-latency-ai-networks'
 ---
-
 Your dashboards look healthy, but users say the AI is getting dumber. That pairing is common in production.
 
 [Redis's post](https://redis.io/blog/monitoring-latency-ai-networks/) isn't really about shaving P99 from 200ms to 150ms. The point is: **in AI networks, latency is often the early signal that answer quality is degrading.** Retrieval and serving systems degrade gracefully under load—search a cached subset, fall back to a cheaper ranker, skip reranking. Requests still return 200, error rates stay flat, but the model gets thinner context.
 
 ## Latency is a family of metrics, not one number
+
+![Monitoring looks fine but answers degrade](../../assets/inline-redis-monitoring-latency-ai-networks-01.jpg)
 
 At minimum, split a single LLM call into:
 
@@ -27,6 +28,9 @@ Prefill reads the whole prompt once; decode writes token by token—they slow do
 
 Research shows healthy medians can still leave ~1% of requests waiting nearly two seconds for the first token. Typical target thinking: TTFT under ~500ms, ITL in tens of milliseconds—**set targets per metric so one can't hide inside another.**
 
+
+![Tail latency and correctness](../../assets/inline-redis-monitoring-latency-ai-networks-03.jpg)
+
 ## Why latency is correctness, not just speed
 
 Overloaded AI systems rarely hard-fail. They quietly get worse:
@@ -40,6 +44,9 @@ Overloaded AI systems rarely hard-fail. They quietly get worse:
 **Agents** make it obvious: a self-correcting architecture kept its edge below roughly 25k documents/day throughput; past that, **timeout constraints truncated correction loops** and most of the advantage over a simpler pipeline vanished. No crash—just dumber.
 
 SRE-aligned teams treat a missed latency SLO as a **failed request**. Slow answers and wrong answers land in the same bucket.
+
+
+![What monitoring should change](../../assets/inline-redis-monitoring-latency-ai-networks-04.jpg)
 
 ## Where latency hides
 
@@ -59,6 +66,8 @@ In agentic coding, tool execution can dominate when generation and tools must ru
 If each dependency has a 1% P99 of 1s, fan-out to 100 services pushes the chance of a slow overall request to about **63%** (tail at scale). Embeddings, vector indexes, gateways, tool APIs—every RPC adds serialization, transport, and queueing.
 
 ## What to instrument
+
+![Latency curves and tail latency](../../assets/inline-redis-monitoring-latency-ai-networks-02.jpg)
 
 **OpenTelemetry GenAI** (experimental) is a reasonable start:
 

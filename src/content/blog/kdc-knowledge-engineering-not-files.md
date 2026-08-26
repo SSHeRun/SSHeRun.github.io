@@ -5,7 +5,6 @@ pubDate: '2026-08-26'
 heroImage: '../../assets/cover-kdc-knowledge-engineering-not-files.jpg'
 tags: ['AI', 'RAG', '知识工程']
 ---
-
 企业 AI 项目里，「建知识库」往往就是这条流水线：
 
 上传文件 → 解析 → 切块 → 向量化 → 相似度检索 → 注入上下文 → 生成回答。
@@ -13,6 +12,8 @@ tags: ['AI', 'RAG', '知识工程']
 链路跑通了，团队就觉得「知识库建好了」。但 [vivo 肖博在 InfoQ 上的 KDC 系列第二篇](https://www.infoq.cn/article/N43yEF08JflwxI0S0Uec) 用一个售后案例说明：**材料可以被找到，不等于系统知道了什么。**
 
 ## 反例：RAG 全绿，答案却错了
+
+![旧版政策文档堆叠](../../assets/inline-kdc-knowledge-engineering-not-files-01.jpg)
 
 用户问售后 Agent：
 
@@ -25,6 +26,9 @@ tags: ['AI', 'RAG', '知识工程']
 被召回的是**半年前旧版政策**。新政策已取消这项费用，但旧 PDF 仍在共享目录和向量索引里。新旧标题相似，旧版文字甚至与用户问题语义匹配更高。
 
 从 RAG 视角，这次没有明显故障：解析、切块、Embedding、检索、生成都成功。系统找到了相关材料，却没有获得**当前可用的知识**。
+
+
+![知识对象与成熟度阶梯](../../assets/inline-kdc-knowledge-engineering-not-files-03.jpg)
 
 ## 「知识库」这个词掩盖了不同问题
 
@@ -76,6 +80,8 @@ KDC 当前采用的操作性定义：
 4. **降低不确定性** — 让后续判断少猜一点；只保存检索展示却不能支撑任何判断的内容，对工程设计帮助有限
 
 ## 知识成熟度：不是只有「是/否」
+
+![知识版本与治理](../../assets/inline-kdc-knowledge-engineering-not-files-02.jpg)
 
 AI 系统会持续产出总结、推测和建议；业务现实也在变。要求一切入库前就最终确定不现实；把模型输出直接写入知识库同样危险。
 

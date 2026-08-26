@@ -7,12 +7,13 @@ tags: ['LLM', '工程']
 lang: en
 translationKey: 'deepseek-engram-conditional-memory'
 ---
-
 DeepSeek's [Engram](https://arxiv.org/abs/2601.07372) paper is unusually direct: MoE solved *conditional compute*, but Transformers still lack a native *knowledge lookup* primitive. A lot of early layers spend FLOPs pretending to be a table. **Conditional memory** is the missing axis.
 
 Code is open: [deepseek-ai/Engram](https://github.com/deepseek-ai/Engram).
 
 ## Language is two jobs
+
+![MoE and conditional memory architecture](../../assets/inline-deepseek-engram-conditional-memory-01.jpg)
 
 Language modeling does at least two different things:
 
@@ -28,6 +29,9 @@ Engram's stance:
 
 Complementary, not substitutes.
 
+
+![Conditional memory retrieval paths](../../assets/inline-deepseek-engram-conditional-memory-03.jpg)
+
 ## How Engram works
 
 The module is four steps:
@@ -38,6 +42,9 @@ The module is four steps:
 4. **Short causal conv + residual**: fuse back into the trunk. The module is inserted only at selected layers (layers 2 and 15 in the experiments), which also leaves a compute window for system-level prefetch.
 
 The design that matters: **the retrieval address is a deterministic function of token IDs**. Unlike MoE, it does not route on a runtime hidden state. At inference you can park a huge table in host memory, prefetch asynchronously, and overlap with the first few layers. The paper claims ~100B-parameter tables offloaded with &lt;3% overhead. That is a real cost story: not every parameter has to live in HBM.
+
+
+![Engineering trade-offs that matter](../../assets/inline-deepseek-engram-conditional-memory-04.jpg)
 
 ## How to split the sparsity budget: a U-shaped law
 
@@ -52,6 +59,8 @@ The result is a stable **U-shape**:
 If memory can grow without bound, larger tables give a log-linear drop in validation loss. Memory is an independently scalable axis that barely adds per-token FLOPs.
 
 ## Large-model results: reasoning rises more than you'd expect
+
+![N-gram lookup and sparse compute](../../assets/inline-deepseek-engram-conditional-memory-02.jpg)
 
 Strict comparison at 262B tokens, ~3.8B activated:
 

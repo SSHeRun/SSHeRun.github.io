@@ -7,14 +7,18 @@ tags: ['创业', '传播', '产品']
 lang: en
 translationKey: 'lenny-founder-archetypes-comms-strategy'
 ---
-
 [This Lenny's Newsletter guest piece](https://www.lennysnewsletter.com/p/how-to-make-people-care-about-your) is by executive ghostwriter and narrative strategist **Kristen Lowe** (ex-Hinge; incoming Director of Founder & Editorial Communications at Scribe). It is not a playbook for viral hooks. It starts with a simpler question:
 
 **Why did you start this company?**
 
 ## In one sentence
 
+![Founder talking with users](../../assets/inline-lenny-founder-archetypes-comms-strategy-01.jpg)
+
 It has never been easier to start a company — or harder to get anyone to care. AI makes idea-to-business faster than hiring one engineer, and floods X and LinkedIn with slop. **Founder-led communication** is still a low-cost, high-leverage way to earn attention and talent. The top reason founders hire ghostwriters is not hatred of writing. It is "I have no idea what to say." Most people do not need to be vulnerable or contrarian in every post. They need a credible **why**.
+
+
+![Vision archetypes and movement energy](../../assets/inline-lenny-founder-archetypes-comms-strategy-03.jpg)
 
 ## Three archetypes, three relationships
 
@@ -29,6 +33,9 @@ Every why is unique, but almost all map to one of three archetypes — and three
 Your archetype sets **goal, voice, messaging pillars, and success conditions**. It does **not** answer "how often should I post?" Like a workout plan, the best channel and cadence is the one you can keep.
 
 ---
+
+
+![Choosing an archetype as an indie](../../assets/inline-lenny-founder-archetypes-comms-strategy-04.jpg)
 
 ## Problem founder: make customers feel seen
 
@@ -45,6 +52,8 @@ Your archetype sets **goal, voice, messaging pillars, and success conditions**. 
 ---
 
 ## Insight founder: make the audience feel smarter
+
+![Three founder archetype paths](../../assets/inline-lenny-founder-archetypes-comms-strategy-02.jpg)
 
 **You are this type if:** you spotted a wrong assumption, broken process, or mispriced problem and moved to correct it.
 

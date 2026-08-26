@@ -7,7 +7,6 @@ tags: ['AI', 'Agent', 'Skill']
 lang: en
 translationKey: 'nie-grassroots-logic-skill'
 ---
-
 Someone distilled Nie Huihua’s book **The Operating Logic of Grassroots China** into an **Agent Skill**.
 
 Not by dumping a PDF into context — by turning recurring governance frameworks — **line-block relations, power-weight metrics, dual equilibrium, the “three mountains,” land-finance loops, government–enterprise quadrants** — into a reusable toolbox for Cursor, Claude Code, Codex, and Grok.
@@ -16,9 +15,14 @@ Not by dumping a PDF into context — by turning recurring governance frameworks
 
 ## The book
 
+![Grassroots governance framework](../../assets/inline-nie-grassroots-logic-skill-01.jpg)
+
 The book is on sale (ISBN 9787208197473, ~69 CNY). Author: Nie Huihua. Douban rating around **7.7** — respectable in an era when few people finish books.
 
 The skill **does not include the full text**. It ships **analytic language** for explaining phenomena and making choices.
+
+
+![How Skills bound the analysis](../../assets/inline-nie-grassroots-logic-skill-03.jpg)
 
 ## What the skill does
 
@@ -37,6 +41,8 @@ Two main uses:
 | Strict accountability — can grassroots still innovate? | “Red/yellow/green fault-tolerance boundaries” |
 
 ## Example: county-to-district merger
+
+![County-level policy decisions](../../assets/inline-nie-grassroots-logic-skill-02.jpg)
 
 Feed the skill a merger scenario and the output reads like a toolbox — no pep talk, just mechanisms:
 

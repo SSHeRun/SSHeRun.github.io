@@ -12,6 +12,8 @@ tags: ['AI', '企业AI', '产品落地']
 
 ## 整家公司变成产品组织
 
+![全员 AI 创新挑战](../../assets/inline-ringcentral-ai-native-challenge-01.jpg)
+
 RingCentral COO Kira Makagon 的说法很直白：当真正的 AI 工具普及到全员，**公司本身就会更像一家产品公司**。对外卖的 Agentic Voice AI 三件套 —— **AIR**（AI 前台）、**AVA**（坐席实时助手）、**ACE**（通话后分析与质检）—— 也会随着「想法到上线功能」的距离被压缩而持续变锋利。
 
 这和很多团队「AI 只是 Copilot 插件」的路径不同：他们把它当成**缩短交付周期**的核心杠杆。
@@ -33,6 +35,8 @@ RingCentral COO Kira Makagon 的说法很直白：当真正的 AI 工具普及�
 Challenge 本身也是更大战略的可复制模型：RingCentral 用同一套 Codex 能力，加速 **AIR / AVA / ACE** 的客户功能开发。
 
 ## PMO：从实验到「项目管理操作系统」
+
+![非技术岗也在交付软件](../../assets/inline-ringcentral-ai-native-challenge-02.jpg)
 
 非工程部门也在跟进。项目管理办公室（PMO）用 ChatGPT Work 搭了一套接近 **program management OS** 的东西，替代散落的笔记和聊天记录，覆盖：
 

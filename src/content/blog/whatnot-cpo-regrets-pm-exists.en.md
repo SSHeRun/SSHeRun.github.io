@@ -7,14 +7,18 @@ tags: ['产品', '组织', '创业']
 lang: en
 translationKey: 'whatnot-cpo-regrets-pm-exists'
 ---
-
 Lenny's recent [interview](https://www.lennysnewsletter.com/p/this-cpo-regrets-that-product-management) with Whatnot CPO **Tom Verrilli** (ex-Twitch CPO, Twitter product growth) comes with a sharp title: "We regret that the product-management function exists." He is not arguing to fire every PM. The real claim is:
 
 **Stop treating "one PM per N engineers" as the default org chart.**
 
 ## In one sentence
 
+![Product org structure debate](../../assets/inline-whatnot-cpo-regrets-pm-exists-01.jpg)
+
 PM is a craft you learn by doing, not a credential. Defaulting to more PMs steals reps from engineers and designers who should be making decisions. A better shape is **fewer, more senior, staffed to problems**; managers still spend most of their time as ICs. Once AI drives the cost of validation down, "alignment-only" product theater has nowhere to hide.
+
+
+![Staff by problem, not by headcount](../../assets/inline-whatnot-cpo-regrets-pm-exists-03.jpg)
 
 ## How Whatnot staffs
 
@@ -28,6 +32,9 @@ Whatnot, a livestream shopping platform, deliberately runs the product org lean:
 | Headcount logic | Tracks engineer count | Tracks truly critical projects |
 
 Some engineering teams can go a year without a dedicated PM. A PM may get pulled onto the next hardest problem — buyer, seller, trust — instead of babysitting notifications for three years.
+
+
+![Product theater when validation is cheap](../../assets/inline-whatnot-cpo-regrets-pm-exists-04.jpg)
 
 ## What "regret" actually means
 
@@ -48,6 +55,8 @@ The side effect is honest: traditional DS can become "reviewers of amateur analy
 Product theater (stakeholders, alignment, storytelling) was rewarded for five years. Theater survives only while the real work is hard to verify. When verification gets cheap, people who only present have no cover.
 
 ## Skills going down vs skills going up
+
+![Senior IC working with engineers](../../assets/inline-whatnot-cpo-regrets-pm-exists-02.jpg)
 
 | Going down | Going up |
 |------------|----------|

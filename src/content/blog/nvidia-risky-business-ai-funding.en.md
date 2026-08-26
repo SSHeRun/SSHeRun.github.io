@@ -7,18 +7,22 @@ tags: ['创业', 'AI', '芯片']
 lang: en
 translationKey: 'nvidia-risky-business-ai-funding'
 ---
-
 Where is the money for AI infrastructure coming from? Over the past year the answer slid from free cash flow to debt, then to equity, and now to pension funds and insurance floats.
 
 [Ben Thompson's latest Stratechery post](https://stratechery.com/2026/nvidias-risky-business/) uses **1870s railroad bonds** as a mirror for the **Risky Business** Nvidia, Google, and the hyperscalers are playing today. Satya Nadella naming Ahamed's _1873_ on Microsoft's earnings call was not small talk — when CapEx scaled to the economy hits roughly **~$600B per year**, the **funding structure itself** becomes the risk.
 
 ## 1873: how retail bonds triggered a panic
 
+![AI infrastructure capital stack](../../assets/inline-nvidia-risky-business-ai-funding-01.jpg)
+
 In 1864 Congress chartered the Northern Pacific Railway, trading 40 million acres along the proposed line for construction. Six years of failed financing ended when Jay Cooke took the underwriting deal: **12% bond commission** plus $200 of Northern Pacific stock for every $1,000 in bonds sold.
 
 Institutions refused, so Cooke went retail: 1,500 salespeople, 1,300 newspapers, patriotism — the same playbook he used selling war bonds. When credit tightened globally in September 1873, Jay Cooke & Company failed, triggering the **Panic of 1873**: railroad bankruptcies, multi-year depression, multi-decade deflation. The line was eventually finished (through repeated bankruptcies), merged into BNSF, and Berkshire Hathaway bought the parent in 2009.
 
 Ahamed's conversion in _1873_ is stark: ~$500M flowing into U.S. railway bonds annually in the early 1870s scales to roughly **$600B in 2026** — about what major tech companies are projected to invest in AI this year.
+
+
+![Google infra and equity raise](../../assets/inline-nvidia-risky-business-ai-funding-03.jpg)
 
 ## The funding ladder: each step is riskier
 
@@ -32,6 +36,9 @@ A year ago you could still argue Big Tech AI CapEx wasn't debt-funded. Now:
 | **Long-run safe assets** | Nvidia partners with six asset managers targeting **$500B+** in third-party capital for AI infrastructure |
 
 Spending all your FCF is one thing. Tapping bond markets is another. Bringing equity and pension money to bear is a **new, nerve-wracking thing**.
+
+
+![CUDA moat under pressure](../../assets/inline-nvidia-risky-business-ai-funding-04.jpg)
 
 ## Google: losing the frontier, winning infrastructure?
 
@@ -48,6 +55,8 @@ Thompson had earlier argued Hassabis bet on **world models** rather than text/co
 - Google shares capacity and even issues equity — Thompson's Berkshire analogy: See's Candies profits vs BNSF Railway (capital-heavy, high-profit). The target is **absolute profit**, not margin
 
 ## Nvidia: $500B platform and 25% residual backstop
+
+![Debt and equity funding chain](../../assets/inline-nvidia-risky-business-ai-funding-02.jpg)
 
 Jensen Huang announced partnerships with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, and KKR to mobilize **$500B+** in third-party capital through repeatable financing platforms.
 

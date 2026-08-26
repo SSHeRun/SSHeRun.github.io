@@ -7,16 +7,20 @@ tags: ['Cloudflare', 'Workers', 'Security']
 lang: en
 translationKey: 'cloudflare-workers-access-vibe-coded-apps'
 ---
-
 AI has made it trivial for PMs, designers, and ops folks to vibe-code an internal tool and deploy it to the public Internet. Fast iteration is great. Accidentally exposing half-baked apps or company data is not.
 
 [Cloudflare's announcement](https://blog.cloudflare.com/workers-protected-by-access/) — **Access for Workers** — is basically: **attach your company login gate to the Worker, not to every developer's memory.**
 
 ## The old pain: you locked hostnames, not apps
 
+![Locking internal apps](../../assets/inline-cloudflare-workers-access-vibe-coded-apps-01.jpg)
+
 Previously, Cloudflare Access lived at the **hostname** level. Every custom domain, route, workers.dev subdomain, and preview URL needed its own policy. Add a domain and forget to update Access? **Wide open.**
 
 Preview URLs are the worst offender — each deploy can mint a new URL, and the faster you ship, the more leak windows you create.
+
+
+![Zero-trust access boundary](../../assets/inline-cloudflare-workers-access-vibe-coded-apps-03.jpg)
 
 ## The new model: policy follows the Worker
 
@@ -61,6 +65,8 @@ Local dev doesn't require deploy-and-sign-in every time — mock identity in `wr
 ```
 
 ## Internal platforms: one lock on the dispatch Worker
+
+![Edge workers and identity](../../assets/inline-cloudflare-workers-access-vibe-coded-apps-02.jpg)
 
 With **Workers for Platforms**, set Access once on the **dispatch Worker** and every app in the namespace is private by default. Cloudflare open-sourced [internal-sites-template](https://github.com/cloudflare/templates/tree/main/internal-sites-template) — drag-and-drop deploys that stay behind login. Good fit for "everyone can vibe, not everyone gets the public Internet."
 

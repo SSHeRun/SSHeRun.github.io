@@ -12,6 +12,8 @@ tags: ['OpenAI', '网络安全', 'GPT-5.6']
 
 ## 两层访问：Blue 给防守，Red 给攻防研究
 
+![网络安全攻防演练](../../assets/inline-openai-daybreak-gpt-56-cyber-defense-01.jpg)
+
 | 层级 | 给什么 | 适合谁 |
 |------|--------|--------|
 | **Daybreak Blue** | 前沿通用模型（含 GPT-5.6 Sol），针对授权防御工作调整护栏 | 漏洞发现、代码审查、恶意软件分析、事件响应、补丁验证——**多数防守方从这里开始** |
@@ -37,6 +39,8 @@ Blue 解决的是「护栏误伤防御」；Red + Cyber 解决的是「合法攻
 基准方面（ExploitGym、零日发现、漏洞报告写作、ExploitBench 等），Cyber 在利用开发与零日校准上明显强于通用 Sol；漏洞报告写作有时不如 Sol 详尽；标准 300 轮 ExploitBench 里 Sol 更省 token，拉到 600 轮后差距收窄。SpecterOps 等早期客户反馈：在受控环境下，少拒答 = 研究工作流明显加速。
 
 ## 不是纸面成绩：V8 与 CVE-2026-15903
+
+![防御窗口正在收窄](../../assets/inline-openai-daybreak-gpt-56-cyber-defense-02.jpg)
 
 训练完成后，OpenAI 用 GPT-5.6-Cyber 对真实大型代码库做持续研究。例如在 **V8**（Chrome JS 引擎）中发现两个此前未知漏洞，可链式利用：内存破坏 + 逃离 heap sandbox。已协调披露，Google 修复并分配 **CVE-2026-15903**（高危 JIT 优化器缺陷，错误跳过安全检查可导致越界读写）。
 

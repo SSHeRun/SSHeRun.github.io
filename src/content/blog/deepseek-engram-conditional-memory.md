@@ -12,6 +12,8 @@ DeepSeek 这篇 [Engram](https://arxiv.org/abs/2601.07372) 把话说得很直：
 
 ## 语言其实是两件事
 
+![MoE 与条件记忆架构](../../assets/inline-deepseek-engram-conditional-memory-01.jpg)
+
 语言建模至少干两件不同的活：
 
 1. **组合推理**：需要深层、动态计算  
@@ -50,6 +52,8 @@ Engram 的立场很清楚：
 在「内存可无限加」的设定下，表越大，验证 loss 呈 log-linear 下降：记忆本身是一条可独立缩放、几乎不增 per-token FLOPs 的轴。
 
 ## 大模型结果：反直觉的是推理涨更多
+
+![N-gram 查表与稀疏计算](../../assets/inline-deepseek-engram-conditional-memory-02.jpg)
 
 在 262B tokens、激活约 3.8B 的严格对照里：
 

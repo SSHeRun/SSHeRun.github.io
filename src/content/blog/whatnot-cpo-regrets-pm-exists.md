@@ -5,14 +5,18 @@ pubDate: '2026-08-26'
 heroImage: '../../assets/cover-whatnot-cpo-regrets-pm-exists.jpg'
 tags: ['产品', '组织', '创业']
 ---
-
 Lenny 最近一期 [访谈](https://www.lennysnewsletter.com/p/this-cpo-regrets-that-product-management)请到 Whatnot CPO **Tom Verrilli**（前 Twitch CPO、Twitter 产品增长）。标题很冲——「我们后悔产品经理这种职能存在」——但意思不是砍光 PM，而是：
 
 **反对把「每几个工程师配一个 PM」当成默认编制。**
 
 ## 一句话
 
+![产品编制与团队结构](../../assets/inline-whatnot-cpo-regrets-pm-exists-01.jpg)
+
 PM 是靠实操练出来的手艺，不是资格证。默认堆 PM，等于抢走工程师和设计师做决策的练习次数。更好的形态是：**更少、更资深、按问题配置**；管理层仍大量做 IC。AI 把验证成本打下来之后，「只会 alignment」的产品剧场更难藏。
+
+
+![按问题编队而非按编制](../../assets/inline-whatnot-cpo-regrets-pm-exists-03.jpg)
 
 ## Whatnot 怎么配人
 
@@ -46,6 +50,8 @@ Tom 的说法很直：雇太多 PM，会把本来能做决策的工程师和设�
 产品剧场（stakeholder、对齐、讲故事）过去五年被行业奖励；但剧场只在「真活很难验证」时活得下去。验证变便宜后，只会呈现的人无处躲。
 
 ## 上升的技能 vs 下降的技能
+
+![资深 IC 直接对接工程](../../assets/inline-whatnot-cpo-regrets-pm-exists-02.jpg)
 
 | 下降 | 上升 |
 |------|------|

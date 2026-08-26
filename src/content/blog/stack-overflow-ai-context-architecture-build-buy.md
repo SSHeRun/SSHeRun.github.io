@@ -10,6 +10,8 @@ RAG 搭好了，Agent 还是乱答、乱翻 Slack、把「创新脑暴频道」�
 
 ## 三个词别混用
 
+![Agent 上下文护栏架构](../../assets/inline-stack-overflow-ai-context-architecture-build-buy-01.jpg)
+
 | 概念 | 干什么 |
 |------|--------|
 | **上下文基础设施** | 存什么、怎么检索、怎么喂给模型（向量库、索引、规则 Markdown） |
@@ -37,6 +39,8 @@ RAG 搭好了，Agent 还是乱答、乱翻 Slack、把「创新脑暴频道」�
 写入也要控：产出是否进团队知识池。
 
 ## 技术流程：撒网再挑鱼
+
+![自建与采购的分岔路](../../assets/inline-stack-overflow-ai-context-architecture-build-buy-02.jpg)
 
 Stack Internal 的做法是多步过滤：按问题选检索策略 → 关联映射 / 表格式取用 → 信任分 → **重排序**。Doug 的比喻：先广撒网，再扔牡蛎、留对的鱼、再按尺寸筛——好架构还应**补盲区**（例如根据车型给正确胎压），且**不绑死单一模型**。
 

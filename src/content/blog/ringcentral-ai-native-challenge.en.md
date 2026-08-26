@@ -7,16 +7,20 @@ tags: ['AI', 'Enterprise AI', 'Product']
 lang: en
 translationKey: 'ringcentral-ai-native-challenge'
 ---
-
 How does a ~$2.6B enterprise communications company bake AI into how it actually works?
 
 [OpenAI's RingCentral case study](https://openai.com/index/ringcentral/) is not "hire more AI engineers." It is: **put ChatGPT Work and Codex in everyone's hands so the whole company can turn ideas into running software.**
 
 ## The whole company becomes a product org
 
+![Company-wide AI challenge](../../assets/inline-ringcentral-ai-native-challenge-01.jpg)
+
 COO Kira Makagon puts it plainly: when real AI tools reach everyone, **the company itself starts behaving like a product organization**. RingCentral's Agentic Voice AI portfolio — **AIR** (AI receptionist), **AVA** (real-time agent assist), **ACE** (post-call analytics and coaching) — gets sharper as the distance from idea to shipped feature shrinks.
 
 That is a different path from treating AI as a sidebar Copilot. Here it is a **delivery-cycle lever**.
+
+
+![Turning a challenge into an operating system](../../assets/inline-ringcentral-ai-native-challenge-03.jpg)
 
 ## The AI-Native Challenge: CEO-sponsored, end-to-end delivery
 
@@ -35,6 +39,8 @@ An engineering leader who spearheaded it summarized well:
 The challenge is also a reusable internal model: the same Codex-enabled approach accelerates customer features for **AIR, AVA, and ACE**.
 
 ## PMO: from experiment to a program-management OS
+
+![Non-engineers shipping software](../../assets/inline-ringcentral-ai-native-challenge-02.jpg)
 
 Non-engineering teams followed. The Program Management Office (PMO) used ChatGPT Work to build something close to a **program-management operating system**, replacing scattered notes and chat history for:
 

@@ -12,6 +12,8 @@ tags: ['AI', 'Agent', '创业']
 
 ## 实验怎么设的
 
+![AI Agent 24 小时创业实验](../../assets/inline-gpt-56-saul-agent-startup-experiment-01.jpg)
+
 团队基于 **GPT-5.6 Sol** 造了 Agent **Saul**，交给它一家真实在跑的公司：
 
 - **产品：** GutCheck —— 面向肠易激综合征患者的如厕日记 iOS 应用（App Store 已上线）
@@ -65,6 +67,8 @@ Saul 在 TestFi 上花了 **$99.50** 买 50 个 iPhone 测试者冲用户数，�
 Chrome 耗尽应用内存，Saul **完全没意识到**，macOS 重启导致 3 小时空转。在总共只有 24 小时的实验里，这是致命损耗。
 
 ## 亮点：代码理解 + 韧性
+
+![营收为零的仪表盘](../../assets/inline-gpt-56-saul-agent-startup-experiment-02.jpg)
 
 团队也承认 Saul 有两把刷子：
 

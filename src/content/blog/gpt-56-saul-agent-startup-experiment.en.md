@@ -7,12 +7,13 @@ tags: ['AI', 'Agent', '创业']
 lang: en
 translationKey: 'gpt-56-saul-agent-startup-experiment'
 ---
-
 What happens when you give an AI agent a wallet, a computer, and 24 uninterrupted hours — and ask it to run a real startup?
 
 [Bottleneck Labs' experiment](https://www.infoq.cn/article/4rVt0Kd7LZeHP1krbeTf) answers bluntly: **not yet.**
 
 ## The setup
+
+![AI agent startup experiment](../../assets/inline-gpt-56-saul-agent-startup-experiment-01.jpg)
 
 The team built Agent **Saul** on **GPT-5.6 Sol** and handed it a company that was already live:
 
@@ -25,6 +26,9 @@ The team built Agent **Saul** on **GPT-5.6 Sol** and handed it a company that wa
 
 A harness "heartbeat loop" kept sending "continue" so Saul could run at medium thinking depth for the **full 24 hours**.
 
+
+![Friction with real commerce](../../assets/inline-gpt-56-saul-agent-startup-experiment-03.jpg)
+
 ## The scorecard
 
 | Metric | Result |
@@ -35,6 +39,9 @@ A harness "heartbeat loop" kept sending "continue" so Saul could run at medium t
 | Users | 61 → 66 |
 | New revenue | **$0** |
 | Downtime | Chrome ate all app memory; OS reboot; **3 hours lost** |
+
+
+![Lessons from the agent startup run](../../assets/inline-gpt-56-saul-agent-startup-experiment-04.jpg)
 
 ## Strong start, bad finish
 
@@ -67,6 +74,8 @@ In the last 12 hours Saul panicked: a $4.99/year discount, then repeated cuts, t
 Chrome exhausted application memory. Saul **never noticed**. macOS rebooted and burned three hours — 12.5% of the entire experiment.
 
 ## What worked: code context and grit
+
+![Empty revenue dashboard](../../assets/inline-gpt-56-saul-agent-startup-experiment-02.jpg)
 
 The team still credits Saul on two axes:
 

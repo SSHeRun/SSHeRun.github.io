@@ -7,7 +7,6 @@ tags: ['AI', 'RAG', 'Knowledge Engineering']
 lang: en
 translationKey: 'kdc-knowledge-engineering-not-files'
 ---
-
 In many enterprise AI projects, “building a knowledge base” means this pipeline:
 
 Upload files → parse → chunk → embed → similarity search → inject context → generate.
@@ -15,6 +14,8 @@ Upload files → parse → chunk → embed → similarity search → inject cont
 When the chain runs green, the team declares the knowledge base done. [Part two of vivo’s Xiao Bo’s KDC series on InfoQ](https://www.infoq.cn/article/N43yEF08JflwxI0S0Uec) uses a support scenario to show a sharper distinction: **materials can be found, but that is not the same as the system knowing something.**
 
 ## Counterexample: RAG succeeded, the answer failed
+
+![Stack of outdated policy docs](../../assets/inline-kdc-knowledge-engineering-not-files-01.jpg)
 
 A user asks a support agent:
 
@@ -28,6 +29,9 @@ What was retrieved is a **six-month-old policy**. The new policy removed that fe
 
 From a RAG lens, nothing obviously broke: parsing, chunking, embedding, retrieval, and generation all worked. The system found relevant **material**, not **knowledge usable for the current decision**.
 
+
+![Knowledge objects and maturity stages](../../assets/inline-kdc-knowledge-engineering-not-files-03.jpg)
+
 ## “Knowledge base” hides different problems
 
 File systems handle storage and access control. Search helps users find material. Vector retrieval finds semantically similar chunks. RAG puts material into model context. All of these participate in a knowledge system, yet none alone answers:
@@ -40,6 +44,9 @@ File systems handle storage and access control. Search helps users find material
 - Can it be used for this judgment — especially high-impact ones?
 
 When the old policy is retrieved, recall did its job. What’s missing is **version judgment, validity checks, conflict handling, and applicability boundaries**. Blaming “RAG is inaccurate” hides governance responsibilities.
+
+
+![RAG as a local mechanism](../../assets/inline-kdc-knowledge-engineering-not-files-04.jpg)
 
 ## Representation ≠ Knowledge
 
@@ -64,6 +71,9 @@ Common traps:
 
 File → text → vector → context is only changing representation shape. **Format change does not create a cognitive artifact.**
 
+
+![Starting with a Knowledge Card](../../assets/inline-kdc-knowledge-engineering-not-files-05.jpg)
+
 ## How KDC defines knowledge
 
 KDC’s operational definition:
@@ -78,6 +88,8 @@ Four non-optional parts:
 4. **Uncertainty reduction** — future judgments become less guessy; content that cannot support any judgment is weak engineering value
 
 ## Knowledge maturity: not just yes/no
+
+![Knowledge versioning and governance](../../assets/inline-kdc-knowledge-engineering-not-files-02.jpg)
 
 Models keep producing summaries and guesses; business reality keeps changing. Demanding final truth before ingest is unrealistic; writing model output straight into a knowledge base is dangerous.
 

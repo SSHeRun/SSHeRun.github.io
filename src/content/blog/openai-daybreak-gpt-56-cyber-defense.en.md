@@ -7,12 +7,13 @@ tags: ['OpenAI', 'Cybersecurity', 'GPT-5.6']
 lang: en
 translationKey: 'openai-daybreak-gpt-56-cyber-defense'
 ---
-
 Threat actors are gearing up to run cyberattacks with AI at unprecedented speed and scale — including fully autonomous campaigns. OpenAI's bet is blunt: **put frontier intelligence in trusted defenders' hands before offensive AI goes mainstream.**
 
 [This announcement](https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/) expands the **Daybreak** program and ships **GPT-5.6-Cyber**, a cybersecurity-specific model. The story isn't just "another stronger model" — it's **who gets which capabilities, under what guardrails**.
 
 ## Two tiers: Blue for defense, Red for research
+
+![Cyber defense operations](../../assets/inline-openai-daybreak-gpt-56-cyber-defense-01.jpg)
 
 | Tier | What you get | Best for |
 |------|--------------|----------|
@@ -22,6 +23,9 @@ Threat actors are gearing up to run cyberattacks with AI at unprecedented speed 
 **GPT-5.6-Cyber** is Red-only: built on GPT-5.6 Sol, trained for zero-day discovery and exploit-chain development, and designed to **cut refusals on high-risk dual-use cyber prompts**.
 
 System-level safeguards on consumer models block misuse — but they also block legitimate defensive work. Blue removes those guardrails so defenders can actually use the model in production security workflows. Prompts like pentesting production systems still get refused on Sol; that's where Cyber + Red comes in.
+
+
+![Layered defense and hardware keys](../../assets/inline-openai-daybreak-gpt-56-cyber-defense-03.jpg)
 
 ## The numbers: 1.5% → 95%
 
@@ -40,9 +44,14 @@ On benchmarks (ExploitGym, zero-day discovery, vuln report writing, ExploitBench
 
 ## Beyond benchmarks: V8 and CVE-2026-15903
 
+![Narrowing defense window](../../assets/inline-openai-daybreak-gpt-56-cyber-defense-02.jpg)
+
 After training, OpenAI used GPT-5.6-Cyber for sustained research on real large codebases. In **V8** (Chrome's JS engine), researchers found two previously unknown bugs chainable into memory corruption and a heap-sandbox escape. Google fixed and assigned **CVE-2026-15903** — a high-severity JIT optimizer bug that skipped safety checks and enabled out-of-bounds read/write.
 
 Other disclosed findings include at least five bugs in a major mobile OS (including an untrusted-app → local-privilege-escalation chain), three critical issues in a popular database (including remote code execution), and **400+** kernel bugs leading to privilege escalation. Coordinated disclosure with partners and the open-source community is ongoing.
+
+
+![Implications for security products](../../assets/inline-openai-daybreak-gpt-56-cyber-defense-04.jpg)
 
 ## Safety rating and access controls
 

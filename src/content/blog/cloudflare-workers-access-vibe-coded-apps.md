@@ -12,6 +12,8 @@ AI 让产品、运营、设计都能「vibe code」出一个能用的内部工�
 
 ## 旧方案的坑：锁的是域名，不是应用
 
+![内部应用一键加锁](../../assets/inline-cloudflare-workers-access-vibe-coded-apps-01.jpg)
+
 以前要在 **hostname 级别** 配 Cloudflare Access。Worker 挂了多少个 custom domain、route、workers.dev 子域、预览 URL，就要分别想着加策略。新加一个域名忘了配？**直接裸奔。**
 
 预览环境尤其危险——每次 `wrangler deploy` 或 Pages preview 都可能生成新 URL，开发迭代越快，泄露窗口越多。
@@ -59,6 +61,8 @@ export default {
 ```
 
 ## 内部平台：dispatch Worker 一把锁
+
+![边缘 Worker 与身份验证](../../assets/inline-cloudflare-workers-access-vibe-coded-apps-02.jpg)
 
 如果你用 **Workers for Platforms** 给员工搭「内部部署平台」，在 **dispatch Worker** 上设一次 Access，namespace 里所有子应用默认私有。Cloudflare 还开源了 [internal-sites-template](https://github.com/cloudflare/templates/tree/main/internal-sites-template)，拖拽部署 + 默认加锁，适合「人人能 vibe，但不能人人能公网访问」。
 

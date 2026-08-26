@@ -7,12 +7,13 @@ tags: ['创业', '独立开发', '变现']
 lang: en
 translationKey: 'ezindie-weekly-153-aceternity-ui-80k-mrr'
 ---
-
 [ezindie indie monetization weekly issue #153](https://www.ezindie.com/weekly/issue-153) leads with a blunt headline: **a website UI component library making $80,000 a month.**
 
 Among five products in the issue, **Aceternity UI** founder Manu's story is the one worth unpacking. The other four are useful radar.
 
 ## Quick scan: four more products
+
+![Indie UI component library growth](../../assets/inline-ezindie-weekly-153-aceternity-ui-80k-mrr-01.jpg)
 
 | Product | One-liner |
 |---------|-----------|
@@ -22,6 +23,9 @@ Among five products in the issue, **Aceternity UI** founder Manu's story is the 
 | **formbricks** | Open-source surveys — in-app, web, link, email; no-code; self-hostable |
 
 For tooling: formbricks maps to feedback loops; Robopost maps to distribution.
+
+
+![From component hobby to paid product](../../assets/inline-ezindie-weekly-153-aceternity-ui-80k-mrr-03.jpg)
 
 ## The main story: hobby components to six-figure months
 
@@ -63,6 +67,8 @@ Team of **6** (2 frontend, 1 full-stack, 1 designer, 1 social, 1 PM). Manu once 
 Pro revenue passed **$80K in just two months** — the number behind this week's title.
 
 ## Five takeaways for indie builders
+
+![Product Hunt launch momentum](../../assets/inline-ezindie-weekly-153-aceternity-ui-80k-mrr-02.jpg)
 
 1. **Distribution beats perfection** — 7 components is enough to test demand; ship, then stack. Manu's line: bad code beats overthinking; customers do not care about code quality.  
 2. **Match content to behavior** — tutorials did not convert; copy-paste code did.  

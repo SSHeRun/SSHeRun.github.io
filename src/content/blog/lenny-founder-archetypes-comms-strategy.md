@@ -12,6 +12,8 @@ tags: ['创业', '传播', '产品']
 
 ## 一句话
 
+![创始人与用户对谈](../../assets/inline-lenny-founder-archetypes-comms-strategy-01.jpg)
+
 门槛从未这么低，注意力从未这么碎。AI 让「从想法到业务」比雇工程师还快，也让 X、LinkedIn 灌满无魂内容。**创始人直述（founder-led communication）**仍是低成本、高杠杆的获客与招人手段——而找代笔的第一大原因不是讨厌写作，是「不知道说什么」。多数人不缺脆弱或反常识人设，只缺一个可信的 **why**。
 
 ## 三种原型，三种关系
@@ -43,6 +45,8 @@ tags: ['创业', '传播', '产品']
 ---
 
 ## Insight 创始人：让观众变聪明
+
+![三种传播原型分岔](../../assets/inline-lenny-founder-archetypes-comms-strategy-02.jpg)
 
 **你是这类人如果：** 你看见了错误假设、坏流程或定价错配，并决定纠正。
 

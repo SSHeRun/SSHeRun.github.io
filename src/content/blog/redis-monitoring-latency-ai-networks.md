@@ -12,6 +12,8 @@ tags: ['Redis', 'AI', 'SRE', 'RAG']
 
 ## 延迟是一族指标，不是一个数
 
+![监控正常但答案变差](../../assets/inline-redis-monitoring-latency-ai-networks-01.jpg)
+
 单次 LLM 调用至少拆开看：
 
 | 指标 | 盯什么 |
@@ -57,6 +59,8 @@ Agent 编码场景里，工具执行可占主导（生成与工具被迫串行�
 单服务 1% 请求 P99=1s，fan-out 100 个依赖，整请求慢的概率约 **63%**（tail at scale）。Embedding 服务、向量索引、gateway、工具 API 每层都加 RPC 开销。
 
 ## 监控清单
+
+![延迟曲线与尾延迟](../../assets/inline-redis-monitoring-latency-ai-networks-02.jpg)
 
 **OpenTelemetry GenAI（实验性）** 可先接：
 

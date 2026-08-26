@@ -5,18 +5,22 @@ pubDate: '2026-08-26'
 heroImage: '../../assets/cover-nvidia-risky-business-ai-funding.jpg'
 tags: ['创业', 'AI', '芯片']
 ---
-
 AI 基建的钱从哪来？过去一年，答案从「自由现金流」一路滑到「债务」，再滑到「股权」，现在轮到「养老金和保险浮存金」。
 
 [Ben Thompson 在 Stratechery 的最新文章](https://stratechery.com/2026/nvidias-risky-business/) 用 **1870 年代铁路债券** 做镜子，照出今天 Nvidia、Google 和一众 hyperscaler 正在玩的 **Risky Business**。Satya Nadella 在微软财报电话会上点名《1873》不是随口一提 —— 当 CapEx 规模按经济体倍数折算已逼近 **每年约 $6000 亿** 时，融资结构本身就成了风险。
 
 ## 1873：零售债券如何引爆恐慌
 
+![AI 基建资本堆叠](../../assets/inline-nvidia-risky-business-ai-funding-01.jpg)
+
 1864 年，美国国会特许 Northern Pacific 铁路，用沿线 4000 万英亩土地换建设。六年筹不到钱，直到金融家 Jay Cooke 接下承销：**12% 债券佣金**，每卖出 $1000 债券再送 $200 股票。
 
 机构不买，Cooke 就搞零售：1500 名销售、1300 家报纸、爱国主义叙事 —— 和当年卖战争债券同一套打法。1873 年 9 月全球信用收紧，Cooke 公司破产，触发 **1873 恐慌**：铁路连环破产、多年通缩。铁路后来还是建完了（多次破产重组），最终并入 BNSF；2009 年 Berkshire Hathaway 买下 BNSF 母公司。
 
 Ahamed 新书《1873》的换算很刺眼：1870 年代流入美国铁路债券的每年约 $5 亿，按经济体规模倍数放到 2026，约 **$6000 亿** —— 与 2026 年科技巨头 AI 投资预测同量级。
+
+
+![Google 基建与股权融资](../../assets/inline-nvidia-risky-business-ai-funding-03.jpg)
 
 ## 融资阶梯：每一层都比上一层更险
 
@@ -46,6 +50,8 @@ Thompson 此前写过：Hassabis 押 **world models** 而非纯文本/代码，�
 - Google 愿意分享算力、甚至发股权融资 —— Thompson 类比 Berkshire：See's 糖果利润 vs BNSF 铁路（高资本、高利润）。目标是 **绝对利润**，不是利润率
 
 ## Nvidia：$5000 亿融资平台与 25% 残值担保
+
+![债务与股权融资链条](../../assets/inline-nvidia-risky-business-ai-funding-02.jpg)
 
 Jensen Huang 在 X 上宣布与 Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs、KKR 合作，建立独立融资平台，动员 **$5000 亿+** 第三方资本。
 
