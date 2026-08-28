@@ -1,0 +1,19 @@
+---
+import VaultApp from '../../../components/VaultApp.astro';
+import SitePage from '../../../layouts/SitePage.astro';
+import { SUBJECTS } from '../../../lib/vault/subjects';
+
+export function getStaticPaths() {
+	return SUBJECTS.map((subject) => ({
+		params: { subject: subject.id },
+	}));
+}
+
+const { subject } = Astro.params;
+---
+
+<SitePage title="笔记" description="加密学科笔记" noindex alternates={[]}>
+	<main>
+		<VaultApp mode="subject" subject={subject} />
+	</main>
+</SitePage>

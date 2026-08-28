@@ -29,7 +29,11 @@ jobs:
 
       - run: npm run verify:blog
 
+      - run: npm run verify:notes
+
       - run: npm run build
+        env:
+          VAULT_PASSWORD: ${{ secrets.VAULT_PASSWORD }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

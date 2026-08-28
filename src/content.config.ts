@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { CANONICAL_TAGS } from './lib/taxonomy';
+import { SUBJECT_IDS } from './lib/vault/subjects';
 
 const tagEnum = z.enum(CANONICAL_TAGS as unknown as [string, ...string[]]);
 
@@ -26,4 +27,22 @@ const blog = defineCollection({
 		}),
 });
 
-export const collections = { blog };
+const notes = defineCollection({
+	loader: glob({ base: './src/content/notes', pattern: '**/*.md' }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		subject: z
+			.string()
+			.refine((id) => SUBJECT_IDS.includes(id), '未知学科，先在 src/lib/vault/subjects.ts 登记'),
+		chapter: z.number().int().positive(),
+		order: z.number().int().nonnegative(),
+		status: z.enum(['draft', 'reviewed']),
+		concepts: z.array(z.string()).min(3, '至少 3 个概念，供 408 图谱使用'),
+		cover: z.string().min(1, '每章需要封面图'),
+		related: z.array(z.string()).default([]),
+		updatedDate: z.coerce.date().optional(),
+	}),
+});
+
+export const collections = { blog, notes };

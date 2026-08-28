@@ -2,24 +2,32 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { currentLocale, localeMeta, pageAlternates } from '../i18n/config';
+import { currentLocale, localeMeta, pageAlternates, type Alternate } from '../i18n/config';
 
 interface Props {
 	title: string;
 	description: string;
 	wide?: boolean;
+	noindex?: boolean;
+	alternates?: Alternate[];
 }
 
-const { title, description, wide = false } = Astro.props;
+const { title, description, wide = false, noindex = false } = Astro.props;
 const locale = currentLocale(Astro.currentLocale);
 const meta = localeMeta[locale];
-const alternates = pageAlternates(Astro.url.pathname, Astro.site);
+const alternates = Astro.props.alternates ?? pageAlternates(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
 <html lang={meta.htmlLang}>
 	<head>
-		<BaseHead title={title} description={description} locale={locale} alternates={alternates} />
+		<BaseHead
+			title={title}
+			description={description}
+			locale={locale}
+			alternates={alternates}
+			noindex={noindex}
+		/>
 	</head>
 	<body class:list={{ 'page-wide': wide }}>
 		<Header />

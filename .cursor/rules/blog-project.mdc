@@ -54,6 +54,7 @@ globs:
 - `PostHeatmap.astro` — GitHub 风格发文热力图（关于页使用）
 - `CodeSandbox.astro` — StackBlitz iframe 嵌入组件
 - `/graph` — Cytoscape.js 可视化文章-标签关系网络
+- `/notes/` — 加密个人知识库（不进导航、sitemap、RSS、llms）。口令是 `VAULT_PASSWORD`，构建期 AES-GCM 加密正文。新增学科先改 `src/lib/vault/subjects.ts`，再在 `src/content/notes/{id}/` 写章节。408 图谱在 `/notes/graph/`，不要和博客 `/graph/` 混标签。公开仓库里的 Markdown 源仍可能被 GitHub 看到：站点隐藏 ≠ git 隐藏。
 
 ## 设计原则
 - 博客主题："做一个对 Agent 友好的博客"

@@ -21,6 +21,7 @@ export default defineConfig({
 		mermaid(),
 		mdx(),
 		sitemap({
+			filter: (page) => !page.includes('/notes/'),
 			i18n: {
 				defaultLocale: 'zh-CN',
 				locales: {

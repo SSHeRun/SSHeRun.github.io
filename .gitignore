@@ -26,3 +26,9 @@ pnpm-debug.log*
 # vscode/cursor setting folder
 .vscode/
 .cursor/
+
+# local scratch and browser debug
+tmp/
+output/
+.playwright-cli/
+scripts/__pycache__/

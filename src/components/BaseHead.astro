@@ -22,6 +22,7 @@ interface Props {
 	articleModifiedTime?: string;
 	locale?: Locale;
 	alternates?: Alternate[];
+	noindex?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -35,6 +36,7 @@ const {
 	articleModifiedTime,
 	locale = currentLocale(Astro.currentLocale),
 	alternates = pageAlternates(Astro.url.pathname, Astro.site),
+	noindex = false,
 } = Astro.props;
 const image = imageProp ?? (locale === 'en' ? SiteOgEn : SiteOgZh);
 const meta = localeMeta[locale];
@@ -100,6 +102,7 @@ const ogImageUrl = new URL(image.src, Astro.site).href;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 
 <!-- Open Graph / Facebook（绝对 URL 必须用站点 origin，避免预览抓错图/错链） -->
 <meta property="og:type" content={ogType} />

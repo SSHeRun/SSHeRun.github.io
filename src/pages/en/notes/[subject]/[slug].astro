@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import VaultApp from '../../../../components/VaultApp.astro';
+import SitePage from '../../../../layouts/SitePage.astro';
+import { slugFromNoteId } from '../../../../lib/vault/serialize';
+
+export async function getStaticPaths() {
+	const notes = await getCollection('notes');
+	return notes.map((note) => ({
+		params: {
+			subject: note.data.subject,
+			slug: slugFromNoteId(note.id),
+		},
+	}));
+}
+
+const { subject, slug } = Astro.params;
+---
+
+<SitePage title="Notes" description="Encrypted chapter" noindex alternates={[]}>
+	<main>
+		<VaultApp mode="note" subject={subject} slug={slug} />
+	</main>
+</SitePage>
