@@ -38,6 +38,7 @@ const notes = defineCollection({
 		chapter: z.number().int().positive(),
 		order: z.number().int().nonnegative(),
 		status: z.enum(['draft', 'reviewed']),
+		difficulty: z.enum(['入门', '进阶', '艰深']).optional(),
 		concepts: z.array(z.string()).min(3, '至少 3 个概念，供 408 图谱使用'),
 		cover: z.string().min(1, '每章需要封面图'),
 		related: z.array(z.string()).default([]),

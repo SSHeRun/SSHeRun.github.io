@@ -16,19 +16,24 @@ export function buildNotesGraph(notes: VaultNote[]): NotesGraphPayload {
 		edges.push({ source, target, type });
 	}
 
+	const usedSubjects = new Set(notes.map((note) => note.subject));
+	const visibleSubjects = SUBJECTS.filter(
+		(subject) => usedSubjects.has(subject.id) || (subject.id !== 'reading' && subject.id !== 'xuanxue'),
+	);
+	const visibleGroups = new Set(visibleSubjects.map((subject) => subject.group));
+
 	for (const group of SUBJECT_GROUPS) {
+		if (!visibleGroups.has(group.id)) continue;
 		nodes.push({
 			id: `group:${group.id}`,
 			label: group.label,
 			type: 'group',
-			color: group.id === '408' ? '#0891b2' : group.id === 'cs' ? '#7c3aed' : '#d97706',
+			color: group.color,
 			weight: 8,
 		});
 	}
 
-	const usedSubjects = new Set(notes.map((note) => note.subject));
-	for (const subject of SUBJECTS) {
-		if (!usedSubjects.has(subject.id) && subject.id === 'reading') continue;
+	for (const subject of visibleSubjects) {
 		nodes.push({
 			id: `subject:${subject.id}`,
 			label: subject.label,

@@ -1,4 +1,4 @@
-export type SubjectGroup = '408' | 'cs' | 'reading';
+export type SubjectGroup = '408' | 'cs' | 'reading' | 'xuanxue';
 
 export type Subject = {
 	id: string;
@@ -10,10 +10,11 @@ export type Subject = {
 	color: string;
 };
 
-export const SUBJECT_GROUPS: { id: SubjectGroup; label: string; order: number }[] = [
-	{ id: '408', label: '考研 408', order: 1 },
-	{ id: 'cs', label: '计算机科学', order: 2 },
-	{ id: 'reading', label: '读书笔记', order: 3 },
+export const SUBJECT_GROUPS: { id: SubjectGroup; label: string; order: number; color: string }[] = [
+	{ id: '408', label: '考研 408', order: 1, color: '#0891b2' },
+	{ id: 'cs', label: '计算机科学', order: 2, color: '#7c3aed' },
+	{ id: 'reading', label: '读书笔记', order: 3, color: '#d97706' },
+	{ id: 'xuanxue', label: '玄学', order: 4, color: '#6d28d9' },
 ];
 
 /**
@@ -85,6 +86,15 @@ export const SUBJECTS: Subject[] = [
 		description: '预留：一本书一篇或按章节拆分，沿用同一套加密笔记结构。',
 		order: 7,
 		color: '#d97706',
+	},
+	{
+		id: 'xuanxue',
+		label: '玄学',
+		group: 'xuanxue',
+		groupLabel: '玄学',
+		description: '命理、术数与传统宇宙观的个人笔记，不进公开博客。',
+		order: 8,
+		color: '#6d28d9',
 	},
 ];
 

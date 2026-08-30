@@ -7,6 +7,7 @@ export type VaultNote = {
 	chapter: number;
 	order: number;
 	status: 'draft' | 'reviewed';
+	difficulty?: '入门' | '进阶' | '艰深';
 	concepts: string[];
 	cover: string;
 	related: string[];

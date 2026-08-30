@@ -18,6 +18,7 @@ export function toVaultNote(note: CollectionEntry<'notes'>): VaultNote {
 		chapter: note.data.chapter,
 		order: note.data.order,
 		status: note.data.status,
+		difficulty: note.data.difficulty,
 		concepts: note.data.concepts,
 		cover: note.data.cover,
 		related: note.data.related ?? [],

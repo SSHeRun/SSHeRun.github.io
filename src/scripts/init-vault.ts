@@ -138,7 +138,7 @@ function bindVaultPage() {
 				(note) => `<a class="vault-chapter" href="/notes/${note.subject}/${note.slug}/">
 				<span class="vault-chapno">第 ${note.chapter} 章</span>
 				<div>
-					<p class="vault-meta">${note.status === 'reviewed' ? '已审' : '草稿'} · ${note.concepts.slice(0, 3).join(' · ')}</p>
+					<p class="vault-meta">${note.status === 'reviewed' ? '已审' : '草稿'}${note.difficulty ? ` · ${note.difficulty}` : ''} · ${note.concepts.slice(0, 3).join(' · ')}</p>
 					<h3>${note.title}</h3>
 					<p>${note.description}</p>
 				</div>
@@ -183,7 +183,7 @@ function bindVaultPage() {
 			<p class="vault-kicker"><a href="/notes/">保险库</a> / <a href="/notes/${note.subject}/">${subject?.label ?? note.subject}</a></p>
 			<h1>${note.title}</h1>
 			<p class="vault-lead">${note.description}</p>
-			<p class="vault-meta">第 ${note.chapter} 章 · ${note.concepts.length} 个概念${note.updated ? ` · 更新 ${note.updated}` : ''}</p>
+			<p class="vault-meta">第 ${note.chapter} 章${note.difficulty ? ` · ${note.difficulty}` : ''} · ${note.concepts.length} 个概念${note.updated ? ` · 更新 ${note.updated}` : ''}</p>
 			<div class="vault-concepts">${note.concepts.map((item) => `<a href="/notes/graph/?q=${encodeURIComponent(item)}">${item}</a>`).join('')}</div>
 			${toc.length ? `<nav class="vault-toc" aria-label="本章目录">${toc.join('')}</nav>` : ''}
 			<div class="vault-body">${body}</div>

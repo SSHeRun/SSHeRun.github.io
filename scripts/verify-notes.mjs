@@ -44,13 +44,20 @@ function parseList(block) {
 		.map((line) => line.slice(2).trim().replace(/^['"]|['"]$/g, ''));
 }
 
-async function loadSubjectIds() {
+async function loadSubjects() {
 	const source = await readFile(SUBJECTS_FILE, 'utf8');
-	return new Set([...source.matchAll(/id:\s*'([^']+)'/g)].map((match) => match[1]));
+	const start = source.indexOf('export const SUBJECTS');
+	const slice = start >= 0 ? source.slice(start) : source;
+	const groupById = new Map();
+	for (const match of slice.matchAll(/\{\s*id:\s*'([^']+)'[\s\S]*?group:\s*'([^']+)'/g)) {
+		groupById.set(match[1], match[2]);
+	}
+	return groupById;
 }
 
 const files = await listMarkdown(NOTES_DIR);
-const subjects = await loadSubjectIds();
+const groupById = await loadSubjects();
+const subjects = new Set(groupById.keys());
 const errors = [];
 const ids = new Set();
 
@@ -64,6 +71,8 @@ for (const file of files) {
 	const concepts = parseList(text.match(CONCEPTS_RE)?.[1] ?? '');
 	const related = parseList(text.match(RELATED_RE)?.[1] ?? '');
 	const folder = rel.split('/')[0];
+	const group = subject ? groupById.get(subject) : '';
+	const examTrack = group === '408' || group === 'cs';
 
 	if (!subject || !subjects.has(subject)) {
 		errors.push(`${rel}: subject 未在 subjects.ts 登记`);
@@ -85,14 +94,28 @@ for (const file of files) {
 			errors.push(`${rel}: 封面不存在 ${cover}`);
 		}
 	}
-	if (!/##\s*源笔记勘误/.test(text) || !/##\s*本章要义/.test(text)) {
-		errors.push(`${rel}: 缺少「本章要义」或「源笔记勘误」`);
+	if (!/##\s*本章要义/.test(text)) {
+		errors.push(`${rel}: 缺少「本章要义」`);
 	}
-	if (!/##\s*考研题精练/.test(text)) {
+	if (group === 'xuanxue') {
+		if (!/^difficulty:\s*(入门|进阶|艰深)\s*$/m.test(text)) {
+			errors.push(`${rel}: 玄学笔记必须标注 difficulty（入门/进阶/艰深）`);
+		}
+		if (/##\s*白话译文/.test(text)) {
+			errors.push(`${rel}: 玄学译文须按段落穿插，禁止整章「白话译文」殿后`);
+		}
+		if (!/\*\*白话：\*\*/.test(text)) {
+			errors.push(`${rel}: 玄学正文缺少段落白话`);
+		}
+	}
+	if (examTrack && !/##\s*源笔记勘误/.test(text)) {
+		errors.push(`${rel}: 缺少「源笔记勘误」`);
+	}
+	if (examTrack && !/##\s*考研题精练/.test(text)) {
 		errors.push(`${rel}: 缺少「考研题精练」`);
 	}
 	const body = text.replace(/^---[\s\S]*?---\n?/, '');
-	if (!/```mermaid/.test(body)) {
+	if (examTrack && !/```mermaid/.test(body)) {
 		errors.push(`${rel}: 正文缺少知识点图表（mermaid）`);
 	}
 

@@ -296,6 +296,33 @@ const { mode, subject = '', slug = '' } = Astro.props;
 	.vault-body {
 		line-height: 1.75;
 	}
+	.vault-body img {
+		display: block;
+		width: 100%;
+		max-width: 720px;
+		height: auto;
+		margin: 1rem 0 0.35rem;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--glass-border);
+		background: var(--bg-surface);
+	}
+	.vault-body em {
+		display: block;
+		margin: 0 0 1.2rem;
+		color: var(--text-secondary);
+		font-size: 0.88rem;
+		font-style: normal;
+	}
+	.vault-body blockquote {
+		margin: 0.6rem 0 1rem;
+		padding: 0.35rem 0.75rem;
+		border-left: 3px solid var(--accent);
+		color: var(--text-secondary);
+		font-size: 0.88rem;
+	}
+	.vault-body strong {
+		color: var(--accent);
+	}
 	.vault-body h2,
 	.vault-body h3 {
 		margin-top: 1.8rem;
