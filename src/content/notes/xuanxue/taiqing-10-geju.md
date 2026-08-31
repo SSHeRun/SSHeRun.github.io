@@ -25,6 +25,9 @@ updatedDate: 2026-08-30
 
 这是**术数文献，不是医学**。痣、格、克夫、产厄、刑死都是旧说应验话，不能当体检、婚育或法律预测。前卷骨肉手足见 [[xuanxue/taiqing-09-guti|额眉眼骨肉]]，十二宫位置可对读 [[xuanxue/mayi-02-qianliugong|麻衣前六宫]]、[[xuanxue/mayi-03-houliugong|麻衣后六宫]]。
 
+![部位收成格局；女相体柔用弱为正](/notes-media/inline-xuanxue-relation-taiqing-10-geju.jpg)
+*图注：五步环对应黑痣总例、男儿诸格、三停五大八小、女相九善九恶、贵贤与贱恶。女相部位与男相同，条目另开。术数文献，不是医学。*
+
 ```mermaid
 flowchart TB
   A[黑痣] --> B[男儿诸格]

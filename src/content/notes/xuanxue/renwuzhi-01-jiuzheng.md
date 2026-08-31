@@ -30,6 +30,9 @@ updatedDate: 2026-08-30
 
 本章**进阶**：九征分论与十二对拘抗，不是部位总诀；宜逐段对读，不要只背分级表。这是鉴人术数文献，不是医学。
 
+![观人先察平淡，再求聪明](/notes-media/inline-xuanxue-relation-renwuzhi-01-jiuzheng.jpg)
+*图注：五步环对应「先看平淡，再看聪明」；九征皆至为纯粹，否则落入偏材、依似、间杂。鉴人术数文献，不是医学。*
+
 ```mermaid
 flowchart TD
   A[观人察质] --> B[先察平淡]

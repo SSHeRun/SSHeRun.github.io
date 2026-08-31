@@ -27,6 +27,9 @@ updatedDate: 2026-08-30
 
 本章**进阶**：后六宫分论，以及命宫、迁移宫重出异文，要逐条对读，不能只记宫名。
 
+![后六宫：兄弟子女交友田宅父母疾厄](/notes-media/inline-xuanxue-relation-mayi-03-houliugong.jpg)
+*图注：五步环对应后六宫：兄弟、子女交友、田宅、父母、疾厄。命宫迁移重出只作异文附录。术数文献，不是医学。*
+
 ```mermaid
 flowchart TB
     H[后六宫] --> H1[兄弟宫]

@@ -28,6 +28,9 @@ updatedDate: 2026-08-30
 
 本章整体**进阶**；两首歌诀按部位应事，标**艰深**。
 
+![德在形先；神见于眉目，气发颜表](/notes-media/inline-xuanxue-relation-taiqing-06-shenqi.jpg)
+*图注：五步环对应心术七取、德在形先、神见于眉目、气发颜表、六气歌诀。死生论借神昏乱浮杂，不是寿命预测。术数文献，不是医学。*
+
 ```mermaid
 flowchart TB
   A[心术七取七不取] --> B[德在形先]

@@ -26,6 +26,9 @@ updatedDate: 2026-08-30
 
 前卷形神体象见[[xuanxue/taiqing-08-xingshen|形神体象]]，格局与女相见[[xuanxue/taiqing-10-geju|格局与女相]]。眉为兄弟宫，可对读[[xuanxue/mayi-03-houliugong|麻衣后六宫]]。
 
+![肉要坚实，骨要直耸；眼为木星所以生神](/notes-media/inline-xuanxue-relation-taiqing-09-guti.jpg)
+*图注：五步环对应骨肉总法、额头枕、面三停、眉眼、腰背手足。额纹枕骨掌纹黑痣都不能当体检。术数文献，不是医学。*
+
 ```mermaid
 flowchart TB
     A[骨肉] --> B[额头枕]

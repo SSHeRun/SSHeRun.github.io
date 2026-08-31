@@ -25,6 +25,9 @@ updatedDate: 2026-08-30
 
 它是**术数文献，不是医学**。狱死、兵死、溺死、客亡，都是旧说应验话，不能当法律、军事或旅行预测。读法：先定这一横列在中线哪一位旁边，再看骨肉是否起、色是否润，最后才看痣和恶色。上一章见 [[xuanxue/taiqing-02-zhongyang|杂说与中央十三位]]。
 
+![中线上半向两边展开](/notes-media/inline-xuanxue-relation-taiqing-03-henglie-shang.jpg)
+*图注：五步环对应天中、天庭、司空、中正、印堂各一横列，中线上半向两边展开。术数文献，不是医学。*
+
 ```mermaid
 flowchart TB
   M[中线上半] --> A[天中横列八位]

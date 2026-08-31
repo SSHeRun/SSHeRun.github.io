@@ -26,6 +26,9 @@ updatedDate: 2026-08-30
 
 本卷禽兽诸形、五短五长没有专图，只用三停、五行、清浊口诀图式对照：正形多要求三才/三停平满、五行相生、清厚有神。气色详前卷[[xuanxue/taiqing-07-qise|太清神鉴：气色]]，骨肉部位见[[xuanxue/taiqing-09-guti|额眉眼骨肉]]，神骨清浊可对读[[xuanxue/bingjian|冰鉴]]。
 
+![宁可神足形不足，不可形足神不足](/notes-media/inline-xuanxue-relation-taiqing-08-xingshen.jpg)
+*图注：五步环对应形神相资、五行正类、禽兽诸形、五短五长、声行坐卧。宁可神足形不足，不可形足神不足。术数文献，不是医学。*
+
 ```mermaid
 flowchart TB
     A[形神相资] --> B[五行正类]

@@ -28,6 +28,9 @@ updatedDate: 2026-08-30
 
 同体一段要和偏材对读：性同而材倾则相援，性同而势均则相害。看着都在助「直」、助「明」，其实也可能在毁另一个直、另一个明。读完再看 [[xuanxue/renwuzhi-06-shizheng|效难]]：缪是看走眼，难是看准了也用不上。
 
+![知人者以目正耳，不知人者以耳败目](/notes-media/inline-xuanxue-relation-renwuzhi-05-qimiu.jpg)
+*图注：五步环对应八观的七个坑：以目正耳、三周肩称、心小志大、同体相誉、二尤核实。鉴人术数文献，不是医学。*
+
 ```mermaid
 flowchart TB
   QM["七缪"]

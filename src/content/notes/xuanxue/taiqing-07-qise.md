@@ -28,6 +28,9 @@ updatedDate: 2026-08-30
 
 本章整体**艰深**（气色吉凶歌）。可与[[xuanxue/mayi-02-qianliugong|麻衣气色与前六宫]]对读。下一章收[[xuanxue/taiqing-08-xingshen|形神体象]]。
 
+![侵晨帷幄看本脏清气，浮暴之气不算](/notes-media/inline-xuanxue-relation-taiqing-07-qise.jpg)
+*图注：五步环对应气色法诀、五色形状、六神气色、四时出没、吉凶歌诀。五色正者如瓜蜡火脂漆。术数文献，不是医学。*
+
 ```mermaid
 flowchart TB
   A[气色法诀] --> B[五色形状]

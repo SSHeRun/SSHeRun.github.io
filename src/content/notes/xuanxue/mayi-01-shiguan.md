@@ -30,6 +30,9 @@ updatedDate: 2026-08-30
 
 本章**进阶**：十观是分论，骨格、形神、官成府就要一条一条对读，不能只记总诀。
 
+![先骨格，次五行，再按十观总断](/notes-media/inline-xuanxue-relation-mayi-01-shiguan.jpg)
+*图注：五步环对应相说次第：先骨格，次五行，再收威仪精神、清浊头面、官成府就。十观是分论。术数文献，不是医学。*
+
 ```mermaid
 flowchart TB
     A[先骨格 次五行] --> B[十观]

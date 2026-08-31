@@ -30,6 +30,9 @@ updatedDate: 2026-08-30
 
 本章**进阶**：十二宫分论与气色生克，要按段对读，不能只记宫名。
 
+![十二宫先走前六：命迁官财福夫](/notes-media/inline-xuanxue-relation-mayi-02-qianliugong.jpg)
+*图注：五步环对应五法切相之后入前六宫：命、迁、官、财、福、夫。后六宫另章。术数文献，不是医学。*
+
 ```mermaid
 flowchart TB
     P[面部十二宫] --> Q[前六宫]
