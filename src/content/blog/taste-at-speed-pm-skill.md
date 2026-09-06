@@ -2,7 +2,7 @@
 title: 'Taste at Speed：当构建成本趋近于零，PM 的核心技能变了'
 description: 'Anthropic 的 Boris Cherny 每天提交 20-30 个 PR，100% 由 Claude 编写。当构建不再是瓶颈，产品经理最重要的能力变成了快速评估、大量淘汰、只发布幸存者。'
 pubDate: '2026-03-20'
-heroImage: '../../assets/cover-taste-at-speed.jpg'
+heroImage: '../../assets/cover-taste-at-speed-pm-skill.jpg'
 tags: ['产品', 'Claude Code', '效率']
 ---
 

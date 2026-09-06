@@ -2,7 +2,7 @@
 title: 'WinPE下的PECMD命令详解'
 description: 'WinPE系统核心软件PECMD.EXE的70多条命令详解，包括常用命令、窗口控件、字符串处理等。'
 pubDate: '2020-12-01'
-heroImage: '../../assets/cover-winpe-pecmd.jpg'
+heroImage: '../../assets/cover-winpe-pecmd-commands.jpg'
 tags: ['Windows', '教程']
 ---
 

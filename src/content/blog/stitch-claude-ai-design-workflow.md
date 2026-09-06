@@ -2,7 +2,7 @@
 title: 'Google Stitch 2.0 + Claude Code：AI 设计工作流的革命'
 description: 'Google Stitch 2.0 + Claude Code 通过 MCP 连接，让一个人在一小时内完成过去需要数周和数千美元的专业设计工作。关键在于 design.md 文件实现的设计系统一致性。'
 pubDate: '2026-04-06'
-heroImage: '../../assets/cover-stitch-claude-workflow.jpg'
+heroImage: '../../assets/cover-stitch-claude-ai-design-workflow.jpg'
 tags: ['设计', 'Claude Code', '产品']
 ---
 

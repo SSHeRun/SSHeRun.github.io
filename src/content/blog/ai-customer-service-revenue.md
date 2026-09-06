@@ -2,7 +2,7 @@
 title: '客服不是成本中心：AI 正在重写企业和用户之间的关系结构'
 description: '当 AI 把"认真对待一个用户"的成本压到接近零，商业世界的底层逻辑就变了。客服不再是擦屁股的部门，而是企业和用户之间最重要的接口。'
 pubDate: '2026-03-20'
-heroImage: '../../assets/cover-ai-customer-service.jpg'
+heroImage: '../../assets/cover-ai-customer-service-revenue.jpg'
 tags: ['创业', '产品']
 ---
 

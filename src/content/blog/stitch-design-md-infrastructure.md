@@ -2,7 +2,7 @@
 title: "为什么 Google Stitch 的 DESIGN.md 值得关注：AI UI 正从出图工具走向设计基础设施"
 description: "结合 Stitch 官方 DESIGN.md 文档和一线使用者的实践，分析 Google Stitch 为什么不只是 AI 出图工具，而是在构建 AI 时代的设计基础设施。"
 pubDate: "2026-03-28"
-heroImage: "../../assets/cover-stitch-design-md.jpg"
+heroImage: "../../assets/cover-stitch-design-md-infrastructure.jpg"
 tags: ['设计', 'Agent', '产品']
 ---
 

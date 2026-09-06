@@ -2,7 +2,7 @@
 title: '做一个对 Agent 友好的博客'
 description: '在 Agent 时代，个人网站不应只是给人看的页面，更应该是一个机器可读的接口。本文介绍如何让博客同时对人类和 AI Agent 友好。'
 pubDate: '2026-03-18'
-heroImage: '../../assets/cover-astro-migration.jpg'
+heroImage: '../../assets/cover-hello-world.jpg'
 tags: ['Agent', '工程']
 ---
 

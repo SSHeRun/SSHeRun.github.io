@@ -2,7 +2,7 @@
 title: '软件工程正在分裂为三层：你在哪一层？'
 description: '当实现成本趋近于零，瓶颈从编码转移到判断力。软件工程市场正在分裂为三个层级，不仅薪酬不同，工作内容和所需技能都在根本性分化。'
 pubDate: '2026-03-20'
-heroImage: '../../assets/cover-software-engineering-splits.jpg'
+heroImage: '../../assets/cover-software-engineering-splits-three.jpg'
 tags: ['工程', '职业']
 ---
 
