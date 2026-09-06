@@ -13,6 +13,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 ROOT = Path(__file__).resolve().parents[1]
 BLOG_DIR = ROOT / "src" / "content" / "blog"
 ASSETS = ROOT / "src" / "assets"
+UI_TS = ROOT / "src" / "i18n" / "ui.ts"
 WIDTH, HEIGHT = 1600, 800
 WATERMARK = "ssherun.github.io"
 
@@ -65,6 +66,25 @@ def load_font(path: str, size: int, index: int) -> ImageFont.FreeTypeFont:
     return ImageFont.truetype(path, size=size, index=index)
 
 
+def en_tag_labels() -> dict[str, str]:
+    """从 src/i18n/ui.ts 的 en 段读出 tag_* 词条。
+
+    frontmatter 里的 tags 是受控中文词表（CANONICAL_TAGS），站点靠
+    i18n 的 tagLabel() 在英文页显示成 Engineering / Startup 等。
+    封面此前不走这层，于是英文封面上印着中文标签。这里复用同一份词条，
+    避免另立一套映射跑偏。
+    """
+    try:
+        text = UI_TS.read_text(encoding="utf-8")
+    except OSError:
+        return {}
+    _, _, after_en = text.partition("en:")
+    mapping: dict[str, str] = {}
+    for m in re.finditer(r"tag_([^:\s]+):\s*'([^']*)'", after_en):
+        mapping[m.group(1).replace("_", " ")] = m.group(2)
+    return mapping
+
+
 def unquote_scalar(value: str) -> str:
     """还原 YAML 标量：单引号串里的 '' 是一个字面单引号。
 
@@ -91,9 +111,13 @@ def parse_frontmatter(slug: str, en: bool = False) -> dict[str, object]:
         data[key.strip()] = unquote_scalar(value.strip())
     tags_match = re.search(r"tags:\s*\[(.*?)\]", raw, re.S)
     if tags_match:
-        data["tags"] = [unquote_scalar(item.strip()) for item in tags_match.group(1).split(",") if item.strip()]
+        tags = [unquote_scalar(item.strip()) for item in tags_match.group(1).split(",") if item.strip()]
     else:
-        data["tags"] = []
+        tags = []
+    if en:
+        labels = en_tag_labels()
+        tags = [labels.get(tag, tag) for tag in tags]
+    data["tags"] = tags
     return data
 
 
