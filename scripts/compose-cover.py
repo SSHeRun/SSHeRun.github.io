@@ -221,19 +221,25 @@ def compose(bg_path: Path, title: str, tags: list[str], out_path: Path) -> None:
     canvas = bg.resize((WIDTH, HEIGHT), Image.Resampling.LANCZOS)
 
     overlay = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
-    shade = Image.new("RGBA", (WIDTH, HEIGHT), (6, 10, 22, 0))
+
+    # 只在标题带上压暗，强度按该区域实际亮度自适应。
+    # 旧版是整幅 (6,10,22) alpha 120~205 的蓝黑蒙版 + 固定青紫光晕，
+    # 等于给每张封面强行套一层赛博朋克，背景再不同也会被抹平。
+    band_top, band_bottom = int(HEIGHT * 0.26), int(HEIGHT * 0.74)
+    band = canvas.crop((0, band_top, WIDTH, band_bottom)).resize((64, 24))
+    px = list(band.getdata())
+    luma = sum(0.299 * r + 0.587 * g + 0.114 * b for r, g, b in px) / len(px)
+    # 亮背景多压一点、暗背景少压；上限刻意留低，靠标题的模糊光晕补对比
+    peak = int(max(60, min(150, 48 + luma * 0.52)))
+
+    shade = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
     shade_draw = ImageDraw.Draw(shade)
     for y in range(HEIGHT):
         t = abs((y - HEIGHT / 2) / (HEIGHT / 2))
-        alpha = int(120 + 85 * (1 - t**0.65))
-        shade_draw.line([(0, y), (WIDTH, y)], fill=(6, 10, 22, alpha))
-    overlay = Image.alpha_composite(overlay, shade)
-
-    glow = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
-    glow_draw = ImageDraw.Draw(glow)
-    glow_draw.ellipse((80, 90, 620, 620), fill=(0, 240, 255, 28))
-    glow_draw.ellipse((980, 140, 1580, 700), fill=(168, 85, 247, 24))
-    overlay = Image.alpha_composite(overlay, glow.filter(ImageFilter.GaussianBlur(42)))
+        falloff = max(0.0, 1 - t**1.5)
+        alpha = int(peak * falloff * 0.92 + 26)
+        shade_draw.line([(0, y), (WIDTH, y)], fill=(10, 12, 18, alpha))
+    overlay = Image.alpha_composite(overlay, shade.filter(ImageFilter.GaussianBlur(8)))
 
     frame = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
     frame_draw = ImageDraw.Draw(frame)
@@ -264,11 +270,23 @@ def compose(bg_path: Path, title: str, tags: list[str], out_path: Path) -> None:
     block_h = title_block_h + (36 + tag_h if tag_boxes else 0)
     y = (HEIGHT - block_h) // 2 - 8
 
+    # 标题阴影单独一层做高斯模糊：有了这层柔光，压暗蒙版可以轻很多，
+    # 背景的固有色才留得住（否则每张封面都会被压成同一种暗蓝）。
+    halo = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
+    halo_draw = ImageDraw.Draw(halo)
+    hy = y
+    for line in lines:
+        w = text_width(draw, line, title_font)
+        halo_draw.text(((WIDTH - w) / 2, hy + 3), line, font=title_font, fill=(0, 0, 0, 190))
+        hy += title_size + line_gap
+    composed.alpha_composite(halo.filter(ImageFilter.GaussianBlur(14)))
+    draw = ImageDraw.Draw(composed)
+
     for line in lines:
         w = text_width(draw, line, title_font)
         x = (WIDTH - w) / 2
-        draw.text((x + 1, y + 2), line, font=title_font, fill=(0, 0, 0, 90))
-        draw.text((x, y), line, font=title_font, fill=(248, 251, 255, 245))
+        draw.text((x + 1, y + 2), line, font=title_font, fill=(0, 0, 0, 80))
+        draw.text((x, y), line, font=title_font, fill=(248, 251, 255, 248))
         y += title_size + line_gap
 
     if tag_boxes:
