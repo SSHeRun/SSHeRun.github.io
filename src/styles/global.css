@@ -259,6 +259,26 @@ a.wikilink::after {
 	border-radius: 2px;
 }
 
+/* 键盘用户跳过导航直达正文；拿到焦点前不占据版面 */
+.skip-link {
+	position: absolute;
+	left: 1rem;
+	top: -100%;
+	z-index: 200;
+	padding: 0.6rem 1.1rem;
+	border-radius: 0 0 10px 10px;
+	background: var(--bg-surface);
+	border: 1px solid var(--border);
+	color: var(--text-primary);
+	text-decoration: none;
+}
+.skip-link:focus {
+	top: 0;
+}
+#main-content:focus {
+	outline: none;
+}
+
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after {

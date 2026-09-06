@@ -1,0 +1,18 @@
+---
+import NotFound from '../components/NotFound.astro';
+import { currentLocale } from '../i18n/config';
+import { t } from '../i18n/ui';
+import SitePage from '../layouts/SitePage.astro';
+
+const locale = currentLocale(Astro.currentLocale);
+---
+
+<!-- 这一张是 GitHub Pages 的全站兜底，没有对应的 /en/ 副本，别生成 hreflang。 -->
+<SitePage
+	title={`${t(locale, 'notFoundMeta')} - ${t(locale, 'siteTitle')}`}
+	description={t(locale, 'notFoundLead')}
+	alternates={[]}
+	noindex
+>
+	<NotFound />
+</SitePage>

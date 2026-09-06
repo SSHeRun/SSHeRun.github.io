@@ -105,6 +105,12 @@ export const ui = {
 		tag_Windows: 'Windows',
 		otherLangAvailable: '本文也有{lang}版本',
 		readingOriginal: '当前是原文',
+		skipToContent: '跳到正文',
+		notFoundTitle: '这个页面不存在',
+		notFoundLead: '链接可能已经失效，或者地址打错了。',
+		notFoundMeta: '页面不存在',
+		notFoundHome: '回到首页',
+		notFoundBlog: '看看全部文章',
 	},
 	en: {
 		siteTitle: "SSHeRun's Blog",
@@ -212,6 +218,12 @@ export const ui = {
 		tag_Windows: 'Windows',
 		otherLangAvailable: 'Also available in {lang}',
 		readingOriginal: 'You are reading the original',
+		skipToContent: 'Skip to content',
+		notFoundTitle: 'This page does not exist',
+		notFoundLead: 'The link may have expired, or the address was mistyped.',
+		notFoundMeta: 'Page not found',
+		notFoundHome: 'Back to home',
+		notFoundBlog: 'Browse all posts',
 	},
 } as const;
 

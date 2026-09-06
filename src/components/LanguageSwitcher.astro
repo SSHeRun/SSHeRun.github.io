@@ -1,11 +1,20 @@
 ---
-import { currentLocale, localeMeta, LOCALES, switchLocalePath, type Locale } from '../i18n/config';
+import {
+	currentLocale,
+	localeMeta,
+	localizedPath,
+	LOCALES,
+	switchLocalePath,
+	type Locale,
+} from '../i18n/config';
 import { findTranslation, translationKey } from '../i18n/posts';
 import { t } from '../i18n/ui';
 import { getCollection } from 'astro:content';
 
 const locale = currentLocale(Astro.currentLocale);
 const pathname = Astro.url.pathname;
+// 404 是全站兜底页，会被任意 URL 命中，没有对应的语言副本，只能指回各语言首页。
+const isNotFound = pathname === '/404/' || pathname === '/en/404/';
 const blogMatch = pathname.match(/\/blog\/([^/]+)\/?$/);
 let switchMap: Partial<Record<Locale, string>> = {};
 
@@ -28,7 +37,9 @@ if (blogMatch) {
 <div class="lang-switch" role="navigation" aria-label={t(locale, 'langSwitch')}>
 	{
 		LOCALES.map((loc) => {
-			const href = switchMap[loc] ?? switchLocalePath(pathname, loc);
+			const href = isNotFound
+				? localizedPath(loc, '/')
+				: (switchMap[loc] ?? switchLocalePath(pathname, loc));
 			const active = loc === locale;
 			return (
 				<a

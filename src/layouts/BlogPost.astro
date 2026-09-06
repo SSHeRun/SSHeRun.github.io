@@ -71,9 +71,10 @@ const jsonLd = {
 	</head>
 
 	<body>
+		<a class="skip-link" href="#main-content">{t(locale, 'skipToContent')}</a>
 		<ReadingProgress />
 		<Header />
-		<main>
+		<main id="main-content" tabindex="-1">
 			<article>
 				{heroImage && (
 					<div class="hero-image">

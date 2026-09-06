@@ -1,0 +1,95 @@
+---
+import { currentLocale, localizedPath } from '../i18n/config';
+import { t, ui } from '../i18n/ui';
+
+const locale = currentLocale(Astro.currentLocale);
+
+// GitHub Pages 把根目录的 404.html 当成全站兜底，/en/ 下的失效链接也会落到中文这张。
+// 所以把英文文案一起带上，运行时按路径前缀切换。
+const en = {
+	title: ui.en.notFoundTitle,
+	lead: ui.en.notFoundLead,
+	home: ui.en.notFoundHome,
+	blog: ui.en.notFoundBlog,
+	homeHref: localizedPath('en', '/'),
+	blogHref: localizedPath('en', '/blog/'),
+};
+---
+
+<main class="notfound" data-en={JSON.stringify(en)}>
+	<p class="code" aria-hidden="true">404</p>
+	<h1 data-nf="title">{t(locale, 'notFoundTitle')}</h1>
+	<p class="lead" data-nf="lead">{t(locale, 'notFoundLead')}</p>
+	<div class="actions">
+		<a class="action glass" href={localizedPath(locale, '/')} data-nf="home">
+			{t(locale, 'notFoundHome')}
+		</a>
+		<a class="action glass" href={localizedPath(locale, '/blog/')} data-nf="blog">
+			{t(locale, 'notFoundBlog')}
+		</a>
+	</div>
+</main>
+
+<script is:inline>
+	(function () {
+		if (!location.pathname.startsWith('/en/')) return;
+		var root = document.querySelector('.notfound');
+		if (!root) return;
+		var en = JSON.parse(root.dataset.en);
+		document.documentElement.lang = 'en';
+		root.querySelector('[data-nf="title"]').textContent = en.title;
+		root.querySelector('[data-nf="lead"]').textContent = en.lead;
+		var home = root.querySelector('[data-nf="home"]');
+		home.textContent = en.home;
+		home.href = en.homeHref;
+		var blog = root.querySelector('[data-nf="blog"]');
+		blog.textContent = en.blog;
+		blog.href = en.blogHref;
+	})();
+</script>
+
+<style>
+	.notfound {
+		padding: 5rem 0 6rem;
+		text-align: center;
+	}
+	.code {
+		margin: 0;
+		font-size: clamp(5rem, 18vw, 9rem);
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: -0.04em;
+		color: transparent;
+		background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 35%, var(--text-muted)));
+		-webkit-background-clip: text;
+		background-clip: text;
+	}
+	.notfound h1 {
+		margin: 1rem 0 0.5rem;
+		font-size: clamp(1.35rem, 4vw, 1.75rem);
+	}
+	.lead {
+		margin: 0 auto;
+		max-width: 34ch;
+		color: var(--text-secondary);
+	}
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.75rem;
+		margin-top: 2rem;
+	}
+	.action {
+		padding: 0.6rem 1.25rem;
+		border-radius: 999px;
+		text-decoration: none;
+		color: var(--text-primary);
+		transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+	}
+	.action:hover {
+		border-color: var(--border-glow);
+		box-shadow: var(--shadow-glow);
+		transform: translateY(-1px);
+	}
+</style>
