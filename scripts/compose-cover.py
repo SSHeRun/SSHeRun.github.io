@@ -316,15 +316,28 @@ def default_out(slug: str, hero_image: str, en: bool = False) -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--slug", required=True)
+    parser.add_argument("--slug")
     parser.add_argument("--bg", required=True)
     parser.add_argument("--out")
     parser.add_argument("--en", action="store_true")
+    parser.add_argument("--title", help="绕过 frontmatter 直接给标题，用于站点 OG 图这类没有文章的封面")
+    parser.add_argument("--tags", help="逗号分隔，仅在 --title 模式下生效")
     args = parser.parse_args()
-    meta = parse_frontmatter(args.slug, en=args.en)
-    title = str(meta.get("title", args.slug))
-    tags = list(meta.get("tags") or [])
-    out = Path(args.out) if args.out else default_out(args.slug, str(meta.get("heroImage", "")), en=args.en)
+
+    if args.title:
+        if not args.out:
+            parser.error("--title 模式没有 slug 可推导文件名，必须显式给 --out")
+        title = args.title
+        tags = [tag.strip() for tag in (args.tags or "").split(",") if tag.strip()]
+        out = Path(args.out)
+    else:
+        if not args.slug:
+            parser.error("需要 --slug（读文章 frontmatter）或 --title（直接指定）")
+        meta = parse_frontmatter(args.slug, en=args.en)
+        title = str(meta.get("title", args.slug))
+        tags = list(meta.get("tags") or [])
+        out = Path(args.out) if args.out else default_out(args.slug, str(meta.get("heroImage", "")), en=args.en)
+
     compose(Path(args.bg), title, tags, out)
 
 
