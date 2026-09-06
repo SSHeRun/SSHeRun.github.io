@@ -65,6 +65,18 @@ def load_font(path: str, size: int, index: int) -> ImageFont.FreeTypeFont:
     return ImageFont.truetype(path, size=size, index=index)
 
 
+def unquote_scalar(value: str) -> str:
+    """还原 YAML 标量：单引号串里的 '' 是一个字面单引号。
+
+    不处理会让 `title: 'YC''s CEO'` 原样画到封面上（曾影响 10 篇英文封面）。
+    """
+    if len(value) >= 2 and value[0] == value[-1] == "'":
+        return value[1:-1].replace("''", "'")
+    if len(value) >= 2 and value[0] == value[-1] == '"':
+        return value[1:-1]
+    return value
+
+
 def parse_frontmatter(slug: str, en: bool = False) -> dict[str, object]:
     path = BLOG_DIR / (f"{slug}.en.md" if en else f"{slug}.md")
     text = path.read_text(encoding="utf-8")
@@ -76,10 +88,10 @@ def parse_frontmatter(slug: str, en: bool = False) -> dict[str, object]:
         if ":" not in line:
             continue
         key, value = line.split(":", 1)
-        data[key.strip()] = value.strip().strip("'\"")
+        data[key.strip()] = unquote_scalar(value.strip())
     tags_match = re.search(r"tags:\s*\[(.*?)\]", raw, re.S)
     if tags_match:
-        data["tags"] = [item.strip().strip("'\"") for item in tags_match.group(1).split(",") if item.strip()]
+        data["tags"] = [unquote_scalar(item.strip()) for item in tags_match.group(1).split(",") if item.strip()]
     else:
         data["tags"] = []
     return data
