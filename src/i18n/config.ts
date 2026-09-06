@@ -45,6 +45,8 @@ export function stripLocalePrefix(pathname: string): string {
 
 function withSlash(path: string): string {
 	if (path === '/') return '/';
+	// /llms.txt、/rss.xml 落地就是文件，补上尾斜杠会 404。文章 slug 和标签里都没有点号。
+	if (/\.[a-z0-9]+$/i.test(path)) return path;
 	return path.endsWith('/') ? path : `${path}/`;
 }
 
