@@ -2,6 +2,7 @@
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
+import Analytics from './Analytics.astro';
 import SiteOgEn from '../assets/cover-agent-friendly-blog-en.jpg';
 import SiteOgZh from '../assets/cover-agent-friendly-blog.jpg';
 import { SITE_TITLE } from '../consts';
@@ -131,3 +132,5 @@ const ogImageUrl = new URL(image.src, Astro.site).href;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={ogImageUrl} />
+
+<Analytics />
