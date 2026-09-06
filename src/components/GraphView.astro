@@ -1,0 +1,446 @@
+---
+import { getCollection } from 'astro:content';
+import { currentLocale } from '../i18n/config';
+import { postsForLocale } from '../i18n/posts';
+import { clusterLabel, t } from '../i18n/ui';
+import { buildGraphData } from '../lib/graph-data';
+import { TAG_CLUSTERS } from '../lib/taxonomy';
+
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale);
+const graph = buildGraphData(posts, locale);
+const graphData = JSON.stringify({
+	nodes: graph.nodes,
+	edges: graph.edges,
+	ui: {
+		cluster: t(locale, 'graphCluster'),
+		tag: t(locale, 'graphTag'),
+		post: t(locale, 'graphPost'),
+		openPost: t(locale, 'graphOpenPost'),
+		openTag: t(locale, 'graphOpenTag'),
+		belong: t(locale, 'graphBelong'),
+		relatedTags: t(locale, 'graphRelatedTags'),
+		relatedPosts: t(locale, 'graphRelatedPosts'),
+		noMatch: t(locale, 'graphNoMatch'),
+		matchCount: t(locale, 'graphMatchCount'),
+	},
+});
+const usedClusters = TAG_CLUSTERS.filter((cluster) =>
+	graph.nodes.some((node) => node.type === 'cluster' && node.id === `cluster:${cluster.id}`),
+);
+---
+
+<main>
+	<div class="graph-header">
+		<h1>{t(locale, 'graphTitle')}</h1>
+		<p class="graph-desc">{t(locale, 'graphDesc', graph.stats)}</p>
+		<p class="graph-hint">{t(locale, 'graphHint')}</p>
+	</div>
+
+	<div class="graph-toolbar">
+		<div class="search-wrap">
+			<input id="graph-search" type="search" placeholder={t(locale, 'graphSearch')} autocomplete="off" />
+			<span id="graph-search-status" class="search-status" role="status" aria-live="polite"></span>
+		</div>
+		<div id="graph-filters" class="graph-filters">
+			<button type="button" data-cluster="all" class="active">{t(locale, 'graphAll')}</button>
+			{
+				usedClusters.map((cluster) => (
+					<button type="button" data-cluster={cluster.id}>
+						<span class="swatch" style={`background:${cluster.color}`} />
+						{clusterLabel(locale, cluster.id)}
+					</button>
+				))
+			}
+		</div>
+		<button id="graph-reset" type="button" class="reset">{t(locale, 'graphReset')}</button>
+	</div>
+
+	<div id="graph-stage" class="graph-container">
+		<div id="cy"></div>
+		<p class="graph-loading">{t(locale, 'graphLoading')}</p>
+		<div id="graph-zoom-hint" class="zoom-hint">{t(locale, 'graphZoomHint')}</div>
+		<aside id="graph-panel" hidden>
+			<button id="graph-panel-close" type="button" aria-label={t(locale, 'graphClose')}>×</button>
+			<div id="graph-panel-body"></div>
+		</aside>
+		<details class="graph-legend">
+			<summary>{t(locale, 'graphLegendToggle')}</summary>
+			<div class="legend-items">
+				<span class="legend-item"><span class="legend-box"></span>{t(locale, 'graphCluster')}</span>
+				<span class="legend-item"><span class="legend-dot legend-post"></span>{t(locale, 'graphPost')}</span>
+				<span class="legend-item"><span class="legend-dot legend-tag"></span>{t(locale, 'graphTag')}</span>
+				<span class="legend-item"><span class="legend-line legend-link"></span>{t(locale, 'graphCitation')}</span>
+				<span class="legend-item"><span class="legend-line legend-rel"></span>{t(locale, 'graphTagRel')}</span>
+			</div>
+		</details>
+	</div>
+</main>
+
+<script id="graph-data" type="application/json" set:html={graphData} />
+<script>
+	import '../scripts/init-graph.ts';
+</script>
+
+<style>
+	main {
+		width: 100%;
+		max-width: min(1180px, calc(100% - 2rem));
+		box-sizing: border-box;
+	}
+	.graph-header {
+		padding: 2rem 0 0.9rem;
+	}
+	.graph-header h1 {
+		font-size: 2rem;
+		margin: 0 0 0.25rem;
+		letter-spacing: -0.03em;
+	}
+	.graph-desc {
+		margin: 0;
+		font-size: 0.95rem;
+		color: var(--text-secondary);
+	}
+	.graph-hint {
+		margin: 0.35rem 0 0;
+		font-size: 0.85rem;
+		color: var(--text-muted);
+		max-width: 62ch;
+	}
+
+	/* ── Toolbar ── */
+	.graph-toolbar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.6rem;
+		margin-bottom: 0.75rem;
+	}
+	.search-wrap {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex: 0 0 auto;
+	}
+	#graph-search {
+		width: min(260px, 100%);
+		padding: 0.45rem 0.8rem;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		background: var(--bg-surface);
+		color: var(--text-primary);
+		font-size: 0.85rem;
+	}
+	#graph-search:focus-visible {
+		border-color: var(--accent);
+	}
+	.search-status {
+		font-size: 0.75rem;
+		color: var(--text-muted);
+		white-space: nowrap;
+	}
+	.graph-filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		flex: 1 1 auto;
+	}
+	.graph-filters button,
+	.reset {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.32rem 0.75rem;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		background: var(--bg-surface);
+		color: var(--text-secondary);
+		font-size: 0.8rem;
+		cursor: pointer;
+		transition: border-color 0.15s, color 0.15s, background 0.15s;
+	}
+	.graph-filters button:hover,
+	.reset:hover {
+		border-color: var(--accent);
+		color: var(--text-primary);
+	}
+	.graph-filters button.active {
+		border-color: var(--accent);
+		color: var(--text-primary);
+		background: color-mix(in srgb, var(--accent) 10%, transparent);
+	}
+	.swatch {
+		width: 8px;
+		height: 8px;
+		border-radius: 2px;
+	}
+	.reset {
+		flex: 0 0 auto;
+		margin-left: auto;
+		color: var(--text-muted);
+	}
+
+	/* ── Stage ── */
+	.graph-container {
+		position: relative;
+		border: 1px solid var(--border);
+		border-radius: var(--radius-xl);
+		overflow: hidden;
+		background: var(--bg-surface);
+	}
+	#cy {
+		width: 100%;
+		/* 减掉页头和工具栏的高度，让整块画布落在首屏内 */
+		height: clamp(400px, calc(100vh - 330px), 720px);
+		opacity: 0;
+		transition: opacity 0.35s ease;
+	}
+	.graph-container.ready #cy {
+		opacity: 1;
+	}
+	.graph-loading {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-content: center;
+		margin: 0;
+		font-size: 0.85rem;
+		color: var(--text-muted);
+		pointer-events: none;
+	}
+	.graph-container.ready .graph-loading {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.25s ease, visibility 0.25s;
+	}
+
+	.zoom-hint {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0.96);
+		padding: 0.5rem 1rem;
+		border-radius: 999px;
+		background: color-mix(in srgb, var(--bg-base) 82%, transparent);
+		backdrop-filter: blur(8px);
+		border: 1px solid var(--border);
+		color: var(--text-primary);
+		font-size: 0.82rem;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+	}
+	.zoom-hint.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	/* ── Detail panel ── */
+	#graph-panel {
+		position: absolute;
+		top: 0.75rem;
+		right: 0.75rem;
+		width: min(288px, calc(100% - 1.5rem));
+		max-height: calc(100% - 1.5rem);
+		overflow: auto;
+		padding: 0.9rem 1rem 1rem;
+		background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
+		backdrop-filter: blur(14px);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-md);
+	}
+	#graph-panel-close {
+		position: absolute;
+		top: 0.35rem;
+		right: 0.5rem;
+		border: 0;
+		background: transparent;
+		color: var(--text-muted);
+		font-size: 1.25rem;
+		line-height: 1;
+		cursor: pointer;
+	}
+	#graph-panel-close:hover {
+		color: var(--text-primary);
+	}
+	#graph-panel-body :global(.panel-kicker) {
+		margin: 0;
+		font-size: 0.7rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+	#graph-panel-body :global(h2) {
+		margin: 0.2rem 2rem 0.6rem 0;
+		font-size: 1rem;
+		line-height: 1.45;
+	}
+	#graph-panel-body :global(.panel-primary) {
+		display: inline-block;
+		margin-bottom: 0.5rem;
+		padding: 0.28rem 0.7rem;
+		border-radius: 999px;
+		background: var(--accent);
+		color: var(--bg-surface);
+		font-size: 0.78rem;
+		text-decoration: none;
+	}
+	#graph-panel-body :global(h3) {
+		display: flex;
+		justify-content: space-between;
+		margin: 0.85rem 0 0.3rem;
+		font-size: 0.72rem;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+	#graph-panel-body :global(ul) {
+		margin: 0;
+		padding-left: 1rem;
+		font-size: 0.83rem;
+		line-height: 1.7;
+	}
+	#graph-panel-body :global(a) {
+		color: var(--accent);
+	}
+	#graph-panel-body :global(li.more) {
+		list-style: none;
+		margin-left: -1rem;
+		color: var(--text-muted);
+		font-size: 0.75rem;
+	}
+
+	/* ── Legend ── */
+	.graph-legend {
+		position: absolute;
+		bottom: 0.75rem;
+		left: 0.75rem;
+		font-size: 0.78rem;
+		color: var(--text-muted);
+		background: color-mix(in srgb, var(--bg-surface) 85%, transparent);
+		backdrop-filter: blur(8px);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+	}
+	.graph-legend summary {
+		padding: 0.35rem 0.75rem;
+		cursor: pointer;
+		list-style: none;
+		user-select: none;
+	}
+	.graph-legend summary::-webkit-details-marker {
+		display: none;
+	}
+	.graph-legend[open] summary {
+		border-bottom: 1px solid var(--border);
+	}
+	.legend-items {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.7rem;
+		padding: 0.5rem 0.75rem;
+		max-width: 260px;
+	}
+	.legend-item {
+		display: flex;
+		align-items: center;
+		gap: 0.3rem;
+	}
+	.legend-dot {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+	}
+	.legend-box {
+		width: 14px;
+		height: 9px;
+		border-radius: 3px;
+		background: var(--text-secondary);
+	}
+	.legend-post {
+		background: var(--accent);
+		width: 8px;
+		height: 8px;
+	}
+	.legend-tag {
+		background: var(--accent-secondary);
+		border-radius: 2px;
+		transform: rotate(45deg);
+		width: 8px;
+		height: 8px;
+	}
+	.legend-line {
+		width: 16px;
+		height: 2px;
+		background: var(--accent);
+	}
+	.legend-rel {
+		background: var(--accent-secondary);
+	}
+
+	@media (max-width: 720px) {
+		.graph-header {
+			padding: 1rem 0 0.6rem;
+		}
+		.graph-header h1 {
+			font-size: 1.6rem;
+		}
+		#cy {
+			height: 60vh;
+		}
+		.graph-toolbar {
+			gap: 0.5rem;
+		}
+		.search-wrap {
+			flex: 1 1 auto;
+		}
+		#graph-search {
+			width: 100%;
+		}
+		/* 六个主题群在窄屏会撑成三四行，改成一条可横向滑动的胶囊带 */
+		.graph-filters {
+			flex: 1 1 100%;
+			order: 3;
+			flex-wrap: nowrap;
+			overflow-x: auto;
+			scrollbar-width: none;
+			padding-bottom: 2px;
+			-webkit-overflow-scrolling: touch;
+		}
+		.graph-filters::-webkit-scrollbar {
+			display: none;
+		}
+		.graph-filters button {
+			flex: 0 0 auto;
+		}
+		#graph-panel {
+			top: auto;
+			bottom: 0.6rem;
+			left: 0.6rem;
+			right: 0.6rem;
+			width: auto;
+			max-height: 46%;
+		}
+		.graph-legend {
+			top: 0.6rem;
+			bottom: auto;
+			left: auto;
+			right: 0.6rem;
+		}
+		.legend-items {
+			flex-direction: column;
+			gap: 0.35rem;
+		}
+	}
+	@media (max-width: 480px) {
+		.graph-header h1 {
+			font-size: 1.4rem;
+		}
+		.graph-container {
+			border-radius: var(--radius-lg);
+		}
+	}
+</style>

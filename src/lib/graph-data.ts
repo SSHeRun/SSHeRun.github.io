@@ -23,6 +23,8 @@ export type GraphEdge = {
 	source: string;
 	target: string;
 	type: 'tag' | 'wikilink' | 'related-tag' | 'cluster';
+	/** 只有 cluster 边带色：用主题群自己的颜色画，否则它们在浅色底上等于隐形。 */
+	color?: string;
 };
 
 export type GraphPayload = {
@@ -46,12 +48,12 @@ export function buildGraphData(posts: GraphPost[], locale: Locale = 'zh-CN'): Gr
 	const usedClusters = new Set<string>();
 	const stray: string[] = [];
 
-	function addEdge(source: string, target: string, type: GraphEdge['type']) {
+	function addEdge(source: string, target: string, type: GraphEdge['type'], color?: string) {
 		if (source === target) return;
 		const key = edgeKey(source, target, type);
 		if (seenEdges.has(key)) return;
 		seenEdges.add(key);
-		edges.push({ source, target, type });
+		edges.push(color ? { source, target, type, color } : { source, target, type });
 	}
 
 	for (const cluster of TAG_CLUSTERS) {
@@ -87,7 +89,7 @@ export function buildGraphData(posts: GraphPost[], locale: Locale = 'zh-CN'): Gr
 		});
 
 		if (cluster) {
-			addEdge(`cluster:${cluster.id}`, `tag:${tag}`, 'cluster');
+			addEdge(`cluster:${cluster.id}`, `tag:${tag}`, 'cluster', cluster.color);
 		}
 	}
 
