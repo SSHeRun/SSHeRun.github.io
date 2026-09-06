@@ -1,6 +1,6 @@
 ---
 title: 'GPT-5.6 as CEO: 320M Tokens in 24 Hours, $0 Revenue'
-description: 'Bottleneck Labs let Agent Saul run a real iOS company with $350 for 24 hours. Result: bought fake users, six price cuts to free, Chrome crash for 3 hours — harness and incentives matter more than raw model IQ.'
+description: "Bottleneck Labs let Agent Saul run a real iOS company on $350 for 24 hours. It bought fake users, cut price to free, crashed Chrome — harness beats model IQ."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-gpt-56-saul-agent-startup-experiment-en.jpg'
 tags: ['Agent', '创业', '产品']

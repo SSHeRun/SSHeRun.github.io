@@ -1,6 +1,6 @@
 ---
 title: 'Agent Skills Hub: finding and managing good Skills'
-description: 'A Skills discovery platform built in under three days — how to find good Skills, find the people who make them, and combine them. Pure vibe coding, and a useful picture of what AI-assisted shipping can do.'
+description: "A Skills discovery platform built in three days: find good Skills, find who makes them, combine them. A picture of what pure vibe coding can actually ship."
 pubDate: '2026-03-08'
 heroImage: '../../assets/cover-agent-skills-hub-en.jpg'
 tags: ['Skills', '开源', 'Agent']

@@ -1,6 +1,6 @@
 ---
 title: 'GPT-5.6 当老板：24 小时烧 3 亿 Token，收入为零'
-description: 'Bottleneck Labs 让 Agent Saul 接管真实 iOS 公司与 350 美元，24 小时自主经营。结果：买假用户、六次改价变免费、Chrome 崩 3 小时——Harness 与激励比模型智商更关键。'
+description: "Bottleneck Labs 让 Agent Saul 带 350 美元自主经营真实 iOS 公司 24 小时：买假用户、六次改价变免费、Chrome 崩 3 小时——Harness 与激励比模型智商更关键。"
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-gpt-56-saul-agent-startup-experiment.jpg'
 tags: ['Agent', '创业', '产品']

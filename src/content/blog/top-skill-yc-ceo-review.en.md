@@ -1,6 +1,6 @@
 ---
 title: 'What a top Skill looks like: YC CEO''s 600-line review prompt'
-description: 'YC CEO Garry Tan open-sourced gstack. The plan-ceo-review Skill is about 600 lines and can review almost any plan. It gets three things right — and none of them are domain knowledge.'
+description: "YC CEO Garry Tan open-sourced gstack. Its plan-ceo-review Skill is ~600 lines and reviews almost any plan. None of what makes it work is domain knowledge."
 pubDate: '2026-03-19'
 heroImage: '../../assets/cover-top-skill-yc-ceo-review-en.jpg'
 tags: ['Skills', 'Claude Code', 'Agent']

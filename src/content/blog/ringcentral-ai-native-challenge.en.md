@@ -1,6 +1,6 @@
 ---
-title: 'RingCentral Goes AI-Native: From Company-Wide Challenge to PMO OS'
-description: 'OpenAI case study: RingCentral gave ChatGPT Work and Codex to thousands of employees for end-to-end projects; PMO turned AI workflows into a program-management OS while accelerating AIR/AVA/ACE voice AI.'
+title: "RingCentral Goes AI-Native: From Challenge to PMO OS"
+description: "OpenAI case study: RingCentral gave ChatGPT Work and Codex to thousands of staff, and its PMO turned AI workflows into a program-management operating system."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-ringcentral-ai-native-challenge-en.jpg'
 tags: ['产品', '组织', '效率']

@@ -1,6 +1,6 @@
 ---
-title: 'First-principles review with AI: a startup plan dies in 48 hours'
-description: 'A product person with seven years in growth ran an AI agent over a two-month startup plan. In 48 hours every scheme was dead. Four fatal mistakes — each one is worth watching for.'
+title: "First-principles review: a startup plan dies in 48 hours"
+description: "A growth PM with seven years' experience ran an AI agent over a two-month startup plan. In 48 hours every scheme was dead. Four fatal mistakes worth watching."
 pubDate: '2026-03-20'
 heroImage: '../../assets/cover-first-principles-startup-review-en.jpg'
 tags: ['创业', 'Agent', '产品']

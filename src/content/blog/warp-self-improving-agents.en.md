@@ -1,5 +1,5 @@
 ---
-title: 'What “Self-Improving Agents” Actually Improve: Warp Skills vs OpenAI’s Blackboard'
+title: "What Self-Improving Agents Actually Improve: Warp vs OpenAI"
 description: 'Warp’s two-skill feedback loop is shippable; OpenAI’s shared-memory incident is not proven RSI. Skills compound from human labels—not weight updates.'
 pubDate: '2026-08-29'
 heroImage: '../../assets/cover-warp-self-improving-agents-en.jpg'

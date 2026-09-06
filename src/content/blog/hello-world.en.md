@@ -1,6 +1,6 @@
 ---
 title: 'An agent-friendly blog'
-description: 'A personal site should not only be a page for people. In the agent era it should also be a machine-readable interface. Here is how this blog is built for both humans and AI agents.'
+description: "A personal site shouldn't only be a page for people. In the agent era it should also be a machine-readable interface. How this blog is built for both."
 pubDate: '2026-03-18'
 heroImage: '../../assets/cover-hello-world-en.jpg'
 tags: ['Agent', '工程']

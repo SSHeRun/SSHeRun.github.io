@@ -1,6 +1,6 @@
 ---
 title: 'AI didn''t 10x your output. It 10x''d the work.'
-description: 'A line engineer in Silicon Valley on the real AI numbers: 93% of developers use it, throughput rose about 10%; in one study, AI tools made people 19% slower. AI fatigue is a structural problem — and there is a way to live with it.'
+description: "A Silicon Valley engineer on the real numbers: 93% use AI, throughput rose ~10%, one study found it made people 19% slower. AI fatigue is structural."
 pubDate: '2026-03-26'
 heroImage: '../../assets/cover-ai-fatigue-truth-10x-workload-en.jpg'
 tags: ['职业', '效率', '思考']

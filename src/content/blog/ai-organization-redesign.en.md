@@ -1,14 +1,12 @@
 ---
 title: 'AI made people faster. Why didn''t the company get stronger?'
-description: 'Everyone is on ChatGPT. Company results did not take off. A 130-year-old story about electric motors is still the most honest picture of how AI actually lands inside a firm.'
+description: "Everyone is on ChatGPT; results did not take off. A 130-year-old story about electric motors is still the most honest picture of how AI lands inside a firm."
 pubDate: '2026-03-29'
 heroImage: '../../assets/cover-ai-organization-redesign-en.jpg'
 tags: ['组织', '效率']
 lang: en
 translationKey: 'ai-organization-redesign'
 ---
-
-# AI made people faster. Why didn't the company get stronger?
 
 Everyone is on ChatGPT. Why didn't company results take off?
 

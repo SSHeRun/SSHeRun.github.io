@@ -1,6 +1,6 @@
 ---
-title: 'The Defense Window Is Closing: OpenAI Expands Daybreak and GPT-5.6-Cyber'
-description: 'Threat actors will weaponize AI at unprecedented speed and scale. OpenAI responds with Daybreak Blue/Red tiers and GPT-5.6-Cyber — lifting advanced cyber task completion from 1.5% to 95% and finding real CVEs in V8 and beyond.'
+title: "The Defense Window Is Closing: Daybreak and GPT-5.6-Cyber"
+description: "OpenAI answers AI-scale attacks with Daybreak Blue/Red tiers and GPT-5.6-Cyber, taking advanced cyber task completion from 1.5% to 95% and finding real CVEs."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-openai-daybreak-gpt-56-cyber-defense-en.jpg'
 tags: ['LLM', '工程', '教程']

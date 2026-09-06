@@ -1,6 +1,6 @@
 ---
 title: 'The scarcest skill in the AI era: saying it clearly'
-description: 'Why are 99% of the questions people ask AI garbage? We never learned to speak clearly. Clarity is the lever that turns a model into force-multiplier instead of a junk factory.'
+description: "Why are 99% of the questions people ask AI garbage? We never learned to speak clearly. Clarity is what turns a model into a lever instead of a junk factory."
 pubDate: '2026-04-04'
 heroImage: '../../assets/cover-ai-era-clarity-matters-en.jpg'
 tags: ['思考', '效率']

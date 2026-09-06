@@ -1,5 +1,5 @@
 ---
-title: '2026 自建邮件服务器教程：docker-mailserver + rspamd + 本地 LLM 反垃圾'
+title: "自建邮件服务器：docker-mailserver + rspamd + 本地 LLM 反垃圾"
 description: '「邮件不能自建」是过时说法。本文拆解家里/VPS 部署条件、SPF/DKIM/DMARC 配置、docker-mailserver 选型，以及用 rspamd 接本地 Gemma 实现 Gmail 级反垃圾的完整路径。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-self-host-mail-server-local-llm-antispam.jpg'

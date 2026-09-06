@@ -1,6 +1,6 @@
 ---
 title: 'Software engineering is splitting into three layers'
-description: 'When implementation cost falls toward zero, the bottleneck moves from coding to judgment. The market is splitting into three layers — not just different pay, but different work and different skills.'
+description: "When implementation cost falls toward zero, the bottleneck moves from coding to judgment. The market is splitting into three layers of work, not just of pay."
 pubDate: '2026-03-20'
 heroImage: '../../assets/cover-software-engineering-splits-three-en.jpg'
 tags: ['工程', '职业']

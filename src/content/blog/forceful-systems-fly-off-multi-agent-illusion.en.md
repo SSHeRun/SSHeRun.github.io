@@ -1,6 +1,6 @@
 ---
 title: 'Why "virtual company" multi-agent setups usually fail'
-description: 'Naming agents PM, architect, developer, and QA looks like a company. What it usually does is kill information at every handoff. Multi-agent value is parallel search plus a lead brain that converges — not a role relay.'
+description: "Naming agents PM, architect, developer and QA looks like a company. Mostly it kills information at every handoff. The value is parallel search, not a relay."
 pubDate: '2026-04-15'
 heroImage: '../../assets/cover-forceful-systems-fly-off-multi-agent-illusion-en.jpg'
 tags: ['Agent', '工程']
@@ -31,7 +31,7 @@ That is also the problem.
 
 I would put the usual ending in four Chinese characters — 力大砖飞 — *so much force the bricks fly off*:
 
-# Force the system hard enough and it flies apart
+## Force the system hard enough and it flies apart
 
 Stack more agents, split finer roles, draw a more complete process, and you do not get more stability. You get distortion, drift, and loss of control.
 

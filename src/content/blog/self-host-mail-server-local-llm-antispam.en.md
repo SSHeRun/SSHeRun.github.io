@@ -1,6 +1,6 @@
 ---
-title: 'Self-host your mail server in 2026: docker-mailserver, rspamd, and local LLM spam filtering'
-description: '"Don''t self-host email" is outdated. Home vs VPS requirements, SPF/DKIM/DMARC setup, docker-mailserver, and Gmail-class antispam with rspamd plus a local Gemma model.'
+title: "Self-hosting email in 2026, with local LLM spam filtering"
+description: "The advice not to self-host email is outdated. Home vs VPS, SPF/DKIM/DMARC, docker-mailserver, and Gmail-class antispam with rspamd plus a local Gemma model."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-self-host-mail-server-local-llm-antispam-en.jpg'
 tags: ['教程', '工具', '开源']

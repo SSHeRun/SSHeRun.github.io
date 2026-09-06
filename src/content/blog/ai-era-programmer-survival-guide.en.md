@@ -1,6 +1,6 @@
 ---
 title: 'A programmer''s survival guide in the AI era'
-description: 'AI is not here to take senior programmers'' jobs. It is here to assist them. The "35-year-old crisis" story flips: experienced engineers become more valuable, not less — if they can decide, constrain, and verify.'
+description: "AI isn't here to take senior programmers' jobs. The 35-year-old crisis story flips: experience gets more valuable, if you can decide, constrain, and verify."
 pubDate: '2026-03-24'
 heroImage: '../../assets/cover-ai-era-programmer-survival-guide-en.jpg'
 tags: ['职业', '思考']

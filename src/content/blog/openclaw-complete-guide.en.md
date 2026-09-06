@@ -1,6 +1,6 @@
 ---
 title: 'OpenClaw / Clawdbot complete guide'
-description: 'A 24/7 AI assistant that can reach you first and remember you. Concepts, hardware, real workflows, config, and ten optimizations — so the agent becomes a real deputy, not a chat window.'
+description: "A 24/7 AI assistant that reaches you first and remembers you. Concepts, hardware, real workflows, config and ten optimizations — a deputy, not a chat window."
 pubDate: '2026-03-13'
 heroImage: '../../assets/cover-openclaw-complete-guide-en.jpg'
 tags: ['OpenClaw', 'Agent', '教程']

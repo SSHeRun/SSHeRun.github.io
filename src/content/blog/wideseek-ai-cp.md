@@ -6,8 +6,6 @@ heroImage: "../../assets/cover-wideseek-ai-cp.jpg"
 tags: ['LLM', 'Agent']
 ---
 
-# AI界最强CP翻车了？4B小模型吊打671B巨无霸，秘密竟是...
-
 > **一句话总结：** DeepSeek-R1 用「深度扩展」证明了AI会思考，清华团队用 WideSeek-R1 证明了AI还得会「广撒网」。4B参数干翻671B参数，靠的不是暴力堆料，而是让AI学会了「分工合作」。
 
 ![深掘与广铺对照](../../assets/inline-wideseek-ai-cp-01.jpg)

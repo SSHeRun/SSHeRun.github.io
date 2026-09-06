@@ -1,6 +1,6 @@
 ---
 title: 'gstack: the Claude Code factory YC''s CEO uses'
-description: 'Garry Tan open-sourced gstack, the Claude Code toolkit he actually runs — 15 Skills that turn a model into a virtual engineering team. He wrote 600,000 lines of production code in 60 days while remaining YC CEO.'
+description: "Garry Tan open-sourced gstack, the Claude Code toolkit he actually runs: 15 Skills that turn a model into a virtual engineering team, while remaining YC CEO."
 pubDate: '2026-03-20'
 updatedDate: '2026-03-21'
 heroImage: '../../assets/cover-gstack-yc-ceo-factory-en.jpg'

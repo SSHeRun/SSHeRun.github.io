@@ -1,6 +1,6 @@
 ---
 title: 'ChatGPT Improves Answers; Critical Thinking Widens Ideas'
-description: 'A 1,000+ student RCT from Bocconi and OpenAI: AI raises polish and expert-likeness; causal-reasoning training raises originality. Together they complement—while old rubrics miss half the signal.'
+description: "A 1,000-student RCT from Bocconi and OpenAI: AI raises polish; causal-reasoning training raises originality. Old rubrics miss half the signal."
 pubDate: '2026-08-30'
 heroImage: '../../assets/cover-chatgpt-critical-thinking-students-en.jpg'
 tags: ['LLM', '思考', '效率']

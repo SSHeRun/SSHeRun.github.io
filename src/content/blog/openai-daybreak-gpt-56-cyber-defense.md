@@ -1,6 +1,6 @@
 ---
 title: '防御窗口收窄：OpenAI 扩展 Daybreak 与 GPT-5.6-Cyber'
-description: '攻击方将用 AI 规模化发动网络战，防守方时间不多。OpenAI 推出 Daybreak Blue/Red 分层访问与 GPT-5.6-Cyber，高级网络任务完成率从 1.5% 拉到 95%，并在 V8 等真实代码库中发现 CVE。'
+description: "攻击方将用 AI 规模化发动网络战。OpenAI 推出 Daybreak Blue/Red 分层访问与 GPT-5.6-Cyber，高级网络任务完成率从 1.5% 拉到 95%，并在 V8 等真实代码库中发现 CVE。"
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-openai-daybreak-gpt-56-cyber-defense.jpg'
 tags: ['LLM', '工程', '教程']

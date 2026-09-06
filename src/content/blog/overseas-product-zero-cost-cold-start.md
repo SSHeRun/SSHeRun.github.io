@@ -1,6 +1,6 @@
 ---
-title: '出海产品如何零成本冷启动？10 种方法来自 AFFiNE 联创的一线实战'
-description: 'HeyGen 在 Fiverr 做了 1800 场用户访谈，Lark 东南亚 30/50 客户来自 LinkedIn 私信。AFFiNE 联创 Iris 分享的 10 种不花钱获取早期用户的方法，以及为什么「捷径就是没有捷径」。'
+title: "出海产品如何零成本冷启动？AFFiNE 联创的 10 种方法"
+description: "HeyGen 在 Fiverr 做了 1800 场用户访谈，Lark 东南亚 30/50 客户来自 LinkedIn 私信。AFFiNE 联创分享的 10 种不花钱获取早期用户的方法。"
 pubDate: '2026-08-27'
 heroImage: '../../assets/cover-overseas-product-zero-cost-cold-start.jpg'
 tags: ['创业', '产品', '效率']

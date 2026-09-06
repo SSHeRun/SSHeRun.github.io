@@ -8,8 +8,6 @@ lang: en
 translationKey: 'ai-proof-human'
 ---
 
-# When a 45-year-old paper is flagged as AI
-
 > **The absurd fact:** a scholarly paper published in 1981 was scored "AI-generated" by a 2026 detector. Not a joke. A real event.
 
 ---

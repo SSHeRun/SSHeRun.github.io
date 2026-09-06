@@ -1,6 +1,6 @@
 ---
 title: 'The 35-year-old programmer crisis — and how to get out'
-description: 'An eight-year programmer, after leaving a big tech company, writes it plainly: the profession is standing on a slowly sinking Titanic, and most people are still fighting for a seat in first class. The golden years, the taming, three crises, where the anxiety comes from — and a way off the ship.'
+description: "An eight-year programmer after leaving big tech: the profession is a sinking Titanic and most people are still fighting for first class. And a way off."
 pubDate: '2026-04-04'
 heroImage: '../../assets/cover-programmer-35-crisis-and-self-rescue-en.jpg'
 tags: ['职业', '创业', '思考']

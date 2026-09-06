@@ -1,6 +1,6 @@
 ---
 title: 'When Everyone Uses AI, How Do You Judge a Developer?'
-description: 'A V2EX career thread distilled: shared tools do not equal equal skill. Interviews should weight direction, course-correction, architecture, and maintainable delivery.'
+description: "A V2EX career thread distilled: shared tools do not equal equal skill. Interviews should weight direction, course-correction, architecture, and delivery."
 pubDate: '2026-09-05'
 heroImage: '../../assets/cover-judge-dev-ability-in-ai-era-en.jpg'
 tags: ['Agent', '职业', '思考']

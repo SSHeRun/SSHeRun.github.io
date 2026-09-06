@@ -1,5 +1,5 @@
 ---
-title: 'Why You Might Want to Build Your WebApp in Canvas Instead of HTML'
+title: "Why Build Your WebApp in Canvas Instead of HTML"
 description: 'Why Google Docs, Sheets, Canva, Miro, and Hivekit’s scheduler paint core UI on Canvas—speed, control, consistency, portability—and when you should not.'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-webapp-canvas-instead-of-html-en.jpg'

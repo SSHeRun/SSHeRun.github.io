@@ -1,5 +1,5 @@
 ---
-title: '《YouMind 创业路上的非共识选择》读后感：别被叙事绑架，回到真实用户'
+title: "《YouMind 非共识选择》读后感：别被叙事绑架，回到真实用户"
 description: '读玉伯的这篇复盘：创业先校准“愿不愿/能不能/值不值”，用密集访谈找方向，警惕融资叙事反向洗脑；Agent 时代更稀缺的是品味与心力。'
 pubDate: '2026-04-29'
 heroImage: '../../assets/cover-youmind-nonconsensus-startup-choices.jpg'

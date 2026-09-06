@@ -1,14 +1,12 @@
 ---
 title: 'Wide + Deep: why a 4B model can punch up'
-description: 'DeepSeek taught models to think deep. A Tsinghua team says deep is not enough — you also need wide. How a 4B setup can stand next to a 671B, and why the oldest pair in computer science is back.'
+description: "DeepSeek taught models to think deep. A Tsinghua team says deep isn't enough — you also need wide. How a 4B setup can stand next to a 671B."
 pubDate: '2026-03-27'
 heroImage: '../../assets/cover-wideseek-ai-cp-en.jpg'
 tags: ['LLM', 'Agent']
 lang: en
 translationKey: 'wideseek-ai-cp'
 ---
-
-# Wide + Deep: why a 4B model can punch up
 
 > **In one line:** DeepSeek-R1 used depth scaling to show that AI can think. Tsinghua's WideSeek-R1 shows it also has to cast a wide net. A 4B setup standing next to 671B is not brute force. It is teaching the system to divide the work.
 

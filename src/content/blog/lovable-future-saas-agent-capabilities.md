@@ -1,5 +1,5 @@
 ---
-title: 'Lovable CTO：SaaS 的未来不是更多 Tab，而是 Agent 能调用的 Capabilities'
+title: "Lovable CTO：SaaS 的未来是 Agent 能调用的 Capabilities"
 description: 'Lovable 从 AI 生成 App 转向 MCP Capabilities 平台。CTO Fabian Hedin 谈公司大脑、双接口设计、Connectors 安全，以及为什么 SaaS 要为 AI 提供铲子。'
 pubDate: '2026-08-27'
 heroImage: '../../assets/cover-lovable-future-saas-agent-capabilities.jpg'

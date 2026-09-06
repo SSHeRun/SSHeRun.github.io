@@ -1,6 +1,6 @@
 ---
 title: 'Why Code Search Makes Coding Agents So Expensive'
-description: 'Sonar’s controlled comparison on Turing Post: semantic code navigation cut agent cost ~5–36%. The sharper question—did the agent find every site that needed to change?'
+description: "Sonar's comparison on Turing Post: semantic code navigation cut agent cost 5–36%. The sharper question: did the agent find every site that needed to change?"
 pubDate: '2026-08-30'
 heroImage: '../../assets/cover-why-code-search-agents-expensive-en.jpg'
 tags: ['Agent', '工程', '效率']

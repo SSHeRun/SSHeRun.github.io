@@ -1,5 +1,5 @@
 ---
-title: 'X 上三款开源神器：AutoClip / Cloud-Mail / Open Lovable（值不值得冲？）'
+title: "X 上三款开源神器：AutoClip / Cloud-Mail / Open Lovable"
 description: '一口气看完三条推：自动剪视频、自建邮箱、网站复刻成 React。按“适合谁/坑在哪/怎么最快验证”给出可落地判断。'
 pubDate: '2026-04-30'
 heroImage: '../../assets/cover-x-3-open-source-tools-autoclip-cloud-mail-open-lovable.jpg'

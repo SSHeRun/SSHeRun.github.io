@@ -1,6 +1,6 @@
 ---
-title: 'Indie Weekly #153: A UI Component Library Hit $80K in Two Months'
-description: 'ezindie issue 153: Aceternity UI went from 7 components shipped over a weekend to $80K+ Pro revenue in two months; $60–100K/mo total with a 6-person team. Plus Marblism, Robopost, Tattoon, formbricks.'
+title: "Indie Weekly #153: A UI Library Hit $80K in Two Months"
+description: "ezindie 153: Aceternity UI went from 7 weekend components to $80K+ in two months, $60–100K/mo with six people. Plus Marblism, Robopost, and formbricks."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-ezindie-weekly-153-aceternity-ui-80k-mrr-en.jpg'
 tags: ['创业', '产品', '开源']

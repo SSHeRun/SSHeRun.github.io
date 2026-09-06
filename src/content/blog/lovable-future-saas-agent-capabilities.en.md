@@ -1,6 +1,6 @@
 ---
-title: 'Lovable CTO: The Future of SaaS Is Capabilities Agents Can Call'
-description: 'Lovable is shifting from AI app generation to MCP-powered capabilities. CTO Fabian Hedin on the company brain, dual interfaces, connector security, and why SaaS must build shovels for AI.'
+title: "Lovable CTO: SaaS's Future Is Capabilities Agents Can Call"
+description: "Lovable is shifting from app generation to MCP capabilities. CTO Fabian Hedin on the company brain, dual interfaces, and why SaaS must build shovels for AI."
 pubDate: '2026-08-27'
 heroImage: '../../assets/cover-lovable-future-saas-agent-capabilities-en.jpg'
 tags: ['Agent', '产品', '创业']

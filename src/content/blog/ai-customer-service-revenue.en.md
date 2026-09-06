@@ -1,6 +1,6 @@
 ---
 title: 'Support is not a cost center'
-description: 'When AI drives the cost of taking one user seriously toward zero, the commercial logic underneath support flips. Support stops being cleanup and becomes the most important interface between a company and a user.'
+description: "When AI drives the cost of taking one user seriously toward zero, support flips: it stops being cleanup and becomes a company's most important interface."
 pubDate: '2026-03-20'
 heroImage: '../../assets/cover-ai-customer-service-revenue-en.jpg'
 tags: ['创业', '产品']

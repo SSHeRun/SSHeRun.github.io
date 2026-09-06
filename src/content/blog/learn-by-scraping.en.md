@@ -1,6 +1,6 @@
 ---
 title: 'When I learn a new field, I scrape it first'
-description: 'The first step in a new field is no longer reading a book. It is batch-scraping the best sources into a private knowledge base. With XCrawl I went from zero to 80 clean documents in under two hours.'
+description: "The first step in a new field isn't reading a book. It's scraping the best sources into a private knowledge base: zero to 80 clean documents in two hours."
 pubDate: '2026-03-21'
 heroImage: '../../assets/cover-learn-by-scraping-en.jpg'
 tags: ['工具', '效率', 'Agent']

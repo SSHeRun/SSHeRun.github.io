@@ -1,6 +1,6 @@
 ---
-title: 'Before You Let Agents Run Loose: Stack Overflow on AI Context Architecture'
-description: 'Context architecture is not the RAG pipeline — it is guardrails, Scopes, trust scores, and human-in-the-loop. Stack engineering and product leads unpack infrastructure vs architecture vs engineering, and what build-vs-buy debates miss.'
+title: "Before You Let Agents Run Loose: AI Context Architecture"
+description: "Context architecture is not the RAG pipeline — it's guardrails, scopes, trust scores and human-in-the-loop. Stack Overflow on infrastructure vs architecture."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-stack-overflow-ai-context-architecture-build-buy-en.jpg'
 tags: ['Agent', '工程', 'LLM']

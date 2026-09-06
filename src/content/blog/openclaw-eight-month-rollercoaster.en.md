@@ -1,6 +1,6 @@
 ---
-title: 'OpenClaw’s Eight-Month Rollercoaster: From Viral to “Nobody Cares”'
-description: 'Peter Steinberger’s Startup School recap: personal brand can’t be forked, your dependency’s business model is yours, and don’t stop having fun—plus the Meituan “raise shrimp” contrast.'
+title: "OpenClaw's Eight Months: From Viral to Nobody Cares"
+description: "Peter Steinberger's Startup School recap: personal brand can't be forked, your dependency's business model is yours, and don't stop having fun."
 pubDate: '2026-09-05'
 heroImage: '../../assets/cover-openclaw-eight-month-rollercoaster-en.jpg'
 tags: ['Agent', '开源', '创业']

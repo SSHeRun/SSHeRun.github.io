@@ -1,6 +1,6 @@
 ---
-title: 'Monitoring Looks Fine, Answers Get Worse: Latency Is a Correctness Problem in AI Networks'
-description: 'Flat error rates hide thinner RAG context and truncated agent loops. Why TTFT, tail latency, per-stage retrieval metrics, and SLOs matter for answer quality—not just speed.'
+title: "Green Dashboards, Worse Answers: Latency Is Correctness"
+description: "Flat error rates hide thinner RAG context and truncated agent loops. Why TTFT, tail latency and retrieval metrics matter for answer quality, not just speed."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-redis-monitoring-latency-ai-networks-en.jpg'
 tags: ['工程', 'LLM', '工具']

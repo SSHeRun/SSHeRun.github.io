@@ -1,6 +1,6 @@
 ---
-title: 'How to make people care about your startup: three founder archetypes'
-description: 'Lenny guest post by Kristen Lowe: building is easy, being cared about is hard. Your "why" maps to Problem, Insight, or Vision — and that choice drives voice, pillars, and channels.'
+title: "Making people care about your startup: three archetypes"
+description: "Kristen Lowe on Lenny: building is easy, being cared about is hard. Your why maps to Problem, Insight or Vision, and that drives voice and channels."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-lenny-founder-archetypes-comms-strategy-en.jpg'
 tags: ['创业', '产品', '组织']

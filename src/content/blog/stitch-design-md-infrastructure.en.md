@@ -1,14 +1,12 @@
 ---
-title: 'Why Stitch''s DESIGN.md matters: from image tool to design infrastructure'
-description: 'Reading Stitch''s official DESIGN.md spec next to how people actually use Stitch 2.0: Google is not just generating UI faster. It is turning the design system into something AI can read, execute, and reuse.'
+title: "Stitch's DESIGN.md: from image tool to design infrastructure"
+description: "Reading Stitch's DESIGN.md spec next to how people use Stitch 2.0: Google isn't just generating UI faster, it's making the design system machine-readable."
 pubDate: '2026-03-28'
 heroImage: '../../assets/cover-stitch-design-md-infrastructure-en.jpg'
 tags: ['设计', 'Agent', '产品']
 lang: en
 translationKey: 'stitch-design-md-infrastructure'
 ---
-
-# Why Stitch's DESIGN.md matters: from image tool to design infrastructure
 
 I recently sat with two pieces on Google Stitch at once:
 

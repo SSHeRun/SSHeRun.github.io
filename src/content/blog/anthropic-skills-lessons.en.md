@@ -1,6 +1,6 @@
 ---
 title: 'Lessons from hundreds of Skills inside Anthropic'
-description: 'Anthropic engineer Thariq on what the team learned running hundreds of Skills in Claude Code. A Skill is not just a Markdown file — it is a folder of scripts, assets, and data the agent can discover and use.'
+description: "Anthropic's Thariq on running hundreds of Skills in Claude Code: a Skill isn't a Markdown file but a folder of scripts, assets and data agents can discover."
 pubDate: '2026-03-20'
 heroImage: '../../assets/cover-anthropic-skills-lessons-en.jpg'
 tags: ['Skills', 'Claude Code', 'Agent']

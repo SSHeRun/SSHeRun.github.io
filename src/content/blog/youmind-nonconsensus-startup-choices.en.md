@@ -1,6 +1,6 @@
 ---
 title: 'Notes on YouMind''s non-consensus startup choices'
-description: 'Reading Yubo''s recap of YouMind: calibrate will / can / worth before methodology, find direction in dense interviews, and don''t let the fundraising story brainwash you. In the agent era, taste and stamina are the scarce inputs.'
+description: "Reading Yubo's YouMind recap: calibrate will, can and worth before methodology; find direction in dense interviews; don't let the fundraising story fool you."
 pubDate: '2026-04-29'
 heroImage: '../../assets/cover-youmind-nonconsensus-startup-choices-en.jpg'
 tags: ['创业', '产品', 'Agent']

@@ -1,5 +1,5 @@
 ---
-title: 'AI时代程序员生存指南：35岁+才是黄金年龄？揭秘"码奸"的生存法则'
+title: "AI 时代程序员生存指南：35 岁+才是黄金年龄？"
 description: 'AI不是来抢饭碗的，而是来给老程序员送助攻的。这篇文章会颠覆你对"35岁程序员危机"的所有认知，揭示为什么经验丰富的程序员在AI时代反而更吃香。'
 pubDate: '2026-03-24'
 heroImage: '../../assets/cover-ai-era-programmer-survival-guide.jpg'

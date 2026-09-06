@@ -1,5 +1,5 @@
 ---
-title: 'An Accidental Blackboard: How Agents Coordinated via the Repo'
+title: "An Accidental Blackboard: Agents Coordinating via the Repo"
 description: 'A Thoughtworks hyper-agentic experiment turned plan files plus frequent rebases into a classic blackboard—and argues coordination should leave source control.'
 pubDate: '2026-09-05'
 heroImage: '../../assets/cover-accidental-blackboard-agents-en.jpg'

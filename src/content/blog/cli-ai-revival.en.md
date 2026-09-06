@@ -1,6 +1,6 @@
 ---
 title: 'CLI: the command-line revival in the AI era'
-description: 'The command line is coming back. Feishu, DingTalk, WeCom, Google, Stripe and others have all open-sourced CLIs. A CLI is an AI''s native language — much easier for an agent to call than a GUI.'
+description: "The command line is coming back. Feishu, DingTalk, WeCom, Google and Stripe have all open-sourced CLIs — a CLI is far easier for an agent to call than a GUI."
 pubDate: '2026-04-05'
 heroImage: '../../assets/cover-cli-ai-revival-en.jpg'
 tags: ['工程', 'Agent', '工具']

@@ -1,6 +1,6 @@
 ---
-title: 'Design Without Designing: how engineers ship high-quality design with AI'
-description: 'You do not have to become a designer. With the right harness — a three-layer toolkit — you can go from zero to shipping design every week in three months. This is Neethan Wu''s full system.'
+title: "Design Without Designing: how engineers ship design with AI"
+description: "You don't have to become a designer. With a three-layer toolkit you can go from zero to shipping design every week in three months. Neethan Wu's full system."
 pubDate: '2026-03-21'
 heroImage: '../../assets/cover-design-without-designing-en.jpg'
 tags: ['设计', 'Agent', '工程']

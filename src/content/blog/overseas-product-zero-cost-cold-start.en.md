@@ -1,6 +1,6 @@
 ---
-title: 'How to Cold-Start an Overseas Product at Zero Cost: 10 Methods from AFFiNE Co-Founder'
-description: 'HeyGen ran 1,800 user interviews via a Fiverr "video studio." Lark SEA got 30 of 50 early customers from LinkedIn DMs. Ten zero-cost methods for acquiring early users — and why "there is no shortcut" is itself the shortcut.'
+title: "Zero-Cost Cold Start: 10 Methods from AFFiNE's Co-Founder"
+description: "HeyGen ran 1,800 user interviews via a Fiverr video studio; Lark SEA got 30 of 50 early customers from LinkedIn DMs. Ten zero-cost ways to find early users."
 pubDate: '2026-08-27'
 heroImage: '../../assets/cover-overseas-product-zero-cost-cold-start-en.jpg'
 tags: ['创业', '产品', '效率']

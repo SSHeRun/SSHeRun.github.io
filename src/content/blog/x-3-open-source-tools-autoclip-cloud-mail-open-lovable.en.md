@@ -1,6 +1,6 @@
 ---
-title: 'Three open-source tools from X: AutoClip, Cloud-Mail, Open Lovable'
-description: 'Three X threads, three pipelines: auto-cut long video, self-host email, clone a site into React. For each: who it is for, where it breaks, and the fastest way to verify without wasting a week.'
+title: "Three open-source tools: AutoClip, Cloud-Mail, Open Lovable"
+description: "Three X threads, three pipelines: auto-cut long video, self-host email, clone a site into React. Who each is for, where it breaks, and how to verify fast."
 pubDate: '2026-04-30'
 heroImage: '../../assets/cover-x-3-open-source-tools-autoclip-cloud-mail-open-lovable-en.jpg'
 tags: ['开源', '工具']

@@ -1,6 +1,6 @@
 ---
 title: 'Two product entrances: design for humans and agents'
-description: 'LibTV shows a pattern worth copying: one capability core, an infinite canvas for professionals, and Skills for agents. That dual entrance may be the real product shape of the agent era.'
+description: "LibTV shows a pattern worth copying: one capability core, a canvas for people, Skills for agents. That dual entrance may be the shape of agent-era products."
 pubDate: '2026-03-20'
 heroImage: '../../assets/cover-dual-entry-human-agent-design-en.jpg'
 tags: ['Agent', 'Skills', '产品']

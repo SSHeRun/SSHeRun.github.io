@@ -1,14 +1,12 @@
 ---
-title: 'Why AI-generated UI isn''t shippable — and the combo that works'
-description: 'Google Stitch looks beautiful, and every page looks like a different product. Pencil is consistent, and a bit dull. Used together they are the right way to design UI with AI.'
+title: "Why AI-generated UI isn't shippable, and what works"
+description: "Stitch looks beautiful, but every page looks like a different product. Pencil is consistent and a bit dull. Together they're the right way to design UI."
 pubDate: '2026-03-29'
 heroImage: '../../assets/cover-ai-ui-design-workflow-en.jpg'
 tags: ['设计', '产品', '工具']
 lang: en
 translationKey: 'ai-ui-design-workflow'
 ---
-
-# Why AI-generated UI isn't shippable — and the combo that works
 
 I recently used AI to generate UI and walked into a hole.
 

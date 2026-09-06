@@ -1,6 +1,6 @@
 ---
 title: 'OpenClaw deployment guide: five setups'
-description: 'Local or server, WhatsApp or Feishu — five ways to put OpenClaw online. One-command install, a Feishu bridge, Telegram pairing, and a developer path so the agent is actually reachable.'
+description: "Local or server, WhatsApp or Feishu — five ways to put OpenClaw online. One-command install, a Feishu bridge, Telegram pairing, and a developer path."
 pubDate: '2026-03-13'
 heroImage: '../../assets/cover-openclaw-deployment-guide-en.jpg'
 tags: ['OpenClaw', '教程']

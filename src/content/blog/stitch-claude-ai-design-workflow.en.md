@@ -1,6 +1,6 @@
 ---
 title: 'Google Stitch 2.0 + Claude Code: an AI design workflow'
-description: 'Google Stitch 2.0 wired to Claude Code over MCP lets one person do, in an hour, design work that used to take weeks and thousands of dollars. The lock is not "AI makes screens." It is design.md keeping the system consistent.'
+description: "Stitch 2.0 wired to Claude Code over MCP lets one person do in an hour what took weeks. The lock isn't generated screens, it's design.md holding it together."
 pubDate: '2026-04-06'
 heroImage: '../../assets/cover-stitch-claude-ai-design-workflow-en.jpg'
 tags: ['设计', 'Claude Code', '产品']

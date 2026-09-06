@@ -6,8 +6,6 @@ heroImage: "../../assets/cover-ai-ui-design-workflow.jpg"
 tags: ['设计', '产品', '工具']
 ---
 
-# AI 生成的 UI 为什么不能直接用？我找到了解决方案
-
 最近用 AI 生成 UI，踩了个大坑。
 
 Google Stitch 生成的界面确实很漂亮，但当我让它生成第二个、第三个页面时，问题来了：

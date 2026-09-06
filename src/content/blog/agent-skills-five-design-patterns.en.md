@@ -1,6 +1,6 @@
 ---
 title: 'Five design patterns for Agent Skills'
-description: 'Google Cloud published five design patterns for Agent Skills — how to organize what goes inside a Skill. From Tool Wrapper to Pipeline, each pattern solves a different kind of work.'
+description: "Google Cloud's five design patterns for Agent Skills: how to organize what goes inside one. From Tool Wrapper to Pipeline, each solves a different problem."
 pubDate: '2026-03-19'
 heroImage: '../../assets/cover-agent-skills-five-design-patterns-en.jpg'
 tags: ['Agent', 'Skills']

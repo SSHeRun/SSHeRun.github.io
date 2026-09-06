@@ -1,6 +1,6 @@
 ---
 title: 'Taste at Speed: when building is cheap, PM skill changes'
-description: 'Anthropic''s Boris Cherny ships 20–30 PRs a day, all written by Claude. When building is no longer the bottleneck, the PM job becomes: evaluate fast, kill most of it, ship only the survivors.'
+description: "Anthropic's Boris Cherny ships 20–30 PRs a day, all written by Claude. When building isn't the bottleneck, the PM job is to evaluate fast and kill most of it."
 pubDate: '2026-03-20'
 heroImage: '../../assets/cover-taste-at-speed-pm-skill-en.jpg'
 tags: ['产品', 'Claude Code', '效率']

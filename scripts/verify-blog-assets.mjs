@@ -14,6 +14,7 @@ const TAXONOMY_FILE = path.join(ROOT, 'src/lib/taxonomy.ts');
 const MIN_COVER_BYTES = 80_000;
 
 const HERO_RE = /^heroImage:\s*['"]?([^'"\n]+)['"]?\s*$/m;
+const TITLE_RE = /^title:\s*(.+)$/m;
 const LANG_RE = /^lang:\s*['"]?(\w+)['"]?\s*$/m;
 const TRANSLATION_KEY_RE = /^translationKey:\s*['"]?([^'"\n]+)['"]?\s*$/m;
 const TAGS_RE = /^tags:\s*\[(.*?)\]\s*$/m;
@@ -30,6 +31,29 @@ function resolveAsset(fromFile, assetPath) {
 		return null;
 	}
 	return path.normalize(path.resolve(path.dirname(fromFile), cleaned));
+}
+
+/** 把围栏代码块整段清空，避免把 shell 注释 `# xxx` 当成标题。 */
+function blankCodeFences(body) {
+	let fence = null;
+	return body
+		.split('\n')
+		.map((line) => {
+			const match = line.match(/^\s*(`{3,}|~{3,})/);
+			if (match) {
+				const token = match[1][0].repeat(3);
+				if (fence === null) {
+					fence = token;
+					return '';
+				}
+				if (line.trim().startsWith(fence)) {
+					fence = null;
+					return '';
+				}
+			}
+			return fence === null ? line : '';
+		})
+		.join('\n');
 }
 
 function parseTags(raw) {
@@ -68,10 +92,24 @@ async function parsePost(filePath) {
 	const wikilinks = [...body.matchAll(WIKILINK_RE)].map((match) => match[1].trim());
 	const hasRelatedSection = /##\s*(相关文章|Related posts)\b/.test(body);
 
+	const prose = blankCodeFences(body);
+	const bodyH1s = [...prose.matchAll(/^# (.+)$/gm)].map((match) => match[1].trim());
+
+	const seen = new Map();
+	for (const block of prose.split(/\n\s*\n/)) {
+		const para = block.trim();
+		if (para.length <= 80) continue;
+		seen.set(para, (seen.get(para) ?? 0) + 1);
+	}
+	const repeatedParagraphs = [...seen.entries()].filter(([, n]) => n > 1);
+
 	return {
 		rel,
 		filePath,
 		slug: slugFromFile(rel),
+		title: text.match(TITLE_RE)?.[1].trim().replace(/^['"]|['"]$/g, '').replace(/''/g, "'") ?? '',
+		bodyH1s,
+		repeatedParagraphs,
 		lang: langMatch?.[1] ?? (rel.endsWith('.en.md') ? 'en' : 'zh'),
 		translationKey: keyMatch?.[1] ?? slugFromFile(rel),
 		heroImage: heroMatch?.[1]?.trim() ?? null,
@@ -159,6 +197,19 @@ async function main() {
 					);
 				}
 			}
+		}
+
+		// 页面标题已经是 h1，正文再写 h1 会让一页出现两个一级标题。
+		for (const heading of post.bodyH1s) {
+			if (heading === post.title) {
+				errors.push(`${post.rel}: body repeats the page title as an h1 — delete that line`);
+			} else {
+				errors.push(`${post.rel}: body uses h1 "${heading}" as a section — demote it to h2`);
+			}
+		}
+
+		for (const [para, count] of post.repeatedParagraphs) {
+			errors.push(`${post.rel}: paragraph appears ${count}× — "${para.slice(0, 40)}…"`);
 		}
 
 		const validLinks = post.wikilinks.filter((target) => knownSlugs.has(target.replace(/\.en$/, '')));

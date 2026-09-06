@@ -1,6 +1,6 @@
 ---
-title: 'The Vibe-Coding Hangover: Cloudflare Locks Workers Behind Login by Default'
-description: 'AI lets anyone ship to the public Internet — and keeps CISOs awake. Access for Workers attaches policy to the Worker itself, defaults accounts to private, and exposes identity via ctx.access without JWT parsing.'
+title: "Vibe-Coding Hangover: Cloudflare Locks Workers by Default"
+description: "AI lets anyone ship to the public Internet, and keeps CISOs awake. Access for Workers attaches policy to the Worker itself and defaults accounts to private."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-cloudflare-workers-access-vibe-coded-apps-en.jpg'
 tags: ['工程', '教程', '工具']

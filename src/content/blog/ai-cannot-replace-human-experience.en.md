@@ -1,6 +1,6 @@
 ---
 title: 'AI cannot replace lived experience'
-description: 'After an AI conference, what stayed was not a demo. It was the part of being human that cannot be compressed or substituted — showing up, colliding with the world, living it yourself.'
+description: "After an AI conference, what stayed was not a demo. It was the part of being human that can't be compressed: showing up, colliding with the world, living it."
 pubDate: '2026-04-11'
 heroImage: '../../assets/cover-ai-cannot-replace-human-experience-en.jpg'
 tags: ['思考', '职业']

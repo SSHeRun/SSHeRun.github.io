@@ -1,6 +1,6 @@
 ---
 title: 'PECMD commands in WinPE'
-description: 'A practical English reference for PECMD.EXE — the command interpreter behind most Chinese WinPE builds. What it is, the four command families, system variables, and the commands you actually write scripts with.'
+description: "An English reference for PECMD.EXE, the interpreter behind most Chinese WinPE builds: four command families, system variables, and the commands worth knowing."
 pubDate: '2020-12-01'
 heroImage: '../../assets/cover-winpe-pecmd-commands-en.jpg'
 tags: ['Windows', '教程']

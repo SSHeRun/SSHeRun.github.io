@@ -1,6 +1,6 @@
 ---
-title: 'Is Software Worthless in the AI Era? Commoditized Features—and Soon, Custom Work'
-description: 'A V2EX thread distilled: what falls below the model kill-line gets cheap. Our take—when agents are strong enough, even customization commoditizes; value moves to outcomes, liability, and orchestration.'
+title: "Is Software Worthless Now? Even Custom Work Commoditizes"
+description: "A V2EX thread distilled: whatever falls below the model kill-line gets cheap. When agents are strong enough even customization commoditizes."
 pubDate: '2026-09-05'
 heroImage: '../../assets/cover-software-not-valuable-ai-era-en.jpg'
 tags: ['创业', 'Agent', '思考']

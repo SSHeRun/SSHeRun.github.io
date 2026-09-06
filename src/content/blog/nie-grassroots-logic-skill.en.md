@@ -1,6 +1,6 @@
 ---
 title: 'Book to Agent Skill: Nie’s Grassroots China Logic Toolbox'
-description: 'Open-source nie-grassroots-logic distills Nie Huihua’s book on grassroots governance into a Cursor/Codex skill — no full text, but frameworks for news, careers, investment, and local policy choices.'
+description: "nie-grassroots-logic turns Nie Huihua's book on grassroots governance into a Cursor/Codex skill: no full text, just frameworks for news, careers and policy."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-nie-grassroots-logic-skill-en.jpg'
 tags: ['Agent', 'Skills', '思考']

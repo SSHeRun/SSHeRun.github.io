@@ -1,6 +1,6 @@
 ---
 title: 'Will AI Shrink Total Jobs? Demand vs Productivity'
-description: 'A V2EX thread argues jobs track demand, not productivity—and that human desire forever outruns AI. The comments tear into effective demand, prices, and deflation.'
+description: "A V2EX thread argues jobs track demand, not productivity — and human desire forever outruns AI. The comments tear into effective demand, prices and deflation."
 pubDate: '2026-08-29'
 heroImage: '../../assets/cover-ai-economy-jobs-demand-en.jpg'
 tags: ['LLM', '思考', '创业']

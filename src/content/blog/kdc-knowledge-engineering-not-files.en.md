@@ -1,6 +1,6 @@
 ---
-title: 'Software Is Not Files: KDC on Finding Materials ≠ Having Knowledge'
-description: 'vivo Xiao Bo’s KDC series part 2: Representation is not Knowledge. A high-scoring RAG hit on an outdated refund policy produced a confident wrong answer — governance beats retrieval tuning.'
+title: "Software Is Not Files: Finding Materials ≠ Having Knowledge"
+description: "vivo Xiao Bo's KDC part 2: representation is not knowledge. A top RAG hit on a stale refund policy gave a confident wrong answer — governance beats tuning."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-kdc-knowledge-engineering-not-files-en.jpg'
 tags: ['LLM', '工程', 'Agent']

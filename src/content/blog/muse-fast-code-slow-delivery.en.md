@@ -1,6 +1,6 @@
 ---
-title: 'Code Is Fast, Delivery Isn’t: Xiaohongshu Muse and One Context'
-description: 'Coding speed gains get eaten by specs, context gaps, and handoffs. Muse ships Agent OS + Harness on one context line; my take—product, eng, and QA should share one info flow.'
+title: "Code Is Fast, Delivery Isn't: Muse and One Context"
+description: "Coding speed gains get eaten by specs, context gaps and handoffs. Muse puts Agent OS and Harness on one context line — product, eng and QA need one flow."
 pubDate: '2026-09-05'
 heroImage: '../../assets/cover-muse-fast-code-slow-delivery-en.jpg'
 tags: ['Agent', '工程', '效率']

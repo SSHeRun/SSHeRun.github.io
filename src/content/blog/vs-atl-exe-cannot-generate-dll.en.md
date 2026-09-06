@@ -1,6 +1,6 @@
 ---
 title: 'VS ATL exe template cannot generate a DLL'
-description: 'When a Visual Studio ATL exe template fails MIDL with "will not generate DLLDATA.C," the file is usually in the wrong folder — not missing an interface. Here is the fix.'
+description: "When a Visual Studio ATL exe template fails MIDL with a DLLDATA.C error, the file is usually in the wrong folder, not missing an interface. Here's the fix."
 pubDate: '2021-04-29'
 heroImage: '../../assets/cover-vs-atl-exe-cannot-generate-dll-en.jpg'
 tags: ['Windows', '教程']
@@ -8,7 +8,7 @@ lang: en
 translationKey: 'vs-atl-exe-cannot-generate-dll'
 ---
 
-# The error
+## The error
 
 The build reports:
 

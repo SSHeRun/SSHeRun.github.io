@@ -1,6 +1,6 @@
 ---
 title: 'DeepSeek Engram: conditional memory as a new sparsity axis'
-description: 'DeepSeek Engram adds O(1) lookup for the "conditional memory" MoE never had. At the same parameter and compute budget, reasoning and long-context often rise more than rote knowledge.'
+description: "DeepSeek Engram adds O(1) lookup for the conditional memory MoE never had. At equal parameter and compute budget, reasoning gains more than rote knowledge."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-deepseek-engram-conditional-memory-en.jpg'
 tags: ['LLM', '工程']

@@ -1,6 +1,6 @@
 ---
 title: 'Whatnot''s CPO: "We regret that the PM function exists"'
-description: 'Lenny interviews Whatnot CPO Tom Verrilli: fewer, more senior PMs staffed to problems, not headcount. AI makes validation cheap — product theater has fewer places to hide.'
+description: "Whatnot CPO Tom Verrilli on Lenny: fewer, more senior PMs staffed to problems, not headcount. AI makes validation cheap, so product theater can't hide."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-whatnot-cpo-regrets-pm-exists-en.jpg'
 tags: ['产品', '组织', '创业']
