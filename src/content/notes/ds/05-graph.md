@@ -15,7 +15,7 @@ concepts:
   - Floyd
   - 拓扑排序
   - 关键路径
-cover: /notes-media/ds-05-graph.jpg
+cover: /notes-media/ds-05-graph.webp
 related:
   - ds/04-tree
   - ds/06-search

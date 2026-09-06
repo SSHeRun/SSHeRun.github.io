@@ -12,7 +12,7 @@ concepts:
   - 接识
   - 同体
   - 英雄
-cover: /notes-media/xuanxue-renwuzhi-03.jpg
+cover: /notes-media/xuanxue-renwuzhi-03.webp
 related:
   - xuanxue/renwuzhi-02-caili
   - xuanxue/renwuzhi-04-baguan
@@ -27,7 +27,7 @@ updatedDate: 2026-08-30
 
 本章**进阶**：材能、利害、接识、英雄四篇分论，宜对照流业看。这是鉴人术数文献，不是医学。
 
-![能各有所宜；英分雄分相济](/notes-media/inline-xuanxue-relation-renwuzhi-03-caineng.jpg)
+![能各有所宜；英分雄分相济](/notes-media/inline-xuanxue-relation-renwuzhi-03-caineng.webp)
 *图注：五步环对应「各有所宜 → 量能授官 → 君臣之能 → 接识同体 → 英分雄分」。能大不能小是错名；一身兼有才能役英与雄。鉴人术数文献，不是医学。*
 
 ```mermaid
@@ -237,7 +237,7 @@ flowchart LR
 
 **白话：** 草之精秀叫做英，兽之特出叫做雄；所以人的文武茂异，取名于此。因此聪明秀出叫做英，胆力过人叫做雄。这是大体的别名。
 
-![材能英雄](/notes-media/inline-xuanxue-koujue-caineng.jpg)
+![材能英雄](/notes-media/inline-xuanxue-koujue-caineng.webp)
 *图注：四格总览材能、利害、接识、英雄；末格对应本段「聪明秀出，谓之英；胆力过人，谓之雄」。术数文献，不是医学。*
 
 若校其分数，则牙则须，各以二分，取彼一分，然后乃成。何以论其然？夫聪明者，英之分也，不得雄之胆，则说不行；胆力者，雄之分也，不得英之智，则事不立。是以，英以其聪谋始，以其明见机，待雄之胆行之；雄以其力服众，以其勇排难，待英之智成之；然后乃能各济其所长也。

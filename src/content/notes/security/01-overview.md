@@ -12,7 +12,7 @@ concepts:
   - 被动攻击
   - 安全服务
   - 安全机制
-cover: /notes-media/security-01-overview.jpg
+cover: /notes-media/security-01-overview.webp
 related:
   - security/02-crypto
   - cn/01-overview

@@ -12,7 +12,7 @@ concepts:
   - 写回
   - 虚拟存储器
   - TLB
-cover: /notes-media/co-07-storage.jpg
+cover: /notes-media/co-07-storage.webp
 related:
   - co/04-memory
   - co/08-io

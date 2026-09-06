@@ -12,7 +12,7 @@ concepts:
   - 关系模型
   - 三级模式
   - 数据独立性
-cover: /notes-media/db-01-intro.jpg
+cover: /notes-media/db-01-intro.webp
 related:
   - db/02-design
   - db/03-relational

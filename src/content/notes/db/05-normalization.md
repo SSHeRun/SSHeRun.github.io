@@ -12,7 +12,7 @@ concepts:
   - BCNF
   - 插入异常
   - 候选码
-cover: /notes-media/db-05-normalization.jpg
+cover: /notes-media/db-05-normalization.webp
 related:
   - db/02-design
   - db/03-relational

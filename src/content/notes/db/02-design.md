@@ -12,7 +12,7 @@ concepts:
   - 数据字典
   - 逻辑结构
   - 物理设计
-cover: /notes-media/db-02-design.jpg
+cover: /notes-media/db-02-design.webp
 related:
   - db/01-intro
   - db/03-relational

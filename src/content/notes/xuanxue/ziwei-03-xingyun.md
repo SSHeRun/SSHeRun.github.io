@@ -13,7 +13,7 @@ concepts:
   - 羊陀迭并
   - 七杀重逢
   - 岁限
-cover: /notes-media/xuanxue-ziwei-03.jpg
+cover: /notes-media/xuanxue-ziwei-03.webp
 related:
   - xuanxue/ziwei-02-shiergong
   - xuanxue/ziwei-02-fu
@@ -37,7 +37,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看「白话」，再对照原文。卷三总纲：先本命，后行限。
 
-![十二宫对宫](/notes-media/inline-xuanxue-ziwei-14-dui-gong.jpg)
+![十二宫对宫](/notes-media/inline-xuanxue-ziwei-14-dui-gong.webp)
 
 ## 看盘次序
 
@@ -162,7 +162,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 先分「星」的上中下，再看「数」的上中下，合成九等。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 紫府与数
 
@@ -319,7 +319,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 男命、女命看宫的次序不同，同一颗星也不要同一句话断完。
 
-![女命骨髓赋：较吉与须慎](/notes-media/inline-xuanxue-ziwei-12-nv-ming-gusui.jpg)
+![女命骨髓赋：较吉与须慎](/notes-media/inline-xuanxue-ziwei-12-nv-ming-gusui.webp)
 
 图是女命赋的吉慎对照，和本篇「女命先看身命、福德、夫君」一起读。
 
@@ -354,7 +354,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 含「论小儿命」与「定小儿生时诀」。童限未起时，先看命上庙旺还是陷杀。
 
-![十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.jpg)
+![十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.webp)
 
 ## 流年神煞看落地
 
@@ -404,7 +404,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 含四篇短论：生时安命吉凶、时辰要审的确、小儿克亲、先贫后富。
 
-![安身命：寅上起正月](/notes-media/inline-xuanxue-ziwei-08-an-shen-ming.jpg)
+![安身命：寅上起正月](/notes-media/inline-xuanxue-ziwei-08-an-shen-ming.webp)
 
 ## 论人生时安命吉凶
 
@@ -470,11 +470,11 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 含五篇：大限十年、二限太岁、行限分南北斗、流年太岁、阴骘延寿。先懂这一篇，再读后面的羊陀迭并、十二支所忌、十二岁限。
 
-![大限怎么走：一宫十年](/notes-media/inline-xuanxue-ziwei-18-daxian.jpg)
+![大限怎么走：一宫十年](/notes-media/inline-xuanxue-ziwei-18-daxian.webp)
 
-![正统紫微五步：卷三专看运限](/notes-media/inline-xuanxue-ziwei-02-study-loop.jpg)
+![正统紫微五步：卷三专看运限](/notes-media/inline-xuanxue-ziwei-02-study-loop.webp)
 
-![四杀：擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![四杀：擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 ## 论大限十年祸福何如
 
@@ -674,7 +674,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 命里已有羊或陀，流年再遇流羊、流陀，叫迭并。
 
-![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 图上四杀里，擎羊、陀罗就是本篇的「羊陀」。火铃另看「论七杀重逢」。
 
@@ -697,7 +697,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 三合原有七杀，流年再逢流羊流陀来冲，叫七杀重逢。与羊陀迭并是一对最毒的岁限。
 
-![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 ## 三合有杀 · 流年再冲
 
@@ -728,7 +728,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 按出生年支看，哪些岁、限最忌。每一句口诀单独一节。
 
-![十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.jpg)
+![十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.webp)
 
 ## 人生子命忌寅申
 
@@ -824,7 +824,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 按人的五行（纳音）看，命或限走到哪个方位宫最忌。
 
-![十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.jpg)
+![十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.webp)
 
 ## 金人遇坎
 
@@ -893,7 +893,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 紫微庙旺先记，下面每条口诀单独一节。下半篇是七杀、破军、女命。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺
 
@@ -1012,7 +1012,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 上半篇是庙旺与紫府诸格。本篇从「紫微七杀化权」到女命。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 紫微七杀化权
 
@@ -1126,7 +1126,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 天府是南斗主。每条口诀单独一节。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺
 
@@ -1204,7 +1204,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺陷
 
@@ -1247,7 +1247,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺陷
 
@@ -1363,7 +1363,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺陷
 
@@ -1425,7 +1425,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺陷
 
@@ -1514,7 +1514,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 日月对照见下一篇「太阴」与「日月拱照」。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺陷
 
@@ -1582,7 +1582,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 日月对照、夹命夹财见下一篇。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺陷
 
@@ -1647,7 +1647,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 源文件「太阳太阴拱照」整段。每一句单独一节。
 
-![对宫相望](/notes-media/inline-xuanxue-ziwei-14-dui-gong.jpg)
+![对宫相望](/notes-media/inline-xuanxue-ziwei-14-dui-gong.webp)
 
 ## 日巳月酉丑宫命
 
@@ -1769,7 +1769,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 源文件先分「文昌」「文曲」，再合「文昌文曲」。每条单独一节。
 
-![禄权科忌性情](/notes-media/inline-xuanxue-ziwei-05-sihua.jpg)
+![禄权科忌性情](/notes-media/inline-xuanxue-ziwei-05-sihua.webp)
 
 ## 文昌庙旺陷
 
@@ -1957,7 +1957,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺
 
@@ -2084,7 +2084,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 源文件或作「贪狠」，原文照录。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺陷
 
@@ -2256,7 +2256,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺陷
 
@@ -2385,7 +2385,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺陷
 
@@ -2549,7 +2549,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 与本卷「论七杀重逢」互参。
 
-![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 ## 庙旺
 
@@ -2686,7 +2686,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 庙旺陷
 
@@ -2754,7 +2754,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 擎羊、陀罗、火星、铃星。与本卷「论羊陀迭并」同读。
 
-![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 ## 擎羊庙陷
 
@@ -2936,7 +2936,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 魁钺夹命为奇格
 
@@ -2984,7 +2984,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 ## 左右文昌位至台辅
 
@@ -3068,9 +3068,9 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 禄存、天马、化科化权化禄。四化性情见图。
 
-![禄权科忌性情](/notes-media/inline-xuanxue-ziwei-05-sihua.jpg)
+![禄权科忌性情](/notes-media/inline-xuanxue-ziwei-05-sihua.webp)
 
-![十干四化](/notes-media/inline-xuanxue-ziwei-10-sihua-tiangan.jpg)
+![十干四化](/notes-media/inline-xuanxue-ziwei-10-sihua-tiangan.webp)
 
 ## 禄存十二宫皆入庙
 
@@ -3257,7 +3257,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 地劫、地空（劫空）与天伤、天使（伤使）。
 
-![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 ## 劫空
 
@@ -3316,7 +3316,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 三夹、六夹，以及身命孰吉孰凶。
 
-![对宫相望](/notes-media/inline-xuanxue-ziwei-14-dui-gong.jpg)
+![对宫相望](/notes-media/inline-xuanxue-ziwei-14-dui-gong.webp)
 
 ## 命宫
 
@@ -3420,7 +3420,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 年命纳音的墓库、败地、绝处。与「论立命行限宫歌」互参，不要和十四主星混成一句。
 
-![十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.jpg)
+![十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.webp)
 
 ## 纳音墓库看何宫
 
@@ -3453,7 +3453,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 源文件最后三块：财帛、财宅、财福。卷三到此结束。
 
-![十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.jpg)
+![十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.webp)
 
 ## 财帛
 

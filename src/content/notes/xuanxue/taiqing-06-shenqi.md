@@ -12,7 +12,7 @@ concepts:
   - 神不足
   - 六气
   - 大畜秘神气歌
-cover: /notes-media/xuanxue-taiqing-06.jpg
+cover: /notes-media/xuanxue-taiqing-06.webp
 related:
   - xuanxue/taiqing-05-wuyue-xuetang
   - xuanxue/taiqing-07-qise
@@ -28,7 +28,7 @@ updatedDate: 2026-08-30
 
 本章整体**进阶**；两首歌诀按部位应事，标**艰深**。
 
-![德在形先；神见于眉目，气发颜表](/notes-media/inline-xuanxue-relation-taiqing-06-shenqi.jpg)
+![德在形先；神见于眉目，气发颜表](/notes-media/inline-xuanxue-relation-taiqing-06-shenqi.webp)
 *图注：五步环对应心术七取、德在形先、神见于眉目、气发颜表、六气歌诀。死生论借神昏乱浮杂，不是寿命预测。术数文献，不是医学。*
 
 ```mermaid
@@ -245,7 +245,7 @@ flowchart TB
 
 **白话：** 却可以在形上测：明明白白见于眉目之上，深深地运行在五脏里面。
 
-![神在两目](/notes-media/inline-xuanxue-face-shen-eyes.jpg)
+![神在两目](/notes-media/inline-xuanxue-face-shen-eyes.webp)
 *图注：红标在眼侧，不遮瞳孔。标签按人物自身左右：照片右侧为左目。对应「昭昭然见于眉目之上」。一身精神具乎两目，是术数观神，不是眼科。*
 
 故人云晤尽则神游于眼，六德则神思于心，是神出处于形而为之表，犹日月之光，外照万物，而其神隐于日月之内也。
@@ -336,7 +336,7 @@ flowchart TB
 
 **白话：** 作用到这一步，形还在人事之间的人，神就藏在心里，发现在眉目之间。
 
-![神藏于心发于眉目](/notes-media/inline-xuanxue-koujue-shen-gu.jpg)
+![神藏于心发于眉目](/notes-media/inline-xuanxue-koujue-shen-gu.webp)
 *图注：图式借冰鉴「文人先观神骨」口诀：神具两目、骨具面部。用来对照本节「神藏于心，发现于眉目之间」，不是太清原图。*
 
 犹未失其本真。
@@ -555,7 +555,7 @@ flowchart TB
 
 **白话：** 并且气这个道，又发在颜面上，而成为吉凶的兆。
 
-![气发颜表为吉凶之兆](/notes-media/inline-xuanxue-face-qise.jpg)
+![气发颜表为吉凶之兆](/notes-media/inline-xuanxue-face-qise.webp)
 *图注：标印堂色与目色。对应「发乎颜表，而为吉凶之兆」。大者一生、小者三月是术数口诀，不是医学。*
 
 其散如毛发，其聚如黍米，望之有形，按之无迹。
@@ -594,7 +594,7 @@ flowchart TB
 
 **白话：** 青龙之气，如祥云衬月；朱雀之气，如朝霞映水；勾陈之气，如黑风吹云；螣蛇之气，如草木将要成灰（底本夹注「玄武」，与下文元武并列，疑误）；白虎之气，如凝脂涂油；玄武之气（底本「元武」，清讳改字），如腻烟和雾。
 
-![六神气色区位](/notes-media/inline-xuanxue-face-liushen.jpg)
+![六神气色区位](/notes-media/inline-xuanxue-face-liushen.webp)
 *图注：青龙、朱雀、勾陈、螣蛇、白虎、玄武各标区位。对应「六气之变」这一段。底本把螣蛇注成玄武，与后文元武并列，图按六神分位，不把两条并成一条。术数文献，不是诊断。*
 
 六气之中，惟青龙为吉。

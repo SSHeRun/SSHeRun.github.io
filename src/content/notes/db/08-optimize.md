@@ -12,7 +12,7 @@ concepts:
   - 投影合并
   - 公共子表达式
   - 关系系统
-cover: /notes-media/db-08-optimize.jpg
+cover: /notes-media/db-08-optimize.webp
 related:
   - db/04-algebra
   - db/06-sql

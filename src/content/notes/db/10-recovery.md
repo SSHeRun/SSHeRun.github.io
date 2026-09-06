@@ -12,7 +12,7 @@ concepts:
   - 日志
   - 检查点
   - UNDO
-cover: /notes-media/db-10-recovery.jpg
+cover: /notes-media/db-10-recovery.webp
 related:
   - db/07-concurrency
   - db/09-integrity

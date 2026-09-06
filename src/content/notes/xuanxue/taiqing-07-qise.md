@@ -12,7 +12,7 @@ concepts:
   - 六神气色
   - 旺相休囚
   - 十天罗
-cover: /notes-media/xuanxue-taiqing-07.jpg
+cover: /notes-media/xuanxue-taiqing-07.webp
 related:
   - xuanxue/taiqing-06-shenqi
   - xuanxue/taiqing-08-xingshen
@@ -28,7 +28,7 @@ updatedDate: 2026-08-30
 
 本章整体**艰深**（气色吉凶歌）。可与[[xuanxue/mayi-02-qianliugong|麻衣气色与前六宫]]对读。下一章收[[xuanxue/taiqing-08-xingshen|形神体象]]。
 
-![侵晨帷幄看本脏清气，浮暴之气不算](/notes-media/inline-xuanxue-relation-taiqing-07-qise.jpg)
+![侵晨帷幄看本脏清气，浮暴之气不算](/notes-media/inline-xuanxue-relation-taiqing-07-qise.webp)
 *图注：五步环对应气色法诀、五色形状、六神气色、四时出没、吉凶歌诀。五色正者如瓜蜡火脂漆。术数文献，不是医学。*
 
 ```mermaid
@@ -101,7 +101,7 @@ flowchart TB
 
 **白话：** 青色如瓜，黄色如蜡，赤色如火，白色如脂，黑色如漆。
 
-![五色主事](/notes-media/inline-xuanxue-koujue-qise-wuse.jpg)
+![五色主事](/notes-media/inline-xuanxue-koujue-qise-wuse.webp)
 *图注：五格青忧、黄昌、赤火殃、白破财、黑病，对应「青色如瓜……黑色如漆」及后文五色所主。口诀是术数总诀，不是医学。*
 
 此五者，色之正，发之甚者也。
@@ -188,7 +188,7 @@ flowchart TB
 
 **白话：** 唇黑而颤，口旁左右黑气拂拂的，叫作玄武之色（底本「元武」），主阴私、小人相害、失脱损盗之事。
 
-![六神气色区位](/notes-media/inline-xuanxue-face-liushen.jpg)
+![六神气色区位](/notes-media/inline-xuanxue-face-liushen.webp)
 *图注：青龙、朱雀、勾陈、螣蛇、白虎、玄武分位。对应「六神气色」六条。色恶则应灾是术数，不是病征。*
 
 ### 元灵宝文
@@ -375,7 +375,7 @@ flowchart TB
 
 **白话：** 金色白，木色青，水色黑，火色赤，土色黄。
 
-![气色如运看印堂与目色](/notes-media/inline-xuanxue-face-qise.jpg)
+![气色如运看印堂与目色](/notes-media/inline-xuanxue-face-qise.webp)
 *图注：标印堂色、目色。对应五行正色「金白木青水黑火赤土黄」。大者一生、小者三月是术数，不是诊断。*
 
 得正色为五行，不相克者不滞为贵，杂色蔽之即差。
@@ -606,7 +606,7 @@ flowchart TB
 
 **白话：** 病人值此，病难安；囚人见之，尤其迍滞。
 
-![青色示意](/notes-media/inline-xuanxue-face-qise-qing.jpg)
+![青色示意](/notes-media/inline-xuanxue-face-qise-qing.webp)
 *图注：印堂一带青色示意，对应「青色吉凶歌」全段。图注已写明不是真实皮肤病。*
 
 ### 黄色出没
@@ -753,7 +753,7 @@ flowchart TB
 
 **白话：** 眉位有圆多好事；酒樽酒馔得丰醇。
 
-![黄色示意](/notes-media/inline-xuanxue-face-qise-huang.jpg)
+![黄色示意](/notes-media/inline-xuanxue-face-qise-huang.webp)
 *图注：印堂一带黄色示意，对应「黄色吉凶歌」全段。示意不是真实肤色病变。*
 
 ### 赤色出没
@@ -896,7 +896,7 @@ flowchart TB
 
 **白话：** 只定六十日遭法死；妇人右耳疾来频。——术数死候，不是刑法或耳科。
 
-![赤色示意](/notes-media/inline-xuanxue-face-qise-chi.jpg)
+![赤色示意](/notes-media/inline-xuanxue-face-qise-chi.webp)
 *图注：印堂一带赤色示意，对应「赤色吉凶歌」全段。示意不是炎症或皮肤病。*
 
 ### 白色出没
@@ -999,7 +999,7 @@ flowchart TB
 
 **白话：** 入口分明忧口舌；囷仓上有贼还多。
 
-![白色示意](/notes-media/inline-xuanxue-face-qise-bai.jpg)
+![白色示意](/notes-media/inline-xuanxue-face-qise-bai.webp)
 *图注：印堂一带白色示意，对应「白色吉凶歌」全段。示意不是苍白病容。*
 
 ### 黑色出没
@@ -1186,7 +1186,7 @@ flowchart TB
 
 **白话：** 墙壁生来合中岳，定归泉下哭声高。
 
-![黑色示意](/notes-media/inline-xuanxue-face-qise-hei.jpg)
+![黑色示意](/notes-media/inline-xuanxue-face-qise-hei.webp)
 *图注：印堂一带黑色示意，对应「黑色吉凶歌」全段。示意不是瘀青或肤疾。*
 
 ### 紫色出没
@@ -1249,7 +1249,7 @@ flowchart TB
 
 **白话：** 陂池位上增余福；中岳横纹贵自如。
 
-![紫色示意](/notes-media/inline-xuanxue-face-qise-zi.jpg)
+![紫色示意](/notes-media/inline-xuanxue-face-qise-zi.webp)
 *图注：印堂一带紫色示意，对应「紫色吉凶歌」全段。示意不是真实皮肤病。*
 
 ### 十天罗

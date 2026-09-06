@@ -11,7 +11,7 @@ concepts:
   - 星学大成
   - 星平会海
   - 二十八宿
-cover: /notes-media/xuanxue-ziwei-04-qizheng.jpg
+cover: /notes-media/xuanxue-ziwei-04-qizheng.webp
 related:
   - xuanxue/ziwei-00-path
   - xuanxue/ziwei-18-feixing
@@ -36,7 +36,7 @@ updatedDate: 2026-08-31
 > **仓库本是篇目，不是全书正文。** 下面每一条都只是书里有过哪些题目，没有赋文、没有歌诀全文。  
 > 这是七政四余 + 子平一路的目录，**不是**斗数十四主星。不要把下面的「五星」「正官格」拿去套紫微盘。
 
-![三套不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.jpg)
+![三套不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.webp)
 
 图里七政那一列，才是本篇所属。学完正统再翻。
 
@@ -161,7 +161,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > **仓库本不完整。** 这是明万民英编的七政四余星命书残篇，看天上真太阳、真太阴、五星和四余，**不是**紫微斗数十四主星。不要和《全书》混成一套课。
 
-![三套不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.jpg)
+![三套不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.webp)
 
 源文件只有卷一、卷二的若干章，以及二十八宿诗。缺卷很多。原文缺字处作 `?` 或墨丁，照录，不臆补。
 
@@ -2288,7 +2288,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > **仓库本不完整。七政四余，不是斗数十四主星。**
 
-![三套星命不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.jpg)
+![三套星命不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.webp)
 
 上一篇：**02g_星学大成_卷二财禄神煞**
 
@@ -4226,7 +4226,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > **仓库本不完整。** 阅笔教外别意杂诗，是七政琴堂法外传，不是斗数赋诀。空亡、驾前天空、太岁填，都按七政宫度读。
 
-![三套不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.jpg)
+![三套不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.webp)
 
 | 篇 | 内容 |
 |---|---|

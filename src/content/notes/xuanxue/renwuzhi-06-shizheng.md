@@ -12,7 +12,7 @@ concepts:
   - 居止
   - 不伐
   - 三等
-cover: /notes-media/xuanxue-renwuzhi-06.jpg
+cover: /notes-media/xuanxue-renwuzhi-06.webp
 related:
   - xuanxue/renwuzhi-05-qimiu
   - xuanxue/yuancai
@@ -27,7 +27,7 @@ updatedDate: 2026-08-30
 
 《释争》是全书的德行收束，不是第三套观人术。好胜把「在前」当成锐、把「让」当成辱，结果不是自毁就是互殴。刘邵给的出路是三等：功大不伐，贤而能让，急己宽人。底本「隙至」即春秋晋卿郤至；「荆叔」在前篇已见，本篇用蔺相如、寇恂、陈余张耳、彭宠朱浮作反证。
 
-![人难知；知了也难用上](/notes-media/inline-xuanxue-relation-renwuzhi-06-shizheng.jpg)
+![人难知；知了也难用上](/notes-media/inline-xuanxue-relation-renwuzhi-06-shizheng.webp)
 *图注：五步环对应效难两层（难知、得效）再接到已试五视，最后以释争三等收束：不伐、能让、急己宽人。鉴人术数文献，不是医学。*
 
 ```mermaid
@@ -60,7 +60,7 @@ flowchart TB
 
 **白话：** 要把知人用出成效，有两难：一是难以真正知道人，二是知道了也无从收到荐用的实效。
 
-![效难 · 释争](/notes-media/inline-xuanxue-koujue-xiaonan.jpg)
+![效难 · 释争](/notes-media/inline-xuanxue-koujue-xiaonan.webp)
 *图注：上格对应「有难知之难，有知之无由得效之难」；红箭头连到下格「释争」，对应后文「不伐」「能让」「急己宽人」三等。术数文献，不是医学。*
 
 何谓难知之难？人物精微，能神而明，其道甚难，固难知之难也。是以众人之察，不能尽备；故各自立度，以相观采：或相其形容，或候其动作，或揆其终始，或揆其儗象，或推其细微，或恐其过误，或循其所言，或稽其行事。八者游杂，故其得者少，所失者多。是故必有草创信形之误，又有居止变化之谬；故其接遇观人也，随行信名，失其中情。

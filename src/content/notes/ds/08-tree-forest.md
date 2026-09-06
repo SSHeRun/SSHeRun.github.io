@@ -10,7 +10,7 @@ concepts:
   - 树转二叉树
   - 森林转二叉树
   - 树的先序后序
-cover: /notes-media/ds-08-tree-forest.jpg
+cover: /notes-media/ds-08-tree-forest.webp
 related:
   - ds/04-tree
 updatedDate: 2026-08-28

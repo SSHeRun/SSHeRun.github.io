@@ -12,7 +12,7 @@ concepts:
   - CBC
   - CTR
   - RC4
-cover: /notes-media/security-03-symmetric.jpg
+cover: /notes-media/security-03-symmetric.webp
 related:
   - security/02-crypto
   - security/04-public-key

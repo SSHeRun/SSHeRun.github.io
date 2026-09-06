@@ -12,7 +12,7 @@ concepts:
   - 位扩展
   - 字扩展
   - 多体交叉
-cover: /notes-media/co-04-memory.jpg
+cover: /notes-media/co-04-memory.webp
 related:
   - co/01-overview
   - co/07-storage

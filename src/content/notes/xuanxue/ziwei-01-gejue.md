@@ -12,7 +12,7 @@ concepts:
   - 得地
   - 失陷
   - 格局
-cover: /notes-media/xuanxue-ziwei-01-gejue.jpg
+cover: /notes-media/xuanxue-ziwei-01-gejue.webp
 related:
   - xuanxue/ziwei-01-zhuxing
   - xuanxue/ziwei-02-shiergong
@@ -37,7 +37,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 本篇是格局口诀总汇。上篇：立法、诸夹、富贵诸格。下篇：忌格、典故、性情。每联都在，不要跳读。
 
-![身命为本、入庙失度](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.jpg)
+![身命为本、入庙失度](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.webp)
 
 图上「身命为本」对着下面「立命安身」「命好身好限好」。
 
@@ -245,7 +245,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 上篇是富贵诸格。本篇：禄马倒、典故凶格、其余格名、性情、总戒。每联都在。
 
-![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 图上四杀，对着下面羊陀火铃、劫空伤使各条。
 
@@ -471,7 +471,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 与全书卷一「女命骨髓赋」同文。
 
-![女命骨髓赋：较吉与须慎](/notes-media/inline-xuanxue-ziwei-12-nv-ming-gusui.jpg)
+![女命骨髓赋：较吉与须慎](/notes-media/inline-xuanxue-ziwei-12-nv-ming-gusui.webp)
 
 图左「较吉」、右「须慎」逐条对应下面原文，中间一句是赋末的总戒。
 
@@ -566,7 +566,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 十等是「这一类人常见哪些星」。先合庙旺、三方四正，不要见星就贴标签。
 
-![北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 十四主星的分组，对着下面福寿、聪明、富贵各条里出现的星。
 
@@ -600,7 +600,7 @@ updatedDate: 2026-08-31
 **白话：**
 论威勇：武曲、文昌、擎羊、七杀坐命宫，又得化权、化禄；三方再得紫微、天府、左右拱照，主人威勇。
 
-![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 羊陀火铃在威勇、刑名、贫贱、疾殀几等里都会出现：有吉凑则威，无吉则刑病。
 

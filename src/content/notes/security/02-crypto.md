@@ -12,7 +12,7 @@ concepts:
   - 仿射密码
   - 一次一密
   - 唯密文攻击
-cover: /notes-media/security-02-crypto.jpg
+cover: /notes-media/security-02-crypto.webp
 related:
   - security/01-overview
   - security/03-symmetric

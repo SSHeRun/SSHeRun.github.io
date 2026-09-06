@@ -12,7 +12,7 @@ concepts:
   - Clock
   - 抖动
   - 工作集
-cover: /notes-media/os-05-virtual.jpg
+cover: /notes-media/os-05-virtual.webp
 related:
   - os/04-memory
   - co/07-storage

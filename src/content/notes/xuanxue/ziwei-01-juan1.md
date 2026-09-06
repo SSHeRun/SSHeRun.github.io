@@ -13,7 +13,7 @@ concepts:
   - 斗数发微
   - 庙旺
   - 三方四正
-cover: /notes-media/xuanxue-ziwei-01.jpg
+cover: /notes-media/xuanxue-ziwei-01.webp
 related:
   - xuanxue/ziwei-00-path
   - xuanxue/ziwei-01-zhuxing
@@ -82,9 +82,9 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 「例曰」口诀已拆到下一篇，本篇只读总纲。
 
-![太微赋立法：身命为福德之本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.jpg)
+![太微赋立法：身命为福德之本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.webp)
 
-![庙旺落陷七档](/notes-media/inline-xuanxue-ziwei-19-miaowangxian.jpg)
+![庙旺落陷七档](/notes-media/inline-xuanxue-ziwei-19-miaowangxian.webp)
 
 ## 斗数难尽言
 
@@ -152,7 +152,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 每条口诀单独一节，方便背。
 
-![太微赋例曰六条口诀卡](/notes-media/inline-xuanxue-ziwei-07-taiwai-koujue.jpg)
+![太微赋例曰六条口诀卡](/notes-media/inline-xuanxue-ziwei-07-taiwai-koujue.webp)
 
 图上六条，对应下面前六节。后面还有全书原文里的其余「例曰」，一并拆开，不要只背图上六条。
 
@@ -419,7 +419,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 本篇讲十四主星和辅煞的形貌、性情。先认「像什么人」，再合庙旺、空亡。
 
-![北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上十四主星的分组，对着下面「帝座、府、日月、机曲同梁昌」各条。羊陀火铃另有专图。
 
@@ -495,7 +495,7 @@ updatedDate: 2026-08-31
 **注释**
 - 暴虎冯河、吞炭装哑都是古人事，用来比喻杀星的猛、火铃的阴狠，不是叫你对号入座演义。
 
-![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 ## 文昌 · 文曲
 
@@ -706,7 +706,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 本篇按十二支讲「哪颗星在哪一垣为什么得地」。先认木火金水的垣，再对身命。
 
-![十二垣、入庙失度、身命为本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.jpg)
+![十二垣、入庙失度、身命为本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.webp)
 
 图上「十二垣」「入庙失度」对着本篇各支的庙乐、旺相。身命为本仍是总纲。
 
@@ -801,7 +801,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 本篇是看盘总纲：身命、空亡、庙旺、制化，各宫只点一句。当作尺，不当作全书。
 
-![身命为本、入庙失度](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.jpg)
+![身命为本、入庙失度](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.webp)
 
 图中「身命为本」「入庙失度」就是下面前几节的尺子。
 
@@ -903,7 +903,7 @@ updatedDate: 2026-08-31
 **白话：**
 相貌宫逢凶，赋说必带破相。疾厄宫逢化忌，定有尪羸（瘦弱、病态）。
 
-![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 羊陀耗杀、化忌，对着上面子女、妻妾、相貌、疾厄几句。
 
@@ -922,11 +922,11 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 与全书卷一「斗数发微论」、单篇「斗数发微轮」同文。
 
-![三方四正：命、财帛、官禄、迁移](/notes-media/inline-xuanxue-ziwei-15-sanfang-sizheng.jpg)
+![三方四正：命、财帛、官禄、迁移](/notes-media/inline-xuanxue-ziwei-15-sanfang-sizheng.webp)
 
-![对宫相望](/notes-media/inline-xuanxue-ziwei-14-dui-gong.jpg)
+![对宫相望](/notes-media/inline-xuanxue-ziwei-14-dui-gong.webp)
 
-![四杀羊陀火铃](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![四杀羊陀火铃](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 ## 开篇
 
@@ -1175,7 +1175,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 本篇补太微赋：两邻同室、主宾、女命、童限。羊陀火铃是身命大忌。
 
-![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 图上四杀，对着下面「身命最嫌羊陀七杀」「君子亦有羊陀火铃」各条。
 

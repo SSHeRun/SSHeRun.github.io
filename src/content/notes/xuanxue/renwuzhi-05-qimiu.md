@@ -13,7 +13,7 @@ concepts:
   - 同体
   - 申压
   - 二尤
-cover: /notes-media/xuanxue-renwuzhi-05.jpg
+cover: /notes-media/xuanxue-renwuzhi-05.webp
 related:
   - xuanxue/renwuzhi-04-baguan
   - xuanxue/renwuzhi-06-shizheng
@@ -28,7 +28,7 @@ updatedDate: 2026-08-30
 
 同体一段要和偏材对读：性同而材倾则相援，性同而势均则相害。看着都在助「直」、助「明」，其实也可能在毁另一个直、另一个明。读完再看 [[xuanxue/renwuzhi-06-shizheng|效难]]：缪是看走眼，难是看准了也用不上。
 
-![知人者以目正耳，不知人者以耳败目](/notes-media/inline-xuanxue-relation-renwuzhi-05-qimiu.jpg)
+![知人者以目正耳，不知人者以耳败目](/notes-media/inline-xuanxue-relation-renwuzhi-05-qimiu.webp)
 *图注：五步环对应八观的七个坑：以目正耳、三周肩称、心小志大、同体相誉、二尤核实。鉴人术数文献，不是医学。*
 
 ```mermaid
@@ -75,7 +75,7 @@ flowchart TB
 - 第六，评论人材时被伸压的情势欺瞒；
 - 第七，观察奇才时在「二尤」上失手。
 
-![七缪：看走眼的七种原因](/notes-media/inline-xuanxue-koujue-qimiu.jpg)
+![七缪：看走眼的七种原因](/notes-media/inline-xuanxue-koujue-qimiu.webp)
 *图注：七格对应开篇「一曰察誉有偏颇之缪」至「七曰观奇有二尤之失」；色块标的是走眼的名目，不是诊病。术数文献，不是医学。*
 
 夫采访之要，不在多少。然征质不明者，信耳而不敢信目。故：人以为是，则心随而明之；人以为非，则意转而化之；虽无所嫌，意若不疑。且人察物，亦自有误，爱憎兼之，其情万原；不畅其本，胡可必信。是故，知人者，以目正耳；不知人者，以耳败目。故州闾之士，皆誉皆毁，未可为正也；交游之人，誉不三周，未必信是也。夫实厚之士，交游之间，必每所在肩称；上等援之，下等推之，苟不能周，必有咎毁。故偏上失下，则其终有毁；偏下失上，则其进不杰。故诚能三周，则为国所利，此正直之交也。故皆合而是，亦有违比；皆合而非，或在其中。若有奇异之材，则非众所见。而耳所听采，以多为信，是缪于察誉者也。

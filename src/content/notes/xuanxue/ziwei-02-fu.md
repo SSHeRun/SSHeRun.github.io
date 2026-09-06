@@ -11,7 +11,7 @@ concepts:
   - 斗数发微轮
   - 观音经验谈
   - 本对合邻
-cover: /notes-media/xuanxue-ziwei-02-fu.jpg
+cover: /notes-media/xuanxue-ziwei-02-fu.webp
 related:
   - xuanxue/ziwei-01-juan1
   - xuanxue/ziwei-01-gejue
@@ -37,11 +37,11 @@ updatedDate: 2026-08-31
 > 单篇源文件题作「斗数发微轮」，与全书卷一「斗数发微论」同文。  
 > 口诀以全书为准：请先读 **全书卷一 · 斗数发微论**。
 
-![对宫相望](/notes-media/inline-xuanxue-ziwei-14-dui-gong.jpg)
+![对宫相望](/notes-media/inline-xuanxue-ziwei-14-dui-gong.webp)
 
-![三方四正](/notes-media/inline-xuanxue-ziwei-15-sanfang-sizheng.jpg)
+![三方四正](/notes-media/inline-xuanxue-ziwei-15-sanfang-sizheng.webp)
 
-![四杀羊陀火铃](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![四杀羊陀火铃](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 下面按单篇原文逐句对照，方便背。不要和七政五星混成一套课。
 
@@ -203,7 +203,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > **近人注本，口诀以全书为准，注本只当讲解。** 文中有改革开放、行骗乞讨等当代用语，不当口诀标准，勿与全书混为一课。
 
-![太微赋立法：十二垣、身命为本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.jpg)
+![太微赋立法：十二垣、身命为本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.webp)
 
 本注本很长，按口诀拆页：
 
@@ -2513,7 +2513,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 与全书卷一「女命骨髓赋」同文。互参：**全书卷一 · 女命骨髓赋**。
 
-![女命骨髓赋：较吉与须慎](/notes-media/inline-xuanxue-ziwei-12-nv-ming-gusui.jpg)
+![女命骨髓赋：较吉与须慎](/notes-media/inline-xuanxue-ziwei-12-nv-ming-gusui.webp)
 
 图左「较吉」、右「须慎」逐条对应下面原文，中间一句是赋末的总戒。
 
@@ -2659,7 +2659,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 源文件自带短注，下面「注释」保留源注，并补全书宫名。
 
-![十喻歌：本、对、合、邻](/notes-media/inline-xuanxue-ziwei-11-ben-dui-he-lin.jpg)
+![十喻歌：本、对、合、邻](/notes-media/inline-xuanxue-ziwei-11-ben-dui-he-lin.webp)
 
 图下方两句引的是本歌原文。图上方「势均力敌」是助记，不是原文——对宫力量以歌里「当头一棒」为准。
 
@@ -2729,7 +2729,7 @@ updatedDate: 2026-08-31
 
 **注释**
 - 源注：对宫凶有时也可避，左右袭击便难防。
-- 图右下句即此。全书十二宫名见 **十二宫图** 与 [/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.jpg](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.jpg)。
+- 图右下句即此。全书十二宫名见 **十二宫图** 与 [/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.webp](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.webp)。
 
 ### 06_玄微论
 
@@ -2737,7 +2737,7 @@ updatedDate: 2026-08-31
 > 与 **增补太微赋** 近，字句不完全一样，两篇都要读，不要合成一篇。  
 > 口诀仍以《全书》太微赋为准。
 
-![太微赋立法：十二垣、身命为本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.jpg)
+![太微赋立法：十二垣、身命为本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.webp)
 
 ## 开篇
 
@@ -2997,7 +2997,7 @@ updatedDate: 2026-08-31
 
 图 07「太微赋例曰六条」对的是全书例曰，不是本篇逐句，故不硬链。立法总纲见图：
 
-![太微赋立法：十二垣、身命为本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.jpg)
+![太微赋立法：十二垣、身命为本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.webp)
 
 ## 两邻 · 同室
 
@@ -3238,7 +3238,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 与全书互参。本篇是「彀率」（看命的准绳），不当另一套十四主星。
 
-![太微赋立法：身命为福德之本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.jpg)
+![太微赋立法：身命为福德之本](/notes-media/inline-xuanxue-ziwei-06-taiwai-core.webp)
 
 ## 吉多凶多
 

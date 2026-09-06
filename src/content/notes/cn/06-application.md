@@ -12,7 +12,7 @@ concepts:
   - DHCP
   - FTP
   - MIME
-cover: /notes-media/cn-06-application.jpg
+cover: /notes-media/cn-06-application.webp
 related:
   - cn/05-transport
   - cn/04-network

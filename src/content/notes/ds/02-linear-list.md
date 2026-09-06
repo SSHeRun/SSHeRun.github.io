@@ -12,7 +12,7 @@ concepts:
   - 循环链表
   - 静态链表
   - 头结点
-cover: /notes-media/ds-02-linear-list.jpg
+cover: /notes-media/ds-02-linear-list.webp
 related:
   - ds/01-basics
   - ds/03-stack-queue

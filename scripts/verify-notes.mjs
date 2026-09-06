@@ -4,14 +4,17 @@
  * Run: npm run verify:notes
  */
 
-import { readdir, readFile, stat } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const NOTES_DIR = path.join(ROOT, 'src/content/notes');
 const SUBJECTS_FILE = path.join(ROOT, 'src/lib/vault/subjects.ts');
 const PUBLIC_DIR = path.join(ROOT, 'public');
+// 正文最宽 720px，2 倍屏要 1440；留一档余量，低于 1024 就说明放错了图。
+const MIN_COVER_WIDTH = 1024;
 
 const SUBJECT_RE = /^subject:\s*['"]?([\w-]+)['"]?\s*$/m;
 const COVER_RE = /^cover:\s*['"]?([^'"\n]+)['"]?\s*$/m;
@@ -88,10 +91,13 @@ for (const file of files) {
 	} else if (cover.startsWith('/')) {
 		const asset = path.join(PUBLIC_DIR, cover.replace(/^\//, ''));
 		try {
-			const info = await stat(asset);
-			if (info.size < 20_000) errors.push(`${rel}: 封面过小 ${cover}`);
+			// 量像素而不是字节：平涂插画转成 WebP 后可能只有几 KB，但分辨率是够的。
+			const { width } = await sharp(asset).metadata();
+			if (!width || width < MIN_COVER_WIDTH) {
+				errors.push(`${rel}: 封面分辨率过低（${width ?? '?'}px < ${MIN_COVER_WIDTH}px）${cover}`);
+			}
 		} catch {
-			errors.push(`${rel}: 封面不存在 ${cover}`);
+			errors.push(`${rel}: 封面不存在或无法解析 ${cover}`);
 		}
 	}
 	if (!/##\s*本章要义/.test(text)) {

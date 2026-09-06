@@ -11,7 +11,7 @@ concepts:
   - 机器字长
   - 层次结构
   - 主机与 I/O
-cover: /notes-media/co-01-overview.jpg
+cover: /notes-media/co-01-overview.webp
 related:
   - co/02-data
   - co/06-cpu

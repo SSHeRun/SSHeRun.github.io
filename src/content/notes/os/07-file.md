@@ -12,7 +12,7 @@ concepts:
   - 树形目录
   - 硬链接
   - 访问控制
-cover: /notes-media/os-07-file.jpg
+cover: /notes-media/os-07-file.webp
 related:
   - os/06-io
   - os/04-memory

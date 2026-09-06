@@ -11,7 +11,7 @@ concepts:
   - 码分复用
   - 频分复用
   - 全双工
-cover: /notes-media/cn-02-physical.jpg
+cover: /notes-media/cn-02-physical.webp
 related:
   - cn/01-overview
   - cn/03-link

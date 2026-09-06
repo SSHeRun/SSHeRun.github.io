@@ -12,7 +12,7 @@ concepts:
   - 慢开始
   - 三次握手
   - TIME-WAIT
-cover: /notes-media/cn-05-transport.jpg
+cover: /notes-media/cn-05-transport.webp
 related:
   - cn/04-network
   - cn/06-application

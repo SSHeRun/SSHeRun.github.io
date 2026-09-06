@@ -13,6 +13,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "public" / "notes-media"
 WIDTH, HEIGHT = 1600, 1280
+MAX_WIDTH = 1440
 
 PAPER = (247, 241, 227)
 INK = (32, 28, 26)
@@ -190,7 +191,10 @@ def render(spec: dict, dest: Path) -> Path:
 
     dest.parent.mkdir(parents=True, exist_ok=True)
     rgb = img.convert("RGB")
-    rgb.save(dest, "JPEG", quality=90, optimize=True)
+    # 笔记正文最宽 720px，按 2 倍屏够用；WebP 在这类平涂插图上比同画质 JPEG 小一半以上。
+    if rgb.width > MAX_WIDTH:
+        rgb = rgb.resize((MAX_WIDTH, round(rgb.height * MAX_WIDTH / rgb.width)), Image.LANCZOS)
+    rgb.save(dest, "WEBP", quality=85, method=6)
     return dest
 
 
@@ -462,7 +466,7 @@ def main() -> None:
         spec = SPECS.get(slug)
         if not spec:
             raise SystemExit(f"no spec for {slug}")
-        dest = OUT_DIR / f"inline-xuanxue-relation-{slug}.jpg"
+        dest = OUT_DIR / f"inline-xuanxue-relation-{slug}.webp"
         path = render(spec, dest)
         print(path, path.stat().st_size)
 

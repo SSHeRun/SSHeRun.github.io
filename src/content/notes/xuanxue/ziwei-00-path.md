@@ -13,7 +13,7 @@ concepts:
   - 四化
   - 十八飞星
   - 七政四余
-cover: /notes-media/xuanxue-ziwei-00.jpg
+cover: /notes-media/xuanxue-ziwei-00.webp
 related:
   - xuanxue/ziwei-01-juan1
   - xuanxue/ziwei-18-feixing
@@ -40,7 +40,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 资料已按阅读顺序分夹。先读本篇，再开「01_全书」。
 
-![三套星命不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.jpg)
+![三套星命不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.webp)
 
 ## 先分清两套东西，不要混读
 
@@ -82,7 +82,7 @@ updatedDate: 2026-08-31
 
 ---
 
-![正统紫微五步学习环](/notes-media/inline-xuanxue-ziwei-02-study-loop.jpg)
+![正统紫微五步学习环](/notes-media/inline-xuanxue-ziwei-02-study-loop.webp)
 
 ## 建议进度（只学正统）
 
@@ -109,15 +109,15 @@ updatedDate: 2026-08-31
 - 五行局口诀：水二、木三、金四、土五、火六，是起紫微用的局数，不是现代「性格测试」。
 - 四化口诀见卷二「甲廉破武阳……」，不要用坊间另一套四化表替换。
 
-![全书十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.jpg)
+![全书十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.webp)
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
-![禄权科忌，以全书诸星问答为准](/notes-media/inline-xuanxue-ziwei-05-sihua.jpg)
+![禄权科忌，以全书诸星问答为准](/notes-media/inline-xuanxue-ziwei-05-sihua.webp)
 
-![三方四正：命财官迁](/notes-media/inline-xuanxue-ziwei-15-sanfang-sizheng.jpg)
+![三方四正：命财官迁](/notes-media/inline-xuanxue-ziwei-15-sanfang-sizheng.webp)
 
-![五行局起紫微](/notes-media/inline-xuanxue-ziwei-17-wuxing-ju.jpg)
+![五行局起紫微](/notes-media/inline-xuanxue-ziwei-17-wuxing-ju.webp)
 
 ### 第二阶段  读《紫微斗数全书》（主课本）
 
@@ -146,7 +146,7 @@ updatedDate: 2026-08-31
 **白话：**
 卷三看运：大限十年、流年太岁，以及羊陀迭并、七杀重逢这类「限上再逢凶」的断法。本命看完再看限，不要一上来就批流年。
 
-![大限怎么走](/notes-media/inline-xuanxue-ziwei-18-daxian.jpg)
+![大限怎么走](/notes-media/inline-xuanxue-ziwei-18-daxian.webp)
 
 ---
 

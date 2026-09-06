@@ -11,7 +11,7 @@ concepts:
   - 发送时延
   - 协议
   - 五层模型
-cover: /notes-media/cn-01-overview.jpg
+cover: /notes-media/cn-01-overview.webp
 related:
   - cn/02-physical
   - cn/04-network

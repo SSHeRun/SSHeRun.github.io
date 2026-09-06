@@ -12,7 +12,7 @@ concepts:
   - 五岳四渎
   - 五行
   - 气色
-cover: /notes-media/xuanxue-taiqing-01.jpg
+cover: /notes-media/xuanxue-taiqing-01.webp
 related:
   - xuanxue/taiqing-02-zhongyang
   - xuanxue/bingjian
@@ -28,7 +28,7 @@ updatedDate: 2026-08-30
 
 读法：先看说歌总纲（造化 → 骨格清奇古怪 → 气色五行 → 清浊），再看又歌散条，然后看神秘论把神、气、形、骨、色排成次第。成和子一段讲五来、三主、十二宫，已经探到卷二的部位表。
 
-![说歌总纲：造化 → 骨格 → 气色五行 → 清浊](/notes-media/inline-xuanxue-relation-taiqing-01-xu-gejue.jpg)
+![说歌总纲：造化 → 骨格 → 气色五行 → 清浊](/notes-media/inline-xuanxue-relation-taiqing-01-xu-gejue.webp)
 *图注：五步环对应序「形性心道」→ 说歌总纲 → 又歌散条 → 神秘论次第 → 成和子探到卷二。术数文献，不是医学。*
 
 ```mermaid
@@ -213,13 +213,13 @@ flowchart TB
 
 **白话：** 脸上的五岳、四渎都有神，又按金、木、水、火、土来分。
 
-![五岳四渎口诀](/notes-media/inline-xuanxue-koujue-wuyue-sidu.jpg)
+![五岳四渎口诀](/notes-media/inline-xuanxue-koujue-wuyue-sidu.webp)
 *图注：对应「五岳四渎皆有神」。额为南岳、两颧东西岳、地阁北岳、鼻为中岳；眼口鼻耳为四渎。术数部位图，不是解剖。*
 
-![五岳部位](/notes-media/inline-xuanxue-face-wuyue.jpg)
+![五岳部位](/notes-media/inline-xuanxue-face-wuyue.webp)
 *图注：对应说歌「五岳……皆有神」。五岳朝拱是后文「部位吉凶各有主」的总图。*
 
-![四渎部位](/notes-media/inline-xuanxue-face-sidu.jpg)
+![四渎部位](/notes-media/inline-xuanxue-face-sidu.webp)
 *图注：对应说歌「四渎皆有神」。耳为江、目为淮、口为河、鼻为济，与卷二详论一致。是取象，不是水系学。*
 
 君须识取造化理，相逢始可论人伦。
@@ -258,7 +258,7 @@ flowchart TB
 
 **白话：** 还要看面部是什么气色。五行气色里，火色多的旧说多灾殃；青多主忧劳，黑多主病，白多主破财，黄才是昌盛。气色澄明沉静、没有瑕翳，才说得上青云万里可以翱翔。青黑白黄是术数五色口诀，不是肝胆皮肤病。
 
-![五色气色口诀](/notes-media/inline-xuanxue-koujue-qise-wuse.jpg)
+![五色气色口诀](/notes-media/inline-xuanxue-koujue-qise-wuse.webp)
 *图注：对应「青多忧饶黑多病，白多破财黄乃昌」。五色配忧、病、破、昌、殃，是说歌气色句，不是诊断。*
 
 富贵贫贱生处意定，但把形神来取证。一部吉兮吉必生，一部凶兮凶必应，部位吉凶各有主，存神定意详观听。
@@ -269,7 +269,7 @@ flowchart TB
 
 **白话：** 妙理超不出五行，应当追究五行的正性。木形瘦、金形方，是常谈；水形圆、土形厚，也不必争论。不要露、不要粗、不要枯槁，上中下三停大体要求相称。
 
-![三停](/notes-media/inline-xuanxue-face-santing.jpg)
+![三停](/notes-media/inline-xuanxue-face-santing.webp)
 *图注：对应「三停大体求相称」。额至眉为上停，眉至准头为中停，准头至地阁为下停。*
 
 火形有禄终须破，奔走贫寒多阻挫（《人伦风鉴》云：“惟有火形尖更露，纵饶得禄终多破。”）。虽因神秀暂荣华，四十之上亦难过。
@@ -372,7 +372,7 @@ flowchart TB
 
 **白话：** 头大身小，性悭而贫；身大头小，多消耗。坐要端、立要直，不直不端就无见识。先笑后说话，定非善良；不言不语，人难测。脸上两眉不一样，一上一下像虫形。这样的人若与他交，连眷属也不得善终。仔细看必须寻古法，只看金木水火土。相刑相克，就按那个形来取；若是相生，必须得地。
 
-![五行生克口诀](/notes-media/inline-xuanxue-koujue-shengke.jpg)
+![五行生克口诀](/notes-media/inline-xuanxue-koujue-shengke.webp)
 *图注：对应「但看金木水火土。相刑相克定取形，若也相生须得地」。生则吉、克则破，与说歌「妙理不过于五行」同一套。*
 
 人中斜曲主横死，上唇牵露多辛苦。左眼小而右眼高，久母必定幼年抛。右眼小而左眼反，家财宫中多破散。更须看眼与单重，再拜父母添宗族。南人似北多富贵，北人似南只有名。有背自然能负荷，学堂学馆广中亲，何须眉目定其贵，先看骨兮次看肉。骨肉两般事更别，清亦贵兮浊亦贵。真浊真清方始贵，若还认得浊中清，早当食禄归宫位。清怕浮而浊怕实，更怕眉尾粗是一（《玉管照神》“陈搏先生袖里金”同。）。

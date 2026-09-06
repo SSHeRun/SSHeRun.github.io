@@ -12,7 +12,7 @@ concepts:
   - 参照完整性
   - 外码
   - 用户定义完整性
-cover: /notes-media/db-03-relational.jpg
+cover: /notes-media/db-03-relational.webp
 related:
   - db/01-intro
   - db/04-algebra

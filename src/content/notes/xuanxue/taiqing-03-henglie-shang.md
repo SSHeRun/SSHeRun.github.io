@@ -12,7 +12,7 @@ concepts:
   - 司空横列
   - 中正横列
   - 印堂横列
-cover: /notes-media/xuanxue-taiqing-03.jpg
+cover: /notes-media/xuanxue-taiqing-03.webp
 related:
   - xuanxue/taiqing-02-zhongyang
   - xuanxue/taiqing-04-henglie-xia
@@ -25,7 +25,7 @@ updatedDate: 2026-08-30
 
 它是**术数文献，不是医学**。狱死、兵死、溺死、客亡，都是旧说应验话，不能当法律、军事或旅行预测。读法：先定这一横列在中线哪一位旁边，再看骨肉是否起、色是否润，最后才看痣和恶色。上一章见 [[xuanxue/taiqing-02-zhongyang|杂说与中央十三位]]。
 
-![中线上半向两边展开](/notes-media/inline-xuanxue-relation-taiqing-03-henglie-shang.jpg)
+![中线上半向两边展开](/notes-media/inline-xuanxue-relation-taiqing-03-henglie-shang.webp)
 *图注：五步环对应天中、天庭、司空、中正、印堂各一横列，中线上半向两边展开。术数文献，不是医学。*
 
 ```mermaid
@@ -51,7 +51,7 @@ flowchart TB
 
 **白话：** 天中这一横列一共八个部位。
 
-![天中横列八位](/notes-media/inline-xuanxue-face-tianzhong.jpg)
+![天中横列八位](/notes-media/inline-xuanxue-face-tianzhong.webp)
 *图注：红线横贯天中，由内向外、左右分列。对应原文「天中横列八位」。照片左侧（人物右）由内向外：天狱、左厢、内府、高广；照片右侧（人物左）：阳尺、武库、辅角、边地。「左厢」是部位名，不是「人的左边」。术数部位，不是医学。*
 
 天狱，一名理狱，主刑厄。
@@ -189,7 +189,7 @@ flowchart TB
 
 **白话：** 天庭这一横列一共八个部位。
 
-![天庭横列八位](/notes-media/inline-xuanxue-face-tianting.jpg)
+![天庭横列八位](/notes-media/inline-xuanxue-face-tianting.webp)
 *图注：红线横贯天庭，由内向外、左右分列。对应原文「天庭横列八位」。曰角（日角）、天府、房心、上墓、四煞、战堂、驿马、吊庭。术数部位，不是医学。*
 
 曰角，主公侯之坐。
@@ -303,7 +303,7 @@ flowchart TB
 
 **白话：** 司空这一横列一共八个部位。
 
-![司空横列八位](/notes-media/inline-xuanxue-face-sikong.jpg)
+![司空横列八位](/notes-media/inline-xuanxue-face-sikong.webp)
 *图注：红线横贯司空，由内向外、左右分列。对应原文「司空横列八位」。额角、上卿、少府、交友、道上、交额、重眉、山林。术数部位，不是医学。*
 
 额角，主公卿之位。
@@ -461,7 +461,7 @@ flowchart TB
 
 **白话：** 中正这一横列一共九个部位。
 
-![中正横列九位](/notes-media/inline-xuanxue-face-zhongzheng.jpg)
+![中正横列九位](/notes-media/inline-xuanxue-face-zhongzheng.webp)
 *图注：红线横贯中正，由内向外、左右分列。对应原文「中正横列九位」。龙角、虎角、牛角、辅骨、元角、斧戟、华盖、福堂、郊外。术数部位，不是医学。*
 
 龙角，为显贵之位。
@@ -595,7 +595,7 @@ flowchart TB
 
 **白话：** 印堂这一横列一共八个部位。
 
-![印堂横列八位](/notes-media/inline-xuanxue-face-yintang.jpg)
+![印堂横列八位](/notes-media/inline-xuanxue-face-yintang.webp)
 *图注：红线横贯印堂，由内向外、左右分列。对应原文「印堂横列八位」。家狱、蚕室、林平、精舍、嫔门、劫门、青路、巷路。命宫在印堂，横列是两旁的展开。术数部位，不是医学。*
 
 家狱，主刑厄之事。

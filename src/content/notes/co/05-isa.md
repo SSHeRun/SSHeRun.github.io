@@ -11,7 +11,7 @@ concepts:
   - 操作码扩展
   - RISC
   - CISC
-cover: /notes-media/co-05-isa.jpg
+cover: /notes-media/co-05-isa.webp
 related:
   - co/04-memory
   - co/06-cpu

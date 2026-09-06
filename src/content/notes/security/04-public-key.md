@@ -12,7 +12,7 @@ concepts:
   - ElGamal
   - 离散对数
   - Euler函数
-cover: /notes-media/security-04-public-key.jpg
+cover: /notes-media/security-04-public-key.webp
 related:
   - security/03-symmetric
   - security/05-auth-pgp

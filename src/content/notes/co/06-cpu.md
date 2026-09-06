@@ -11,7 +11,7 @@ concepts:
   - 硬布线
   - 流水线
   - 数据相关
-cover: /notes-media/co-06-cpu.jpg
+cover: /notes-media/co-06-cpu.webp
 related:
   - co/05-isa
   - co/01-overview

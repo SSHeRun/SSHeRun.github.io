@@ -12,7 +12,7 @@ concepts:
   - 命宫
   - 官禄宫
   - 财帛宫
-cover: /notes-media/xuanxue-mayi-02.jpg
+cover: /notes-media/xuanxue-mayi-02.webp
 related:
   - xuanxue/mayi-01-shiguan
   - xuanxue/mayi-03-houliugong
@@ -30,7 +30,7 @@ updatedDate: 2026-08-30
 
 本章**进阶**：十二宫分论与气色生克，要按段对读，不能只记宫名。
 
-![十二宫先走前六：命迁官财福夫](/notes-media/inline-xuanxue-relation-mayi-02-qianliugong.jpg)
+![十二宫先走前六：命迁官财福夫](/notes-media/inline-xuanxue-relation-mayi-02-qianliugong.webp)
 *图注：五步环对应五法切相之后入前六宫：命、迁、官、财、福、夫。后六宫另章。术数文献，不是医学。*
 
 ```mermaid
@@ -79,7 +79,7 @@ flowchart TB
 
 **白话：** 上相跳不出这五法。只在口、耳、眉、额、手足、背腹上打转的，是庸相士。
 
-![麻衣五法口诀图](/notes-media/inline-xuanxue-koujue-wufa.jpg)
+![麻衣五法口诀图](/notes-media/inline-xuanxue-koujue-wufa.webp)
 *图注：五格为择交在眼、问贵在眼、问富在鼻、问寿在神、求全在声，对应「上相不出此五法」。术数文献，不是医学。*
 
 ### 切相歌
@@ -218,7 +218,7 @@ flowchart TB
 
 **白话：** 「尖脱」当作「失脱」。应事上，旧说：白主孝服，红主争讼、疮疥、破财，红如火珠焰起则主火灾；青主惊恐疾病，黑主大病死亡，黄主疾病、失脱。都是术数应验话，不是医学。
 
-![五色主事](/notes-media/inline-xuanxue-koujue-qise-wuse.jpg)
+![五色主事](/notes-media/inline-xuanxue-koujue-qise-wuse.webp)
 *图注：五格分标青主忧饶、黄主昌、赤主火殃、白主破财、黑主病。对应本段「色白主服，红主讼及疮疤破财……青主惊恐疾病，黑主大病死亡，黄主疾病尖脱」。图用太清五色口诀作对照，条目与麻衣不完全相同。术数文献，不是医学。*
 
 气色虽现，亦要看神色正、而神脱色亦空耳。色邪而神旺，色终莫熊为人害也。
@@ -229,7 +229,7 @@ flowchart TB
 
 > 难度：进阶
 
-![十二宫位置](/notes-media/inline-xuanxue-face-12gong.jpg)
+![十二宫位置](/notes-media/inline-xuanxue-face-12gong.webp)
 *图注：十二处红点与引线标命宫（印堂）、迁移（前额两侧近发际）、官禄（左前额）、财帛（鼻）、福德（眉尾上方）、夫妻（眼尾）、子女（泪堂）、交友（腮）、兄弟（眉）、田宅（上眼睑）、父母（日月角）、疾厄（山根）。对应下列十二条位置原文。术数文献，不是医学。*
 
 命宫——双眉中间印堂部位。
@@ -284,7 +284,7 @@ flowchart TB
 
 > 难度：进阶
 
-![命宫在印堂](/notes-media/inline-xuanxue-face-minggong.jpg)
+![命宫在印堂](/notes-media/inline-xuanxue-face-minggong.webp)
 *图注：红点与引线标两眉之间的印堂。对应「命宫——双眉中间印堂部位」。术数文献，不是医学。*
 
 1、命宫有直纹的人，势必神经衰弱，个性偏激，疑神疑鬼，易遭失败。
@@ -331,7 +331,7 @@ flowchart TB
 
 > 难度：进阶
 
-![迁移宫在发际两侧](/notes-media/inline-xuanxue-face-qianyi.jpg)
+![迁移宫在发际两侧](/notes-media/inline-xuanxue-face-qianyi.webp)
 *图注：红点与引线标前额两侧近发际、眉毛外上方。对应「迁移宫——前额两侧靠发际的部分，眉毛上方外侧部」。术数文献，不是医学。*
 
 1、迁移宫低陷的人，不适合外务工作，不宜创业管理。
@@ -366,7 +366,7 @@ flowchart TB
 
 > 难度：进阶
 
-![官禄宫在左前额](/notes-media/inline-xuanxue-face-guanlu.jpg)
+![官禄宫在左前额](/notes-media/inline-xuanxue-face-guanlu.webp)
 *图注：红点与引线标人物自身左前额中央（照片右侧）。对应「官禄宫——左前额的中央部，上至发往下至印堂」。术数文献，不是医学。*
 
 1、官禄宫有疤痕或黑痣的人，小心犯上，自以为才华很好易受长辈的压抑，此亦代表父母或家庭中有事发生，宜从事服务行业。
@@ -401,7 +401,7 @@ flowchart TB
 
 > 难度：进阶
 
-![财帛宫在鼻](/notes-media/inline-xuanxue-face-caibo.jpg)
+![财帛宫在鼻](/notes-media/inline-xuanxue-face-caibo.webp)
 *图注：红点与引线标鼻子、准头一带。对应「财帛宫——鼻子部位」。术数文献，不是医学。*
 
 1、鼻子窄小肉薄而陷的人，身体健康不佳，财帛较差、做事易受阻滞、反复且困难，如为女人、其丈夫必定长得不美。
@@ -468,7 +468,7 @@ flowchart TB
 
 > 难度：进阶
 
-![福德宫在眉尾上方](/notes-media/inline-xuanxue-face-fude.jpg)
+![福德宫在眉尾上方](/notes-media/inline-xuanxue-face-fude.webp)
 *图注：红点与引线标眉尾上方、蓄财骨一带。对应「福德宫——在眉尾的上方，而眉凌骨又称蓄财骨」。术数文献，不是医学。*
 
 1、福德宫尖削无肉的人，很劳碌，但总是劳多获少，个性孤独，不易获得知音。
@@ -487,7 +487,7 @@ flowchart TB
 
 > 难度：进阶
 
-![夫妻宫在眼尾](/notes-media/inline-xuanxue-face-fuqi.jpg)
+![夫妻宫在眼尾](/notes-media/inline-xuanxue-face-fuqi.webp)
 *图注：红点与引线标眼尾鱼尾及外侧奸门。对应「夫妻宫——眼睛的尾部鱼尾及鱼尾外侧奸门部位」。术数文献，不是医学。*
 
 1、若低陷肉薄的人，婚姻生活易生障碍、不易协调，须防止离婚。

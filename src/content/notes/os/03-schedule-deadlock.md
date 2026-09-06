@@ -12,7 +12,7 @@ concepts:
   - HRRN
   - 死锁
   - 银行家算法
-cover: /notes-media/os-03-schedule.jpg
+cover: /notes-media/os-03-schedule.webp
 related:
   - os/02-process
   - os/04-memory

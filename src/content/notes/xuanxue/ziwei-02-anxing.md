@@ -14,7 +14,7 @@ concepts:
   - 安天府
   - 辅星
   - 煞星
-cover: /notes-media/xuanxue-ziwei-02-anxing.jpg
+cover: /notes-media/xuanxue-ziwei-02-anxing.webp
 related:
   - xuanxue/ziwei-00-path
   - xuanxue/ziwei-01-zhuxing
@@ -39,7 +39,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 源出《紫微斗数全书》卷二。盘例（水二、木三等）另见本卷「五行局盘例」。
 
-![安命安身五步](/notes-media/inline-xuanxue-ziwei-08-an-shen-ming.jpg)
+![安命安身五步](/notes-media/inline-xuanxue-ziwei-08-an-shen-ming.webp)
 
 ## 总法
 
@@ -70,9 +70,9 @@ updatedDate: 2026-08-31
 - 对宫是每隔六宫相望：命对迁移、兄弟对奴仆、妻妾对官禄、子女对田宅、财帛对福德、疾厄对父母。见图 `14-dui-gong.png`。
 - 命宫的三方四正：本宫、财帛、官禄、迁移。见图 `15-sanfang-sizheng.png`（图以命在寅为例）。
 
-![十二宫对宫](/notes-media/inline-xuanxue-ziwei-14-dui-gong.jpg)
+![十二宫对宫](/notes-media/inline-xuanxue-ziwei-14-dui-gong.webp)
 
-![三方四正：命财官迁](/notes-media/inline-xuanxue-ziwei-15-sanfang-sizheng.jpg)
+![三方四正：命财官迁](/notes-media/inline-xuanxue-ziwei-15-sanfang-sizheng.webp)
 
 ## 起五行寅例
 
@@ -104,7 +104,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![安南北斗诸星诀：紫微逆行、天府顺行](/notes-media/inline-xuanxue-ziwei-09-an-ziwei-tianfu.jpg)
+![安南北斗诸星诀：紫微逆行、天府顺行](/notes-media/inline-xuanxue-ziwei-09-an-ziwei-tianfu.webp)
 
 ## 口诀
 
@@ -122,7 +122,7 @@ updatedDate: 2026-08-31
 
 ## 和十四主星的关系
 
-排完这两支，十四主星就齐了（紫微系六颗：紫微、天机、太阳、武曲、天同、廉贞；天府系八颗：天府、太阴、贪狼、巨门、天相、天梁、七杀、破军）。南北斗「化气」分组见 [十四主星图](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)，和「安星行走方向」不是同一张表。
+排完这两支，十四主星就齐了（紫微系六颗：紫微、天机、太阳、武曲、天同、廉贞；天府系八颗：天府、太阴、贪狼、巨门、天相、天梁、七杀、破军）。南北斗「化气」分组见 [十四主星图](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)，和「安星行走方向」不是同一张表。
 
 上一篇：**安身命例** · 下一篇：**安辅星煞星**
 
@@ -131,9 +131,9 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 源出《紫微斗数全书》卷二。四化另见本卷「安禄权科忌」。
 
-![安辅星：昌曲辅弼魁钺禄马](/notes-media/inline-xuanxue-ziwei-16-an-fusha.jpg)
+![安辅星：昌曲辅弼魁钺禄马](/notes-media/inline-xuanxue-ziwei-16-an-fusha.webp)
 
-![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊陀罗火星铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 主星排完，再安辅星、煞星。昌曲看时辰，辅弼看月份，魁钺禄存看年干，天马看年支；羊陀夹在禄存前后，火铃看年支三合，空劫看时辰，伤使钉在奴仆、疾厄两宫。
 
@@ -269,9 +269,9 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 以《全书》卷二此诀为准，不要换现代另一套四化表。
 
-![十干四化：甲廉破武阳至癸破巨阴贪](/notes-media/inline-xuanxue-ziwei-10-sihua-tiangan.jpg)
+![十干四化：甲廉破武阳至癸破巨阴贪](/notes-media/inline-xuanxue-ziwei-10-sihua-tiangan.webp)
 
-![化禄化权化科化忌的性情](/notes-media/inline-xuanxue-ziwei-05-sihua.jpg)
+![化禄化权化科化忌的性情](/notes-media/inline-xuanxue-ziwei-05-sihua.webp)
 
 ## 口诀
 
@@ -468,7 +468,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 源出《紫微斗数全书》卷二。安星杂曜见前篇；本篇接飞天三杀、空亡、限步、命身主，以及诸星南北斗、五行。
 
-![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星按全书南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图只收十四主星：北斗武曲、廉贞、贪狼、巨门、破军；中天日月紫微、太阳、太阴；南斗天机、天同、天府、天相、天梁、七杀。禄存、昌曲、辅弼、羊陀火铃不画进这十四格，正文仍按原文逐星记五行。
 
@@ -507,7 +507,7 @@ updatedDate: 2026-08-31
 
 ## 安大限
 
-![大限怎么走：一宫十年](/notes-media/inline-xuanxue-ziwei-18-daxian.jpg)
+![大限怎么走：一宫十年](/notes-media/inline-xuanxue-ziwei-18-daxian.webp)
 
 **原文**
 > 安大限诀  
@@ -780,7 +780,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 源出《紫微斗数全书》卷二。盘图原样放进代码块，不要改格子。
 
-![五行局起紫微：水二木三金四土五火六](/notes-media/inline-xuanxue-ziwei-17-wuxing-ju.jpg)
+![五行局起紫微：水二木三金四土五火六](/notes-media/inline-xuanxue-ziwei-17-wuxing-ju.webp)
 
 命宫干支对进纳音歌，定五行局：水二、木三、金四、土五、火六。局既定，用对应那张日盘查**出生日落在哪一宫**，那一宫安紫微；天府再按对宫法安（见续篇「安天府图」）。格子里上下两行合起来才是日期，例如水二局寅宫「初初廿廿 / 二三六七」即初二、初三、廿六、廿七。图上五张卡片只记起步岁和初一初二落宫，日期仍以下面盘图为准。
 
@@ -876,7 +876,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 金四、土五、火六三张日盘。水二、木三见前篇；天府图、庙旺表见再续。
 
-![五行局起紫微](/notes-media/inline-xuanxue-ziwei-17-wuxing-ju.jpg)
+![五行局起紫微](/notes-media/inline-xuanxue-ziwei-17-wuxing-ju.webp)
 
 用法同前：纳音属金用金四，属土用土五，属火用火六。查出生日落宫，安紫微。大限起岁：金四岁、土五岁、火六岁。
 
@@ -1013,7 +1013,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 源出《紫微斗数全书》卷二。紫微落宫之后安天府；伤使、四化、庙旺三张表一并收录，原样不改字。
 
-![庙旺落陷档次：先认紫微十二支](/notes-media/inline-xuanxue-ziwei-19-miaowangxian.jpg)
+![庙旺落陷档次：先认紫微十二支](/notes-media/inline-xuanxue-ziwei-19-miaowangxian.webp)
 
 紫微安好，用第一张图找天府：只有寅、申两宫紫微与天府同宫，其余都是对宫相填。后两张看岁限碰到伤使紧不紧、四化得地不得地。最后一张是十二支上各星庙旺得地利益平和不得地落陷。上面的图只画出七档，以及紫微一颗星在十二支的落档；太阳、太阴和其余星仍以本篇全表为准。
 

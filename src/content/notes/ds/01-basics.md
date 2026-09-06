@@ -11,7 +11,7 @@ concepts:
   - 时间复杂度
   - 空间复杂度
   - 算法五特征
-cover: /notes-media/ds-01-basics.jpg
+cover: /notes-media/ds-01-basics.webp
 related:
   - ds/02-linear-list
   - ds/07-sort

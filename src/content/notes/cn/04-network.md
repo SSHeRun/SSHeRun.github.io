@@ -12,7 +12,7 @@ concepts:
   - RIP
   - OSPF
   - NAT
-cover: /notes-media/cn-04-network.jpg
+cover: /notes-media/cn-04-network.webp
 related:
   - cn/03-link
   - cn/05-transport

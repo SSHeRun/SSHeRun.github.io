@@ -12,7 +12,7 @@ concepts:
   - 线索二叉树
   - 哈夫曼树
   - 孩子兄弟表示法
-cover: /notes-media/ds-04-tree.jpg
+cover: /notes-media/ds-04-tree.webp
 related:
   - ds/03-stack-queue
   - ds/05-graph

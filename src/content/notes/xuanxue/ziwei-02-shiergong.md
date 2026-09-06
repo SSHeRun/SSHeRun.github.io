@@ -14,7 +14,7 @@ concepts:
   - 奴仆
   - 福德
   - 对宫
-cover: /notes-media/xuanxue-ziwei-02-shiergong.jpg
+cover: /notes-media/xuanxue-ziwei-02-shiergong.webp
 related:
   - xuanxue/ziwei-02-anxing
   - xuanxue/ziwei-03-xingyun
@@ -39,11 +39,11 @@ updatedDate: 2026-08-31
 > 手机阅读：先看图，再看「白话」，最后对照原文。  
 > 源出《紫微斗数全书》卷二「一 命宫」。本篇紫微、天机；太阳以下见续篇。
 
-![全书十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.jpg)
+![全书十二宫名](/notes-media/inline-xuanxue-ziwei-03-twelve-palaces.webp)
 
-![三方四正](/notes-media/inline-xuanxue-ziwei-15-sanfang-sizheng.jpg)
+![三方四正](/notes-media/inline-xuanxue-ziwei-15-sanfang-sizheng.webp)
 
-![六组对宫](/notes-media/inline-xuanxue-ziwei-14-dui-gong.jpg)
+![六组对宫](/notes-media/inline-xuanxue-ziwei-14-dui-gong.webp)
 
 命宫是十二宫的第一格，对宫是迁移。图上十二宫名与卷一立法一致：命、兄弟、妻妾、子女、财帛、疾厄、迁移、奴仆、官禄、田宅、福德、父母。看命宫先认主星星性，再对十二支落点，再读男命、女命、入限三组口诀。庙旺陷以本卷「十二支庙旺得地表」为准。命、财帛、官禄、迁移这一组是三方四正，见图 `15-sanfang-sizheng.png`。
 
@@ -3287,7 +3287,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看「白话」，再对照原文。  
 > 源出《紫微斗数全书》卷二「九官禄」。对宫是妻妾。看职事、功名，不是只看「有没有工作」。
 
-![十二宫：官禄对妻妾](/notes-media/inline-xuanxue-ziwei-14-dui-gong.jpg)
+![十二宫：官禄对妻妾](/notes-media/inline-xuanxue-ziwei-14-dui-gong.webp)
 
 ## 紫微
 
@@ -3515,7 +3515,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看「白话」，再对照原文。  
 > 源出《紫微斗数全书》卷二「十一福德」。对宫是财帛。男命此宫常作陷地看，女命反而庙乐——见卷一太微赋。
 
-![十二宫：福德对财帛](/notes-media/inline-xuanxue-ziwei-14-dui-gong.jpg)
+![十二宫：福德对财帛](/notes-media/inline-xuanxue-ziwei-14-dui-gong.webp)
 
 ## 紫微至天府
 
@@ -3581,7 +3581,7 @@ updatedDate: 2026-08-31
 > 手机阅读：先看「白话」，再对照原文。  
 > 源出《紫微斗数全书》卷二「十二父母」。对宫是疾厄。先看日月当父母星，再看本宫刑克。
 
-![十二宫对宫](/notes-media/inline-xuanxue-ziwei-14-dui-gong.jpg)
+![十二宫对宫](/notes-media/inline-xuanxue-ziwei-14-dui-gong.webp)
 
 ## 总法：日为父、月为母
 

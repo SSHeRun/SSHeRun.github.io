@@ -12,7 +12,7 @@ concepts:
   - 中央直下
   - 三停三主
   - 天中
-cover: /notes-media/xuanxue-taiqing-02.jpg
+cover: /notes-media/xuanxue-taiqing-02.webp
 related:
   - xuanxue/taiqing-01-xu-gejue
   - xuanxue/taiqing-03-henglie-shang
@@ -28,7 +28,7 @@ updatedDate: 2026-08-30
 
 本章**进阶**。横列各位见下一章。
 
-![大贵先看声神气，再走中央十三位](/notes-media/inline-xuanxue-relation-taiqing-02-zhongyang.jpg)
+![大贵先看声神气，再走中央十三位](/notes-media/inline-xuanxue-relation-taiqing-02-zhongyang.webp)
 *图注：五步环对应「声神气为先 → 一百二十部 → 上停初年 → 中停中年 → 下停晚年」。气色是枝叶，形体身骨是根本。术数文献，不是医学。*
 
 ## 底本
@@ -89,10 +89,10 @@ updatedDate: 2026-08-30
 
 **白话：** 古人论部位：额、准头、地阁、左右颧为五岳；眼、口、鼻、耳为四渎；再按上下配九州十二辰。
 
-![五岳](/notes-media/inline-xuanxue-face-wuyue.jpg)
+![五岳](/notes-media/inline-xuanxue-face-wuyue.webp)
 *图注：额南岳、鼻中岳、颏北岳、左颧东岳（人物自身左侧、照片右侧）、右颧西岳。对应「以额、准头、地角、左右颧为五岳」。术数文献，不是医学。*
 
-![四渎](/notes-media/inline-xuanxue-face-sidu.jpg)
+![四渎](/notes-media/inline-xuanxue-face-sidu.webp)
 *图注：耳江、目淮、口河、鼻济。对应「以眼、口、鼻、耳为四渎」。术数文献，不是医学。*
 
 由此观之，则一形之微，其所该也大，又乌可深浅而论哉？故上自天子，下至庶人，其五脏、六腑、百骸、九窍之形皆同，然其所以为形，则异也。
@@ -103,7 +103,7 @@ updatedDate: 2026-08-30
 
 **白话：** 要辨析，须在三停、五行里先看总妙，再求部位、气色，左右对照、寻根，贵贱贫富、吉凶寿夭，旧说就能看清楚。这些是术数话，不是医学。
 
-![三停](/notes-media/inline-xuanxue-face-santing.jpg)
+![三停](/notes-media/inline-xuanxue-face-santing.webp)
 *图注：上中下三停。对应「须于三停五行中，先观其妙」。*
 
 ### 杂说下篇
@@ -314,7 +314,7 @@ updatedDate: 2026-08-30
 
 **白话：** 上停为天，管禄；中停为人，管寿；下停为地，管富。
 
-![三停三主](/notes-media/inline-xuanxue-koujue-santing.jpg)
+![三停三主](/notes-media/inline-xuanxue-koujue-santing.webp)
 *图注：三格对应「上停者又为天，曰主禄；中停者又为人，曰主寿；下停者又为地，曰主富」。*
 
 三部亦为三主：上停初主，中停中主，下停中年末主。
@@ -333,7 +333,7 @@ updatedDate: 2026-08-30
 
 > 难度：进阶
 
-![中央直下一十三位](/notes-media/inline-xuanxue-face-midline13.jpg)
+![中央直下一十三位](/notes-media/inline-xuanxue-face-midline13.webp)
 *图注：红点从发际正中天中一路向下到地阁，对应本节十三位。颏颐并在地阁下。术数文献，不是医学。*
 
 天中，主过事，又主官禄。
@@ -416,7 +416,7 @@ updatedDate: 2026-08-30
 
 **白话：** 旁边有黑痣、瘢痕，事或不吉。
 
-![命宫／印堂](/notes-media/inline-xuanxue-face-minggong.jpg)
+![命宫／印堂](/notes-media/inline-xuanxue-face-minggong.webp)
 *图注：印堂即命宫，两眉之间。对应「印堂，主天印两士」。*
 
 山根，主有势。
@@ -447,7 +447,7 @@ updatedDate: 2026-08-30
 
 **白话：** 若塌成坑、眼睛能看见那道陷，情浅、识露，谋事难成。
 
-![疾厄宫／山根](/notes-media/inline-xuanxue-face-jiee.jpg)
+![疾厄宫／山根](/notes-media/inline-xuanxue-face-jiee.webp)
 *图注：山根在鼻梁上部、两眼之间。对应「山根，主有势」。亦为麻衣疾厄宫。*
 
 年上，主己身之疾病。
@@ -498,7 +498,7 @@ updatedDate: 2026-08-30
 
 **白话：** 成就得平正好看，聪明有见识。
 
-![财帛／准头](/notes-media/inline-xuanxue-face-caibo.jpg)
+![财帛／准头](/notes-media/inline-xuanxue-face-caibo.webp)
 *图注：准头即鼻头，麻衣财帛宫。对应「准头，主富贵贫贱」。*
 
 人中，主人心性，亦主子孙，深直端广者，忠信有子孙。

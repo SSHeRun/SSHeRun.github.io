@@ -12,7 +12,7 @@ concepts:
   - 依似
   - 情机
   - 夺救
-cover: /notes-media/xuanxue-renwuzhi-04.jpg
+cover: /notes-media/xuanxue-renwuzhi-04.webp
 related:
   - xuanxue/renwuzhi-03-caineng
   - xuanxue/renwuzhi-05-qimiu
@@ -28,7 +28,7 @@ updatedDate: 2026-08-30
 
 八条里最容易用错的是「观其所短」。短是长的征，不是长本身；有短未必有长，有长则必带那一短。另一条是「依似」：讦看起来都像直，宕看起来都像通，要问他为什么讦、为什么宕。
 
-![先夺救，再感变，最后才给名号](/notes-media/inline-xuanxue-relation-renwuzhi-04-baguan.jpg)
+![先夺救，再感变，最后才给名号](/notes-media/inline-xuanxue-relation-renwuzhi-04-baguan.webp)
 *图注：五步环对应八观的复查次序：先夺救看间杂，再感变看常度，最后才给名号。短是长的征；依似要问所由。鉴人术数文献，不是医学。*
 
 ```mermaid
@@ -78,7 +78,7 @@ flowchart TB
 - 第七，看他的短处，用来知道他的长处。
 - 第八，看他的聪明，用来知道他能通达多远。
 
-![八观：怎么看人](/notes-media/inline-xuanxue-koujue-baguan.jpg)
+![八观：怎么看人](/notes-media/inline-xuanxue-koujue-baguan.webp)
 *图注：八格黄字对应开篇「一曰观其夺救，以明间杂」至「八曰观其聪明，以知所达」；不是骨相部位图。术数文献，不是医学。*
 
 何谓观其夺救，以明间杂？

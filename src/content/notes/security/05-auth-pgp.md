@@ -12,7 +12,7 @@ concepts:
   - DSA
   - PGP
   - 密钥环
-cover: /notes-media/security-05-auth.jpg
+cover: /notes-media/security-05-auth.webp
 related:
   - security/04-public-key
   - security/03-symmetric

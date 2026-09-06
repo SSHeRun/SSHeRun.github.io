@@ -12,7 +12,7 @@ concepts:
   - 视图
   - 聚集索引
   - GRANT
-cover: /notes-media/db-06-sql.jpg
+cover: /notes-media/db-06-sql.webp
 related:
   - db/04-algebra
   - db/07-concurrency

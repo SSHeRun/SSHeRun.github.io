@@ -12,7 +12,7 @@ concepts:
   - 临界区
   - 生产者消费者
   - 线程
-cover: /notes-media/os-02-process.jpg
+cover: /notes-media/os-02-process.webp
 related:
   - os/01-intro
   - os/03-schedule-deadlock

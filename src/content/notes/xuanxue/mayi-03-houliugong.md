@@ -11,7 +11,7 @@ concepts:
   - 子女宫
   - 疾厄宫
   - 异文
-cover: /notes-media/xuanxue-mayi-03.jpg
+cover: /notes-media/xuanxue-mayi-03.webp
 related:
   - xuanxue/mayi-02-qianliugong
   - xuanxue/bingjian
@@ -27,7 +27,7 @@ updatedDate: 2026-08-30
 
 本章**进阶**：后六宫分论，以及命宫、迁移宫重出异文，要逐条对读，不能只记宫名。
 
-![后六宫：兄弟子女交友田宅父母疾厄](/notes-media/inline-xuanxue-relation-mayi-03-houliugong.jpg)
+![后六宫：兄弟子女交友田宅父母疾厄](/notes-media/inline-xuanxue-relation-mayi-03-houliugong.webp)
 *图注：五步环对应后六宫：兄弟、子女交友、田宅、父母、疾厄。命宫迁移重出只作异文附录。术数文献，不是医学。*
 
 ```mermaid
@@ -51,7 +51,7 @@ flowchart TB
 
 > 难度：进阶
 
-![兄弟宫在两眉](/notes-media/inline-xuanxue-face-xiongdi.jpg)
+![兄弟宫在两眉](/notes-media/inline-xuanxue-face-xiongdi.webp)
 *图注：红点与引线标左右两眉。对应「兄弟宫——左右两眉毛的位置」。术数文献，不是医学。*
 
 1、眉毛短促的人，脾气不稳定、外观随和、不易与人和睦相处，兄弟姊妹感情不好、纵好也是各自奔忙。
@@ -110,7 +110,7 @@ flowchart TB
 
 > 难度：进阶
 
-![子女宫在泪堂卧蚕](/notes-media/inline-xuanxue-face-zinv.jpg)
+![子女宫在泪堂卧蚕](/notes-media/inline-xuanxue-face-zinv.webp)
 *图注：红点与引线标眼下泪堂、卧蚕。对应「子女宫——泪堂及卧蚕部位，左男右女」。术数文献，不是医学。*
 
 1、若见肌肉干枯低陷或见骨的人，子女不孝，易有争执意，父母与子女无缘，子女健康有问题。
@@ -137,7 +137,7 @@ flowchart TB
 
 > 难度：进阶
 
-![交友宫在两腮](/notes-media/inline-xuanxue-face-jiaoyou.jpg)
+![交友宫在两腮](/notes-media/inline-xuanxue-face-jiaoyou.webp)
 *图注：红点与引线标两腮内侧。点在腮，不在颈侧。对应「交友宫——下巴的左右面颊、两腮的内侧的部分」。术数文献，不是医学。*
 
 1、两腮尖削无肉的人，遇不到知心与忠心的朋友，无法相信他人，疑神疑鬼，晚运不佳。
@@ -160,7 +160,7 @@ flowchart TB
 
 > 难度：进阶
 
-![田宅宫在上眼睑](/notes-media/inline-xuanxue-face-tianzhai.jpg)
+![田宅宫在上眼睑](/notes-media/inline-xuanxue-face-tianzhai.webp)
 *图注：红点与引线标上眼睑。点在睑，不在山根。对应「田宅宫——两眉之间的上眼睑部位」。术数文献，不是医学。*
 
 田宅宫（两眉之间的上眼睑部位）
@@ -187,7 +187,7 @@ flowchart TB
 
 > 难度：进阶
 
-![父母宫在日月角](/notes-media/inline-xuanxue-face-fumu.jpg)
+![父母宫在日月角](/notes-media/inline-xuanxue-face-fumu.webp)
 *图注：红点与引线标日月角。点在额角，不是发际迁移宫。对应「父母宫——在日月角至辅角的部位，左父右母」。术数文献，不是医学。*
 
 1、日月角低陷或凹凸不平的人，父母亲的缘分淡薄，在其早年时生活环境不佳难受良好照顾。
@@ -222,7 +222,7 @@ flowchart TB
 
 > 难度：进阶
 
-![疾厄宫在山根](/notes-media/inline-xuanxue-face-jiee.jpg)
+![疾厄宫在山根](/notes-media/inline-xuanxue-face-jiee.webp)
 *图注：红点与引线标山根（鼻梁上部）。对应「疾厄宫——鼻梁左右位置（又称山根）」。术数文献，不是医学。*
 
 1、山根断裂的人，经常有疾病发生，意外事件大都与生命的安危有关，应远离故乡，出外谋发展。

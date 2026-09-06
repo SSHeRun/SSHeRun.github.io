@@ -12,7 +12,7 @@ concepts:
   - 动态约束
   - CHECK
   - 触发器
-cover: /notes-media/db-09-integrity.jpg
+cover: /notes-media/db-09-integrity.webp
 related:
   - db/03-relational
   - db/06-sql

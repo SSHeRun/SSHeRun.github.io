@@ -12,7 +12,7 @@ concepts:
   - 共享栈
   - 后缀表达式
   - 递归
-cover: /notes-media/ds-03-stack-queue.jpg
+cover: /notes-media/ds-03-stack-queue.webp
 related:
   - ds/02-linear-list
   - ds/04-tree

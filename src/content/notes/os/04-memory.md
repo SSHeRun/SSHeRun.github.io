@@ -12,7 +12,7 @@ concepts:
   - 快表
   - 分段
   - 段页式
-cover: /notes-media/os-04-memory.jpg
+cover: /notes-media/os-04-memory.webp
 related:
   - os/03-schedule-deadlock
   - os/05-virtual-memory

@@ -13,7 +13,7 @@ concepts:
   - 天印
   - 照胆经
   - 洞微
-cover: /notes-media/xuanxue-ziwei-18.jpg
+cover: /notes-media/xuanxue-ziwei-18.webp
 related:
   - xuanxue/ziwei-00-path
   - xuanxue/ziwei-04-qizheng
@@ -39,7 +39,7 @@ updatedDate: 2026-08-31
 >
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![三套星命不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.jpg)
+![三套星命不要混读](/notes-media/inline-xuanxue-ziwei-01-three-systems.webp)
 
 本篇是十八飞星本的总步骤：先排什么、后看什么。星名是天虚、天贵、天印这一套，不要拿去对正统十四主星。
 

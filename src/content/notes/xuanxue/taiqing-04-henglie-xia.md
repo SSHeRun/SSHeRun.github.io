@@ -15,7 +15,7 @@ concepts:
   - 正口横列
   - 承浆横列
   - 地角横列
-cover: /notes-media/xuanxue-taiqing-04.jpg
+cover: /notes-media/xuanxue-taiqing-04.webp
 related:
   - xuanxue/taiqing-03-henglie-shang
   - xuanxue/taiqing-05-wuyue-xuetang
@@ -28,7 +28,7 @@ updatedDate: 2026-08-30
 
 这是**术数文献，不是医学**。青黑赤黄、黑痣瘢疵、溺死饿死、火烧兵死，都是旧说应验话，不能当体检、刑侦或命运证明。读法是：先认横线在哪一层，再对号入座；图上个别用字与底本不完全相同，以正文为准。下一章收[[xuanxue/taiqing-05-wuyue-xuetang|二仪五岳四渎与学堂]]，把这些点收成岳渎官府。
 
-![面中以下八条横列按部位摊开](/notes-media/inline-xuanxue-relation-taiqing-04-henglie-xia.jpg)
+![面中以下八条横列按部位摊开](/notes-media/inline-xuanxue-relation-taiqing-04-henglie-xia.webp)
 *图注：五步环对应山根年上、寿上准头、人中正口、承浆地角，先位后色。术数文献，不是医学。*
 
 ```mermaid
@@ -56,7 +56,7 @@ flowchart TB
 
 **白话：** 山根这一横列一共十个部位。
 
-![山根横列十位](/notes-media/inline-xuanxue-face-shangen.jpg)
+![山根横列十位](/notes-media/inline-xuanxue-face-shangen.webp)
 *图注：红线横贯山根与两眼中线，由内向外、左右分点。对应原文「山根横列十位」。图上个别用字（如天苑）与底本「天井、天门、元中」不完全相同，以正文为准。术数文献，不是医学。*
 
 太阳，主口舌喜庆。
@@ -226,7 +226,7 @@ flowchart TB
 
 **白话：** 年上这一横列一共十个部位。
 
-![年上横列十位](/notes-media/inline-xuanxue-face-nianshang.jpg)
+![年上横列十位](/notes-media/inline-xuanxue-face-nianshang.webp)
 *图注：红线横贯年上（山根下、两眼下沿），由内向外左右分点。对应原文「年上横列十位」。图上或作力坐、内男、游击，正文是夫坐、长男、游军，以正文为准。术数文献，不是医学。*
 
 夫坐，女左为夫坐，男右为妻坐，主夫妻吉凶之位。
@@ -376,7 +376,7 @@ flowchart TB
 
 **白话：** 寿上这一横列一共十个部位。
 
-![寿上横列十位](/notes-media/inline-xuanxue-face-shoushang.jpg)
+![寿上横列十位](/notes-media/inline-xuanxue-face-shoushang.webp)
 *图注：红线横贯寿上，由内向外左右分点。对应原文「寿上横列十位」。图上个别标名与甲匮、往来、堂上、端正、姑姨不完全相同，以正文为准。术数文献，不是医学。*
 
 甲匮，一名财库，主财帛之库。
@@ -526,7 +526,7 @@ flowchart TB
 
 **白话：** 准头这一横列一共八个部位。
 
-![准头横列八位](/notes-media/inline-xuanxue-face-zhuntou.jpg)
+![准头横列八位](/notes-media/inline-xuanxue-face-zhuntou.webp)
 *图注：红线平准头两侧，由内向外左右分点。对应原文「准头横列八位」。图上或作灶、囤仓，正文是上灶、囷仓。术数文献，不是医学。*
 
 号令，主号令之位。
@@ -640,7 +640,7 @@ flowchart TB
 
 **白话：** 人中这一横列一共八个部位。
 
-![人中横列八位](/notes-media/inline-xuanxue-face-renzhong.jpg)
+![人中横列八位](/notes-media/inline-xuanxue-face-renzhong.webp)
 *图注：红线横贯人中，由内向外左右分点。对应原文「人中横列八位」。图上或作书部、仙子、技堂，正文是井部、帐子、妓堂，以正文为准。术数文献，不是医学。*
 
 井部，主田宅之位。
@@ -738,7 +738,7 @@ flowchart TB
 
 **白话：** 正口这一横列标作八个部位。正文在商旅之后还多出山头一位，仍按底本全录。
 
-![正口横列八位](/notes-media/inline-xuanxue-face-zhengkou.jpg)
+![正口横列八位](/notes-media/inline-xuanxue-face-zhengkou.webp)
 *图注：红线平口角向外，由内向外、左右分点。对应原文「正口横列八位」。图上或作云壁、闾阁，正文是元璧、门闺；山头在图八位之外，见正文末条。术数文献，不是医学。*
 
 元璧，主珍宝之位。
@@ -836,7 +836,7 @@ flowchart TB
 
 **白话：** 承浆这一横列一共六个部位。
 
-![承浆横列六位](/notes-media/inline-xuanxue-face-chengjiang.jpg)
+![承浆横列六位](/notes-media/inline-xuanxue-face-chengjiang.webp)
 *图注：红线横贯承浆，由内向外左右分点。对应原文「承浆横列六位」。图上或作野灶，正文是野土。术数文献，不是医学。*
 
 祖舍，主父母田宅。
@@ -918,7 +918,7 @@ flowchart TB
 
 **白话：** 地角这一横列一共七个部位。
 
-![地角横列七位](/notes-media/inline-xuanxue-face-dijiao.jpg)
+![地角横列七位](/notes-media/inline-xuanxue-face-dijiao.webp)
 *图注：红线横贯地角，由内向外左右分点。对应原文「地角横列七位」。图上或作瓦舍，正文是下舍。术数文献，不是医学。*
 
 下舍，主外宅多少。

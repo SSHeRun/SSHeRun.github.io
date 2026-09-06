@@ -13,7 +13,7 @@ concepts:
   - B+树
   - 散列表
   - 装填因子
-cover: /notes-media/ds-06-search.jpg
+cover: /notes-media/ds-06-search.webp
 related:
   - ds/04-tree
   - ds/07-sort

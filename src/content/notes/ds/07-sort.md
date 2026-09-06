@@ -13,7 +13,7 @@ concepts:
   - 归并排序
   - 基数排序
   - 稳定性
-cover: /notes-media/ds-07-sort.jpg
+cover: /notes-media/ds-07-sort.webp
 related:
   - ds/01-basics
   - ds/06-search

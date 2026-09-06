@@ -11,7 +11,7 @@ concepts:
   - 心向
   - 陶铸人才
   - 转移习俗
-cover: /notes-media/xuanxue-yuancai.jpg
+cover: /notes-media/xuanxue-yuancai.webp
 related:
   - xuanxue/bingjian
   - xuanxue/renwuzhi-01-jiuzheng
@@ -24,7 +24,7 @@ updatedDate: 2026-08-30
 
 本章**入门**：短文、论证链清楚。图把「心向 → 声气 → 风俗 → 人才」画成一条因果，不要只记结论句。
 
-![风俗起于一二人之心向](/notes-media/inline-xuanxue-relation-yuancai.jpg)
+![风俗起于一二人之心向](/notes-media/inline-xuanxue-relation-yuancai.webp)
 *图注：五步环对应「一二人心向 → 口说声气 → 习尚风俗 → 徒党人才 → 在位者职责」。向义则赴义，向利则赴利。不是相面。*
 
 ## 底本
@@ -41,7 +41,7 @@ updatedDate: 2026-08-30
 
 **白话：** 风俗的厚薄从哪里来？就从一两个人的心往哪边偏而来。世上平庸懦弱的人密密麻麻都是；只要有一两个既贤又智的人，众人就尊他为君长、听他的号令。越智的人，归附他的也越多。这一两个人心里向义，众人就跟着赴义；心里向利，众人就跟着赴利。众人所趋，就是势所归，哪怕有大力也不敢逆。所以说：摇动万物，没有比风更快的。风俗作用于人心，开头极微，到后来却不可抵挡。
 
-![原才：风俗从心向来](/notes-media/inline-xuanxue-koujue-yuancai.jpg)
+![原才：风俗从心向来](/notes-media/inline-xuanxue-koujue-yuancai.webp)
 *图注：四格因果对应本段。第一格「一二人心向」就是「自乎一二人之心之所向」；末格「徒党·人才」要到下一段才完全展开。*
 
 先王之治天下，使贤者皆当路在势，其风民也皆以义，故道一而俗同。世教既衰，所谓一二人者不尽在位，彼其心之所向，势不能不腾为口说而播为声气，而众人者，势不能不听命而蒸为习尚。于是乎徒党蔚起，而一时之人才出焉。有以仁义倡者，其徒党亦死仁义而不顾；有以功利倡者，其徒党亦死功利而不返。水流湿，火就燥，无感不雠，所从来久矣。

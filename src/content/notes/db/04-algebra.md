@@ -12,7 +12,7 @@ concepts:
   - 等值连接
   - 除运算
   - 笛卡尔积
-cover: /notes-media/db-04-algebra.jpg
+cover: /notes-media/db-04-algebra.webp
 related:
   - db/03-relational
   - db/06-sql

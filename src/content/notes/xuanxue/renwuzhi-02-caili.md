@@ -13,7 +13,7 @@ concepts:
   - 九偏
   - 七似
   - 六构
-cover: /notes-media/xuanxue-renwuzhi-02.jpg
+cover: /notes-media/xuanxue-renwuzhi-02.webp
 related:
   - xuanxue/renwuzhi-01-jiuzheng
   - xuanxue/renwuzhi-03-caineng
@@ -28,7 +28,7 @@ updatedDate: 2026-08-30
 
 本章**进阶**：十二流业与材理九偏、七似、六构，是分论不是总诀。这是鉴人术数文献，不是医学。
 
-![人君主德平淡，达众材而不自任](/notes-media/inline-xuanxue-relation-renwuzhi-02-caili.jpg)
+![人君主德平淡，达众材而不自任](/notes-media/inline-xuanxue-relation-renwuzhi-02-caili.webp)
 *图注：五步环对应「三材主干 → 十二流业 → 人君平淡 → 四部四家 → 七似六构」。听言只会用自家尺度攻人即偏。鉴人术数文献，不是医学。*
 
 ```mermaid
@@ -67,7 +67,7 @@ flowchart TB
 
 **白话：** 人大体分成十二种流业：清节家、法家、术家、国体、器能、臧否、伎俩、智意、文章、儒学、口辨、雄杰。
 
-![流业十二](/notes-media/inline-xuanxue-koujue-liuye.jpg)
+![流业十二](/notes-media/inline-xuanxue-koujue-liuye.webp)
 *图注：十二格对应「盖人流之业，十有二焉」。左列清节、术家、器能、伎俩、文章、口辩，右列法家、国体、臧否、智意、儒学、雄杰。术数文献，不是医学。*
 
 若夫德行高妙，容止可法，是谓清节之家，延陵、晏婴是也。
@@ -202,7 +202,7 @@ flowchart TB
 
 **白话：** 理有四部，明有四家，情有九偏，流有七似，说有三失，难有六构，通有八能。
 
-![材理四部](/notes-media/inline-xuanxue-koujue-caili.jpg)
+![材理四部](/notes-media/inline-xuanxue-koujue-caili.webp)
 *图注：四格对应「理有四部，明有四家」：道理、事理、义理、情理。下一句才把四理写开。术数文献，不是医学。*
 
 若夫天地气化，盈气损益，道之理也。法制正事，事之理也。礼教宜适，义之理也。人情枢机，情之理也。

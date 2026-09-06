@@ -12,7 +12,7 @@ concepts:
   - 三停
   - 女相
   - 九善九恶
-cover: /notes-media/xuanxue-taiqing-10.jpg
+cover: /notes-media/xuanxue-taiqing-10.webp
 related:
   - xuanxue/taiqing-09-guti
   - xuanxue/mayi-02-qianliugong
@@ -25,7 +25,7 @@ updatedDate: 2026-08-30
 
 这是**术数文献，不是医学**。痣、格、克夫、产厄、刑死都是旧说应验话，不能当体检、婚育或法律预测。前卷骨肉手足见 [[xuanxue/taiqing-09-guti|额眉眼骨肉]]，十二宫位置可对读 [[xuanxue/mayi-02-qianliugong|麻衣前六宫]]、[[xuanxue/mayi-03-houliugong|麻衣后六宫]]。
 
-![部位收成格局；女相体柔用弱为正](/notes-media/inline-xuanxue-relation-taiqing-10-geju.jpg)
+![部位收成格局；女相体柔用弱为正](/notes-media/inline-xuanxue-relation-taiqing-10-geju.webp)
 *图注：五步环对应黑痣总例、男儿诸格、三停五大八小、女相九善九恶、贵贤与贱恶。女相部位与男相同，条目另开。术数文献，不是医学。*
 
 ```mermaid
@@ -87,7 +87,7 @@ flowchart TB
 
 **白话：** 以上是按文理来辨相。
 
-![黑痣部位例](/notes-media/inline-xuanxue-face-heizhi.jpg)
+![黑痣部位例](/notes-media/inline-xuanxue-face-heizhi.webp)
 *图注：红点示例印堂、目下、准头三处。痣的吉凶因部位而不同，不可一概。对应「凡黑痣生于显处者多凶」。术数文献，不是医学。*
 
 ### 头面黑痣
@@ -494,10 +494,10 @@ flowchart TB
 
 **白话：** 上短下长，腰身怯薄，一生奔波，是贫苦之辈。
 
-![三停](/notes-media/inline-xuanxue-face-santing.jpg)
+![三停](/notes-media/inline-xuanxue-face-santing.webp)
 *图注：男脸三停，只对上面男儿格局。发际到眉为上停，眉到准头为中停，准头到地阁为下停，对应「身三停相称及上下匀调」。女相不要用这张男脸，用后面女性十二宫底图。*
 
-![三停三主口诀](/notes-media/inline-xuanxue-koujue-santing.jpg)
+![三停三主口诀](/notes-media/inline-xuanxue-koujue-santing.webp)
 *图注：上停主禄与初年、中停主寿与中年、下停主富与晚年。口诀图式，不是脸型图。女相仍用下面女性十二宫底图，不要读成医学三停。*
 
 ### 五大
@@ -800,7 +800,7 @@ flowchart TB
 
 **白话：** 略举这些，看女人相的大概。
 
-![十二宫女相底图](/notes-media/inline-xuanxue-face-12gong-female.jpg)
+![十二宫女相底图](/notes-media/inline-xuanxue-face-12gong-female.webp)
 *图注：本图是女脸，不是男脸十二宫。宫名与男相同：命宫在印堂，官禄在人物左额（照片右侧），迁移在发际两侧。本节以下九善九恶、贵贤贱恶都落在这张女脸上，禁止用男脸十二宫冒充。术数文献，不是医学。*
 
 ### 女人九善

@@ -12,7 +12,7 @@ concepts:
   - 异步
   - 多道批处理
   - 微内核
-cover: /notes-media/os-01-intro.jpg
+cover: /notes-media/os-01-intro.webp
 related:
   - os/02-process
   - co/01-overview

@@ -12,7 +12,7 @@ concepts:
   - IEEE754
   - 海明码
   - CRC
-cover: /notes-media/co-02-data.jpg
+cover: /notes-media/co-02-data.webp
 related:
   - co/01-overview
   - co/03-arithmetic

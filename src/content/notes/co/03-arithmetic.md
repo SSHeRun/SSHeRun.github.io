@@ -11,7 +11,7 @@ concepts:
   - 原码一位乘
   - 不恢复余数除
   - 浮点加减
-cover: /notes-media/co-03-arithmetic.jpg
+cover: /notes-media/co-03-arithmetic.webp
 related:
   - co/02-data
   - co/06-cpu

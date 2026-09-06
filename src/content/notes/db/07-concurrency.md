@@ -12,7 +12,7 @@ concepts:
   - 共享锁
   - 三级封锁协议
   - 隔离性
-cover: /notes-media/db-07-concurrency.jpg
+cover: /notes-media/db-07-concurrency.webp
 related:
   - db/10-recovery
   - db/06-sql

@@ -12,7 +12,7 @@ concepts:
   - MAC地址
   - 交换机
   - VLAN
-cover: /notes-media/cn-03-link.jpg
+cover: /notes-media/cn-03-link.webp
 related:
   - cn/02-physical
   - cn/04-network

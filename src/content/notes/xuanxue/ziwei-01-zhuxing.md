@@ -15,7 +15,7 @@ concepts:
   - 化忌
   - 擎羊
   - 陀罗
-cover: /notes-media/xuanxue-ziwei-01-zhuxing.jpg
+cover: /notes-media/xuanxue-ziwei-01-zhuxing.webp
 related:
   - xuanxue/ziwei-01-juan1
   - xuanxue/ziwei-01-gejue
@@ -39,7 +39,7 @@ updatedDate: 2026-08-31
 
 一星一篇。先看星性，再看歌诀。四化口诀以这些问答为准。
 
-![十四主星南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星南北斗分组](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 | 星 | 篇 |
 |---|---|
@@ -87,7 +87,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上十四主星分组，紫微是中天主、帝座。下面问答只讲紫微，不要把十八飞星的名字掺进来。
 
@@ -421,7 +421,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上南斗一组里有天机。下面只讲天机这颗南斗善星。
 
@@ -634,7 +634,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上中天一组有太阳。下面问答只讲太阳。
 
@@ -926,7 +926,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上北斗一组有武曲。源文此问只有答曰、希夷先生曰，没有歌曰、玉蟾先生曰。
 
@@ -1004,7 +1004,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上南斗一组有天同。源文此问只有答曰、希夷先生曰，没有歌曰、玉蟾先生曰。
 
@@ -1069,7 +1069,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上北斗一组有廉贞。源文此问只有答曰、歌曰，没有希夷先生曰、玉蟾先生曰。
 
@@ -1150,7 +1150,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上南斗第一是天府。下面只讲天府。
 
@@ -1233,7 +1233,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上中天一组有太阴。源文此问只有答曰、希夷先生曰，没有歌曰、玉蟾先生曰。
 
@@ -1333,7 +1333,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上北斗一组有贪狼。源文此问只有答曰、希夷先生曰，没有歌曰、玉蟾先生曰。
 
@@ -1453,7 +1453,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上北斗一组有巨门。源文此问只有答曰、希夷先生曰，没有歌曰、玉蟾先生曰。
 
@@ -1545,7 +1545,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上南斗一组有天相。下面只讲天相。
 
@@ -1658,7 +1658,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上南斗一组有天梁。下面只讲天梁。
 
@@ -1828,7 +1828,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上南斗一组有七杀。下面只讲七杀。
 
@@ -1956,7 +1956,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.jpg)
+![十四主星：北斗五、中天日月三、南斗六](/notes-media/inline-xuanxue-ziwei-04-fourteen-stars.webp)
 
 图上北斗一组有破军。源文此问只有答曰，没有希夷先生曰、玉蟾先生曰、歌曰。
 
@@ -2656,7 +2656,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![化禄福德之神、化权掌判生杀、化科应试文墨、化忌多管不顺](/notes-media/inline-xuanxue-ziwei-05-sihua.jpg)
+![化禄福德之神、化权掌判生杀、化科应试文墨、化忌多管不顺](/notes-media/inline-xuanxue-ziwei-05-sihua.webp)
 
 图上四张卡片以本篇问答为准。化禄是四化之一，不是十八飞星的名字。
 
@@ -2699,7 +2699,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![化禄福德之神、化权掌判生杀、化科应试文墨、化忌多管不顺](/notes-media/inline-xuanxue-ziwei-05-sihua.jpg)
+![化禄福德之神、化权掌判生杀、化科应试文墨、化忌多管不顺](/notes-media/inline-xuanxue-ziwei-05-sihua.webp)
 
 图上「掌判生杀」对的就是本篇。化权是四化之一。
 
@@ -2739,7 +2739,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![化禄福德之神、化权掌判生杀、化科应试文墨、化忌多管不顺](/notes-media/inline-xuanxue-ziwei-05-sihua.jpg)
+![化禄福德之神、化权掌判生杀、化科应试文墨、化忌多管不顺](/notes-media/inline-xuanxue-ziwei-05-sihua.webp)
 
 图上「应试文墨」对的就是本篇。化科是四化之一。
 
@@ -2771,7 +2771,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![化禄福德之神、化权掌判生杀、化科应试文墨、化忌多管不顺](/notes-media/inline-xuanxue-ziwei-05-sihua.jpg)
+![化禄福德之神、化权掌判生杀、化科应试文墨、化忌多管不顺](/notes-media/inline-xuanxue-ziwei-05-sihua.webp)
 
 图上「多管不顺」对的就是本篇。化忌是四化之一，不是十八飞星的名字。
 
@@ -2814,7 +2814,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 图上四杀之一是擎羊。擎羊是煞曜，不要写进十四主星那一组。
 
@@ -2857,7 +2857,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 图上四杀之一是陀罗。陀罗是煞曜，不要写进十四主星那一组。
 
@@ -2900,7 +2900,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 本篇是擎羊、陀罗合论，不是十四主星课。源文只有玉蟾先生曰、歌曰。
 
@@ -3027,7 +3027,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 图上四杀之一是火星。火星是南斗浮星，不要写进十四主星那一组。源文答曰极短，其后是希夷先生歌曰。
 
@@ -3124,7 +3124,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 图上四杀之一是铃星。铃星是南斗助星，不要写进十四主星那一组。源文答曰极短，其后是希夷先生歌曰。
 
@@ -3218,7 +3218,7 @@ updatedDate: 2026-08-31
 
 > 手机阅读：先看图，再看「白话」，最后对照原文。
 
-![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.jpg)
+![擎羊、陀罗、火星、铃星](/notes-media/inline-xuanxue-ziwei-13-yangtuo-huoling.webp)
 
 本篇是羊、陀、火、铃四星合论。源文是玉蟾先生曰，作歌体，按联拆开。
 

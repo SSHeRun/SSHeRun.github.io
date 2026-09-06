@@ -12,7 +12,7 @@ concepts:
   - 四渎
   - 五官六府
   - 学堂
-cover: /notes-media/xuanxue-taiqing-05.jpg
+cover: /notes-media/xuanxue-taiqing-05.webp
 related:
   - xuanxue/taiqing-04-henglie-xia
   - xuanxue/taiqing-06-shenqi
@@ -25,7 +25,7 @@ updatedDate: 2026-08-30
 
 这是**术数文献，不是医学**。五脏所出把眼舌鼻唇耳配肝心肺脾肾，是五行配属，不是解剖或诊断。一官好贵十年、一府好富十年、学堂分厘出将入相，都是旧说品级，不能当仕途证明。
 
-![横列点收成总法：二仪五岳四渎五官六府](/notes-media/inline-xuanxue-relation-taiqing-05-wuyue-xuetang.jpg)
+![横列点收成总法：二仪五岳四渎五官六府](/notes-media/inline-xuanxue-relation-taiqing-05-wuyue-xuetang.webp)
 *图注：五步环对应二仪、五岳四渎、五官六府、五行生克、学堂三辅。术数文献，不是医学。*
 
 ```mermaid
@@ -78,7 +78,7 @@ flowchart TB
 
 **白话：** 这两位要丰满、彼此朝拱、上下相应，所以也能富贵福禄。
 
-![三停](/notes-media/inline-xuanxue-face-santing.jpg)
+![三停](/notes-media/inline-xuanxue-face-santing.webp)
 *图注：红点标上停、中停、下停，对应发际到眉、眉到准头、准头到地阁。用来对照本段「以头为天，以颏为地」「天庭象天，地角象地」的上下之象；三停切分与后文三辅学堂不是同一套尺。术数文献，不是医学。*
 
 ### 五岳
@@ -97,7 +97,7 @@ flowchart TB
 
 **白话：** 人面上也有取象：额为横岳（即衡岳），要方而广；颔为恒岳，要圆而厚；左颧为泰岳，右颧为华岳，左右要圆而正；鼻为嵩岳，要高而峻。
 
-![五岳](/notes-media/inline-xuanxue-face-wuyue.jpg)
+![五岳](/notes-media/inline-xuanxue-face-wuyue.webp)
 *图注：红点标额、鼻、左右颧、地阁。左颧东岳在人物自身左侧（照片右侧）。对应原文「额为横岳」「鼻为嵩岳」「左颧为泰岳，右颧为华岳」「颔为恒岳」。术数文献，不是医学。*
 
 故五岳法，须要丰隆而相朝，高峻而不陷，乃相之贵矣。
@@ -120,7 +120,7 @@ flowchart TB
 
 **白话：** 鼻为济，目为淮，耳为江，口为河。
 
-![四渎](/notes-media/inline-xuanxue-face-sidu.jpg)
+![四渎](/notes-media/inline-xuanxue-face-sidu.webp)
 *图注：红线标耳江、目淮、鼻济、口河，对应原文「鼻为济，目为淮，耳为江，口为河」。术数文献，不是医学。*
 
 故四渎欲得端直、清大、明净、流畅、涯岸成就者，则应于神，故贵而多智也。
@@ -139,7 +139,7 @@ flowchart TB
 
 **白话：** 底本注：此段与《人伦风鉴》相同。
 
-![五岳朝拱 · 四渎清畅](/notes-media/inline-xuanxue-koujue-wuyue-sidu.jpg)
+![五岳朝拱 · 四渎清畅](/notes-media/inline-xuanxue-koujue-wuyue-sidu.webp)
 *图注：分格对照额衡、颏恒、鼻嵩、左泰、右华，以及耳目口鼻为江河淮济。对应「五岳法，须要丰隆而相朝」与「四渎欲得端直、清大、明净、流畅」。术数文献，不是医学。*
 
 ### 五官
@@ -150,7 +150,7 @@ flowchart TB
 
 **白话：** 五官：目为监察官，鼻为审辨官，口为出纳官，耳为采听官，眉为保寿官。
 
-![五官](/notes-media/inline-xuanxue-face-wuguan.jpg)
+![五官](/notes-media/inline-xuanxue-face-wuguan.webp)
 *图注：红线标眉、眼、鼻、口、耳，对应原文「目为监察官，鼻为审辨官，口为出纳官，耳为采听官，眉为保寿官」。术数文献，不是医学。*
 
 五者欲得清而秀，丰而隆，或一官好，则贵十年。
@@ -169,7 +169,7 @@ flowchart TB
 
 **白话：** 两目之上为二府，两辅颊为四府，两颧骨为六府。底本「頬」即颊。
 
-![六府](/notes-media/inline-xuanxue-face-liufu.jpg)
+![六府](/notes-media/inline-xuanxue-face-liufu.webp)
 *图注：图标天仓、颧府、地库；本章正文是「两目上为二府，两辅颊为四府，两颧骨为六府」，两套切分不要混成一图。术数文献，不是医学。*
 
 六府者，欲得平满光而莹。
@@ -328,7 +328,7 @@ flowchart TB
 
 **白话：** 只怕寿不延长，性气刚而难伏。
 
-![五行相生相克](/notes-media/inline-xuanxue-koujue-shengke.jpg)
+![五行相生相克](/notes-media/inline-xuanxue-koujue-shengke.webp)
 *图注：三格分生、克、比和：木→火→土→金→水→木；木克土、土克水、水克火、火克金、金克木；同气相成。对应「五行相生歌」「五行相克歌」与「五行比和相应」。术数文献，不是医学。*
 
 ### 四堂学位
@@ -567,5 +567,5 @@ flowchart TB
 
 **白话：** 上辅左右十位为二分，中辅六位为一分，下辅四位为二分，都计五分，此其总分（底本「都计无分此也」当作「都计五分此也」）。
 
-![三停三主](/notes-media/inline-xuanxue-koujue-santing.jpg)
+![三停三主](/notes-media/inline-xuanxue-koujue-santing.webp)
 *图注：上停下箭头连中停、下停，标上停主禄初年、中停主寿中年、下停主富晚年。用来对照三辅学堂的上中下层次；口诀切分是发际—眉—准头—地阁，三辅是天中至印、山根至准、元璧至颐的另一套部位尺。术数文献，不是医学。*
