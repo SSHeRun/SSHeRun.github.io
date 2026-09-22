@@ -2,6 +2,7 @@
 title: 'A programmer''s survival guide in the AI era'
 description: "AI isn't here to take senior programmers' jobs. The 35-year-old crisis story flips: experience gets more valuable, if you can decide, constrain, and verify."
 pubDate: '2026-03-24'
+updatedDate: '2026-09-22'
 heroImage: '../../assets/cover-ai-era-programmer-survival-guide-en.jpg'
 tags: ['职业', '思考']
 lang: en
@@ -287,6 +288,35 @@ Every time the model hands you code, ask:
 
 ---
 
+## Addendum: can a janitor + an Agent replace a programmer?
+
+A V2EX thread floated a cost-cut idea: stop hiring programmers; hire ordinary people; give each ~$1000/month of AI Agent budget. Humans describe needs, test, and accept; the Agent writes code. One senior salary, the pitch goes, could fund several “ordinary person + Agent” seats.
+
+Source: [Can janitors and security guards with AI Agents replace programmers?](https://www.v2ex.com/t/1243894)
+
+The replies did not buy the payroll math. The recurring cuts map onto this essay:
+
+| Thread claim | What it nails |
+|------|------|
+| Models rewrite files you never asked for; non-experts cannot tell if the output matches the ask | Correctness and acceptance still sit with a human |
+| Many people cannot state a need clearly; that clarity is the precondition for using AI | The lever amplifies expression and decomposition, not a cheaper badge |
+| Look at value per token; novices often burn more and still fail | Wage gap ≠ total cost gap |
+| Operator skill X → post-AI skill Y = F(X); a legendary sword in a farmer’s hand still loses to a real fighter | Agents amplify existing capability; they do not invent it |
+| The realistic shape is “a strong person directing many Agents,” not “cheaper people stacking more Agents” | Org form: ~10% strong people + AI, not swap the 90% for cheaper operators |
+| A disposable tool that “works” may be fine; maintainability, iteration, and debug loops still need experience | Runs ≠ owns |
+
+When the OP insisted they meant line workers and security guards—not product managers—someone replied, roughly: “Wait, you’re serious?” The community default: treating “zero-background Agent operators replace engineering” as a real plan reads as either naive or engagement bait.
+
+That does not contradict the rest of this piece:
+
+- **CRUD / work that fits a short context window** gets punched through—an ordinary person + Agent might ship a usable small tool.  
+- **Need definition, boundaries, constraints, and result evaluation** stay scarce—so the amplifier favors people who can ask, redirect, and own outcomes, not a payroll swap to cheaper operators.  
+- The future looks more like AI trainers directing Agent fleets than security guards on a Claude subscription replacing the eng org.
+
+One-line pin: **a hundred people with dragon-slaying swords still may not beat a real master; a few people who know how to use heaven-reliant swords might punch above their weight.**
+
+---
+
 ## 9. Bottom line: in the AI era, 35+ is the golden age
 
 ### Recap
@@ -326,9 +356,13 @@ What do you think?
 
 - [Why programmers 35+ thrive in the AI era](https://github.com/microwind/algorithms/blob/main/start-here/Why-Programmers-35-Plus-Are-Thriving-in-AI-Era.md)
 - [码奸 — est の 输入输出和出入](https://blog.est.im/2026/stderr-10)
+- [Can janitors and security guards with AI Agents replace programmers?](https://www.v2ex.com/t/1243894) (V2EX)
 
 ## Related posts
 
 - [[programmer-35-crisis-and-self-rescue|The 35-year-old programmer crisis — and how to get out]]
 - [[software-engineering-splits-three|Software engineering is splitting into three layers]]
 - [[ai-fatigue-truth-10x-workload|AI didn't 10x your output. It 10x'd the work.]]
+- [[judge-dev-ability-in-ai-era|How to judge developer ability in the AI era]]
+- [[ai-era-clarity-matters|The scarcest skill in the AI era: saying it clearly]]
+- [[coding-agents-reshape-epd|How coding agents reshape eng, product, and design]]

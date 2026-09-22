@@ -216,3 +216,4 @@ tags: ['思考', '效率']
 - [[ai-cannot-replace-human-experience|AI 无法代替人的体验]]
 - [[first-principles-startup-review|用 AI 做第一性原理审查：一个创业计划被推翻的 48 小时]]
 - [[ai-fatigue-truth-10x-workload|AI让你效率翻倍？醒醒吧，你的工作量已经是过去的10倍了]]
+- [[ai-era-programmer-survival-guide|AI 时代程序员生存指南]]（补充：普通人 + Agent 替代程序员？）

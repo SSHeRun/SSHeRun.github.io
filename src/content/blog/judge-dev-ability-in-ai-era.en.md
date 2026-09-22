@@ -70,6 +70,6 @@ Job titles may change. Judgment and delivery quality will not. Before worrying h
 
 ## Related
 
-- [[ai-era-programmer-survival-guide|AI-era programmer survival guide]]
+- [[ai-era-programmer-survival-guide|AI-era programmer survival guide]] (addendum: ordinary people + Agents vs programmers)
 - [[ai-economy-jobs-demand|AI economy and human jobs]]
 - [[programmer-35-crisis-and-self-rescue|35+ programmer crisis]]

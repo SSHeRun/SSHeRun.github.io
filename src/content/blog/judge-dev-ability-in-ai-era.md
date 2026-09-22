@@ -69,6 +69,6 @@ lang: zh
 
 ## 相关文章
 
-- [[ai-era-programmer-survival-guide|AI 时代程序员生存指南]]
+- [[ai-era-programmer-survival-guide|AI 时代程序员生存指南]]（含 V2EX「普通人 + Agent 能否替代程序员」补充）
 - [[ai-economy-jobs-demand|AI 经济与人类工作岗位]]
 - [[programmer-35-crisis-and-self-rescue|35 岁程序员危机与自救]]
