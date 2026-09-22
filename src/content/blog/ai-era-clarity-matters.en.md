@@ -218,3 +218,4 @@ More important: conversations with people get more efficient too.
 - [[ai-cannot-replace-human-experience|AI cannot replace lived experience]]
 - [[first-principles-startup-review|First-principles review with AI: a startup plan dies in 48 hours]]
 - [[ai-fatigue-truth-10x-workload|AI didn't 10x your output. It 10x'd the work.]]
+- [[ai-era-programmer-survival-guide|AI-era programmer survival guide]] (addendum: janitor + Agent replace eng?)
