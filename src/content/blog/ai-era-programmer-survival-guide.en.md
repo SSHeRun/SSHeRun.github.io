@@ -2,7 +2,7 @@
 title: 'A programmer''s survival guide in the AI era'
 description: "AI isn't here to take senior programmers' jobs. The 35-year-old crisis story flips: experience gets more valuable, if you can decide, constrain, and verify."
 pubDate: '2026-03-24'
-updatedDate: '2026-09-22'
+updatedDate: '2026-09-28'
 heroImage: '../../assets/cover-ai-era-programmer-survival-guide-en.jpg'
 tags: ['职业', '思考']
 lang: en
@@ -288,7 +288,11 @@ Every time the model hands you code, ask:
 
 ---
 
-## Addendum: can a janitor + an Agent replace a programmer?
+## Addendum: who should direct AI — cheaper people, or people who understand the product?
+
+Once AI writes the code, who should stand in front of it? Two V2EX threads offered two swaps: one swaps down, to cheaper people; one swaps sideways, to people who understand the product.
+
+### Swapping down: a janitor with an Agent
 
 A V2EX thread floated a cost-cut idea: stop hiring programmers; hire ordinary people; give each ~$1000/month of AI Agent budget. Humans describe needs, test, and accept; the Agent writes code. One senior salary, the pitch goes, could fund several “ordinary person + Agent” seats.
 
@@ -314,6 +318,47 @@ That does not contradict the rest of this piece:
 - The future looks more like AI trainers directing Agent fleets than security guards on a Claude subscription replacing the eng org.
 
 One-line pin: **a hundred people with dragon-slaying swords still may not beat a real master; a few people who know how to use heaven-reliant swords might punch above their weight.**
+
+### Swapping sideways: let product people direct
+
+Another thread's OP (recognized in the replies as Gefei, a well-known indie-dev blogger) went the other way: years from now, having programmers direct AI may look like a detour; the person who truly understands and owns the product should direct it. He added that this need not be a product manager, since some PMs don't understand the product either. Roles will blur, and super-individuals will multiply.
+
+Source: [Having programmers direct AI to write code may be a detour](https://www.v2ex.com/t/1236256)
+
+This thread split far more than the first one, with real arguments on both sides.
+
+**For:**
+
+- PM and programmer are pre-AI divisions of labor; new productive forces bring new relations of production, and new job titles.
+- The people who direct AI and actually ship are no longer programmers; the role just lacks a name yet. Someone called it OPC (one-person company).
+- Building software will feel more like writing a novel: code is the medium; ideas, taste, judgment, and owning the result decide the outcome.
+
+**Against:**
+
+| Thread claim | What it nails |
+|------|------|
+| Complexity only moves; you must at least spot the obviously bad option among three the AI proposes | The director needs implementation judgment |
+| "Let foodies open restaurants, surely that pays." OP: cooks know dishes better than eaters | Understanding product ≠ issuing requests |
+| Non-engineers relaying requirements cut efficiency and token yield | Relaying is lossy |
+| Implementing a state machine and scheduling three client visits tomorrow: you can't switch between them even once a month | Attention is narrow; one person doing everything has a ceiling |
+| Say "software engineer" instead of "programmer" and product is already in scope; if PMs can take your job, you can take theirs | Titles don't define roles |
+
+There was also a fight about AI's ceiling: one side said judging by today's AI is static thinking; the other replied that model potential ≠ real-world output, and physical bottlenecks, running out of quality data, and constraint drift on long tasks are hard limits.
+
+Two first-hand notes worth keeping:
+
+- "With AI I haven't thought hard about design in ages. Just get it running. My brain feels mushy." This person now deliberately slows down, reads the output, and thinks before prompting.
+- "AI looks strongest in the areas you know least; it just lifts your floor." Put differently: the less you know, the harder it is to see it's wrong.
+
+### Two swaps, one answer
+
+The two threads mirror each other. Swapping down was rejected almost unanimously; swapping sideways was hotly contested, but the objections share a root with the first thread: **whoever stands in front of AI must be able to judge options, stop drift, and own the result.**
+
+- **Titles change; the required skills don't.** Product sense without implementation sense, and AI amplifies the cost of picking the wrong design; coding without user sense, and AI amplifies how fast you build the wrong thing.
+- **AI amplifies what you have; it does not fill what you lack.** Y = F(X) holds for PMs and programmers alike.
+- **The org shape trends toward a few people with both need judgment and implementation judgment, directing many Agents.** Not a cheap crowd, and not simply PMs taking over.
+
+So the question isn't "programmers or PMs direct AI," but who holds both kinds of judgment. For programmers, that is the direction this essay argues: take one more step toward product and business, instead of guarding the increasingly cheap badge of "I can write code."
 
 ---
 
@@ -357,6 +402,7 @@ What do you think?
 - [Why programmers 35+ thrive in the AI era](https://github.com/microwind/algorithms/blob/main/start-here/Why-Programmers-35-Plus-Are-Thriving-in-AI-Era.md)
 - [码奸 — est の 输入输出和出入](https://blog.est.im/2026/stderr-10)
 - [Can janitors and security guards with AI Agents replace programmers?](https://www.v2ex.com/t/1243894) (V2EX)
+- [Having programmers direct AI may be a detour](https://www.v2ex.com/t/1236256) (V2EX)
 
 ## Related posts
 
@@ -366,3 +412,4 @@ What do you think?
 - [[judge-dev-ability-in-ai-era|How to judge developer ability in the AI era]]
 - [[ai-era-clarity-matters|The scarcest skill in the AI era: saying it clearly]]
 - [[coding-agents-reshape-epd|How coding agents reshape eng, product, and design]]
+- [[whatnot-cpo-regrets-pm-exists|Whatnot's CPO: "We regret that the PM function exists"]]

@@ -123,3 +123,4 @@ They may all be right. The exciting part of this world is that pedigree matters 
 - [[whatnot-cpo-regrets-pm-exists|Whatnot's CPO: "We regret that the PM function exists"]]
 - [[taste-at-speed-pm-skill|Taste at Speed: when building is cheap, PM skill changes]]
 - [[software-engineering-splits-three|Software engineering is splitting into three layers]]
+- [[ai-era-programmer-survival-guide|A programmer's survival guide in the AI era]]
