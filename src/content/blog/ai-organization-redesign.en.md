@@ -2,6 +2,7 @@
 title: 'AI made people faster. Why didn''t the company get stronger?'
 description: "Everyone is on ChatGPT; results did not take off. A 130-year-old story about electric motors is still the most honest picture of how AI lands inside a firm."
 pubDate: '2026-03-29'
+updatedDate: '2026-09-28'
 heroImage: '../../assets/cover-ai-organization-redesign-en.jpg'
 tags: ['组织', '效率']
 lang: en
@@ -166,6 +167,44 @@ On top of DAM, Tezign built a Context System; on top of that, GEA (Generative En
 
 That 2,000× is not agents doing the same thing on repeat. It is agents doing what people cannot: 24/7, finding links in your context, extracting insight, driving decisions.
 
+## Addendum: enterprise AI's "last mile" — first ask whether the need is real
+
+In September 2026, Synced (机器之心) ran "Models keep getting stronger — why is enterprise AI still stuck on the last mile?" It is effectively a product piece for China Unicom's Yunxi platform. Its diagnosis matches this essay: the enterprise AI problem has shifted from "do we have AI capability" to "can it slot into existing work cheaply." Its proposed entry point is **the phone call**: much business happens over calls, and needs, feedback, and know-how vanish when people hang up, out of AI's reach.
+
+It walks through three industries:
+
+| Industry | Pain point claimed | Solution and result claimed |
+|------|-----------|----------------|
+| Express delivery | You can see the parcel track, not why delivery failed | Analyze courier–customer calls; a "leading brand" saw complaints drop "significantly," exception response from hours to minutes |
+| Insurance outbound sales | 120+ calls per rep per day, under 5% effective conversion | Scripts before the call, live suggestions during, intent tags after; 2.3× conversion per rep, onboarding from 2 weeks to 3 days |
+| Car sales | Top reps' know-how never becomes team capability | Live transcription, knowledge suggestions, customer tags |
+
+One point lands: **capture data where the work happens, with zero extra steps for staff, or nobody uses it.** Tools that ask reps to upload recordings afterward rarely stick. That is the same point as "context is the moat" above.
+
+My main worry after reading it: **are these needs real, or invented to justify AI?**
+
+The argument runs "we have call data and LLMs → find industry pain → fit the solution." That is a hammer looking for nails. All three pain points are written from the product's side; nowhere does it say how they were researched — who was interviewed, who raised the need, how they cope today. Every case is "a leading brand" or "a team," with no baseline or control. "60,000 companies, 8 million users" is the platform's five-year total, not adoption of these AI apps.
+
+**My view: needs should come from concrete implementation, or at least from solid research.** Someone did the work, got stuck, and paid money or headcount for it — that is what counts.
+
+By that yardstick, the three cases differ:
+
+- **Insurance outbound: probably real.** Call QA and script assistance were paid-for categories well before LLMs, and finance has hard compliance QA requirements. AI just changes the implementation.
+- **Car sales: the need is real, but the bottleneck is capture.** The article itself admits existing tools interrupt the conversation; the issue is not whether the AI is smart enough.
+- **Express delivery: the most suspect.** Station managers want fewer complaints, not necessarily "call insights." Couriers make many low-value calls, with dialects and noise. It reads like a scenario reverse-engineered to use call data.
+
+Looking back, Tezign's "nearly 2,000× utilization" above is also a vendor's own number: more agent calls do not mean more business value. **Needs and numbers inside vendor narratives deserve a question mark first.**
+
+To judge whether an enterprise AI need is real, I start with five questions:
+
+1. Before AI, did anyone pay money or dedicate people to this?
+2. Did the need come from frontline operators, or did a vendor or tech team imagine it for them?
+3. What workaround do they use today? If they can't name one, it doesn't hurt enough.
+4. Is there a "before" baseline — complaint rate, response time, conversion?
+5. Was the solution made to work for one customer first and then generalized, or did the capability come first and the scenario later?
+
+**Models keep getting stronger, but what blocks the last mile is often not technology — it's a need nobody ever validated.**
+
 ## Individual awakening is still the base
 
 Asana's data: the top 10% of "super producers" save 20+ hours a week with AI.
@@ -202,6 +241,7 @@ Time to tear down the old factory.
 - METR: Early 2025 AI experienced OS dev study
 - Asana: AI super productivity paradox
 - Deloitte: State of AI in enterprise
+- [Synced: Models keep getting stronger — why is enterprise AI still stuck on the last mile?](https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651059866&idx=1&sn=0667d2dabd6da2203e35582fe4d7c5d9)
 
 **Original:** Founder Park
 
@@ -210,3 +250,5 @@ Time to tear down the old factory.
 - [[coding-agents-reshape-epd|How coding agents reshape engineering, product, and design]]
 - [[whatnot-cpo-regrets-pm-exists|Whatnot's CPO: "We regret that the PM function exists"]]
 - [[ai-fatigue-truth-10x-workload|AI didn't 10x your output. It 10x'd the work.]]
+- [[ai-customer-service-revenue|Support is not a cost center]]
+- [[ai-native-saas-after-agent-hype|After the Agent Hype: Traditional SaaS Is Dead; AI-Native Keeps the Seat]]
