@@ -1,6 +1,6 @@
 ---
-title: 'GEO 和 SEO 是一回事吗？Reddit 一帖把话说穿了'
-description: 'r/seogrowth 有人问：GEO 真的独立于 SEO 吗？楼里一边说「做好的 SEO 换皮」，一边说「引用 ≠ 排名」。拆开看：底座共享，目标与计量已经分叉。'
+title: 'GEO 和 SEO 是一回事吗？Reddit 两帖把话说穿了'
+description: 'r/seogrowth 吵「GEO 是否独立」；r/SEO_LLM 问「现在什么真的管用」。底座共享、目标分叉；Google 仍是主流量，AI 是发现渠道——盯线索，别只盯提及数。'
 pubDate: '2026-11-11'
 heroImage: '../../assets/cover-geo-vs-seo-same-or-separate.jpg'
 tags: ['创业', '思考', 'LLM']
@@ -8,11 +8,15 @@ lang: zh
 translationKey: 'geo-vs-seo-same-or-separate'
 ---
 
-> 讨论来源：[Not sure if GEO actually separate from SEO?](https://www.reddit.com/r/seogrowth/comments/1xsuplz/not_sure_if_geo_actually_separate_from_seo/)（r/seogrowth，约 4↑ / 17 评）
+> 讨论来源：
+> - [Not sure if GEO actually separate from SEO?](https://www.reddit.com/r/seogrowth/comments/1xsuplz/not_sure_if_geo_actually_separate_from_seo/)（r/seogrowth，约 4↑ / 17 评）
+> - [What's actually working for you in SEO right now?](https://www.reddit.com/r/SEO_LLM/comments/1xsinnw/whats_actually_working_for_you_in_seo_right_now/)（r/SEO_LLM，约 13↑ / 10 评）
 
 有人在 SEO 增长版发帖：自己不太确定，**GEO（Generative Engine Optimization）到底是不是独立于 SEO 的新学科**。
 
 帖子不大，但楼里吵得很清楚。一边说：GEO 就是把传统 SEO 做对了。另一边说：技术底座重叠，但你要赢的东西已经变了——从「排到第几」变成「会不会被写进答案里」。
+
+隔天隔壁 r/SEO_LLM 又有人问更土的问题：**现在真正管用的是 Google、ChatGPT，还是别的？** 楼里几乎不谈缩写神学，谈的是流量、线索和改了什么。两帖合读，理论吵完，实操也对上了。
 
 ## 楼里两派
 
@@ -65,18 +69,34 @@ translationKey: 'geo-vs-seo-same-or-separate'
 - 说「GEO 是全新学科、旧 SEO 作废」——也过激。没地基，答案引擎同样看不见你。  
 - 更稳的表述：**GEO 是 SEO 在答案引擎场景下的目标重标定 + 站外/实体/可引用性加码**，不是换皮魔术，也不是平行宇宙。
 
+## 第二帖：现在「管用」的到底是什么
+
+r/SEO_LLM 那帖不问「GEO 算不算新学科」，问「你现在靠什么活着」。共识很钝、也更有用：
+
+1. **Google 仍是主流量**。多位从业者原话几乎同义：Google 还是最大流量源；ChatGPT / 其它 AI 已出现，但仍是更小的一块，更像**发现渠道**，不是替代品。  
+2. **策略大半没换**：外链、搜索意图、主题权威、真有用的内容、清晰站点结构——基础没废。有人说唯一明显加码的是 **schema 用得更多**，以及从「一篇一篇赶周更」改成**系列专题**，用来堆主题深度、也少想选题的压力。  
+3. **变的是内容怎么写**：少堆泛关键词长文，多**直接回答具体问题**、加原创洞见、把话题做成深度簇。有人靠这种写法拿到了 ChatGPT 提及。  
+4. **站外不止外链**：相关第三方站、社区、榜单/listicle 上的**品牌提及**被反复点名；本地生意则继续盯 Google Business Profile + 本地 SEO——有客户说「有人从 ChatGPT 找到我们并留下线索」，但顾问更在意电话和成交，不迷信提及数本身。  
+5. **计量要落到线索**：有人给出可立刻做的 GA4 路径——流量获客报告里把维度切到 Session source，搜 `chatgpt` / `perplexity` / `copilot` / `gemini`，再点进落地页；常见被引用的是 how-to 和对比页。同时建议在表单加「你怎么知道我们的」——很多人先在 AI 答案里看见你，再过几天用 Google 或直接输网址回来，GA4 串不上这两段。
+
+一句话：第二帖在用现场数据回答第一帖的伪问题——**不是「要不要抛弃 SEO」；是「SEO 地基还在供血，AI 出口要另算、另写、另验」。**
+
 ## 可执行的拆法（给还在纠结缩写的人）
 
 ![先共享，再加码](../../assets/inline-geo-vs-seo-same-or-separate-03.jpg)
 
-1. **先把 SEO 地基补齐**：可爬、信息架构、页面体验、说得清的内容。楼里那家 B2B 客户几乎只靠这个就抬了 AI 可见度。  
-2. **再加 GEO 特有动作**：实体一致（官网 / 目录 / 百科口径对齐）、可摘抄的短答案块、权威第三方提及、按平台看引用（Google AI Overview ≠ ChatGPT ≠ Perplexity）。  
-3. **分开看板**：SEO 看板继续看排名与点击；另建「prompt × 是否被引用 × 如何表述品牌」的小表。不要用排名下跌解释「AI 搜不到我」。  
+1. **先把 SEO 地基补齐**：可爬、信息架构、页面体验、说得清的内容。楼里那家 B2B 客户几乎只靠这个就抬了 AI 可见度；第二帖也确认 Google 仍是主引擎。  
+2. **再加 GEO 特有动作**：实体一致（官网 / 目录 / 百科口径对齐）、可摘抄的短答案块、权威第三方提及与榜单露出、按平台看引用（Google AI Overview ≠ ChatGPT ≠ Perplexity）；内容侧用系列专题替代散篇关键词文。  
+3. **分开看板，落到钱**：SEO 看板继续看排名与点击；另建「prompt × 是否被引用 × 如何表述品牌」；用 GA4 源维度核对 AI 落地页；用表单自报发现路径补归因；最终盯线索与成交，别只盯提及仪表盘。  
 4. **警惕缩写勒索**：谁跟你说「不会 GEO 就会死、旧 SEO 全废」，多半在卖恐惧。谁说「什么都不用改」，则忽略了 citation 漏斗。
 
-楼主问的是「到底分不分开」。楼里最好的答案其实是一句折中，但说透了：
+第一帖楼主问「到底分不分开」。楼里最好的答案其实是一句折中，但说透了：
 
 > 技术底座共享，所以 crawlability、structured data、体验仍重要；结果不同，所以排名好不会自动变成被引用。
+
+第二帖补了一句更接地气的：
+
+> Google 还在供血；AI 已是发现口——写得更像答案、站外有提及、用线索验，而不是换宗教。
 
 这不是新宗教，是同一条内容供应链上，**多了一个必须单独计量的出口**。
 
