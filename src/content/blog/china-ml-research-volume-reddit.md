@@ -106,8 +106,13 @@ pie showData
 
 科学确实在经历一层「内容通胀」——楼里叫它 enshittification of science。解药不是换国旗，是**改结算指标**，以及读者侧更狠地用可复现投票。
 
+## 隔天的国内回声
+
+同一周，V2EX 一篇秋招面试帖成了这篇的镜像：纸面（顶会、实习、Agent）很强，往 token/prefill/KV 一追就碎——似懂非懂，一边心虚一边加速。国外在问「怎么可能这么高产」，国内在演「高产之后坐到对面长什么样」。对照整理见 [[paper-arms-race-reddit-v2ex|纸面军备的两边]]。
+
 ## 相关文章
 
+- [[paper-arms-race-reddit-v2ex|纸面军备的两边：Reddit × V2EX]]
 - [[geo-vs-seo-same-or-separate|GEO 和 SEO 是一回事吗]]
 - [[ai-era-clarity-matters|AI 时代最稀缺的能力：把话说清楚]]
 - [[judge-dev-ability-in-ai-era|AI 时代怎么判断一个人会不会写代码]]

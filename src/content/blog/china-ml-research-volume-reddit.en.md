@@ -106,8 +106,13 @@ Merge the OP’s confusion with the thread’s teardown and a steadier line is:
 
 Science is in a content-inflation phase — the thread’s word is enshittification. The fix isn’t a different flag; it’s **changing the settlement metrics**, and readers voting harder with reproducibility.
 
+## A domestic echo the next day
+
+The same week, a V2EX fall-recruit thread mirrored this post: paper (venues, internships, Agents) looks elite until token/prefill/KV follow-ups land — half-understood, anxious and accelerating. Abroad asks “how can output be this high?”; at home you see what that height looks like across the interview table. Paired write-up: [[paper-arms-race-reddit-v2ex|Two sides of the paper arms race]].
+
 ## Related posts
 
+- [[paper-arms-race-reddit-v2ex|Two sides of the paper arms race: Reddit × V2EX]]
 - [[geo-vs-seo-same-or-separate|Is GEO really separate from SEO?]]
 - [[ai-era-clarity-matters|The scarcest skill in the AI era: saying things clearly]]
 - [[judge-dev-ability-in-ai-era|How to judge coding ability in the AI era]]
