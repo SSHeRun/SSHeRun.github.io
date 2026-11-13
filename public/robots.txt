@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /notes/
+Disallow: /ref/check/
 
 Sitemap: https://ssherun.github.io/sitemap-index.xml

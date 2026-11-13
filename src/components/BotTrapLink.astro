@@ -1,0 +1,29 @@
+---
+/**
+ * 人眼不可见的内链陷阱：遵守 robots.txt 的爬虫不会来；
+ * 乱跟全站链接的 bot 会踩到 /ref/check/，由 PostHog 记一笔。
+ * 文案用零宽字符，不进无障碍树。静态站无法像 PHP+.htaccess 那样封 IP，只计量。
+ */
+const href = '/ref/check/';
+---
+
+<a
+	id="bot-trap-link"
+	class="bot-trap-link"
+	aria-hidden="true"
+	tabindex="-1"
+	href={href}
+	rel="nofollow"
+>‍</a>
+<style>
+	.bot-trap-link {
+		display: none !important;
+		cursor: none !important;
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		pointer-events: none;
+	}
+</style>

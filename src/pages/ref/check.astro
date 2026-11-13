@@ -1,0 +1,75 @@
+---
+/**
+ * Bot honeypot landing page.
+ * Disallowed in robots.txt. Humans shouldn't land here.
+ * Counts hits via PostHog (JS capture + image pixel for light clients).
+ */
+import BaseHead from '../../components/BaseHead.astro';
+
+const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY || '';
+const posthogHost = (import.meta.env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com').replace(
+	/\/$/,
+	'',
+);
+
+// GET pixel：不跑 JS 的爬虫只要加载 <img> 也能打到 PostHog capture 端点
+let pixelSrc = '';
+if (posthogKey) {
+	const payload = {
+		api_key: posthogKey,
+		event: 'bot_trap_hit',
+		properties: {
+			distinct_id: 'bot-trap-pixel',
+			$current_url: 'https://ssherun.github.io/ref/check/',
+			$path: '/ref/check/',
+			trap: 'ref-check',
+			via: 'img-pixel',
+		},
+	};
+	pixelSrc = `${posthogHost}/i/v0/e/?ip=1&data=${Buffer.from(JSON.stringify(payload)).toString('base64')}`;
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Canonical check"
+			description="Internal reference check"
+			noindex
+			alternates={[]}
+		/>
+		<meta name="robots" content="noindex, nofollow" />
+	</head>
+	<body>
+		<main>
+			<p>
+				This path is listed in <code>robots.txt</code> as Disallow. Well-behaved crawlers
+				should not be here. If you are a human who clicked a hidden link by accident, you
+				are fine — this static site does not ban IPs.
+			</p>
+		</main>
+		{
+			pixelSrc && (
+				<img src={pixelSrc} alt="" width="1" height="1" style="position:absolute;left:-9999px" />
+			)
+		}
+		<script define:vars={{ posthogKey }}>
+			(function () {
+				function fire() {
+					try {
+						if (window.posthog && typeof window.posthog.capture === 'function') {
+							window.posthog.capture('bot_trap_hit', {
+								trap: 'ref-check',
+								via: 'js',
+								$path: '/ref/check/',
+							});
+						}
+					} catch (_) {}
+				}
+				if (window.posthog) fire();
+				else setTimeout(fire, 800);
+			})();
+		</script>
+	</body>
+</html>

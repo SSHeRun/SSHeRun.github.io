@@ -1,4 +1,5 @@
 ---
+import BotTrapLink from './BotTrapLink.astro';
 import { currentLocale } from '../i18n/config';
 import { t } from '../i18n/ui';
 
@@ -13,6 +14,7 @@ const locale = currentLocale(Astro.currentLocale);
 			{t(locale, 'poweredBy')} <a href="https://astro.build/" target="_blank">Astro</a>
 		</p>
 	</div>
+	<BotTrapLink />
 </footer>
 <style>
 	footer {
