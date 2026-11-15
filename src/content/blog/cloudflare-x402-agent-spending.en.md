@@ -45,10 +45,12 @@ Cloudflare's own blog puts it plainly. Most software is sold as subscriptions or
 
 The four launch customers are four kinds of per-use business:
 
-- **Cloudflare's own AI Gateway**: add `PAYMENT-METHOD: x402` to a request and pay for inference per call, no credits needed.
-- **Ceramic.ai (search API)**: a simple question takes one query, a deep research task may take hundreds. An agent that pays for itself doesn't have to ration searches against a budget someone set in advance.
-- **Stocktwits (retail investor community)**: sells sentiment and message-volume signals to agents. Before, that needed a data license; now an agent buys the request it needs. It opened a separate agent-facing path and left its existing products untouched.
-- **API2PDF (PDF generation API)**: used to require an account and a key, then a credit card after the first month, and **that step lost more than half its users**. Now a request without a key gets a 402, and once paid, the PDF is made.
+| Seller | What they sell | Old model | With x402 |
+|---|---|---|---|
+| Cloudflare AI Gateway | Model inference | Prepaid / subscription credits | Header `PAYMENT-METHOD: x402`, pay per call |
+| Ceramic.ai | Search API | Pre-set budgets; agents ration | One query or hundreds; agent pays as it goes |
+| Stocktwits | Sentiment / heat signals | Data license contracts | Separate agent path; buy the row you need |
+| API2PDF | PDF generation | Key + monthly card — **>50% drop-off** | No key → 402 → pay → render |
 
 The API2PDF section has a line I like: agents face the same build-versus-buy decision developers do. An agent can burn tokens assembling a PDF itself, or pay a specialized API a fraction of a cent to do it properly. **Price becomes something an agent can see directly when it picks a tool.**
 
@@ -77,6 +79,15 @@ The wallet allowance is a backstop, but it doesn't know what "this task" spent u
 
 So there are three gates to manage: **wallet total, task budget, per-call cap**, and the middle one is the easiest to forget.
 
+![Three gates: wallet total / task budget / per-call cap](../../assets/inline-cloudflare-x402-agent-spending-05-en.jpg)
+
+| Gate | Controls | Failure mode |
+|---|---|---|
+| Wallet total | Ceiling for the agent | A long run drains the whole allowance |
+| Task budget | Spend for *this* run | Every call is legal; the sum still blows up (e.g. $0.10 × 100 = $10) |
+| Per-call cap | Max per invocation | Cannot stop “many calls at the cap” |
+| Confirmation callback | Human / policy before pay | Passing `null` = auto-pay — convenient and dangerous |
+
 ### 3. How do you budget a price you don't know yet?
 
 x402 has two pricing schemes:
@@ -96,9 +107,11 @@ This one is easy to miss. When an API request timed out before, you retried and 
 
 A paid request can fail in three places:
 
-- **Before authorization**: no money moved, retry freely;
-- **During settlement**: find out whether the transaction went through before deciding;
-- **After payment, with the response lost on the way back**: a blind retry pays twice for the same thing.
+| Failure point | Did money move? | Safe to retry blindly? |
+|---|---|---|
+| Before authorization | No | Yes |
+| During settlement | Unclear | Check status first |
+| Paid, response lost in flight | Yes | **No** — that is a second purchase |
 
 Cloudflare's gateway retries failed settlements, and x402 clients check the HTTP status before retrying. But as the article says, the agent framework still needs its own record of every payment to tell two attempts from two purchases.
 

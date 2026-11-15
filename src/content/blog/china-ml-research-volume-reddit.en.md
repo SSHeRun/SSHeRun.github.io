@@ -80,6 +80,15 @@ And yet: Chinese ML **does** ship optimization techniques that became industry d
 
 Someone who’s worked both sides: no hive mind; nepotism may be worse than in the US; **the Chinese median feels stronger, the top 1% is on par**; the same pressure squeezes out both shady and genuine work.
 
+![Paper mills and reproducible crates can coexist](../../assets/inline-china-ml-research-volume-reddit-04-en.jpg)
+
+| Camp | Core claim | Typical evidence |
+|---|---|---|
+| Incentive / KPI | High volume is first rule-arbitrage | Graduation quotas, tenure math, “a paper in days” as arithmetic |
+| Quality / spam | Not only *more* — *how* more | Renames, fake ablations, engineering rebadged as novelty, retract-after-submit |
+| Pushback | Don’t narrate outliers as the mean | Viral “100 papers” stories prove rarity; detectors are unreliable |
+| Real contribution / OSS | Sturgeon + industrial filter | Weights and code speak; the absolute 10% also scales with volume |
+
 ### Chart 2: comment mass (manual rough cut, 51)
 
 ```mermaid
@@ -98,11 +107,13 @@ pie showData
 
 Merge the OP’s confusion with the thread’s teardown and a steadier line is:
 
-1. **“A paper a week” is first an incentive hack**; LLMs only accelerate an old disease. RedNote-style write/publish/authorship packages are an industry shape, not Oriental mystique.  
-2. **Narrating outliers as “Chinese researchers”** is unfair and useless for reviewing. Large base → more extremes → more timeline surface area.  
-3. **Real contribution and spam can both be true.** Denying either makes the conversation dumb.  
-4. **Personal filter:** venue acceptance ≠ trust; hundred-page experiment dumps without code/weights get downranked by default; clear repos and honest ablations earn a second look — then talk institutions.  
-5. **If you build products:** chase the 10% that became industrial habit and open tooling, don’t emotionally race PDF volume.
+| Misread | Steadier read |
+|---|---|
+| “A paper a week” = magic / ancestry | First an incentive hack; LLMs only accelerate an old disease |
+| Outliers = all Chinese researchers | Large base → more extremes → more timeline surface |
+| Either all spam or all gold | Both can be true at once |
+| Venue acceptance = trust | No-code / no-weights dumps get downranked by default |
+| Race PDF volume | Chase the 10% that became industrial habit and OSS |
 
 Science is in a content-inflation phase — the thread’s word is enshittification. The fix isn’t a different flag; it’s **changing the settlement metrics**, and readers voting harder with reproducibility.
 

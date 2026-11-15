@@ -32,11 +32,15 @@ So the prompt's real job is: decide the attitude, the order, and the depth with 
 
 The Skill defines three review modes. Once the user picks one, the model commits and is not allowed to drift:
 
-- **Expand scope**: you are building a cathedral. Ask "what 2× effort yields 10× lift?" You are allowed to dream.
-- **Hold scope**: you are a rigorous reviewer. The scope is fixed; your job is to make it bulletproof.
-- **Shrink scope**: you are a surgeon. Find the smallest version that still delivers value and cut everything else.
+| Mode | Stance | Core question |
+|---|---|---|
+| Expand scope | Building a cathedral | What 2× effort yields 10× lift? You may dream |
+| Hold scope | Rigorous reviewer | Scope is fixed — make the plan bulletproof |
+| Shrink scope | Surgeon | Smallest version that still delivers value; cut the rest |
 
-## Step 0: attack the premise before you review
+![Three review modes as branching corridors](../../assets/inline-top-skill-yc-ceo-review-03.jpg)
+
+## Step 0: challenge the premise before you review
 
 This is the best part of the Skill. Before formal review, six sub-steps challenge the premise:
 
@@ -45,19 +49,26 @@ This is the best part of the Skill. Before formal review, six sub-steps challeng
 - Ideal-state mapping: what does 12 months look like? Is this plan closer or further?
 - Timeline interrogation: what happens in hour 1, hours 2–3, hours 4–5?
 
-Only then come ten formal review blocks: architecture, error mapping, security, data flow, code quality, testing, performance, observability, deploy, long-term trajectory.
+Only then come ten formal review blocks:
+
+| Step 0 (premise) | Formal 10 |
+|---|---|
+| Premise / existing assets / ideal state / timeline | Architecture · error mapping · security · data flow · code quality |
+| (First: are you solving the right problem?) | Testing · performance · observability · deploy · long-term trajectory |
 
 ## Nine principles that run through the Skill
 
-1. Zero silent failures — every failure mode must be visible
-2. Every error has a name — do not say "handle errors"; name the exception
-3. Data flow has shadow paths — happy, null, zero-length, error
-4. Interactions have edges — double-click, leave mid-action, slow network, stale state
-5. Observability is in scope, not a follow-up
-6. Diagrams are required
-7. Deferred work must be written down — vague intent is a lie
-8. Optimize for six months from now, not only today
-9. You are allowed to say "throw it out and start over"
+| # | Principle | One-liner |
+|---|---|---|
+| 1 | Zero silent failures | Every failure mode must be visible |
+| 2 | Every error has a name | Don’t say “handle errors”; name the exception |
+| 3 | Data flow has shadow paths | Happy / null / zero-length / error |
+| 4 | Interactions have edges | Double-click, leave mid-action, slow net, stale state |
+| 5 | Observability is in scope | Not a post-launch patch |
+| 6 | Diagrams are required | Structure must be visible |
+| 7 | Deferred work is written down | Vague intent is a lie |
+| 8 | Optimize for six months out | Not only for today |
+| 9 | Allowed to throw it out | You may demand a new plan |
 
 ![Three paths splitting](../../assets/inline-top-skill-yc-ceo-review-02.jpg)
 

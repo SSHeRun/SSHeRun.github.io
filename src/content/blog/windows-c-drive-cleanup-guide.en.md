@@ -16,6 +16,15 @@ This is a complete cleanup path from simple to advanced. The steps are straightf
 
 ![A Win10 desktop running out of C: space](../../assets/inline-windows-c-drive-cleanup-guide-01.jpg)
 
+| Stage | What you do | Difficulty | Safety | Typical win |
+|---|---|---|---|---|
+| 1 | Software / Storage Sense caches | Easy | High | A few GB (depends on cache pile-up) |
+| 2 | Move personal folders & app caches | Easy | High | Often the biggest slice (WeChat / Downloads) |
+| 3 | Temp, logs, large files | Medium | High (don’t delete whole folders) | A few GB to more |
+| 4 | Compress / disable hibernate / reinstall | Advanced | Depends | Last resort — back up first |
+
+![Moving load off C: onto another volume](../../assets/inline-windows-c-drive-cleanup-guide-03.jpg)
+
 ---
 
 ## 1. Fastest and simplest — software cleanup
@@ -64,10 +73,12 @@ A lot of everyday software installs on C:. Left alone, the caches get absurd. Ch
 
 **Usual suspects:**
 
-- **WeChat desktop:** group chats and images; tens of GB over time is normal
-- **QQ:** chat history and file cache
-- **Adobe Photoshop:** scratch disk
-- **Browsers:** download folder and cache
+| App | What usually balloons | Where to change it |
+|---|---|---|
+| WeChat desktop | Group images / files — tens of GB is common | Settings → File management → storage path |
+| QQ | Chat history and file cache | Message history / file directory in settings |
+| Photoshop | Scratch disk | Preferences → Scratch Disks → non-C: |
+| Browsers | Downloads and cache | Settings → Downloads / Privacy |
 
 In each app, find "file location" or "cache directory" and point it at D: or another volume.
 
