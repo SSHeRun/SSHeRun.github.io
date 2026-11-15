@@ -108,6 +108,6 @@ Gary 事后对 Barry 补了一句关键 caveat：**这是一次 exercise——�
 
 ## 相关文章
 
-- [[google-search-changes-timeline|Google 搜索变更要等多久：一张表说清]]
 - [[geo-vs-seo-same-or-separate|GEO 和 SEO 是一回事吗？]]
 - [[chatgpt-cite-bing-pageone-overlap|ChatGPT 引用里只有约 25% 在 Bing 首页]]
+- [[bot-trap-invisible-link|隐形链接陷阱：爬虫与真实用户看到的不是同一页]]

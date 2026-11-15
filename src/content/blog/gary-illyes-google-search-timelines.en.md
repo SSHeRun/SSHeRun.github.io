@@ -105,6 +105,6 @@ Known-URL refresh at ~**30 days** Typical explains most “I edited the copy” 
 
 ## Related posts
 
-- [[google-search-changes-timeline|How long Google Search changes take]]
 - [[geo-vs-seo-same-or-separate|GEO vs SEO]]
 - [[chatgpt-cite-bing-pageone-overlap|Only ~25% of ChatGPT citations sit on Bing page one]]
+- [[bot-trap-invisible-link|Invisible link traps: crawlers and humans see different pages]]
