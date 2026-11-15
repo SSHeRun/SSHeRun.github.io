@@ -1,75 +1,112 @@
 ---
 title: 'Reddit Isn’t a Town Square: What’s Actually Useful in Heizo’s Newbie Playbook'
-description: 'Notes from @heizolshao’s long Reddit onboarding article: federated subs, Karma and shadowbans, NUFS onboarding, high-engagement templates, and the hard-promo / preachy / AI-slop kill zones.'
+description: 'Expanded notes from @heizolshao’s Reddit onboarding article: federated subs, Karma and shadowbans, NUFS paths, seven engagement templates, post-type kill zones—with tables and examples.'
 pubDate: '2026-11-15'
+updatedDate: '2026-11-15'
 heroImage: '../../assets/cover-reddit-newbie-playbook-heizolshao-en.jpg'
 tags: ['创业', '工具', '教程']
 lang: en
 translationKey: 'reddit-newbie-playbook-heizolshao'
 ---
 
-Ask indie builders about overseas acquisition and Reddit shows up fast. What usually breaks people isn’t “not posting enough”—it’s silent posts, mystery account damage, or getting piled on in a sub without understanding why.
+Ask indie builders about overseas acquisition and Reddit shows up fast. What usually breaks people isn’t “not posting enough”—it’s silent posts, mystery account damage, or getting piled on without understanding why.
 
-[左海 / @heizolshao](https://x.com/heizolshao/status/2103817677219275125) published a long X Article: a from-zero Reddit onboarding guide. This isn’t a reprint. It’s the subset that matters if you’re shipping a product.
+[左海 / @heizolshao](https://x.com/heizolshao/status/2103817677219275125) published a long X Article onboarding guide. Below is the subset that matters if you’re shipping a product—**mechanisms, tables, examples**—not slogans only.
 
 ## 1. Change the unit: Subreddit, not “Reddit”
 
-![Reddit 不是广场：左海这篇上手教程里真正值钱的几条 — overview](../../assets/inline-reddit-newbie-playbook-heizolshao-01.jpg)
+![Atmosphere: many small rooms, not one town square](../../assets/inline-reddit-newbie-playbook-heizolshao-01.jpg)
 
-Reddit is a federation of vertical communities, not one feed. `r/` marks a sub; `u/` marks a user. Every sub has its own Rules / Wiki / AutoMod, and enforcement varies wildly.
+Reddit is a federation of vertical communities. `r/` marks a sub; `u/` marks a user. Every sub has its own Rules / Wiki / AutoMod.
 
-Worse for new accounts: you’re effectively on probation. Low Karma posts/comments can be filtered; DMs can be limited. That’s anti-spam, not a personal vendetta. **Pitching a product before you have trust is submitting homework during probation.**
+| You think | Reality |
+|---|---|
+| “Posting on Reddit” | “Speaking in one sub under its rules” |
+| One playbook sitewide | What works in A can get instant-removed in B |
+| Followers unlock pitching | New accounts are on probation: low Karma can be filtered; DMs limited |
+
+**Pitching before trust is submitting homework during probation.**
+
+Use `r/findareddit` to locate rooms; read the sidebar, then last-month Top—cost teardown vs war-story culture is obvious.
 
 ## 2. Karma is reputation; cut losses on downvotes
 
-Karma roughly tracks upvotes minus downvotes, with fuzzing. The real damage of negative Karma is automated folding/blocking in many subs. The UI floor isn’t the backend floor.
+![Atmosphere: reputation score and invisible shadowban](../../assets/inline-reddit-newbie-playbook-heizolshao-02.jpg)
 
-Practical stop-loss: if a post or comment starts getting piled on, **delete it**. Lost points don’t return, but you can stop the hivemind cascade.
+Karma roughly tracks upvotes minus downvotes, with fuzzing. Negative Karma’s real damage is automated folding/blocking. UI floor ≠ backend floor.
 
-Other hygiene: skip emoji spam; don’t fight mods; stay away from FreeKarma farms—mods history-check you, and farm traces are a red flag. Severe cases get a **shadowban** (you think you’re posting; nobody else sees it).
+| Move | Why |
+|---|---|
+| Getting piled on → **delete** | Points don’t return; stops the cascade |
+| Skip emoji spam | Reads as bot/marketing |
+| Don’t fight mods | History is audited |
+| Avoid FreeKarma farms | Farm traces are red flags |
+| Suspect shadowban | You see posts; nobody else does—test separately |
 
-## 3. Onboarding path: lurk → comment → post
+Related: when CQS hits Lowest, even good posts can be silently filtered—see the CQS recovery notes in the same series.
 
-The Day-1 checklist is boring and effective:
+## 3. Onboarding: lurk → comment → post
 
-1. Avoid bot-looking usernames (e.g. `xxx_xxx_digits`); verify email.  
-2. Lurk for a few days: join 3–5 real-interest subs, read Hot top 20, learn the sidebar red lines.  
-3. Use **NUFS** (New User Friendly Subs) to earn base Karma: `r/NewToReddit` wiki, `r/LearnToReddit`, `r/mildlyinteresting`, `r/AskReddit`, `r/CasualConversation`, etc.  
-4. Comment before posting: early, substantive or witty comments on **Rising** threads get better exposure.  
-5. Don’t engage under flashy product-shill posts—you can get swept up as an accomplice.
+![Atmosphere: watching at the doorway before speaking](../../assets/inline-reddit-newbie-playbook-heizolshao-03.jpg)
 
-## 4. High-upvote posts are interaction machines
+| Stage | Do | Don’t |
+|---|---|---|
+| Signup | Avoid `xxx_xxx_digits` names; verify email | Bio stuffed with outbound links day one |
+| First days | Join 3–5 real-interest subs; Hot top 20; note red lines | Hard promo / karma farming |
+| Base Karma | NUFS: `r/NewToReddit` wiki, `r/LearnToReddit`, `r/mildlyinteresting`, `r/AskReddit`, `r/CasualConversation` | FreeKarma |
+| Engage | Early substantive/witty comments on **Rising** | Engage under flashy shill posts |
+| Post | Rules + Top + complaint threads first | Multipost the same text across many subs |
 
-![Reddit 不是广场：左海这篇上手教程里真正值钱的几条 — detail](../../assets/inline-reddit-newbie-playbook-heizolshao-02.jpg)
+Comment before posting. Exposure lives on Rising, not in your comfort zone of “perfect draft then publish.”
 
-Unlike short-video platforms, people come to participate. Strong posts usually offer a stance to take, a chance to correct, or a joke to finish.
+## 4. High-upvote posts are interaction devices
 
-Templates with the best transfer for builders:
+![Atmosphere: readers taking sides, correcting, riffing](../../assets/inline-reddit-newbie-playbook-heizolshao-04.jpg)
 
-- **Lived stories**: scene + people + conflict; leave the lesson to readers.  
-- **AITA-style judgment**: make the crowd the jury.  
-- **Ask for critique / optimization**: concrete numbers and context beat vague asks.  
-- **Vulnerable ordinary moments**: anonymity rewards honesty.  
-- **Mild hot takes**: spark two camps instead of preaching absolute truth.
+People come to participate, not watch a performance. High-upvote posts usually offer a stance to join, a space to correct, or a joke to continue.
 
-Three instant-death patterns: hard promo / shill tone, preachy lectures, and AI-slop (many active subs ban LLM-generated content outright).
+| Pattern | Structure example | Sub direction |
+|---|---|---|
+| Lived story | Scene + people + conflict; leave the verdict open | tifu / offmychest |
+| AITA-style | “I did X because Y; they say I shouldn’t. AITA?” | AmItheAsshole |
+| Ask-for-correction | Real numbers + “debt first or invest first?” | personalfinance / learnprogramming |
+| Vulnerable moment | Sensory detail, no pep-talk slogans | loseit / Anxiety |
+| Hot take | `Hot take:` / `Unpopular opinion:` + debatable claim | unpopularopinion / niche |
+| AMA | “10 years in X, AMA”—Karma from sustained replies | niche pro subs beat raw r/IAmA |
+| Contrast meme | Cool concept vs messy reality; windows last days | memes / ProgrammerHumor |
 
-## 5. Posting modes have red lines too
+**Same intent, different survival:**
 
-- **OC**: original.  
-- **Repost**: low tolerance in many subs; check duplicates first.  
-- **Crosspost**: system forward; some subs ban it.  
-- **Multipost**: identical copy-paste across related subs is high risk—spam filters and sitewide bans. Stagger timing and rewrite title/body per sub.
+| Dead on arrival | Reads like a resident |
+|---|---|
+| “Our AI tool is 10x; link in bio” | “Three days into an OSS pipeline; nested clauses drop context until two filters—anyone else hit this?” |
+| “Must-try / industry-changing” | “Script’s on my profile if useful”—ideally after someone asks |
+
+Three kill zones: **hard promo / shill**, **preachy dad energy**, **AI slop** (many active subs ban LLM-generated posts).
+
+## 5. Post-type red lines
+
+| Type | Meaning | Risk |
+|---|---|---|
+| OC | Original | Normal |
+| Repost | Same sub again | Low tolerance—search first |
+| Crosspost | System forward | Some subs ban it |
+| Multipost | Same text sprayed across subs | **High risk**—spam filters / sitewide bans |
+
+If you must multi-sub: stagger time and rewrite title/voice per room.
 
 ## How to use this if you ship product
 
-If the goal is demand discovery or soft seeding: become a credible community member first, then talk links. Codify sub rules, account history hygiene, and post templates into your checklist. If an agent helps you draft, specifically suppress AI-slop and multiposting.
+1. Become “someone in the room” before links.  
+2. Checklist: rules → monthly Top → complaint threads → self-promo / age-Karma gates.  
+3. With agents: crush AI-slop and Multipost before you pile on prompts.  
+4. Demand mining and acquisition are separate plays (workaround / deal breaker queries; story post → trust comment → link on ask).
 
-For the glossary, find-a-sub tools (`r/findareddit`, etc.), and full reference links, read the [original post / article](https://x.com/heizolshao/status/2103817677219275125).
+Full glossary and links: [original article](https://x.com/heizolshao/status/2103817677219275125).
 
 ## Related posts
 
-- [[indie-product-promotion-hard-truths|Why indie products stall on distribution]]
-- [[china-ml-research-volume-reddit|China ML research volume discussion]]
+- [[indie-product-promotion-hard-truths|Why indie product promotion is hard]]
+- [[china-ml-research-volume-reddit|China ML research volume on Reddit]]
 - [[paper-arms-race-reddit-v2ex|Paper arms race: Reddit × V2EX]]
 - [[overseas-product-zero-cost-cold-start|Low-cost overseas cold start]]
