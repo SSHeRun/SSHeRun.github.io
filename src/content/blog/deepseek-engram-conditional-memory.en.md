@@ -52,9 +52,11 @@ Hold total parameters and activated FLOPs fixed. How much idle sparse budget goe
 
 The result is a stable **U-shape**:
 
-- All MoE (ρ=1): the model is forced to *compute* static patterns
-- All memory: you starve dynamic reasoning
-- Optimum around **ρ ≈ 75%–80%** — move about 20%–25% of the sparse budget to Engram
+| Allocation | Behavior | Failure mode |
+|---|---|---|
+| All MoE (ρ=1) | Reasoning stays; static patterns are expensive | Compute pretends to be a lookup |
+| All memory | Local patterns stick | Dynamic reasoning starves |
+| **ρ ≈ 75%–80%** | Often best at same params / FLOPs | ~20%–25% of sparse budget to Engram |
 
 If memory can grow without bound, larger tables give a log-linear drop in validation loss. Memory is an independently scalable axis that barely adds per-token FLOPs.
 
@@ -72,16 +74,20 @@ Strict comparison at 262B tokens, ~3.8B activated:
 
 **Engram-27B vs MoE-27B (same params, same FLOPs), selected gains:**
 
-- Knowledge: MMLU +3.0, CMMLU +4.0
-- Reasoning: BBH +5.0, ARC-Challenge +3.7, DROP +3.3
-- Code / math: HumanEval +3.0, MATH +2.4, GSM8K +2.2
+| Category | Metric | Relative gain |
+|---|---|---|
+| Knowledge | MMLU / CMMLU | +3.0 / +4.0 |
+| Reasoning | BBH / ARC-Challenge / DROP | +5.0 / +3.7 / +3.3 |
+| Code / math | HumanEval / MATH / GSM8K | +3.0 / +2.4 / +2.2 |
 
 A memory module "should" help memorization. The larger lifts show up in reasoning and code. The mechanistic story: early layers drop the job of rebuilding static patterns, which is equivalent to *deepening the effective net* for hard reasoning. Once local dependence is a lookup, attention can watch the global picture.
 
 At 32k context the gap gets louder:
 
-- Multi-Query NIAH: 84.2 → **97.0**
-- Variable Tracking: 77.0 → **89.0**
+| Task | MoE-27B | Engram-27B |
+|---|---|---|
+| Multi-Query NIAH | 84.2 | **97.0** |
+| Variable Tracking | 77.0 | **89.0** |
 
 ## What product people should take
 

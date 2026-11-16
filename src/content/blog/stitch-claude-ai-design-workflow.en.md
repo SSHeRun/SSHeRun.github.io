@@ -18,18 +18,22 @@ Google Stitch 2.0 connected to Claude Code over MCP rewrote the AI-driven produc
 
 ### Cost of the old process
 
-- **Money:** hiring a designer is $3,000–$10,000
-- **Time:** weeks waiting for a Figma file
-- **Implementation:** more time and money to land the design in code
-- **Opportunity:** by the time design lands, product momentum is gone
+| Cost | Old way | Pain |
+|---|---|---|
+| Money | Designer $3,000–$10,000 | Hard for solo / tiny teams |
+| Time | Weeks for a Figma file | Window closes while you wait |
+| Implementation | Design still needs landing cost | Design ≠ shippable code |
+| Opportunity | Momentum dies in the queue | Cadence breaks |
 
 ### The usual AI-design failure
 
 Most apps built with AI look like "AI slop." That is not a model problem. It is a **workflow** problem:
 
-- features work, logic is correct
-- the UI is generic; users decide in two seconds
-- **consistency is the real break:** page one looks fine, page two falls apart
+| Symptom | Surface | Root |
+|---|---|---|
+| Works but ugly | Logic ok, UI generic | Missing design system, not missing a model |
+| Page one ok, page two dies | Users judge in two seconds | Prompt context drifts every time |
+| “Looks like ten people built it” | Colors / fonts / spacing wander | No single source of truth (`design.md`) |
 
 ## What Stitch 2.0 actually changed
 
@@ -105,25 +109,15 @@ Every rule is written into a **`design.md`** file — plain Markdown that captur
 
 ### The problem `design.md` kills
 
-**Before:** every time you asked Claude Code for a new screen or feature, the design drifted.
-
-- colors shifted a little
-- fonts changed
-- spacing went inconsistent
-- the app looked like ten people built it (because every prompt was a new context)
-
-**After:** Claude Code cites `design.md` in every prompt.
-
-- the language stays locked across screens, components, new features
-- **the consistency problem that wrecks every AI-built app is solved by one Markdown file**
-
-**It lasts:**
-
-- update `design.md` as the product grows
-- add component rules, patterns, constraints
-- it grows with you
+| | Before | After (`design.md`) |
+|---|---|---|
+| Colors / fonts / spacing | Drift each prompt | Locked to one rule set |
+| Multi-screen feel | Looks like ten people built it | Every screen cites the same source of truth |
+| Evolution | Oral rules get lost | Markdown updates with the product |
 
 ![One spec lighting a whole set of pages](../../assets/inline-stitch-claude-ai-design-workflow-02.jpg)
+
+![design.md pins canvas and code to the same rules](../../assets/inline-stitch-claude-ai-design-workflow-03.jpg)
 
 ### Step 3: connect Stitch to Claude Code over MCP
 

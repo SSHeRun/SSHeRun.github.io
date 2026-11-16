@@ -51,6 +51,14 @@ pie showData
   "Other" : 7
 ```
 
+| Camp | What the floor said | Indie takeaway |
+|---|---|---|
+| Relationships / channels / licenses | Always was relationships; tech was half a moat at best | Clones don’t steal distribution or local turf |
+| Capital / attrition | Moat = money; price war until rivals die | Don’t confuse fundraising theater with product moat |
+| No moat / theater | Obsessing over walls makes worse companies; offense is defense | Don’t buy “absolute castle” |
+| Trust / mindshare / ecosystem | Coke, Douyin, WeChat-as-default | Time gap, not forever |
+| Data / service / liability | Vertical exclusive data + someone to call when it breaks | Data must land as trust and responsibility |
+
 ## Cold water on “low-shock” industries
 
 ![Education won’t hold; castles fall](../../assets/inline-future-company-moat-v2ex-02-en.jpg)
@@ -68,10 +76,14 @@ Someone offers three realistic paths: stay in the front row (hard); businesses A
 
 Merge Dario, Yao, and the thread:
 
-1. **“Untrained data” and “app layer” aren’t false — the floor says they’re incomplete.** Data has to mean vertical exclusivity and customer trust; app layer has to mean distribution, ops, and liability.  
-2. **Tech drops from “half a moat” to “a ticket.”** Same ruler as the “selling software is fake” / “software is worthless” threads: what’s devalued is copyable implementation, not commerce itself.  
-3. **For indie builders:** the stronger vibe coding gets, the sharper the moat question — clones don’t steal your channel, mindshare, or “who do I call when it breaks.”  
-4. **Don’t buy absolute-moat theater.** Ecosystem and mindshare are time gaps; capital is a war of attrition; relationships are old-world hard currency. The steadier move is **continuous offense** (shipping cadence, distribution, trust) — not fantasizing about a river that never fills.
+![A dry moat; the bridges and roads are what pay](../../assets/inline-future-company-moat-v2ex-04-en.jpg)
+
+| Misread | Steadier read |
+|---|---|
+| “Untrained data / app layer” = enough | Floor says incomplete: exclusivity, distribution, liability |
+| Tech is still half a moat | More like a **ticket**; what’s devalued is copyable implementation |
+| Stronger vibe = automatic moat | Channel, mindshare, “who do I call” don’t clone |
+| Absolute-moat theater | Ecosystem is a time gap; capital is attrition; steadier = continuous offense |
 
 ## Related posts
 
