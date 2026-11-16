@@ -2,6 +2,7 @@
 title: 'Vibe Coding 的副作用：Cloudflare 让 Workers 默认先登录'
 description: 'AI 让人人都能部署公网应用，CISO 睡不着。Cloudflare Access for Workers 把策略绑在 Worker 上，账号级默认私有，ctx.access 免 JWT 拿身份——预览 URL 也不再裸奔。'
 pubDate: '2026-08-26'
+updatedDate: '2026-11-16'
 heroImage: '../../assets/cover-cloudflare-workers-access-vibe-coded-apps.jpg'
 tags: ['工程', '教程', '工具']
 ---
@@ -80,6 +81,45 @@ export default {
 | 只有预览怕泄露 | 仅 preview 加锁，生产域名保持公开 |
 | 个人 side project 团队内测 | 单 Worker 加 Access + IdP，比自建 OAuth 省事 |
 | Agent / 自动化访问 | service token |
+
+## 一个请求到底怎么走
+
+把上面的规则串起来，一个请求进来大致是这样：
+
+```mermaid
+graph TD
+  A["请求：custom domain / route / workers.dev / preview"] --> B{"命中哪一级策略"}
+  B -->|"hostname 级（最具体）"| C["按 hostname 策略"]
+  B -->|"Worker 级"| D["按 Worker 策略"]
+  B -->|"账号级"| E["默认私有"]
+  C --> F{"登录或 service token 通过？"}
+  D --> F
+  E --> F
+  F -->|"否"| G["拦在边缘，代码不执行"]
+  F -->|"是"| H["Worker 执行，ctx.access 带身份"]
+```
+
+关键在最后两格：**没通过的请求连你的代码都碰不到**。这比在代码里写 `if (!user) return 401` 安全得多——后者只要有一个路由忘了写就漏。
+
+## 几个容易踩的坑
+
+**1. 门禁不等于权限。** Access 回答的是「你是不是公司的人」，不回答「你能不能删这条数据」。应用内的角色判断还得自己做，`ctx.access` 里的 `groups` 正好拿来用。
+
+**2. 回调和 webhook 会被一起锁住。** 支付回调、GitHub webhook、第三方表单推送都不会走公司 SSO。账号级一键全开之前，先盘点哪些 Worker 要接外部回调，为它们单独规划：放行、换 service token，或者拆成独立 Worker。
+
+**3. service token 也是密钥。** 给 Agent 和 CI 用的 token 要放进 Secrets，按用途分开发，定期轮换。不要为了省事写进代码或仓库。
+
+**4. 本地 mock 身份只能留在本地。** `wrangler.jsonc` 里的 `dev` 身份是为了开发方便，上线前确认它只作用于本地，别把「人人都是 admin」带进生产。
+
+## 上线前自查清单
+
+| 检查项 | 怎么确认 |
+|--------|----------|
+| 账号是否默认私有 | 新建一个空 Worker，访问 workers.dev 地址，应被要求登录 |
+| 预览 URL 是否加锁 | 随便部署一个 preview，用无痕窗口打开 |
+| 公开站点是否显式 bypass | 列出所有需要公网访问的 Worker，逐个确认 |
+| 外部回调是否可达 | 用第三方平台的「发送测试回调」功能验证 |
+| 代码里是否兜底检查 `ctx.access` | 搜一下入口函数，缺失时返回 403 |
 
 ## 小结
 

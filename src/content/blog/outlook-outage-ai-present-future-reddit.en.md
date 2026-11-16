@@ -3,7 +3,7 @@ title: 'Outlook’s global outage: Microsoft says not AI; Reddit tries AI anyway
 description: 'MS blamed a network capacity change, not cyber or AI. Nearly two thousand r/technology comments blamed vibe coding, layoffs, and cloud monoculture. An outage as a mirror of AI’s present throughput vs future recoverability.'
 pubDate: '2026-11-14'
 heroImage: '../../assets/cover-outlook-outage-ai-present-future-reddit-en.jpg'
-tags: ['思考', 'LLM', '工程']
+tags: ['LLM', '工程']
 lang: en
 translationKey: 'outlook-outage-ai-present-future-reddit'
 ---

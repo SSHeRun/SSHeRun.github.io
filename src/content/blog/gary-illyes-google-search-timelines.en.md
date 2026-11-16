@@ -2,6 +2,7 @@
 title: 'Gary Illyes’ Google Crawl / Index / Serve Clocks: How to Read Them'
 description: 'From Search Central Live: Gary Illyes shared internal Typical vs Slowest timelines. Barry Schwartz reports the stacking caveat—and Gary’s note that it was an audience-relatability exercise, not an SLA.'
 pubDate: '2026-11-15'
+updatedDate: '2026-11-16'
 heroImage: '../../assets/cover-gary-illyes-google-search-timelines-en.jpg'
 tags: ['工具', '教程', '工程']
 lang: en
@@ -102,6 +103,36 @@ Known-URL refresh at ~**30 days** Typical explains most “I edited the copy” 
 | Sitemap submit guarantees inclusion | Slowest includes `never (quality)` |
 
 **Quality vetoes** show up on sitemap, indexing, and structured-data Slowest rows: waiting has no compound interest—fix crawlability, uniqueness, and content signals.
+
+## 6. Triage for "why hasn't it updated yet?"
+
+```mermaid
+graph TD
+  Q["Page changed, search result didn't"] --> A{"Search Console URL Inspection: indexed?"}
+  A -->|"No, not crawled"| C["Crawling: robots, server errors, sitemap, internal links"]
+  A -->|"No, crawled not indexed"| I["Indexing: quality, duplication, canonical"]
+  A -->|"Yes"| B{"Last crawl after your change?"}
+  B -->|"No"| R["Wait for revisit: known URLs ~30 days typical; request a recrawl"]
+  B -->|"Yes"| S["Serving: titles and snippets 1–2 days to weeks"]
+```
+
+Most tickets land in the two bottom-right boxes: the page was indexed long ago and Google either has not fetched the new version yet, or fetched it and the serving layer has not caught up. Neither is a failure. Find the box first, then decide whether to wait or dig.
+
+"Request indexing" only nudges the crawl step. It does nothing for the quality judgment or serving caches after it, so don't expect it to speed up every clock at once.
+
+## 7. Set review times by change type
+
+The tables above, translated into "when to look again, and when to worry":
+
+| Change | First check | Escalate after |
+|---|---|---|
+| New post | ~1 day, to see if it was discovered | Two weeks undiscovered: check sitemap and internal links |
+| Title / description edit | 2–3 days | Weeks unchanged: check whether Google rewrote it, or the page wasn't recrawled |
+| Canonical change / page merge | 1–3 weeks | Months of flip-flopping: look for conflicting signals |
+| Site move | 1–3 months | Unstable after six months: audit redirects and old-URL signals one by one |
+| Traffic drop after a core update | 3–6 months for recovery | Wait for the next core update; change content, not tech |
+
+The value of this table is **managing expectations**. Put the review date in the ticket and most "is Google broken?" follow-ups never happen.
 
 ## Related posts
 

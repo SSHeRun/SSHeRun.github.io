@@ -4,7 +4,7 @@ description: '从 V2EX 一场知乎封禁讨论出发：检测器分数常与语
 pubDate: '2026-11-07'
 updatedDate: '2026-11-15'
 heroImage: '../../assets/cover-spot-ai-writing-in-chinese.jpg'
-tags: ['LLM', '思考', '工程']
+tags: ['LLM', '工程']
 lang: zh
 ---
 

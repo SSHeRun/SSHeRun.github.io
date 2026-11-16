@@ -3,7 +3,7 @@ title: 'AI 为什么突然擅长数学：人靠品味剪枝，AI 靠验证器'
 description: '今年 AI 接连解出数学难题，Latent Space 的一篇长文给了一个能预测「下一道会倒的题」的框架：难度取决于需要几个关键提示、提示之间要下多少功夫；人类广度优先、靠品味剪枝，AI 深度优先、靠验证器剪枝，失败的尝试会变成下一轮的提示。我把它讲清楚，再说五点自己的看法：验证器才是 AI 能力的边界、失败清单是 harness 最值钱的资产、人的位置从「挖」变成「换问题」、结果有了理解可能没了，以及这套打法的算力账。'
 pubDate: '2026-10-24'
 heroImage: '../../assets/cover-ai-getting-good-at-math.jpg'
-tags: ['LLM', 'Agent', '思考']
+tags: ['LLM', 'Agent']
 lang: zh
 ---
 

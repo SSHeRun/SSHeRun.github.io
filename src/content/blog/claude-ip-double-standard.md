@@ -3,7 +3,7 @@ title: 'Claude 的双标：训练时吞版权，输出时护大厂游戏'
 description: 'Anthropic 禁止 Claude 复刻现有游戏后，Reddit 高赞不谈合规，谈的是选择性知识产权：谁的 IP 配得上系统提示词。'
 pubDate: '2026-11-07'
 heroImage: '../../assets/cover-claude-ip-double-standard.jpg'
-tags: ['LLM', '产品', '思考']
+tags: ['LLM', '产品']
 lang: zh
 ---
 

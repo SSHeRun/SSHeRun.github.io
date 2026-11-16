@@ -1,4 +1,5 @@
 ---
+import AboutExtra from '../../components/AboutExtra.astro';
 import PostHeatmap from '../../components/PostHeatmap.astro';
 import { currentLocale, localizedPath } from '../../i18n/config';
 import { t } from '../../i18n/ui';
@@ -69,6 +70,8 @@ const locale = currentLocale(Astro.currentLocale);
 					<h2>{t(locale, 'aboutAuthorTitle')}</h2>
 					<p>{t(locale, 'aboutAuthor')}</p>
 				</div>
+
+				<AboutExtra />
 
 				<div class="about-links">
 					<a href="https://github.com/SSHeRun" target="_blank" class="link-card glass">

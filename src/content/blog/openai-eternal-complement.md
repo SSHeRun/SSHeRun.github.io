@@ -3,7 +3,7 @@ title: 'OpenAI《永恒的互补》：天才机器多半在干无聊的活'
 description: 'OpenAI「下一代经济」系列首篇提出：想法和执行是互补品，AI 先让执行变便宜、让品味变稀缺，但当 AI 自己也能大量产出好想法，执行会比以往更紧缺，超级智能的大部分时间可能都在当官僚。我把它和第二大脑里的材料对照了一遍：这个瓶颈今天在公司里就看得见，AI 当官僚不等于模仿人类官僚，深度型领域先被改写、广度型领域慢得多。'
 pubDate: '2026-10-15'
 heroImage: '../../assets/cover-openai-eternal-complement.jpg'
-tags: ['LLM', '思考', '组织']
+tags: ['LLM', '组织']
 lang: zh
 ---
 

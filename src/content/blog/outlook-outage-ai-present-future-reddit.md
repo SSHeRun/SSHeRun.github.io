@@ -3,7 +3,7 @@ title: 'Outlook 全球宕机：官方说不是 AI，Reddit 却在审判 AI 的�
 description: '微软称网络容量升级惹的祸，与 AI/攻击无关；r/technology 近两千楼把锅扣给 vibe coding、裁员与云单点。一次宕机，照出 AI 提速吞吐的同时，怎样掏空「出事时还能修」的能力。'
 pubDate: '2026-11-14'
 heroImage: '../../assets/cover-outlook-outage-ai-present-future-reddit.jpg'
-tags: ['思考', 'LLM', '工程']
+tags: ['LLM', '工程']
 lang: zh
 translationKey: 'outlook-outage-ai-present-future-reddit'
 ---

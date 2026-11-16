@@ -3,7 +3,7 @@ title: 'Only ~25% of ChatGPT’s Cited Sites Sat on Bing Page One'
 description: 'A TechSEO test of 38 keywords: 25%/24.5% of cited sites were on Bing/Google page one; 60.5% on neither. Methods, segment splits, and a comment map on indexes, rewrites, denominators, and replications.'
 pubDate: '2026-11-15'
 heroImage: '../../assets/cover-chatgpt-cite-bing-pageone-overlap-en.jpg'
-tags: ['创业', '思考', 'LLM']
+tags: ['创业', 'LLM']
 lang: en
 translationKey: 'chatgpt-cite-bing-pageone-overlap'
 ---

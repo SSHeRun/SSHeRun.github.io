@@ -2,6 +2,7 @@
 title: 'VS ATL的exe模板无法生成dll的解决方案'
 description: '使用 VS ATL 的 exe 模板时遇到 MIDL 无法生成 DLLDATA.C 的解决方案。'
 pubDate: '2021-04-29'
+updatedDate: '2026-11-16'
 heroImage: '../../assets/cover-vs-atl-exe-cannot-generate-dll.jpg'
 tags: ['Windows', '教程']
 ---
@@ -50,7 +51,7 @@ graph TB
 
 ## 解决方法
 
-### setp one
+### 第一步
 
 修改预构建事件
 
@@ -61,7 +62,7 @@ Exit 1
 :END
 ```
 
-### setp two
+### 第二步
 
 修改模块定义文件的位置
 
@@ -72,6 +73,47 @@ graph TB
 输入-->模块定义文件
 模块定义文件-->输入../ATLProject1/ATLProject1PS.def
 ```
+
+## 为什么会找错目录
+
+MIDL 编译 `.idl` 时，`dlldata.c`、`*_p.c`、`*_i.c` 都输出在**主工程**目录；而代理/存根工程的预构建事件和链接器，默认以**自己的工程目录**为当前目录去找文件。两边目录不一致，就出现了「文件明明生成了却说没生成」的错觉。下面是示意：
+
+```
+ATLProject1/                  ← 解决方案目录
+├── ATLProject1/              ← 主工程：MIDL 在这里生成 dlldata.c
+│   ├── ATLProject1.idl
+│   ├── dlldata.c
+│   └── ATLProject1PS.def
+└── ATLProject1PS/            ← 代理/存根工程：预构建事件在这里找 dlldata.c
+```
+
+报错文案说的是「至少要有一个接口」，那只是脚本里写死的提示语——预构建事件只检查文件在不在，不检查接口数量。**看到报错先看脚本在哪个目录里找文件，比怀疑 IDL 更快。**
+
+## 更稳的写法：用宏代替裸相对路径
+
+`../ATLProject1/` 能用，但依赖构建时的当前目录。换成 MSBuild 宏更稳：
+
+```
+if exist "$(ProjectDir)..\ATLProject1\dlldata.c" goto :END
+echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
+Exit 1
+:END
+```
+
+模块定义文件同理填 `$(ProjectDir)..\ATLProject1\ATLProject1PS.def`。
+
+这里刻意用 `$(ProjectDir)` 而不是 `$(SolutionDir)`：用命令行 `msbuild` 单独构建 `.vcxproj` 时没有解决方案上下文，`$(SolutionDir)` 会是未定义状态，路径又会断。
+
+## 排查对照表
+
+| 现象 | 真正原因 | 处理 |
+|------|----------|------|
+| `MIDL will not generate DLLDATA.C` | 预构建事件在 PS 工程目录里找 `dlldata.c` | 按上文修改预构建事件路径 |
+| 链接时报无法打开 `ATLProject1PS.def` | `.def` 在主工程目录 | 修改「模块定义文件」路径 |
+| 主工程目录里确实没有 `dlldata.c` | 主工程还没编译，MIDL 没跑过 | 先生成主工程，并确认 PS 工程依赖主工程 |
+| IDE 里正常、命令行构建失败 | 用了 `$(SolutionDir)` | 改用 `$(ProjectDir)` 拼路径 |
+
+最后一步别漏：在「生成依赖项 → 项目依赖项」里确认 PS 工程依赖主工程，保证 MIDL 先跑，否则并行构建时偶尔会复现同一个错误。
 
 ## 相关文章
 

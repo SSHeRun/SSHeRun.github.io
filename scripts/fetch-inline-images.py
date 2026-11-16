@@ -17,6 +17,11 @@ ASSETS = ROOT / "src" / "assets"
 ENV_FILE = Path("/Users/ssherun/.openclaw/workspace/.env.local")
 
 POSTS: dict[str, dict] = {
+    "blog-checkup-after-106-posts": {
+        "queries": ["analytics dashboard laptop desk", "person reading book cozy library"],
+        "zh": ["给博客做体检：先看数据", "读者从哪里开始读"],
+        "en": ["A blog checkup starts with the data", "Where readers start"],
+    },
     "deepseek-engram-conditional-memory": {
         "queries": ["neural network architecture abstract", "computer memory chip technology"],
         "zh": ["MoE 与条件记忆架构", "N-gram 查表与稀疏计算"],

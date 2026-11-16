@@ -3,7 +3,7 @@ title: "Nvidia's Risky Business: AI Funding Enters the Danger Zone"
 description: "Stratechery deep dive: from 1873 railroad bonds to hyperscaler debt and Nvidia's $500B GPU financing platform, each funding layer is riskier than the last."
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-nvidia-risky-business-ai-funding-en.jpg'
-tags: ['创业', '思考', 'LLM']
+tags: ['创业', 'LLM']
 lang: en
 translationKey: 'nvidia-risky-business-ai-funding'
 ---

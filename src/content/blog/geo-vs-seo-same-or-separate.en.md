@@ -3,7 +3,7 @@ title: 'Is GEO really separate from SEO? Three Reddit threads say the quiet part
 description: 'r/seogrowth fights “new discipline?”; r/SEO_LLM asks what’s working; r/aeo adds dirty measurement and engine-specific pages. Shared base, forked goals; Google still feeds; mention ≠ citation.'
 pubDate: '2026-11-11'
 heroImage: '../../assets/cover-geo-vs-seo-same-or-separate-en.jpg'
-tags: ['创业', '思考', 'LLM']
+tags: ['创业', 'LLM']
 lang: en
 translationKey: 'geo-vs-seo-same-or-separate'
 ---

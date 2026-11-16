@@ -3,7 +3,7 @@ title: 'AI 接入生活是真需求吗：没人用 Agent 点外卖，千问烧�
 description: 'DoorDash 几乎无人用 AI Agent 下单；社区说简单任务再加 Agent 是添乱。对照阿里千问等重金引流：拉新容易，补贴退潮后的日常习惯才是答案。'
 pubDate: '2026-11-07'
 heroImage: '../../assets/cover-ai-agents-in-daily-life-real-demand.jpg'
-tags: ['Agent', '产品', '思考']
+tags: ['Agent', '产品']
 lang: zh
 ---
 

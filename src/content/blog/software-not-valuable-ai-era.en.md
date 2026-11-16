@@ -4,7 +4,7 @@ description: "A V2EX thread distilled: whatever falls below the model kill-line 
 pubDate: '2026-09-05'
 updatedDate: '2026-09-30'
 heroImage: '../../assets/cover-software-not-valuable-ai-era-en.jpg'
-tags: ['创业', 'Agent', '思考']
+tags: ['创业', 'Agent']
 lang: en
 translationKey: 'software-not-valuable-ai-era'
 ---
@@ -115,7 +115,7 @@ Builder implication: stop selling "another app / another custom job." Sell agent
 
 Cheaper code does not erase value—**value simply leaves implementation and bespoke change requests.**
 
-## Related
+## Related posts
 
 - [[judge-dev-ability-in-ai-era|When everyone uses AI, how do you judge a developer?]]
 - [[lovable-future-saas-agent-capabilities|Future SaaS is agent-usable capabilities]]

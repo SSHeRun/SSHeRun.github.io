@@ -3,7 +3,7 @@ title: 'Why AI suddenly got good at math: humans prune with taste, AI prunes wit
 description: 'AI has been knocking down open math problems this year. A Latent Space essay offers a framework for predicting which problem falls next: difficulty depends on how many key hints a problem needs and how much work sits between them; humans search breadth-first and prune with taste, AI searches depth-first and prunes with verifiers, and failed attempts become the next round''s hints. I walk through it, then add five thoughts of my own: verifiers set the boundary of AI capability, the failure list is a harness''s most valuable asset, the human role shifts from digging to reframing, results may arrive without understanding, and the compute bill is real.'
 pubDate: '2026-10-24'
 heroImage: '../../assets/cover-ai-getting-good-at-math-en.jpg'
-tags: ['LLM', 'Agent', '思考']
+tags: ['LLM', 'Agent']
 lang: en
 translationKey: 'ai-getting-good-at-math'
 ---

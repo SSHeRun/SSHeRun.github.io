@@ -2,6 +2,7 @@
 title: "Indie Weekly #153: A UI Library Hit $80K in Two Months"
 description: "ezindie 153: Aceternity UI went from 7 weekend components to $80K+ in two months, $60–100K/mo with six people. Plus Marblism, Robopost, and formbricks."
 pubDate: '2026-08-26'
+updatedDate: '2026-11-16'
 heroImage: '../../assets/cover-ezindie-weekly-153-aceternity-ui-80k-mrr-en.jpg'
 tags: ['创业', '产品', '开源']
 lang: en
@@ -65,6 +66,36 @@ First customer arrived days after launch. Early client John Shahawy (a founder) 
 Team of **6** (2 frontend, 1 full-stack, 1 designer, 1 social, 1 PM). Manu once juggled **7 clients** at once — hired full-time help for delivery, then scaled. Focus now: **UI Pro**, SEO, and content (YouTube + X).
 
 Pro revenue passed **$80K in just two months** — the number behind this week's title.
+
+## Doing the math: services are the bridge, product is the road
+
+Put the two tables side by side:
+
+| Metric | Number | How to read it |
+|--------|--------|----------------|
+| Product share of revenue | Pro ~$40K of $60–100K total | Product already matches services, or exceeds them |
+| Monthly spend | ~$5K | As reported by the newsletter; for a team of six this may not include all labor, so read it with care |
+| Hosting | Vercel ~$20 | A component library is static content; marginal cost is near zero |
+
+Service revenue **pays the team and keeps you close to real customers**: needs that keep coming up in client builds become the next batch of components. But service revenue scales with headcount, and Manu hit his ceiling at seven clients. Product revenue doesn't grow with headcount, and that is the line between a studio and a company.
+
+## A starting roadmap
+
+```mermaid
+graph TD
+  A["Side product of your own work"] --> B["Watch behavior: people just want to copy code"]
+  B --> C["Ship 7 components over a weekend"]
+  C --> D["Product Hunt + X for the first users"]
+  D --> E["Press coverage + word of mouth"]
+  E --> F["Launch a paid Pro tier"]
+  F --> G["Swap service revenue for product revenue over time"]
+```
+
+If you want to follow it, ask yourself three things first:
+
+- **Do I have a by-product?** Something you build again and again at work that others want when they see it is easier to validate than an idea from nowhere.
+- **What do users actually want to take away?** Manu only pivoted after seeing nobody read the blog. Ship a minimal version and let the data tell you instead of guessing.
+- **Am I willing to keep showing up in public?** The first two steps of the flywheel both depend on posting openly. There is no way around it.
 
 ## Five takeaways for indie builders
 

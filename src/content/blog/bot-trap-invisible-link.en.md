@@ -2,8 +2,9 @@
 title: 'Invisible links that catch bots: Eden’s blunt banhammer, adapted for a static blog'
 description: 'Terence Eden cut bandwidth ~80% with robots.txt Disallow + a hidden link + instant IP bans. GitHub Pages can’t ban at origin, so I shipped /ref/check/ as a sensor, log hits in PostHog, and surface them in the daily Feishu blog report.'
 pubDate: '2026-11-13'
+updatedDate: '2026-11-16'
 heroImage: '../../assets/cover-bot-trap-invisible-link-en.jpg'
-tags: ['工程', '工具', '思考']
+tags: ['工程', '工具']
 lang: en
 translationKey: 'bot-trap-invisible-link'
 ---
@@ -70,6 +71,27 @@ flowchart LR
 - **Humans:** vanishingly unlikely; if they land, they see a note, not a 402.
 
 So “N trap hits” in the daily is a **lower bound**: how many badly behaved agents openly enter a Disallow zone. Not total bots, not “robot share of readers.”
+
+## Reading a week of data
+
+| What you see | Likely explanation | Next step |
+|---|---|---|
+| Always 0 | Nobody follows blindly, or visitors are extractors that skip JS and pixels | 0 does not mean no bots; GitHub Pages has no access logs, so that part is invisible anyway |
+| A few visitors hit it repeatedly | Classic link-following crawlers | Note their UA and source patterns as samples for future ban rules |
+| A sudden spike one day | A burst of crawling | Compare with traffic for the same period to see if it is one source |
+| Hits look like normal browsers | Possibly prefetch extensions or security scanners | Don't assume malice yet; watch whether it persists |
+
+The measurement phase has a single goal: **collect enough evidence before deciding whether blocking is worth it.**
+
+## If you really want to block: three paths for a static site
+
+| Option | Prerequisite | Cost |
+|---|---|---|
+| Cloudflare proxy + a WAF rule that blocks visitors of the trap path | Custom domain with DNS on Cloudflare | Free plan limits custom rules; rotating IPs need ongoing upkeep |
+| An edge Worker records trapped IPs in a KV blocklist and rejects them | Same, plus some code | You must handle false-positive appeals and list expiry |
+| Move to a host that runs server code and copy the original approach | Migrate the site | Highest cost, and it abandons the pure-static setup |
+
+This site still uses the default `github.io` domain, so every path starts with "switch to a custom domain". That is why I only measure for now. If the data shows it is worth it, the domain and the edge block come next.
 
 ## Takeaway
 

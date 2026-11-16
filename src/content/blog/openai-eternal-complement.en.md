@@ -3,7 +3,7 @@ title: 'The eternal complement: genius machines, boring work'
 description: 'The first essay in OpenAI''s "next economy" series argues that ideas and execution are complements. AI first makes execution cheap and taste scarce, but once AI produces good ideas on its own, execution may become scarcer than ever, and superintelligence may spend most of its time being the bureaucracy. I checked it against my own notes: the bottleneck is already visible inside companies, AI as bureaucracy is not AI imitating a bureaucracy, and depth domains move long before width domains.'
 pubDate: '2026-10-15'
 heroImage: '../../assets/cover-openai-eternal-complement-en.jpg'
-tags: ['LLM', '思考', '组织']
+tags: ['LLM', '组织']
 lang: en
 translationKey: 'openai-eternal-complement'
 ---

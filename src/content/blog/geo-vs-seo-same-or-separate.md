@@ -3,7 +3,7 @@ title: 'GEO 和 SEO 是一回事吗？Reddit 三帖把话说穿了'
 description: 'r/seogrowth 吵是否独立；r/SEO_LLM 问什么管用；r/aeo 补上计量陷阱与引擎差异。底座共享、目标分叉；Google 仍主流量；引用≠排名，提及≠引用。'
 pubDate: '2026-11-11'
 heroImage: '../../assets/cover-geo-vs-seo-same-or-separate.jpg'
-tags: ['创业', '思考', 'LLM']
+tags: ['创业', 'LLM']
 lang: zh
 translationKey: 'geo-vs-seo-same-or-separate'
 ---

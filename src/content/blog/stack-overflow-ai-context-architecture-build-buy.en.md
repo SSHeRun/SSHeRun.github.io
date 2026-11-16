@@ -2,6 +2,7 @@
 title: "Before You Let Agents Run Loose: AI Context Architecture"
 description: "Context architecture is not the RAG pipeline — it's guardrails, scopes, trust scores and human-in-the-loop. Stack Overflow on infrastructure vs architecture."
 pubDate: '2026-08-26'
+updatedDate: '2026-11-16'
 heroImage: '../../assets/cover-stack-overflow-ai-context-architecture-build-buy-en.jpg'
 tags: ['Agent', '工程', 'LLM']
 lang: en
@@ -59,6 +60,36 @@ Teams can ship RAG. Ash argues the expensive layer is product philosophy:
 - Systematic ranking, filtering, and trust needs design conversations — not just embeddings
 
 Buying (they pitch Stack Internal) claims ~20 categories of edge cases already earned the hard way.
+
+## The four pieces as one pipeline
+
+```mermaid
+graph TD
+  Q["User question"] --> P["Permissions: what the user can see ∩ the agent's Scope"]
+  P --> R["Retrieval: pick a strategy per question, cast wide"]
+  R --> C["Conflict resolution: pick the credible version of a fact"]
+  C --> T{"Trust score"}
+  T -->|"High"| A["Agent acts"]
+  T -->|"Medium / low"| H["SME confirms"]
+  H --> K["Confirmed answer goes back into the team knowledge pool"]
+```
+
+Mind the order: **permissions and Scope come before retrieval.** Retrieve first and filter later, and sensitive content has already passed through the model's context. Narrow first and you get safety and lower token cost together. The final write-back turns every human confirmation into high-trust knowledge for next time, which is how the system gets better with use.
+
+## A minimum checklist if you build
+
+If you are not buying and want to build a first version yourself, have at least these before an agent touches real work:
+
+| Capability | Minimum implementation | How to accept it |
+|------------|------------------------|------------------|
+| Permission inheritance | Pass the user's identity into retrieval; filter by source-system permissions | Ask as an unprivileged account; no restricted content in the answer |
+| Scope | Whitelist of knowledge domains per agent | Ask an out-of-scope question; the agent says it doesn't know |
+| Conflict marking | Keep source and timestamp for overlapping docs; list both when they conflict | Plant two contradictory docs and check for a conflict warning |
+| Trust score | Start with simple rules: source authority + freshness + previously confirmed | Score 20 questions by hand and compare with the system |
+| Human in the loop | Medium/low trust creates a review task instead of an answer | Confirmed answers are preferred next time |
+| Consistency | Fix retrieval parameters; log the context used each time | Ask the same question three times; key points match |
+
+The table also works in reverse: when evaluating a vendor, ask them item by item "how do you do this, and how can you show it?"
 
 ## Takeaways for builders
 

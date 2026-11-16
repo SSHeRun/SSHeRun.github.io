@@ -6,6 +6,8 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import mermaid from 'astro-mermaid';
 import { defineConfig } from 'astro/config';
+import remarkFigureCaption from './src/plugins/remark-figure-caption.mjs';
+import remarkTableWrapper from './src/plugins/remark-table-wrapper.mjs';
 import remarkWikilinks from './src/plugins/remark-wikilinks.mjs';
 
 // https://astro.build/config
@@ -46,7 +48,7 @@ export default defineConfig({
 		// Astro 7 默认换成了 Sätteri，但知识图谱依赖 remark-wikilinks 解析 [[slug|title]]，
 		// 所以继续走 unified 管线。要换 Sätteri 得先把这个插件移植成 MDAST 插件。
 		processor: unified(),
-		remarkPlugins: [remarkWikilinks],
+		remarkPlugins: [remarkWikilinks, remarkFigureCaption, remarkTableWrapper],
 	},
 	vite: {
 		plugins: [tailwindcss()],

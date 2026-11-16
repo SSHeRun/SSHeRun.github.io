@@ -101,3 +101,10 @@ Most people hear "there's no shortcut" and immediately go looking for one anyway
 ---
 
 **Source:** [Cyber Island Vol 14 · Interview with AFFiNE Co-Founder Iris (Part 1)](https://www.xiaoyuzhoufm.com/episode/6703a38081cdab3a933cdfec)
+
+## Related posts
+
+- [[indie-product-promotion-hard-truths|Why Indie Tools Struggle to Grow]]
+- [[reddit-newbie-playbook-heizolshao|Reddit Isn’t a Town Square: Heizo’s Newbie Playbook]]
+- [[good-tech-not-making-money|Good tech doesn’t mean making money]]
+- [[youmind-nonconsensus-startup-choices|Notes on YouMind’s non-consensus startup choices]]

@@ -3,7 +3,7 @@ title: 'Claude Code 有了 mods：AI 时代，个性化会变得重要'
 description: 'Anthropic 给 Claude Code 推出 mods：一小段 JS/TS 就能改写 prompt、拦截工具调用、重画界面，而且不用懂 API，说一句话就能让 Claude 把 mod 写出来。这件事真正的信号是：定制的门槛塌了，模型越来越可替换，跟着人走的是个人层。AI 时代的竞争点，正在从「谁的模型最强」转向「谁最贴合我」。'
 pubDate: '2026-10-15'
 heroImage: '../../assets/cover-claude-code-mods-personalization.jpg'
-tags: ['Claude Code', 'Agent', '思考']
+tags: ['Claude Code', 'Agent']
 lang: zh
 ---
 

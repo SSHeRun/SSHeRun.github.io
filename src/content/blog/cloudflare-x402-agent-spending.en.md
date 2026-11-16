@@ -3,7 +3,7 @@ title: 'Agents are starting to pay their own way: Cloudflare x402, and who holds
 description: 'Cloudflare opened a closed beta of its Monetization Gateway in late September: sites, APIs and MCP tools can charge AI agents per request, and an agent can negotiate, pay and get the result inside one HTTP exchange, with no account and no credit card. The seller now has a toll booth. The buyer is left with the hard questions: who approves the spend, how much one task may spend, how to budget variable prices, and whether a retry pays twice. A plain-language walkthrough, and why I think this is where things are heading.'
 pubDate: '2026-10-15'
 heroImage: '../../assets/cover-cloudflare-x402-agent-spending-en.jpg'
-tags: ['Agent', '创业', '思考']
+tags: ['Agent', '创业']
 lang: en
 translationKey: 'cloudflare-x402-agent-spending'
 ---

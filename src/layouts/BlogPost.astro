@@ -11,16 +11,35 @@ import Giscus from '../components/Giscus.astro';
 import Header from '../components/Header.astro';
 import ReadingTime from '../components/ReadingTime.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 import TagList from '../components/TagList.astro';
+import type { MarkdownHeading } from 'astro';
 import { getCollection } from 'astro:content';
 import { SITE_TITLE } from '../consts';
 import { currentLocale, localeMeta, pageAlternates, switchLocalePath, type Locale } from '../i18n/config';
 import { findTranslation } from '../i18n/posts';
 import { t } from '../i18n/ui';
 
-type Props = CollectionEntry<'blog'>['data'] & { body?: string; slug?: string; translationKey?: string };
+type Props = CollectionEntry<'blog'>['data'] & {
+	body?: string;
+	slug?: string;
+	translationKey?: string;
+	headings?: MarkdownHeading[];
+};
 
-const { title, description, pubDate, updatedDate, heroImage, tags, body = '', slug = '', lang = 'zh', translationKey } = Astro.props;
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	tags,
+	body = '',
+	slug = '',
+	lang = 'zh',
+	translationKey,
+	headings = [],
+} = Astro.props;
 const locale = currentLocale(Astro.currentLocale);
 const meta = localeMeta[locale];
 const alternates = pageAlternates(Astro.url.pathname, Astro.site);
@@ -110,7 +129,8 @@ const jsonLd = {
 					}
 					<TagList tags={tags} />
 				</div>
-				<div class="prose">
+				<TableOfContents headings={headings} />
+				<div class="prose" data-anchor-label={t(locale, 'headingAnchor')}>
 					<slot />
 				</div>
 				<RelatedPosts slug={slug} tags={tags} body={body} lang={lang} />
@@ -122,6 +142,24 @@ const jsonLd = {
 		<CopyCode />
 	</body>
 </html>
+
+<script>
+	function addHeadingAnchors() {
+		const prose = document.querySelector<HTMLElement>('.prose');
+		if (!prose) return;
+		const label = prose.dataset.anchorLabel ?? '';
+		prose.querySelectorAll<HTMLHeadingElement>('h2[id], h3[id]').forEach((h) => {
+			if (h.querySelector('.heading-anchor')) return;
+			const a = document.createElement('a');
+			a.className = 'heading-anchor';
+			a.href = `#${h.id}`;
+			a.textContent = '#';
+			a.setAttribute('aria-label', label);
+			h.append(a);
+		});
+	}
+	document.addEventListener('astro:page-load', addHeadingAnchors);
+</script>
 
 <style>
 	main {
@@ -232,10 +270,100 @@ const jsonLd = {
 		text-decoration-color: var(--accent);
 	}
 
+	.prose :global(h2),
+	.prose :global(h3) {
+		position: relative;
+		scroll-margin-top: calc(var(--header-height) + 1.5rem);
+	}
+	.prose :global(.heading-anchor) {
+		margin-left: 0.4em;
+		font-weight: 500;
+		color: var(--text-muted);
+		text-decoration: none;
+		opacity: 0;
+		transition: opacity 0.2s ease, color 0.2s ease;
+	}
+	.prose :global(h2:hover .heading-anchor),
+	.prose :global(h3:hover .heading-anchor),
+	.prose :global(.heading-anchor:focus-visible) {
+		opacity: 1;
+	}
+	.prose :global(.heading-anchor:hover) {
+		color: var(--accent);
+	}
+
+	.prose :global(.table-wrapper) {
+		margin: 1.75em 0;
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+		background: var(--bg-surface);
+		box-shadow: var(--shadow-sm);
+	}
 	.prose :global(table) {
+		width: 100%;
+		margin: 0;
+		font-size: 0.92em;
+		line-height: 1.6;
+	}
+	.prose :global(th),
+	.prose :global(td) {
+		border: none;
+		border-bottom: 1px solid var(--border);
+		vertical-align: top;
+	}
+	.prose :global(tr:last-child td) {
+		border-bottom: none;
+	}
+	.prose :global(th) {
+		background: color-mix(in srgb, var(--accent) 7%, var(--bg-surface));
+		color: var(--text-primary);
+		font-size: 0.92em;
+		white-space: nowrap;
+	}
+	.prose :global(tbody tr:nth-child(even)) {
+		background: color-mix(in srgb, var(--text-primary) 2.5%, transparent);
+	}
+	.prose :global(tbody tr:hover) {
+		background: color-mix(in srgb, var(--accent) 5%, transparent);
+	}
+
+	.prose :global(blockquote) {
+		font-style: normal;
+		padding: 0.85em 1.1em 0.85em 1.25em;
+		border-radius: 0 var(--radius-md) var(--radius-md) 0;
+		background: color-mix(in srgb, var(--accent) 5%, var(--bg-surface));
+	}
+	.prose :global(blockquote p:last-child) {
+		margin-bottom: 0;
+	}
+
+	.prose :global(figure.md-figure) {
+		margin: 2em 0;
+	}
+	.prose :global(figure.md-figure img) {
 		display: block;
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch;
+		width: 100%;
+		margin: 0;
+	}
+	.prose :global(figcaption) {
+		margin-top: 0.7em;
+		text-align: center;
+		font-size: 0.84rem;
+		line-height: 1.5;
+		color: var(--text-muted);
+	}
+
+	.prose :global(hr) {
+		margin: 3em auto;
+		width: 30%;
+		background: var(--accent-gradient);
+		opacity: 0.5;
+	}
+	.prose :global(li::marker) {
+		color: var(--accent);
+	}
+	.prose :global(strong) {
+		color: var(--text-primary);
 	}
 
 	@media (max-width: 720px) {

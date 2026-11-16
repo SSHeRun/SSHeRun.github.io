@@ -3,7 +3,7 @@ title: 'Put Drucker, Munger, and Jobs into an AI decision system'
 description: 'A founder turned six world-class thinking systems into agents — a Claude Code multi-advisor stack. Before a decision, the relevant master gets a pass.'
 pubDate: '2026-03-19'
 heroImage: '../../assets/cover-ai-multi-advisor-decision-system-en.jpg'
-tags: ['Agent', 'Skills', '思考']
+tags: ['Agent', 'Skills']
 lang: en
 translationKey: 'ai-multi-advisor-decision-system'
 ---

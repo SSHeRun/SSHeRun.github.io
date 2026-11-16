@@ -4,7 +4,7 @@ description: 'A V2EX thread on a Zhihu ban shows why detector scores often clash
 pubDate: '2026-11-07'
 updatedDate: '2026-11-15'
 heroImage: '../../assets/cover-spot-ai-writing-in-chinese-en.jpg'
-tags: ['LLM', '思考', '工程']
+tags: ['LLM', '工程']
 lang: en
 translationKey: 'spot-ai-writing-in-chinese'
 ---

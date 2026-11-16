@@ -4,7 +4,7 @@ description: 'V2EX 讨论精炼：贬值的是人人能 vibe 的功能层。我�
 pubDate: '2026-09-05'
 updatedDate: '2026-09-30'
 heroImage: '../../assets/cover-software-not-valuable-ai-era.jpg'
-tags: ['创业', 'Agent', '思考']
+tags: ['创业', 'Agent']
 lang: zh
 ---
 

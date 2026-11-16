@@ -3,7 +3,7 @@ title: '洗洁精洗眼镜靠谱吗'
 description: 'V2EX 百层讨论：蔡司官网也推中性洗洁精；刮花主因是灰尘干擦，不是洗洁精。附清洁流程与方法提及统计。'
 pubDate: '2026-11-07'
 heroImage: '../../assets/cover-dish-soap-clean-glasses.jpg'
-tags: ['工具', '效率', '思考']
+tags: ['工具', '效率']
 lang: zh
 ---
 

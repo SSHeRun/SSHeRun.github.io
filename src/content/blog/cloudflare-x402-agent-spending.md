@@ -3,7 +3,7 @@ title: 'Agent 开始自己掏钱：Cloudflare x402，谁来管钱包'
 description: 'Cloudflare 9 月底开放 Monetization Gateway 内测：网站、API、MCP 工具可以直接向 AI Agent 按次收费，Agent 在一次 HTTP 请求里谈价、付款、拿结果，不用注册账号绑信用卡。卖家的收费站有了，买家这边的问题才刚开始：谁批准花钱、一个任务能花多少、价格不定怎么记账、重试会不会付两次。我用大白话讲一遍，再说说为什么我认为这是接下来几年的趋势。'
 pubDate: '2026-10-15'
 heroImage: '../../assets/cover-cloudflare-x402-agent-spending.jpg'
-tags: ['Agent', '创业', '思考']
+tags: ['Agent', '创业']
 lang: zh
 ---
 

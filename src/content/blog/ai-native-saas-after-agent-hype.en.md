@@ -3,7 +3,7 @@ title: 'After the Agent Hype: Traditional SaaS Is Dead; AI-Native Keeps the Seat
 description: 'Atlassian’s rebound is not a seat-license comeback. “Agent as employee” hit enterprise reality—SoR, evals, and judgment matter again. Chat widgets won’t save legacy SaaS.'
 pubDate: '2026-09-07'
 heroImage: '../../assets/cover-ai-native-saas-after-agent-hype-en.jpg'
-tags: ['创业', 'Agent', '思考']
+tags: ['创业', 'Agent']
 lang: en
 translationKey: 'ai-native-saas-after-agent-hype'
 ---

@@ -3,7 +3,7 @@ title: 'OpenAI now watermarks text: math barely takes it, edits erase it'
 description: 'To comply with the EU AI Act, OpenAI has started adding textGrain watermarks to ChatGPT text. Its own numbers show detection is substantially lower for math, and swapping 25% of words drops detection from 92% to 17%. Using the technical report, this post explains why: a watermark can only borrow from the randomness in word choice, math has none to lend, and edits break the signal in runs. Then: who it actually catches, and what it cannot prove.'
 pubDate: '2026-10-15'
 heroImage: '../../assets/cover-openai-text-watermark-math-editing-en.jpg'
-tags: ['LLM', '思考', '产品']
+tags: ['LLM', '产品']
 lang: en
 translationKey: 'openai-text-watermark-math-editing'
 ---

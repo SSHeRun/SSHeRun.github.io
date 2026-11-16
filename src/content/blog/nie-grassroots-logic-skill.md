@@ -3,7 +3,7 @@ title: '把《基层中国》蒸馏成 Agent Skill：求学考公投资都能问
 description: '开源项目 nie-grassroots-logic 把聂辉华《基层中国的运行逻辑》提炼成 Cursor/Codex 可调用的治理框架工具箱——不含原书全文，却能拆地方新闻与个人选择。'
 pubDate: '2026-08-26'
 heroImage: '../../assets/cover-nie-grassroots-logic-skill.jpg'
-tags: ['Agent', 'Skills', '思考']
+tags: ['Agent', 'Skills']
 ---
 
 有人把聂辉华老师的《基层中国的运行逻辑》整本书，**蒸馏成了一个 Agent Skill**。

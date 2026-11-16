@@ -2,6 +2,7 @@
 title: "Vibe-Coding Hangover: Cloudflare Locks Workers by Default"
 description: "AI lets anyone ship to the public Internet, and keeps CISOs awake. Access for Workers attaches policy to the Worker itself and defaults accounts to private."
 pubDate: '2026-08-26'
+updatedDate: '2026-11-16'
 heroImage: '../../assets/cover-cloudflare-workers-access-vibe-coded-apps-en.jpg'
 tags: ['工程', '教程', '工具']
 lang: en
@@ -84,6 +85,45 @@ This isn't just product packaging. In the old stack (FL1, NGINX + Lua), Access r
 | Preview leaks only | Lock previews; keep production hostnames open |
 | Solo side project, team-only beta | Single Worker + IdP — cheaper than rolling OAuth |
 | Agents / automation | Service tokens |
+
+## How a request actually flows
+
+Put the rules together and a request goes roughly like this:
+
+```mermaid
+graph TD
+  A["Request: custom domain / route / workers.dev / preview"] --> B{"Which policy level matches"}
+  B -->|"Hostname (most specific)"| C["Hostname policy"]
+  B -->|"Worker"| D["Worker policy"]
+  B -->|"Account"| E["Private by default"]
+  C --> F{"Login or service token OK?"}
+  D --> F
+  E --> F
+  F -->|"No"| G["Blocked at the edge; code never runs"]
+  F -->|"Yes"| H["Worker runs; ctx.access carries identity"]
+```
+
+The last two boxes are the point: **a request that fails never reaches your code.** That is much safer than writing `if (!user) return 401` in the code, where one forgotten route is a leak.
+
+## Easy ways to get it wrong
+
+**1. A gate is not authorization.** Access answers "is this person in the company?", not "may they delete this record?". You still need in-app role checks, and the `groups` in `ctx.access` are there for exactly that.
+
+**2. Callbacks and webhooks get locked too.** Payment callbacks, GitHub webhooks, and third-party form posts will never go through your company SSO. Before flipping account-wide private, list the Workers that receive outside callbacks and plan each one: bypass it, switch it to a service token, or split it into its own Worker.
+
+**3. Service tokens are secrets.** Keep tokens for agents and CI in Secrets, issue one per purpose, and rotate them. Never put them in code or the repo for convenience.
+
+**4. Mock identities stay local.** The `dev` identity in `wrangler.jsonc` is a development convenience. Before shipping, confirm it only applies locally so "everyone is admin" never reaches production.
+
+## Pre-launch checklist
+
+| Check | How to confirm |
+|-------|----------------|
+| Account is private by default | Create an empty Worker, open its workers.dev URL, expect a login |
+| Preview URLs are locked | Deploy any preview and open it in a private window |
+| Public sites are explicitly bypassed | List every Worker that must be public and confirm each one |
+| Outside callbacks still arrive | Use the provider's "send test webhook" button |
+| Code double-checks `ctx.access` | Search the entry handler; return 403 when it is missing |
 
 ## Bottom line
 

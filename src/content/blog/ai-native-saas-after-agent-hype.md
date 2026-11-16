@@ -3,7 +3,7 @@ title: 'Agent 热潮退烧后：传统 SaaS 没戏，牌桌留给 AI-native'
 description: 'Atlassian 财报再起软件叙事。「Agent 即员工」撞上企业现实后，SoR、eval、judgment 重新值钱。传统加聊天框没戏；未来是 AI-native 垂类。'
 pubDate: '2026-09-07'
 heroImage: '../../assets/cover-ai-native-saas-after-agent-hype.jpg'
-tags: ['创业', 'Agent', '思考']
+tags: ['创业', 'Agent']
 lang: zh
 ---
 

@@ -3,7 +3,7 @@ title: '100 papers as an undergrad? Reddit splits China’s ML “volume” into
 description: 'An r/MachineLearning thread asks how Chinese ML groups hit weekly papers and huge author lists. Comments point to graduation/tenure KPIs and paper mills — while still crediting real optimization work and open source. Filter by code, not flags.'
 pubDate: '2026-11-12'
 heroImage: '../../assets/cover-china-ml-research-volume-reddit-en.jpg'
-tags: ['LLM', '思考', '工程']
+tags: ['LLM', '工程']
 lang: en
 translationKey: 'china-ml-research-volume-reddit'
 ---

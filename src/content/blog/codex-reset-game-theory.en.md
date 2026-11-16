@@ -3,7 +3,7 @@ title: 'Do Codex quota resets cost you? A game-theory ledger'
 description: 'A 195-reply V2EX fight: are quota resets a gift or a trap? It depends on whether they move your refill date. Keep the anchor and it is a gift; restart the window and it is a transfer — from people who pace themselves to people who burn fast.'
 pubDate: '2026-09-30'
 heroImage: '../../assets/cover-codex-reset-game-theory-en.jpg'
-tags: ['产品', '思考', 'LLM']
+tags: ['产品', 'LLM']
 lang: en
 translationKey: 'codex-reset-game-theory'
 ---

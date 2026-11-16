@@ -1,0 +1,466 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+import TagList from './TagList.astro';
+import { currentLocale } from '../i18n/config';
+import { postPath, postsForLocale } from '../i18n/posts';
+import { t, tagLabel } from '../i18n/ui';
+import { TAG_CLUSTERS } from '../lib/taxonomy';
+
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const tagCounts = new Map<string, number>();
+for (const post of posts) {
+	for (const tag of post.data.tags ?? []) {
+		tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+	}
+}
+const featuredTags = TAG_CLUSTERS.flatMap((cluster) =>
+	cluster.tags
+		.filter((tag) => tagCounts.has(tag))
+		.map((tag) => ({ tag, count: tagCounts.get(tag) ?? 0 })),
+);
+
+const monthFormat = new Intl.DateTimeFormat(locale === 'en' ? 'en-US' : 'zh-CN', {
+	year: 'numeric',
+	month: 'long',
+	timeZone: 'UTC',
+});
+const groups = new Map<string, typeof posts>();
+for (const post of posts) {
+	const label = monthFormat.format(post.data.pubDate);
+	groups.set(label, [...(groups.get(label) ?? []), post]);
+}
+const countTemplate = t(locale, 'postCount');
+
+const searchText = (post: (typeof posts)[number]) =>
+	[post.data.title, post.data.description, ...(post.data.tags ?? []).map((tag) => tagLabel(locale, tag))]
+		.join(' ')
+		.toLowerCase();
+---
+
+<div class="page-header">
+	<h1 class="page-title">{t(locale, 'allPosts')}</h1>
+	<span class="post-count" id="post-count" data-total={posts.length} data-template={t(locale, 'resultsCount')}>
+		{t(locale, 'postCount', { n: posts.length })}
+	</span>
+</div>
+
+<div class="toolbar">
+	<label class="search">
+		<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+			<circle cx="11" cy="11" r="7"></circle>
+			<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+		</svg>
+		<span class="sr-only">{t(locale, 'searchPlaceholder')}</span>
+		<input id="post-search" type="search" placeholder={t(locale, 'searchPlaceholder')} autocomplete="off" />
+		<kbd aria-hidden="true">/</kbd>
+	</label>
+	<div class="tag-filter" role="group" aria-label={t(locale, 'navTags')}>
+		<button type="button" class="chip active" data-tag="" aria-pressed="true">
+			{t(locale, 'filterAll')}<span>{posts.length}</span>
+		</button>
+		{featuredTags.map(({ tag, count }) => (
+			<button type="button" class="chip" data-tag={tag} aria-pressed="false">
+				{tagLabel(locale, tag)}<span>{count}</span>
+			</button>
+		))}
+	</div>
+</div>
+
+{
+	[...groups.entries()].map(([label, items]) => (
+		<section class="year-group" data-year-group>
+			<h2 class="year-heading">
+				{label}
+				<span data-year-count data-template={countTemplate}>
+					{t(locale, 'postCount', { n: items.length })}
+				</span>
+			</h2>
+			<div class="post-grid">
+				{items.map((post) => (
+					<a
+						href={postPath(locale, post)}
+						class="post-card"
+						data-post-card
+						data-search={searchText(post)}
+						data-tags={(post.data.tags ?? []).join('|')}
+					>
+						{post.data.heroImage && (
+							<div class="card-image">
+								<Image
+									src={post.data.heroImage}
+									alt={post.data.title}
+									width={640}
+									height={320}
+									loading="lazy"
+									transition:name={`post-img-${post.id}`}
+								/>
+							</div>
+						)}
+						<div class="card-body">
+							<div class="post-meta">
+								<span class="date">
+									<FormattedDate date={post.data.pubDate} />
+								</span>
+								<TagList tags={post.data.tags} linked={false} compact />
+							</div>
+							<h3>{post.data.title}</h3>
+							{post.data.description && <p class="description">{post.data.description}</p>}
+						</div>
+					</a>
+				))}
+			</div>
+		</section>
+	))
+}
+
+<p class="empty" id="post-empty" hidden>{t(locale, 'noResults')}</p>
+
+<script>
+	function initPostIndex() {
+		const input = document.getElementById('post-search') as HTMLInputElement | null;
+		if (!input) return;
+		const chips = [...document.querySelectorAll<HTMLButtonElement>('.tag-filter .chip')];
+		const cards = [...document.querySelectorAll<HTMLElement>('[data-post-card]')];
+		const groups = [...document.querySelectorAll<HTMLElement>('[data-year-group]')];
+		const counter = document.getElementById('post-count')!;
+		const empty = document.getElementById('post-empty')!;
+		const defaultCount = counter.textContent;
+
+		const params = new URLSearchParams(location.search);
+		let activeTag = params.get('tag') ?? '';
+		input.value = params.get('q') ?? '';
+
+		const apply = () => {
+			const terms = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+			let shown = 0;
+			for (const card of cards) {
+				const tags = (card.dataset.tags ?? '').split('|');
+				const text = card.dataset.search ?? '';
+				const ok = (!activeTag || tags.includes(activeTag)) && terms.every((term) => text.includes(term));
+				card.hidden = !ok;
+				if (ok) shown++;
+			}
+			for (const group of groups) {
+				const visible = group.querySelectorAll('[data-post-card]:not([hidden])').length;
+				group.hidden = visible === 0;
+				const count = group.querySelector<HTMLElement>('[data-year-count]');
+				if (count) count.textContent = (count.dataset.template ?? '').replace('{n}', String(visible));
+			}
+			for (const chip of chips) {
+				const on = chip.dataset.tag === activeTag;
+				chip.classList.toggle('active', on);
+				chip.setAttribute('aria-pressed', String(on));
+			}
+			const filtering = terms.length > 0 || activeTag !== '';
+			counter.textContent = filtering
+				? (counter.dataset.template ?? '').replace('{n}', String(shown))
+				: defaultCount;
+			empty.hidden = shown > 0;
+
+			const url = new URL(location.href);
+			activeTag ? url.searchParams.set('tag', activeTag) : url.searchParams.delete('tag');
+			input.value.trim() ? url.searchParams.set('q', input.value.trim()) : url.searchParams.delete('q');
+			history.replaceState(history.state, '', url);
+		};
+
+		if (activeTag && !chips.some((chip) => chip.dataset.tag === activeTag)) activeTag = '';
+		input.addEventListener('input', apply);
+		chips.forEach((chip) =>
+			chip.addEventListener('click', () => {
+				activeTag = chip.dataset.tag === activeTag ? '' : (chip.dataset.tag ?? '');
+				apply();
+			}),
+		);
+		apply();
+	}
+
+	function focusSearch(event: KeyboardEvent) {
+		const input = document.getElementById('post-search');
+		const target = event.target as HTMLElement;
+		if (!input || event.key !== '/' || target.closest('input, textarea, [contenteditable]')) return;
+		event.preventDefault();
+		input.focus();
+	}
+
+	document.addEventListener('astro:page-load', initPostIndex);
+	document.addEventListener('keydown', focusSearch);
+</script>
+
+<style>
+	.page-header {
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+		margin: 2rem 0 1.5rem;
+	}
+	.page-title {
+		font-size: 2rem;
+		margin: 0;
+		letter-spacing: -0.03em;
+	}
+	.post-count {
+		color: var(--text-muted);
+		font-size: 0.9rem;
+	}
+
+	/* ── Toolbar ── */
+	.toolbar {
+		position: sticky;
+		top: calc(var(--header-height) + 0.5rem);
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		margin-bottom: 1rem;
+		padding: 0.85rem;
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--glass-border);
+		background: var(--bg-overlay);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		box-shadow: var(--shadow-sm);
+	}
+	.search {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		padding: 0 0.85rem;
+		height: 42px;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--border);
+		background: var(--bg-surface);
+		color: var(--text-muted);
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+	.search:focus-within {
+		border-color: var(--border-glow);
+		box-shadow: var(--shadow-glow);
+	}
+	.search input {
+		flex: 1;
+		min-width: 0;
+		border: none;
+		outline: none;
+		background: transparent;
+		color: var(--text-primary);
+		font: inherit;
+		font-size: 0.95rem;
+	}
+	.search input::placeholder {
+		color: var(--text-muted);
+	}
+	.search kbd {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		padding: 0.05rem 0.4rem;
+		border-radius: var(--radius-sm);
+		border: 1px solid var(--border);
+		color: var(--text-muted);
+	}
+	.tag-filter {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+	.chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		padding: 0.22rem 0.7rem;
+		border-radius: 999px;
+		border: 1px solid var(--glass-border);
+		background: transparent;
+		color: var(--text-secondary);
+		font: inherit;
+		font-size: 0.78rem;
+		cursor: pointer;
+		transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+	}
+	.chip:hover {
+		color: var(--accent);
+		border-color: var(--border-glow);
+	}
+	.chip span {
+		color: var(--text-muted);
+		font-size: 0.7rem;
+	}
+	.chip.active {
+		color: var(--bg-surface);
+		background: var(--accent);
+		border-color: var(--accent);
+	}
+	.chip.active span {
+		color: inherit;
+		opacity: 0.75;
+	}
+
+	/* ── Year groups ── */
+	.year-group {
+		margin-top: 2.25rem;
+	}
+	.year-heading {
+		display: flex;
+		align-items: baseline;
+		gap: 0.75rem;
+		margin: 0 0 1.1rem;
+		font-size: 1.25rem;
+		letter-spacing: -0.02em;
+	}
+	.year-heading::after {
+		content: '';
+		flex: 1;
+		height: 1px;
+		background: linear-gradient(90deg, var(--border), transparent);
+		align-self: center;
+	}
+	.year-heading span {
+		font-size: 0.82rem;
+		font-weight: 500;
+		color: var(--text-muted);
+		letter-spacing: 0;
+	}
+
+	/* ── Grid ── */
+	.post-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 1.5rem;
+	}
+	[hidden] {
+		display: none !important;
+	}
+
+	/* ── Card ── */
+	.post-card {
+		display: flex;
+		flex-direction: column;
+		border-radius: var(--radius-lg);
+		text-decoration: none;
+		border: 1px solid var(--glass-border);
+		overflow: hidden;
+		background: var(--glass-bg);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+	}
+	.post-card:hover {
+		border-color: var(--border-glow);
+		transform: translateY(-3px);
+		box-shadow: var(--shadow-glow), var(--shadow-lg);
+	}
+	.card-image {
+		width: 100%;
+		aspect-ratio: 2 / 1;
+		overflow: hidden;
+	}
+	.card-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0;
+		transition: transform 0.45s ease;
+	}
+	.post-card:hover .card-image img {
+		transform: scale(1.06);
+	}
+	.card-body {
+		padding: 1.25rem;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+	.card-body h3 {
+		font-size: 1.1rem;
+		margin: 0.5rem 0;
+		color: var(--text-primary);
+		line-height: 1.4;
+		letter-spacing: -0.01em;
+	}
+	.description {
+		font-size: 0.875rem;
+		color: var(--text-secondary);
+		margin: 0;
+		line-height: 1.6;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		flex: 1;
+	}
+	.post-meta {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.5rem 0.75rem;
+		font-size: 0.8rem;
+	}
+	.date {
+		color: var(--text-muted);
+	}
+	.empty {
+		margin: 3rem 0;
+		text-align: center;
+		color: var(--text-muted);
+	}
+
+	@media (max-width: 720px) {
+		.post-grid {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+		.page-header {
+			flex-direction: column;
+			gap: 0.25rem;
+			margin: 1.5rem 0 1rem;
+		}
+		.page-title {
+			font-size: 1.6rem;
+		}
+		.toolbar {
+			position: static;
+			padding: 0.7rem;
+		}
+		.tag-filter {
+			flex-wrap: nowrap;
+			overflow-x: auto;
+			scrollbar-width: none;
+			margin: 0 -0.7rem;
+			padding: 0 0.7rem;
+		}
+		.tag-filter::-webkit-scrollbar {
+			display: none;
+		}
+		.chip {
+			flex-shrink: 0;
+		}
+		.search kbd {
+			display: none;
+		}
+		.card-body {
+			padding: 1rem;
+		}
+		.card-body h3 {
+			font-size: 1rem;
+		}
+	}
+	@media (max-width: 480px) {
+		.page-title {
+			font-size: 1.4rem;
+		}
+		.card-body {
+			padding: 0.85rem;
+		}
+		.card-body h3 {
+			font-size: 0.95rem;
+		}
+		.description {
+			font-size: 0.82rem;
+		}
+	}
+</style>

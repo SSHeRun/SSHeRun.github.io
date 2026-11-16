@@ -99,3 +99,10 @@ From an info-flow lens: bandwidth dies at handoff surfaces, not at typing speed.
 5. Do you cost by **fully loaded successful tasks** (retries, model upgrades, human rework)?
 
 Faster coding is the entry ticket. **Unbroken context, recoverable state, and near-zero cross-role translation** are what make delivery faster.
+
+## Related posts
+
+- [[forceful-systems-fly-off-multi-agent-illusion|Why "virtual company" multi-agent setups usually fail]]
+- [[worse-together-multi-agent|Worse Together: multi-agent teams vs a single coordinator]]
+- [[ai-organization-redesign|AI made people faster. Why didn’t the company get stronger?]]
+- [[ai-code-review-ratio|How much AI-written code should you review?]]

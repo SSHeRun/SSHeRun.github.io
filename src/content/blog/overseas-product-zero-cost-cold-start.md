@@ -100,3 +100,10 @@ Iris 还分享了一个容易被忽略的点：**社区里互相不认识，自�
 ---
 
 **来源：** [赛博岛屿 Vol 14 · 对话 AFFiNE 联创 Iris（上）](https://www.xiaoyuzhoufm.com/episode/6703a38081cdab3a933cdfec)
+
+## 相关文章
+
+- [[indie-product-promotion-hard-truths|独立产品为什么推不动]]
+- [[reddit-newbie-playbook-heizolshao|Reddit 不是广场：左海的上手教程]]
+- [[good-tech-not-making-money|技术好不代表能赚钱]]
+- [[youmind-nonconsensus-startup-choices|《YouMind 非共识选择》读后感]]

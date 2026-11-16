@@ -3,7 +3,7 @@ title: '外星心智：对齐未解，不能全速扩模型'
 description: 'OpenAI 首席科学家：AI 是长出来的外星心智；目标对齐≠价值对齐；CoT 监控变弱。没有实验室已把对齐做到可长期全速扩。'
 pubDate: '2026-09-07'
 heroImage: '../../assets/cover-openai-alien-mind.jpg'
-tags: ['LLM', '思考', '工程']
+tags: ['LLM', '工程']
 lang: zh
 ---
 

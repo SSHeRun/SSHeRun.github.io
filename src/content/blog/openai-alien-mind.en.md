@@ -3,7 +3,7 @@ title: 'An Alien Mind: Alignment Unsolved—Don’t Scale Flat-Out'
 description: 'OpenAI’s chief scientist: AI is a grown alien intellect; goal ≠ value alignment; CoT monitoring is weakening. No lab has solved alignment enough for max-speed scaling.'
 pubDate: '2026-09-07'
 heroImage: '../../assets/cover-openai-alien-mind-en.jpg'
-tags: ['LLM', '思考', '工程']
+tags: ['LLM', '工程']
 lang: en
 translationKey: 'openai-alien-mind'
 ---

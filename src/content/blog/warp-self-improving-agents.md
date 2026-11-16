@@ -3,7 +3,7 @@ title: 'Agent「自我改进」到底改进什么？Warp Skills 环 vs OpenAI �
 description: '结合 Anthropic×Warp、宝玉解读与 Turing Post：可落地的是人类反馈驱动的 Skill 更新环，不是经典 RSI；共享记忆会让系统更强，但改权重仍未证实。'
 pubDate: '2026-08-29'
 heroImage: '../../assets/cover-warp-self-improving-agents.jpg'
-tags: ['LLM', 'Agent', 'Skills', '思考']
+tags: ['LLM', 'Agent', 'Skills']
 lang: zh
 ---
 

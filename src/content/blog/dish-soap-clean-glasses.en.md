@@ -3,7 +3,7 @@ title: 'Is Dish Soap Safe for Eyeglass Lenses?'
 description: 'A 100-reply V2EX thread agrees with Zeiss: neutral dish soap is the recommended wash. Scratches usually come from dry-wiping dust, not detergent.'
 pubDate: '2026-11-07'
 heroImage: '../../assets/cover-dish-soap-clean-glasses-en.jpg'
-tags: ['工具', '效率', '思考']
+tags: ['工具', '效率']
 lang: en
 translationKey: 'dish-soap-clean-glasses'
 ---

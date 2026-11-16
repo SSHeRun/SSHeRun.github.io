@@ -3,7 +3,7 @@ title: '本科生百篇论文？Reddit 把中国 ML「产量」拆成制度问�
 description: 'r/MachineLearning 一帖问：中国 ML 为何能每周一篇、合著者成群？楼里共识：毕业/职称指标逼出 paper mill；同时承认真创新与开源也在出货。别用国旗审判 PDF，用代码与可复现筛。'
 pubDate: '2026-11-12'
 heroImage: '../../assets/cover-china-ml-research-volume-reddit.jpg'
-tags: ['LLM', '思考', '工程']
+tags: ['LLM', '工程']
 lang: zh
 translationKey: 'china-ml-research-volume-reddit'
 ---

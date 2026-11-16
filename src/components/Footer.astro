@@ -1,62 +1,167 @@
 ---
 import BotTrapLink from './BotTrapLink.astro';
-import { currentLocale } from '../i18n/config';
+import { currentLocale, localizedPath } from '../i18n/config';
 import { t } from '../i18n/ui';
 
 const today = new Date();
 const locale = currentLocale(Astro.currentLocale);
+const nav = [
+	{ href: localizedPath(locale, '/start/'), label: t(locale, 'ctaStart') },
+	{ href: localizedPath(locale, '/blog/'), label: t(locale, 'navBlog') },
+	{ href: localizedPath(locale, '/tags/'), label: t(locale, 'navTags') },
+	{ href: localizedPath(locale, '/graph/'), label: t(locale, 'navGraph') },
+	{ href: localizedPath(locale, '/about/'), label: t(locale, 'navAbout') },
+];
+const machine = [
+	{ href: localizedPath(locale, '/rss.xml'), label: 'RSS' },
+	{ href: localizedPath(locale, '/llms.txt'), label: 'llms.txt' },
+	{ href: localizedPath(locale, '/llms-full.txt'), label: 'llms-full.txt' },
+	{ href: '/sitemap-index.xml', label: 'Sitemap' },
+];
 ---
 
 <footer>
 	<div class="footer-inner">
-		<p class="copyright">&copy; {today.getFullYear()} SSHeRun</p>
-		<p class="powered">
-			{t(locale, 'poweredBy')} <a href="https://astro.build/" target="_blank">Astro</a>
+		<div class="brand">
+			<a href={localizedPath(locale, '/')} class="logo">
+				<span class="logo-mark" aria-hidden="true"></span>
+				{t(locale, 'siteTitle')}
+			</a>
+			<p>{t(locale, 'footerTagline')}</p>
+			<a href="https://github.com/SSHeRun" target="_blank" rel="noopener" class="github">GitHub ↗</a>
+		</div>
+		<nav aria-label={t(locale, 'footerExplore')}>
+			<h2>{t(locale, 'footerExplore')}</h2>
+			<ul>
+				{nav.map((item) => (
+					<li><a href={item.href}>{item.label}</a></li>
+				))}
+			</ul>
+		</nav>
+		<nav aria-label={t(locale, 'footerMachine')}>
+			<h2>{t(locale, 'footerMachine')}</h2>
+			<ul>
+				{machine.map((item) => (
+					<li><a href={item.href} data-astro-reload><code>{item.label}</code></a></li>
+				))}
+			</ul>
+		</nav>
+	</div>
+	<div class="footer-bottom">
+		<p>&copy; {today.getFullYear()} SSHeRun</p>
+		<p>
+			{t(locale, 'poweredBy')} <a href="https://astro.build/" target="_blank" rel="noopener">Astro</a>
 		</p>
 	</div>
 	<BotTrapLink />
 </footer>
+
 <style>
 	footer {
 		border-top: 1px solid var(--glass-border);
 		margin-top: 4rem;
+		background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 3%, transparent));
 	}
 	.footer-inner {
 		max-width: 960px;
 		margin: 0 auto;
-		padding: 2rem 1.5rem;
-		display: flex;
-		justify-content: space-between;
+		padding: 2.5rem 1.5rem 1.5rem;
+		display: grid;
+		grid-template-columns: 1.6fr 1fr 1fr;
+		gap: 2rem;
+		font-size: 0.88rem;
+	}
+	.logo {
+		display: inline-flex;
 		align-items: center;
+		gap: 0.5rem;
+		font-family: var(--font-display);
+		font-weight: 650;
+		color: var(--text-primary);
+		letter-spacing: -0.02em;
+	}
+	.logo-mark {
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 999px;
+		background: var(--accent-gradient);
+	}
+	.brand p {
+		margin: 0.6rem 0 0.75rem;
+		max-width: 320px;
 		font-size: 0.85rem;
+		line-height: 1.6;
 		color: var(--text-muted);
 	}
-	.footer-inner p {
+	.github {
+		font-size: 0.82rem;
+		color: var(--text-secondary);
+	}
+	h2 {
+		margin: 0 0 0.7rem;
+		font-size: 0.72rem;
+		font-weight: 650;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+	li {
+		margin: 0;
+	}
+	nav a {
+		color: var(--text-secondary);
+	}
+	nav a:hover,
+	.github:hover,
+	.footer-bottom a:hover {
+		color: var(--accent);
+	}
+	nav code {
+		padding: 0;
+		border: none;
+		background: none;
+		color: inherit;
+		font-size: 0.82rem;
+	}
+	.footer-bottom {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 1rem 1.5rem 1.75rem;
+		display: flex;
+		justify-content: space-between;
+		border-top: 1px solid var(--glass-border);
+		font-size: 0.8rem;
+		color: var(--text-muted);
+	}
+	.footer-bottom p {
 		margin: 0;
 		color: var(--text-muted);
 	}
-	.footer-inner a {
+	.footer-bottom a {
 		color: var(--text-secondary);
-		text-decoration: none;
-		transition: color 0.2s ease;
-	}
-	.footer-inner a:hover {
-		color: var(--accent);
 	}
 	@media (max-width: 720px) {
-		footer { margin-top: 2.5rem; }
-		.footer-inner {
-			flex-direction: column;
-			gap: 0.5rem;
-			text-align: center;
-			padding: 1.5rem 1rem;
+		footer {
+			margin-top: 2.5rem;
 		}
-	}
-	@media (max-width: 480px) {
-		footer { margin-top: 2rem; }
 		.footer-inner {
-			padding: 1.25rem 0.75rem;
-			font-size: 0.8rem;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.5rem;
+			padding: 2rem 1rem 1.25rem;
+		}
+		.brand {
+			grid-column: 1 / -1;
+		}
+		.footer-bottom {
+			padding: 1rem 1rem 1.5rem;
 		}
 	}
 </style>

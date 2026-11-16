@@ -110,3 +110,10 @@ SaaS 的未来，可能不是「再做一个更好看的 Tab」，而是 **让�
 ---
 
 *来源：[Lovable CTO: The Future of SaaS Is Apps That Agents Can Use](https://www.latent.space/p/lovable-future-of-saas) · Latent Space（2026-08-26）*
+
+## 相关文章
+
+- [[dual-entry-human-agent-design|产品的两个入口：为什么 AI 时代要同时为人类和 Agent 设计]]
+- [[software-not-valuable-ai-era|AI 时代软件不值钱了？]]
+- [[ai-native-saas-after-agent-hype|Agent 热潮退烧后：牌桌留给 AI-native]]
+- [[cloudflare-x402-agent-spending|Agent 开始自己掏钱：Cloudflare x402]]

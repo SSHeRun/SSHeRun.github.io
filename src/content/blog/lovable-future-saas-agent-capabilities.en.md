@@ -112,3 +112,10 @@ The future of SaaS may not be "another better tab." It may be **making your vert
 ---
 
 *Source: [Lovable CTO: The Future of SaaS Is Apps That Agents Can Use](https://www.latent.space/p/lovable-future-of-saas) · Latent Space (Aug 26, 2026)*
+
+## Related posts
+
+- [[dual-entry-human-agent-design|Two product entrances: design for humans and agents]]
+- [[software-not-valuable-ai-era|Is Software Worthless Now?]]
+- [[ai-native-saas-after-agent-hype|After the Agent Hype: AI-Native Keeps the Seat]]
+- [[cloudflare-x402-agent-spending|Agents are starting to pay their own way: Cloudflare x402]]

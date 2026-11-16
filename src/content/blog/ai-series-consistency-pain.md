@@ -3,7 +3,7 @@ title: 'AI 制作剧集最大的痛点：不是画面，是「还是不是同一
 description: 'r/aivideomaking 一帖把长片一致性拆成流水线：角色与场景漂移才是剧集杀手。把连续性当成空间数据，而不是再赌一轮文生视频。'
 pubDate: '2026-11-11'
 heroImage: '../../assets/cover-ai-series-consistency-pain.jpg'
-tags: ['LLM', '工具', '思考']
+tags: ['LLM', '工具']
 lang: zh
 translationKey: 'ai-series-consistency-pain'
 ---

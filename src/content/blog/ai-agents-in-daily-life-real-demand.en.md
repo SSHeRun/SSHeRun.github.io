@@ -3,7 +3,7 @@ title: 'Is “AI in Daily Life” Real Demand? No One Uses Agents for DoorDash�
 description: 'A viral DoorDash thread says AI food-ordering agents add complexity to an already-easy app. China’s Qwen-style spend proves you can buy first tries—not daily habit after subsidies end.'
 pubDate: '2026-11-07'
 heroImage: '../../assets/cover-ai-agents-in-daily-life-real-demand-en.jpg'
-tags: ['Agent', '产品', '思考']
+tags: ['Agent', '产品']
 lang: en
 translationKey: 'ai-agents-in-daily-life-real-demand'
 ---

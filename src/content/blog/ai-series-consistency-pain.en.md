@@ -3,7 +3,7 @@ title: 'The real pain of AI series production isn’t beauty — it’s “is th
 description: 'A long r/aivideomaking write-up treats character and scene continuity as spatial data, not another prompt lottery. Drift across shots is what kills episodic AI film.'
 pubDate: '2026-11-11'
 heroImage: '../../assets/cover-ai-series-consistency-pain-en.jpg'
-tags: ['LLM', '工具', '思考']
+tags: ['LLM', '工具']
 lang: en
 translationKey: 'ai-series-consistency-pain'
 ---

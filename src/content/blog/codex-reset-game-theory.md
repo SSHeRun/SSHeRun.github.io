@@ -3,7 +3,7 @@ title: 'Codex 重置额度会不会亏？用博弈论算一笔账'
 description: 'V2EX 195 楼吵翻：重置额度是福利还是坑？答案取决于它动不动你的刷新日期。不改周期是纯送，重开周期就是一次财富转移——把省着用的人的额度挪给猛用的人。'
 pubDate: '2026-09-30'
 heroImage: '../../assets/cover-codex-reset-game-theory.jpg'
-tags: ['产品', '思考', 'LLM']
+tags: ['产品', 'LLM']
 lang: zh
 ---
 

@@ -3,7 +3,7 @@ title: 'Claude Code mods: why personalization now matters'
 description: 'Anthropic launched mods for Claude Code: a few lines of JS or TS can rewrite prompts, intercept tool calls and redraw the interface, and you do not need to learn the API because Claude can write the mod from a sentence. The real signal is that the cost of customization has collapsed, models are increasingly interchangeable, and what follows you is your personal layer. Competition in AI tools is shifting from the strongest model to the best fit for me.'
 pubDate: '2026-10-15'
 heroImage: '../../assets/cover-claude-code-mods-personalization-en.jpg'
-tags: ['Claude Code', 'Agent', '思考']
+tags: ['Claude Code', 'Agent']
 lang: en
 translationKey: 'claude-code-mods-personalization'
 ---

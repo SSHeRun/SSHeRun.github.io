@@ -2,6 +2,7 @@
 title: 'AI short dramas fail immersion: explainers work, plot details don’t'
 description: 'A V2EX thread on watching Armed Into Song for half an hour. Half say “don’t think”; half blame directing. My take: today’s AI video fits knowledge explainers; narrative detail still collapses under scrutiny.'
 pubDate: '2026-11-14'
+updatedDate: '2026-11-16'
 heroImage: '../../assets/cover-ai-drama-knowledge-vs-plot-v2ex-en.jpg'
 tags: ['思考', 'LLM', '产品']
 lang: en
@@ -43,6 +44,27 @@ One side expects higher barriers + better models → boutique quality. Another s
 - **Why explainers pass**: viewers buy structure — process, principle, contrast, timeline. Picture aids memory; you don’t need to trust the next breath. Glitches hurt polish, not belief.
 - **Why plot shatters**: stories need continuity — who stands where, eye-line subtext, rest between peaks, cause you can follow. AI shorts jump, freeze, overfill, and fake exactly there. Formula thrills can clone web novels; **performance density can’t clone a good director**.
 - **Same split as the thread**: watchable “industry / history” pieces sit near explainers; drop-offs sit in narrative performance. You didn’t refuse to drop your brain — wrong shot rhythm kept kicking you out.
+
+## What each kind of content asks of AI
+
+| Dimension | Knowledge explainer | Plot-driven short drama |
+|---|---|---|
+| What viewers buy | Structure: process, principle, contrast | Immersion: believing the characters and the causality |
+| Role of the picture | Memory aid; can be illustrative | Carries the story; must be believable |
+| Continuity needed | Shots can stand alone | Blocking, costume, and eye-lines must connect |
+| Where rhythm comes from | Narration and information density | Acting, pauses, subtext |
+| Cost of a glitch | Looks worse | Breaks immersion; trust collapses at once |
+| Current AI performance | Mostly good enough | Lands right on its weak spots |
+
+The second-to-last row is the crux. An explainer glitch costs polish; a plot glitch costs trust, and once trust is gone no later payoff can catch it.
+
+## If you want to make AI video today
+
+- **Lean toward structure**: industry processes, historical timelines, and how-it-works breakdowns are far safer than serialized plots.
+- **Let narration carry causality**: explain cause and effect in voice-over and let the picture illustrate. Don't count on characters acting the logic out.
+- **Keep shots short and self-contained**: each shot should work on its own, which cuts cross-shot continuity of blocking and props.
+- **Fewer characters**: every extra character multiplies consistency problems with looks and identity.
+- **Leave the storyboard to a human**: AI generates material; someone who understands narrative decides rhythm and cuts. That is the "basic directing skill" the thread kept asking for.
 
 Models may fix micro-expression and consistency later. Until then, treating AI video as a tool to **make one thing clear** is more honest — and a better product bet — than forcing it into serialized drama.
 

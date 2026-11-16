@@ -3,7 +3,7 @@ title: 'ChatGPT 引用里只有约 25% 在 Bing 首页：一场 38 词对照实�
 description: 'r/TechSEO 实验：147 个被引站与 Bing/Google 首页重叠约 25%/24.5%，60.5% 两边都不在。详述方法、分类型结果，并拆解评论里的索引延迟、query rewrite、分母批评与复现证据。'
 pubDate: '2026-11-15'
 heroImage: '../../assets/cover-chatgpt-cite-bing-pageone-overlap.jpg'
-tags: ['创业', '思考', 'LLM']
+tags: ['创业', 'LLM']
 lang: zh
 ---
 

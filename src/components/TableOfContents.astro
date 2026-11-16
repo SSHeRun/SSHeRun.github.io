@@ -1,0 +1,214 @@
+---
+import type { MarkdownHeading } from 'astro';
+import { currentLocale } from '../i18n/config';
+import { t } from '../i18n/ui';
+
+interface Props {
+	headings: MarkdownHeading[];
+}
+
+const locale = currentLocale(Astro.currentLocale);
+const items = Astro.props.headings.filter(
+	(h) => (h.depth === 2 || h.depth === 3) && h.slug && h.text.trim(),
+);
+const relatedLabel = t(locale, 'relatedPosts');
+const visible = items.filter((h) => h.text.trim() !== relatedLabel);
+---
+
+{
+	visible.length >= 3 && (
+		<>
+			<details class="toc-inline">
+				<summary>{t(locale, 'tocTitle')}<span>{visible.length}</span></summary>
+				<ol>
+					{visible.map((h) => (
+						<li class={`depth-${h.depth}`}>
+							<a href={`#${h.slug}`}>{h.text}</a>
+						</li>
+					))}
+				</ol>
+			</details>
+			<nav class="toc-aside" aria-label={t(locale, 'tocTitle')}>
+				<p class="toc-title">{t(locale, 'tocTitle')}</p>
+				<ol>
+					{visible.map((h) => (
+						<li class={`depth-${h.depth}`}>
+							<a href={`#${h.slug}`} data-toc-link={h.slug}>{h.text}</a>
+						</li>
+					))}
+				</ol>
+			</nav>
+		</>
+	)
+}
+
+<script>
+	let onScroll: (() => void) | undefined;
+
+	function initToc() {
+		if (onScroll) window.removeEventListener('scroll', onScroll);
+		onScroll = undefined;
+		const links = new Map<string, HTMLAnchorElement>();
+		document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]').forEach((a) => {
+			links.set(a.dataset.tocLink!, a);
+		});
+		if (links.size === 0) return;
+
+		const headings = [...links.keys()]
+			.map((id) => document.getElementById(id))
+			.filter((el): el is HTMLElement => el !== null);
+
+		let activeId: string | undefined;
+		const setActive = (id: string) => {
+			if (id === activeId) return;
+			activeId = id;
+			links.forEach((a, key) => a.classList.toggle('active', key === id));
+			const active = links.get(id);
+			const list = active?.closest('ol');
+			if (active && list && list.scrollHeight > list.clientHeight) {
+				list.scrollTo({ top: active.offsetTop - list.clientHeight / 2, behavior: 'smooth' });
+			}
+		};
+
+		let ticking = false;
+		const update = () => {
+			ticking = false;
+			let current = headings[0]?.id;
+			for (const h of headings) {
+				if (h.getBoundingClientRect().top <= 120) current = h.id;
+				else break;
+			}
+			if (current) setActive(current);
+		};
+		onScroll = () => {
+			if (!ticking) {
+				ticking = true;
+				requestAnimationFrame(update);
+			}
+		};
+		window.addEventListener('scroll', onScroll, { passive: true });
+		update();
+
+		document.querySelectorAll<HTMLDetailsElement>('.toc-inline').forEach((d) => {
+			d.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => (d.open = false)));
+		});
+	}
+
+	document.addEventListener('astro:page-load', initToc);
+</script>
+
+<style>
+	.toc-inline {
+		margin: -1rem 0 2rem;
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-md);
+		background: var(--glass-bg);
+		font-size: 0.9rem;
+	}
+	.toc-inline summary {
+		cursor: pointer;
+		padding: 0.7rem 1rem;
+		font-weight: 600;
+		color: var(--text-secondary);
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		list-style: none;
+	}
+	.toc-inline summary::-webkit-details-marker {
+		display: none;
+	}
+	.toc-inline summary::before {
+		content: '';
+		width: 0.45rem;
+		height: 0.45rem;
+		border-right: 2px solid currentColor;
+		border-bottom: 2px solid currentColor;
+		transform: rotate(-45deg);
+		transition: transform 0.2s ease;
+	}
+	.toc-inline[open] summary::before {
+		transform: rotate(45deg);
+	}
+	.toc-inline summary span {
+		margin-left: auto;
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--text-muted);
+	}
+	.toc-inline ol {
+		margin: 0;
+		padding: 0 1rem 0.85rem 1.1rem;
+		list-style: none;
+	}
+
+	ol {
+		list-style: none;
+	}
+	li {
+		margin: 0;
+		line-height: 1.45;
+	}
+	li a {
+		display: block;
+		padding: 0.28rem 0;
+		color: var(--text-secondary);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+	li a:hover {
+		color: var(--accent);
+	}
+	li.depth-3 a {
+		padding-left: 0.9rem;
+		font-size: 0.93em;
+		color: var(--text-muted);
+	}
+
+	.toc-aside {
+		display: none;
+	}
+
+	@media (min-width: 1240px) {
+		.toc-inline {
+			display: none;
+		}
+		.toc-aside {
+			display: block;
+			position: fixed;
+			top: calc(var(--header-height) + 2.5rem);
+			left: calc(50% + 380px + 2.5rem);
+			width: min(240px, calc(50vw - 380px - 4rem));
+			font-size: 0.82rem;
+		}
+		.toc-title {
+			margin: 0 0 0.6rem;
+			font-size: 0.72rem;
+			font-weight: 650;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--text-muted);
+		}
+		.toc-aside ol {
+			margin: 0;
+			padding: 0;
+			max-height: calc(100vh - var(--header-height) - 8rem);
+			overflow-y: auto;
+			border-left: 1px solid var(--border);
+			scrollbar-width: thin;
+		}
+		.toc-aside li a {
+			padding: 0.3rem 0 0.3rem 0.9rem;
+			margin-left: -1px;
+			border-left: 2px solid transparent;
+		}
+		.toc-aside li.depth-3 a {
+			padding-left: 1.7rem;
+		}
+		.toc-aside li a.active {
+			color: var(--accent);
+			border-left-color: var(--accent);
+			font-weight: 600;
+		}
+	}
+</style>

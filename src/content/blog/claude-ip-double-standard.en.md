@@ -3,7 +3,7 @@ title: 'Claude’s Double Standard: Ingest Copyright to Train, Guard Studio IP o
 description: 'After Anthropic barred Claude from recreating existing games, Reddit’s top takes weren’t about compliance—they were about whose IP earns a system-prompt.'
 pubDate: '2026-11-07'
 heroImage: '../../assets/cover-claude-ip-double-standard-en.jpg'
-tags: ['LLM', '产品', '思考']
+tags: ['LLM', '产品']
 lang: en
 translationKey: 'claude-ip-double-standard'
 ---

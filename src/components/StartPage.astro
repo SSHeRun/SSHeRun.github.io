@@ -1,0 +1,300 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { currentLocale, localizedPath } from '../i18n/config';
+import { postPath, postsForLocale, translationKey } from '../i18n/posts';
+import { t } from '../i18n/ui';
+import { FIRST_READS, READING_PATHS } from '../lib/start-paths';
+
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale);
+const byKey = new Map(posts.map((post) => [translationKey(post), post]));
+
+const firstReads = FIRST_READS.flatMap((pick) => {
+	const post = byKey.get(pick.key);
+	return post ? [{ post, note: pick.note[locale] }] : [];
+});
+const paths = READING_PATHS.map((path) => ({
+	...path,
+	items: path.picks.flatMap((pick) => {
+		const post = byKey.get(pick.key);
+		return post ? [{ post, note: pick.note[locale] }] : [];
+	}),
+}));
+
+const tools = [
+	{ href: localizedPath(locale, '/blog/'), title: t(locale, 'startToolSearch'), body: t(locale, 'startToolSearchBody') },
+	{ href: localizedPath(locale, '/graph/'), title: t(locale, 'knowledgeGraph'), body: t(locale, 'startToolGraphBody') },
+	{ href: localizedPath(locale, '/rss.xml'), title: 'RSS', body: t(locale, 'startToolRssBody') },
+	{ href: localizedPath(locale, '/llms.txt'), title: 'llms.txt', body: t(locale, 'startToolLlmsBody') },
+];
+---
+
+<header class="intro">
+	<span class="eyebrow">{t(locale, 'startEyebrow')}</span>
+	<h1>{t(locale, 'startTitle')}</h1>
+	<p>{t(locale, 'startLead', { n: posts.length })}</p>
+</header>
+
+<section>
+	<h2>{t(locale, 'startFirstTitle')}</h2>
+	<ol class="first-reads">
+		{firstReads.map(({ post, note }, index) => (
+			<li>
+				<a href={postPath(locale, post)} class="first-card">
+					{post.data.heroImage && (
+						<div class="first-image">
+							<Image src={post.data.heroImage} alt="" width={480} height={240} loading="lazy" />
+						</div>
+					)}
+					<div class="first-body">
+						<span class="step">{String(index + 1).padStart(2, '0')}</span>
+						<h3>{post.data.title}</h3>
+						<p>{note}</p>
+					</div>
+				</a>
+			</li>
+		))}
+	</ol>
+</section>
+
+<section>
+	<h2>{t(locale, 'startPathsTitle')}</h2>
+	<p class="section-lead">{t(locale, 'startPathsLead')}</p>
+	<div class="paths">
+		{paths.map((path) => (
+			<article class="path" style={`--path: ${path.color}`}>
+				<h3>{path.title[locale]}</h3>
+				<p class="path-intro">{path.intro[locale]}</p>
+				<ol>
+					{path.items.map(({ post, note }) => (
+						<li>
+							<a href={postPath(locale, post)}>{post.data.title}</a>
+							<span>{note}</span>
+						</li>
+					))}
+				</ol>
+			</article>
+		))}
+	</div>
+</section>
+
+<section>
+	<h2>{t(locale, 'startToolsTitle')}</h2>
+	<div class="tools">
+		{tools.map((tool) => (
+			<a href={tool.href} class="tool glass" data-astro-reload={/\.(txt|xml)$/.test(tool.href) ? '' : undefined}>
+				<strong>{tool.title}</strong>
+				<span>{tool.body}</span>
+			</a>
+		))}
+	</div>
+</section>
+
+<style>
+	.intro {
+		padding: 3rem 0 1rem;
+	}
+	.eyebrow {
+		font-size: 0.78rem;
+		font-weight: 650;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+	.intro h1 {
+		margin: 0.4rem 0 0.75rem;
+		font-size: clamp(1.8rem, 1.2rem + 2vw, 2.5rem);
+		letter-spacing: -0.035em;
+	}
+	.intro p {
+		max-width: 620px;
+		margin: 0;
+		color: var(--text-secondary);
+		font-size: 1.05rem;
+	}
+	section {
+		padding-top: 2.25rem;
+	}
+	section h2 {
+		margin: 0 0 1.1rem;
+		font-size: 1.3rem;
+		letter-spacing: -0.02em;
+	}
+	.section-lead {
+		margin: -0.5rem 0 1.25rem;
+		color: var(--text-muted);
+		font-size: 0.92rem;
+	}
+
+	/* ── First reads ── */
+	.first-reads {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+	.first-reads li {
+		margin: 0;
+	}
+	.first-card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		border: 1px solid var(--glass-border);
+		background: var(--glass-bg);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+	.first-card:hover {
+		transform: translateY(-3px);
+		border-color: var(--border-glow);
+		box-shadow: var(--shadow-glow), var(--shadow-md);
+	}
+	.first-image {
+		aspect-ratio: 2 / 1;
+		overflow: hidden;
+	}
+	.first-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0;
+	}
+	.first-body {
+		padding: 0.9rem 1rem 1.1rem;
+	}
+	.step {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: var(--accent);
+	}
+	.first-card h3 {
+		margin: 0.25rem 0 0.4rem;
+		font-size: 1rem;
+		line-height: 1.4;
+		color: var(--text-primary);
+	}
+	.first-card p {
+		margin: 0;
+		font-size: 0.85rem;
+		line-height: 1.6;
+		color: var(--text-secondary);
+	}
+
+	/* ── Paths ── */
+	.paths {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+	}
+	.path {
+		padding: 1.2rem 1.25rem 1.1rem;
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--glass-border);
+		border-top: 3px solid var(--path);
+		background:
+			radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--path) 10%, transparent), transparent 55%),
+			var(--glass-bg);
+	}
+	.path h3 {
+		margin: 0 0 0.35rem;
+		font-size: 1.05rem;
+	}
+	.path-intro {
+		margin: 0 0 0.9rem;
+		font-size: 0.85rem;
+		line-height: 1.6;
+		color: var(--text-muted);
+	}
+	.path ol {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: step;
+		display: flex;
+		flex-direction: column;
+		gap: 0.7rem;
+	}
+	.path li {
+		position: relative;
+		margin: 0;
+		padding-left: 1.9rem;
+		counter-increment: step;
+		line-height: 1.45;
+	}
+	.path li::before {
+		content: counter(step);
+		position: absolute;
+		left: 0;
+		top: 0.05rem;
+		width: 1.3rem;
+		height: 1.3rem;
+		border-radius: 999px;
+		display: grid;
+		place-items: center;
+		font-size: 0.7rem;
+		font-weight: 650;
+		color: var(--path);
+		background: color-mix(in srgb, var(--path) 14%, transparent);
+	}
+	.path li a {
+		font-size: 0.92rem;
+		font-weight: 600;
+		color: var(--text-primary);
+	}
+	.path li a:hover {
+		color: var(--accent);
+	}
+	.path li span {
+		display: block;
+		margin-top: 0.15rem;
+		font-size: 0.8rem;
+		color: var(--text-muted);
+	}
+
+	/* ── Tools ── */
+	.tools {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 0.75rem;
+	}
+	.tool {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		padding: 0.95rem 1rem;
+		border-radius: var(--radius-md);
+		transition: border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+	.tool:hover {
+		border-color: var(--border-glow);
+		box-shadow: var(--shadow-glow);
+	}
+	.tool strong {
+		font-size: 0.92rem;
+		color: var(--text-primary);
+	}
+	.tool span {
+		font-size: 0.8rem;
+		line-height: 1.55;
+		color: var(--text-secondary);
+	}
+
+	@media (max-width: 720px) {
+		.intro {
+			padding: 1.75rem 0 0.5rem;
+		}
+		.first-reads,
+		.paths {
+			grid-template-columns: 1fr;
+		}
+		.tools {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+</style>

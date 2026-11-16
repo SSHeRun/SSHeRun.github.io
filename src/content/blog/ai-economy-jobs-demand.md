@@ -3,7 +3,7 @@ title: 'AI 会不会让总岗位变少？一张表讲清生产力与需求'
 description: '整理 V2EX 热帖：岗位增减的直接原因是需求而非生产力；「欲望永远跑赢 AI」是大胆猜想，评论区用有效需求与通缩把它拆开。'
 pubDate: '2026-08-29'
 heroImage: '../../assets/cover-ai-economy-jobs-demand.jpg'
-tags: ['LLM', '思考', '创业']
+tags: ['LLM', '创业']
 lang: zh
 ---
 

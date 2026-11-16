@@ -102,7 +102,7 @@ Someone noted Tao has long used LLMs as assistants; the real worry is companies 
 
 Source: [V2EX #1241637](https://www.v2ex.com/t/1241637)
 
-## Related
+## Related posts
 
 - [[v2er-distillation-metaphors|Distillation Through V2er Metaphors]]
 - [[ai-economy-jobs-demand|Will AI Shrink Total Jobs?]]

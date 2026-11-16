@@ -100,3 +100,10 @@ Vibe Working 下，设计师少「搓方案」、多判哪个对；业务专家�
 5. 成本是否按**成功任务全成本**（重试、升级模型、人工返工）算？
 
 编码变快只是入场券；**上下文不断、状态可恢复、跨角色零翻译**，交付才会跟着变快。
+
+## 相关文章
+
+- [[forceful-systems-fly-off-multi-agent-illusion|力大砖飞：为什么虚拟公司式多 Agent 架构大多会失败]]
+- [[worse-together-multi-agent|多 Agent 团队越帮越忙]]
+- [[ai-organization-redesign|AI 让员工变快了，为什么公司没变强？]]
+- [[ai-code-review-ratio|AI 写的代码，该审多少？]]

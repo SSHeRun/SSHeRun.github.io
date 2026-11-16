@@ -1,0 +1,22 @@
+---
+import StartPage from '../../components/StartPage.astro';
+import { currentLocale } from '../../i18n/config';
+import { t } from '../../i18n/ui';
+import SitePage from '../../layouts/SitePage.astro';
+
+const locale = currentLocale(Astro.currentLocale);
+---
+
+<SitePage title={`${t(locale, 'startTitle')} - ${t(locale, 'siteTitle')}`} description={t(locale, 'startMeta')}>
+	<main>
+		<StartPage />
+	</main>
+</SitePage>
+
+<style>
+	main {
+		width: 100%;
+		max-width: min(var(--max-width-wide), calc(100% - 2rem));
+		box-sizing: border-box;
+	}
+</style>

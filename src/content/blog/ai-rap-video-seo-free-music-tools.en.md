@@ -2,6 +2,7 @@
 title: 'AI rap video can monetize — just don’t use “rap video” as the door'
 description: 'Notes from siuser小伟’s teardown: under $1 of Glasser queries shows intent beats volume — “rap video” is for watching MVs; freebeat/musicwave win with lyrics/BPM free tools, then upsell AI video.'
 pubDate: '2026-11-16'
+updatedDate: '2026-11-16'
 heroImage: '../../assets/cover-ai-rap-video-seo-free-music-tools-en.jpg'
 tags: ['创业', '工具', '教程']
 lang: en
@@ -63,6 +64,38 @@ Treat third-party estimates as **order of magnitude**. The author published ever
 6. **Prove it:** four weeks — any page in top 10? If not, GPU pages are just burn.
 
 **One line:** ship AI rap video if you want — but enter through lyrics, names, BPM: people already creating. Finish the lyric, nudge to video, charge at the video step.
+
+## 5. A topic-picking flow you can reuse
+
+The valuable part of these notes is not rap. It is the habit of looking for a side entrance when the direct keyword has no volume. Pulled out, it looks like this:
+
+```mermaid
+graph TD
+  A["The paid product you want to build"] --> B["Check the keywords that describe it directly"]
+  B --> C{"What fills page one"}
+  C -->|"Videos / news"| D["People who came to watch; hard to convert"]
+  C -->|"Tool sites"| E["People who came to use; you can compete"]
+  D --> F["Go upstream: what tools do users search for before doing this"]
+  F --> G["Pick small tools with volume, low KD, runnable in the browser"]
+  E --> G
+  G --> H["Free tool pages catch the traffic"]
+  H --> I["Results page nudges toward the paid feature"]
+```
+
+Apply it to another category and the question stays the same: **before paying for your thing, what free tool are users already using?** For AI résumé videos the entrance might be résumé templates and interview questions; for AI avatars it might be passport-photo sizes and background removal.
+
+## 6. A four-week validation board
+
+Step 6 says "check after four weeks whether any page reaches the top ten". Week by week, watch this:
+
+| Week | What to watch | Pass line | If it fails |
+|---|---|---|---|
+| Week 1 | Are all tool pages indexed? | Visible in Search Console | Check sitemap and internal links; see the clocks in the Gary Illyes post |
+| Week 2 | Any impressions yet? | Main keywords in the top 50 | Does the title and first screen answer the search intent directly? |
+| Week 3 | Tool usage | Visitors actually click "generate / calculate" | The tool is weak; fix the experience before chasing traffic |
+| Week 4 | Any page in the top ten; anyone clicking the paid entry? | At least one top-ten page | No rankings means no GPU pages; go back to keyword selection |
+
+The first three weeks test whether the entrance works. Only week four touches money. Reverse that order and you get what the author calls "pure cash burn".
 
 ## Related posts
 

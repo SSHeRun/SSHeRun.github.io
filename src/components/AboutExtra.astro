@@ -1,0 +1,171 @@
+---
+import { getCollection } from 'astro:content';
+import { currentLocale, localizedPath } from '../i18n/config';
+import { postsForLocale } from '../i18n/posts';
+import { clusterLabel, t, type UiKey } from '../i18n/ui';
+import { TAG_CLUSTERS } from '../lib/taxonomy';
+
+const locale = currentLocale(Astro.currentLocale);
+const posts = postsForLocale(await getCollection('blog'), locale);
+const themes = TAG_CLUSTERS.map((cluster) => ({
+	...cluster,
+	count: posts.filter((post) => (post.data.tags ?? []).some((tag) => cluster.tags.includes(tag))).length,
+	desc: t(locale, `aboutTheme_${cluster.id}` as UiKey),
+})).filter((theme) => theme.count > 0);
+
+const timeline: { date: string; key: UiKey }[] = [
+	{ date: '2021-06', key: 'aboutTimeline1' },
+	{ date: '2026-03', key: 'aboutTimeline2' },
+	{ date: '2026-08', key: 'aboutTimeline3' },
+	{ date: '2026-11', key: 'aboutTimeline4' },
+];
+---
+
+<section>
+	<h2>{t(locale, 'aboutThemesTitle')}</h2>
+	<div class="themes">
+		{themes.map((theme) => (
+			<div class="theme" style={`--theme: ${theme.color}`}>
+				<div class="theme-head">
+					<span class="dot" aria-hidden="true"></span>
+					<strong>{clusterLabel(locale, theme.id)}</strong>
+					<span class="count">{t(locale, 'postCount', { n: theme.count })}</span>
+				</div>
+				<p>{theme.desc}</p>
+			</div>
+		))}
+	</div>
+</section>
+
+<section>
+	<h2>{t(locale, 'aboutTimelineTitle')}</h2>
+	<ol class="timeline">
+		{timeline.map((item) => (
+			<li>
+				<time>{item.date}</time>
+				<p>{t(locale, item.key)}</p>
+			</li>
+		))}
+	</ol>
+</section>
+
+<a class="start-cta" href={localizedPath(locale, '/start/')}>
+	<span>
+		<strong>{t(locale, 'startTitle')}</strong>
+		{t(locale, 'startMeta')}
+	</span>
+	<span aria-hidden="true">→</span>
+</a>
+
+<style>
+	section {
+		margin-bottom: 2rem;
+	}
+	h2 {
+		font-size: 1.2rem;
+		margin: 0 0 0.9rem;
+		letter-spacing: -0.02em;
+	}
+	.themes {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.75rem;
+	}
+	.theme {
+		padding: 0.9rem 1rem;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--glass-border);
+		background:
+			radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--theme) 12%, transparent), transparent 60%),
+			var(--glass-bg);
+	}
+	.theme-head {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.95rem;
+	}
+	.dot {
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 999px;
+		background: var(--theme);
+	}
+	.count {
+		margin-left: auto;
+		font-size: 0.75rem;
+		color: var(--text-muted);
+	}
+	.theme p {
+		margin: 0.4rem 0 0;
+		font-size: 0.85rem;
+		line-height: 1.6;
+		color: var(--text-secondary);
+	}
+	.timeline {
+		list-style: none;
+		margin: 0;
+		padding: 0 0 0 1.1rem;
+		border-left: 2px solid var(--border);
+	}
+	.timeline li {
+		position: relative;
+		margin: 0 0 1.1rem;
+		padding-left: 0.6rem;
+	}
+	.timeline li::before {
+		content: '';
+		position: absolute;
+		left: -1.55rem;
+		top: 0.45rem;
+		width: 0.7rem;
+		height: 0.7rem;
+		border-radius: 999px;
+		background: var(--bg-base);
+		border: 2px solid var(--accent);
+	}
+	.timeline li:last-child::before {
+		background: var(--accent);
+		box-shadow: var(--shadow-glow);
+	}
+	.timeline time {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: var(--accent);
+	}
+	.timeline p {
+		margin: 0.15rem 0 0;
+		font-size: 0.95rem;
+		line-height: 1.65;
+		color: var(--text-secondary);
+	}
+	.start-cta {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin: 0 0 2rem;
+		padding: 1rem 1.25rem;
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--border-glow);
+		background: color-mix(in srgb, var(--accent) 6%, var(--bg-surface));
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+		transition: box-shadow 0.25s ease, transform 0.25s ease;
+	}
+	.start-cta strong {
+		display: block;
+		color: var(--text-primary);
+		font-size: 1rem;
+	}
+	.start-cta:hover {
+		color: var(--text-secondary);
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-glow);
+	}
+	@media (max-width: 720px) {
+		.themes {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -2,6 +2,7 @@
 title: 'Why Code Search Makes Coding Agents So Expensive'
 description: "Sonar's comparison on Turing Post: semantic code navigation cut agent cost 5–36%. The sharper question: did the agent find every site that needed to change?"
 pubDate: '2026-08-30'
+updatedDate: '2026-11-16'
 heroImage: '../../assets/cover-why-code-search-agents-expensive-en.jpg'
 tags: ['Agent', '工程', '效率']
 lang: en
@@ -51,6 +52,45 @@ Same root cause, three seats:
 - Product: a late defect with no obvious origin
 
 The open question is not only how fast a large refactor finishes—it is **how you would know, concretely, that the agent found everything it needed to.**
+
+## Where the two approaches differ
+
+```mermaid
+graph TB
+  subgraph Text search
+    A1["grep the name"] --> A2["Hundreds of hits"]
+    A2 --> A3["Open and read each one"]
+    A3 --> A4["Rule out noise, try another term"]
+    A4 --> A1
+  end
+  subgraph Structural query
+    B1["Ask: who implements this interface"] --> B2["Exact files and lines"]
+    B2 --> B3["Edit directly"]
+  end
+```
+
+Every lap of the loop on the left costs tokens, and the loop only ends when the agent decides it has seen enough. The right side gets the boundary from one query. The savings come from fewer laps; the reduced risk comes from a boundary that is known rather than guessed.
+
+## Using this in your own team
+
+Not every task needs this capability. Decide by the shape of the task:
+
+| Task shape | Is text search enough? | Suggestion |
+|------------|------------------------|------------|
+| Change a uniquely named function | Yes | No extra tooling |
+| Change an interface signature or base-class behavior | No; implementers are scattered | Add find-implementations / find-references first |
+| Rename a common word (`get`, `id`, `status`) | Extremely noisy | Query by symbol identity |
+| Cross-language or cross-service calls | Neither is enough | Rely on contracts and integration tests |
+| Generate lots of new code | Bottleneck is build and test | Harmless to add, but don't expect savings |
+
+## How to know it found everything
+
+The article's open question translates into a few everyday habits:
+
+1. **Ask for the list before the edit.** Have the agent list every implementation and call site first, and glance at it before it starts. The list becomes the acceptance criterion.
+2. **Reconcile after the edit.** Compare the list with the files in the diff. Any location left untouched needs a reason.
+3. **Add one test per implementation of shared interfaces.** Green tests mislead because nobody writes tests for connections they don't know about. Writing tests from the list turns unknowns into knowns.
+4. **Keep a ledger.** Track agent token spend by task type. The task types whose cost jumps around are usually the ones where finding code is hardest.
 
 ## Takeaway
 

@@ -3,7 +3,7 @@ title: 'OpenAI 给文本加水印了：数学几乎打不上，改几个词就�
 description: 'OpenAI 为满足欧盟 AI 法案，开始给 ChatGPT 文本加 textGrain 水印。它自己公布的数据显示：数学类检出率显著更低，替换 25% 的词检出率就从 92% 掉到 17%。结合技术报告讲清楚原因：水印只能从选词的随机性里借信号，数学没得借，编辑会成串地破坏信号。最后谈谈它能抓到谁、不能证明什么。'
 pubDate: '2026-10-15'
 heroImage: '../../assets/cover-openai-text-watermark-math-editing.jpg'
-tags: ['LLM', '思考', '产品']
+tags: ['LLM', '产品']
 lang: zh
 ---
 
